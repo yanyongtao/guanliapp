@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            /*width: 100%;*/
+            /*height: 100%;*/
+            background: #f5f5f5;
+        }
+        .me_header{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.32rem;
+            color: #fff;
+            line-height: 0.88rem;
+        }
+        .me_card{
+            width: 5.6rem;
+            height: 1.8rem;
+            margin: 0 auto;
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+            background: #fff;
+            border-radius: 0.07rem;
+            overflow: hidden;
+            padding: 0.2rem;
+            box-sizing: border-box;
+        }
+        .card_name{
+            width: 3rem;
+            height: 0.9rem;
+            float: left;
+        }
+        .me_name_{
+            width: auto;
+            height: auto;
+            float: left;
+            padding-right:0.1rem;
+            text-align: center;
+            font-size: 0.28rem;
+            line-height: 0.42rem;
+            text-align: left;
+        }
+        .me_job_{
+            width: auto;
+            height: auto;
+            float: left;
+            padding: 0.03rem 0.1rem;
+            color: #fff;
+            text-align: center;
+            font-size: 0.22rem;
+            line-height: 0.28rem;
+            background: #2493f7;
+            border-radius: 0.15rem;
+            margin-top: 0.035rem;
+        }
+        .me_phone{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.18rem;
+            line-height: 0.32rem;
+            color: #333;
+        }
+        .me_photo{
+            width: 0.85rem;
+            height: 0.85rem;
+            border-radius: 50%;
+            overflow: hidden;
+            float: right;
+        }
+        .me_photo img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .belong_to{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        .company_n{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            text-align: left;
+            color: #999;
+        }
+        .company_e{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.12rem;
+            line-height: 0.18rem;
+            text-align: left;
+            color: #999;
+        }
+        .per_msg{
+            width: 100%;
+            height: 0.8rem;
+            background: #fff;
+            border-bottom: 0.01rem solid #eee;
+            padding: 0 0.4rem;
+            box-sizing: border-box;
+        }
+        .msg_icon{
+            width: 0.3rem;
+            height: 0.3rem;
+            float: left;
+            margin-top: 0.25rem;
+        }
+        .per_con{
+            width: auto;
+            height: 100%;
+            float: left;
+            font-size: 0.24rem;
+            line-height: 0.8rem;
+            color: #333;
+            padding-left: 0.2rem;
+        }
+        .arrow_right{
+            width: 0.12rem;
+            height: 0.22rem;
+            margin-top: 0.29rem;
+            float: right;
+        }
+        .per_mannage{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            padding: 0 0.4rem;
+            box-sizing: border-box;
+            background: #fff;
+            margin-top: 0.2rem;
+            border-bottom: 0.01rem solid #eee;
+        }
+        .manage_hea{
+            width: 100%;
+            height: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="me_header">我的</div>
+<div class="me_card">
+    <div class="card_name">
+        <div class="me_name_">载入中...</div>
+        <div class="me_job_">店员</div>
+        <div class="me_phone">载入中...</div>
+    </div>
+    <div class="me_photo">
+        <img src="../../image/img_yyt/me_photo.jpg" alt="">
+    </div>
+    <div class="belong_to">
+        <div class="company_n">山西太常生物科技有限公司</div>
+        <div class="company_e">Shan Xi Tai Chang Biological Technology Co.,Ltd.</div>
+    </div>
+</div>
+<div class="per_msg" onclick="per_msg()">
+    <img class="msg_icon" src="../../image/img_yyt/per_meg.png" alt="">
+    <div class="per_con">个人信息</div>
+    <img src="../../image/img_yyt/arrow_right.png" alt="" class="arrow_right">
+</div>
+<div class="per_msg" onclick="open_accont()">
+    <img class="msg_icon" src="../../image/img_yyt/id_safe.png" alt="">
+    <div class="per_con">账号与安全</div>
+    <img src="../../image/img_yyt/arrow_right.png" alt="" class="arrow_right">
+</div>
+<div class="per_msg" style="border-bottom: 0" onclick="open_set()">
+    <img class="msg_icon" src="../../image/img_yyt/setting_.png" alt="">
+    <div class="per_con">设置</div>
+    <img src="../../image/img_yyt/arrow_right.png" alt="" class="arrow_right">
+</div>
+<!--<div class="per_mannage">-->
+<!--<div class="manage_hea">-->
+<!--<img class="msg_icon" src="../../image/img_yyt/per_man.png" alt="">-->
+<!--<div class="per_con">人员管理</div>-->
+<!--</div>-->
+<!--<ul class="store_per">-->
+<!--<li class="store_one"></li>-->
+<!--<li class="store_one"></li>-->
+<!--<li class="store_one"></li>-->
+<!--</ul>-->
+<!--</div>-->
+</body>
+<script>
+    var name;
+    var mobile;
+    var roleid;
+    apiready=function () {
+        roleid = api.getPrefs({
+            sync: true,
+            key: 'roleid'
+        });
+        mobile = api.getPrefs({
+            sync: true,
+            key: 'mobile'
+        });
+        name = api.getPrefs({
+            sync: true,
+            key: 'name'
+        });
+    }
+    function name_mobile() {
+        var aa=setInterval(function () {
+            if (name){
+                if ($(".me_name_").html()!=name||$(".me_phone").html()!=mobile){
+                    $(".me_name_").html(name)
+                    $(".me_phone").html(mobile)
+                    if (roleid==3){
+                        $(".me_job_").html("店长");
+                    }
+                    if (roleid==5){
+                        $(".me_job_").html("店员")
+                    }
+                }else {
+                    clearInterval(aa)
+                }
+            }
+
+        },180)
+    }
+    name_mobile()
+    function per_msg() {
+        api.openWin({
+            name: 'per_msg',
+            url: 'widget://html/me/personInfo_qty.html',
+            bounces: false,
+            reload:true,
+            rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+        });
+    }
+    function open_accont() {
+        api.openWin({
+            name: 'accont_qty_qty',
+            url: 'widget://html/me/accont_qty.html',
+            bounces: false,
+            reload:true,
+            rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+        });
+    }
+    function open_set() {
+        api.openWin({
+            name: 'set_qty',
+            url: 'widget://html/me/set_qty.html',
+            bounces: false,
+            reload:true,
+            rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>title</title>
+	<link rel="stylesheet" href="../../css/api.css">
+	<script src="../../script/jquery.min.js"></script>
+	<script src="../../script/rem.js"></script>
+	<style>
+		html,body{
+			background: #f5f5f5;
+		}
+		.header_qty{
+			width: 100%;
+			height: 0.88rem;
+			background: #2493f7;
+			text-align: center;
+			font-size: 0.32rem;
+			color: #fff;
+			line-height: 0.88rem;
+			float: left;
+			overflow: hidden;
+			position: relative;
+		}
+		.arrow_qty{
+			width: 1.2rem;
+			height: 0.88rem;
+			position: absolute;
+			left: 0rem;
+			top: 0rem;
+		}
+		.arrowLeft_qty{
+			width: 0.15rem;
+			height: 0.28rem;
+			float: left;
+			background-image: url(../../image/img_qty/arrowLeft_06.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+			margin-top: 0.3rem;
+			margin-left: 0.2rem;
+		}
+		.dyz_qty{
+			width: 100%;
+			height: 0.6rem;
+			font-size: 0.24rem;
+			text-align: center;
+			color: #333333;
+			line-height: 0.6rem;
+			float: left;
+		}
+		.shopBox_qty{
+			width: 100%;
+			float: left;
+		}
+		.shopSmallBox_qty{
+			width: 6rem;
+			float: left;
+			margin-left: 0.2rem;
+			background: #fff;
+		}
+		.shopSmallBox_qty_qty{
+			width: 5.6rem;
+			float: left;
+			margin-left: 0.2rem;
+		}
+		.shopSmallBox_qty_qty li{
+			width: 5.6rem;
+			height: 1.24rem;
+			float: left;
+			border-bottom: 1px solid #f6f6f6;
+		}
+		.personShop_qty{
+			width: 0.85rem;
+			height: 0.85rem;
+			float: left;
+			margin-top: 0.195rem;
+		}
+		.personShop_qty img{
+			width: 0.85rem;
+			height: 0.85rem;
+			float: left;
+		}
+		.shopPer_qty{
+			width: 1.5rem;
+			height: 0.85rem;
+			float: left;
+			margin-top: 0.195rem;
+			margin-left: 0.1rem;
+		}
+		.shopPerTop_qty{
+			width: 1.5rem;
+			height: 0.425rem;
+			line-height: 0.425rem;
+			font-size: 0.28rem;
+			color: #333333;
+		}
+		.shopPerB_qty{
+			width: 1.5rem;
+			height: 0.425rem;
+			line-height: 0.425rem;
+			font-size: 0.24rem;
+			color: #999999;
+		}
+		.shopMangment_qty,.delshopMangment_qty{
+			width: 1.24rem;
+			height: 0.5rem;
+			font-size: 0.24rem;
+			line-height: 0.5rem;
+			text-align: center;
+			float: right;
+			border-radius: 0.08rem;
+			margin-top: 0.37rem;
+		}
+		.shopMangment_qty{
+			background: #2493f7;
+			color: #fff;
+		}
+		.delshopMangment_qty{
+			background: #fff;
+			color: #333333;
+			border: 1px solid #ccc;
+			display: none;
+		}
+		#goodcover {
+			display: none;
+			position: fixed;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index: 1001;
+			-moz-opacity: 0.8;
+			opacity: 0.50;
+			filter: alpha(opacity=80);
+		}
+		#code{
+			width: 4.8rem;
+			height: 2.7rem;
+			background-color: #fff;
+			position: absolute;
+			display: none;
+			left: 45%;
+			z-index: 1002;
+			border-radius: 0.08rem;
+		}
+		.applyFont_qty{
+			width: 4.8rem;
+			height: 0.72rem;
+			line-height: 0.72rem;
+			text-align: center;
+			font-size: 0.24rem;
+			font-weight: bolder;
+			color: #323232;
+			float: left;
+			letter-spacing: 0.03rem;
+			margin-top: 0.04rem;
+		}
+		.applyBig_qty{
+			width: 4.8rem;
+			height: 0.52rem;
+			text-align: center;
+			font-size: 0.24rem;
+			line-height: 0.52rem;
+			font-weight: bolder;
+			color: #333333;
+			float: left;
+			letter-spacing: 0.02rem;
+		}
+		.sure_qty{
+			width: 4.8rem;
+			height: 0.8rem;
+			line-height: 0.8rem;
+			float: left;
+			text-align: center;
+			margin-top: 0.62rem;
+		}
+		.sure{
+			width: 2.4rem;
+			height: 0.8rem;
+			line-height: 0.8rem;
+			background: #2493f7;
+			color: #fff;
+			text-align: center;
+			font-size: 0.28rem;
+			float: left;
+			letter-spacing: 0.04rem;
+			border-bottom-left-radius: 0.08rem;
+			cursor: default;
+		}
+		.cancel{
+			background: #999999;
+			border-bottom-right-radius: 0.08rem;
+			border-bottom-left-radius: 0rem;
+		}
+	</style>
+</head>
+<body>
+<div class="header_qty">店员管理</div>
+<div class="arrow_qty" onclick="api.closeWin()">
+	<div class="arrowLeft_qty"></div>
+</div>
+<!--<div class="dyz_qty">太常独一张旗舰店</div>-->
+<!--<div class="shopBox_qty">-->
+<!--<div class="shopSmallBox_qty">-->
+<!--<ul class="shopSmallBox_qty_qty">-->
+<!--<li>-->
+<!--<div class="personShop_qty">-->
+<!--<img src="../../image/img_qty/shopperson_03.png" alt="">-->
+<!--</div>-->
+<!--<div class="shopPer_qty">-->
+<!--<div class="shopPerTop_qty">高彦</div>-->
+<!--<div class="shopPerB_qty">店长</div>-->
+<!--</div>-->
+<!--<div class="shopMangment_qty">管理店员</div>-->
+<!--</li>-->
+<!--<li>-->
+<!--<div class="personShop_qty">-->
+<!--<img src="../../image/img_qty/shopperson_03.png" alt="">-->
+<!--</div>-->
+<!--<div class="shopPer_qty">-->
+<!--<div class="shopPerTop_qty">康振华</div>-->
+<!--<div class="shopPerB_qty">店员</div>-->
+<!--</div>-->
+<!--<div class="delshopMangment_qty ClickMe_qty">删除店员</div>-->
+<!--</li>-->
+<!--<li>-->
+<!--<div class="personShop_qty">-->
+<!--<img src="../../image/img_qty/shopperson_03.png" alt="">-->
+<!--</div>-->
+<!--<div class="shopPer_qty">-->
+<!--<div class="shopPerTop_qty">康振华</div>-->
+<!--<div class="shopPerB_qty">店员</div>-->
+<!--</div>-->
+<!--<div class="delshopMangment_qty ClickMe_qty">删除店员</div>-->
+<!--</li>-->
+<!--<li>-->
+<!--<div class="personShop_qty">-->
+<!--<img src="../../image/img_qty/shopperson_03.png" alt="">-->
+<!--</div>-->
+<!--<div class="shopPer_qty">-->
+<!--<div class="shopPerTop_qty">康振华</div>-->
+<!--<div class="shopPerB_qty">店员</div>-->
+<!--</div>-->
+<!--<div class="delshopMangment_qty ClickMe_qty">删除店员</div>-->
+<!--</li>-->
+<!--<li>-->
+<!--<div class="personShop_qty">-->
+<!--<img src="../../image/img_qty/shopperson_03.png" alt="">-->
+<!--</div>-->
+<!--<div class="shopPer_qty">-->
+<!--<div class="shopPerTop_qty">康振华</div>-->
+<!--<div class="shopPerB_qty">店员</div>-->
+<!--</div>-->
+<!--<div class="delshopMangment_qty ClickMe_qty">删除店员</div>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!-- 弹框代码 -->
+<!--<div id="goodcover"></div>-->
+<!--<div id="code">-->
+<!--<div class="applyFont_qty">提示</div>-->
+<!--<div class="applyBig_qty">您确定要删除您的店员康振华吗？</div>-->
+<!--<div class="sure_qty">-->
+<!--<div class="sure" id="closebt">确定</div>-->
+<!--<div class="sure cancel">取消</div>-->
+<!--</div>              -->
+<!--</div>-->
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+	var roleid;
+	var store_id;
+	var uid;
+	function get_data() {
+		apiready = function(){
+			store_id = api.getPrefs({sync:true,key:'store_id'});
+			roleid = api.getPrefs({sync:true,key:'roleid'});
+			uid = api.getPrefs({sync:true,key:'uid'});
+			api.ajax({
+				url: 'http://appapi.duyiwang.cn/index.php?action=people&dir=work',
+				method: 'post',
+				data: {
+					values:{roleid:roleid,store_id:store_id,uid:uid}
+				},
+				dataType:'text'
+			},function(ret,err){
+				$("body").append(ret)
+			});
+		};
+	}
+	get_data()
+</script>
+<script type="text/javascript">
+	// 管理店员点击效果
+	$('.shopMangment_qty').click(function(){
+		if($(".delshopMangment_qty").css("display")=="none"){
+			$(".delshopMangment_qty").show();
+			$('.shopMangment_qty').css({"background":"#fff","color":"#2493f7","border":"1px solid #ccc"});
+		}else{
+			$(".delshopMangment_qty").hide();
+			$('.shopMangment_qty').css({"background":"#2493f7","color":"#fff","border":"none"});
+		}
+	})
+
+
+
+
+	// 弹框代码
+	$(function() {
+		// alert($(window).height());
+		$('.ClickMe_qty').click(function() {
+			$('#code').center();
+			$('#goodcover').show();
+			$('#code').fadeIn();
+		});
+		$('#closebt').click(function() {
+			$('#code').hide();
+			$('#goodcover').hide();
+		});
+		$('.cancel').click(function() {
+			$('#code').hide();
+			$('#goodcover').hide();
+		});
+		$('#goodcover').click(function() {
+			$('#code').hide();
+			$('#goodcover').hide();
+		});
+		jQuery.fn.center = function(loaded) {
+			var obj = this;
+			body_width = parseInt($(window).width());
+			body_height = parseInt($(window).height());
+			block_width = parseInt(obj.width());
+			block_height = parseInt(obj.height());
+
+			left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+			if (body_width < block_width) {
+				left_position = 0 + $(window).scrollLeft();
+			};
+
+			top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+			if (body_height < block_height) {
+				top_position = 0 + $(window).scrollTop();
+			};
+
+			if (!loaded) {
+
+				obj.css({
+					'position': 'absolute'
+				});
+				obj.css({
+					'top': ($(window).height() - $('#code').height()) * 0.5,
+					'left': left_position
+				});
+				$(window).bind('resize', function() {
+					obj.center(!loaded);
+				});
+				$(window).bind('scroll', function() {
+					obj.center(!loaded);
+				});
+
+			} else {
+				obj.stop();
+				obj.css({
+					'position': 'absolute'
+				});
+				obj.animate({
+					'top': top_position
+				}, 200, 'linear');
+			}
+		}
+
+	})
+</script>
+</html>

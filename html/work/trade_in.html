@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+        }
+        .tradeIn_title{
+            width: 100%;
+            height: 0.88rem;
+            position: relative;
+            background: #2493f7;
+        }
+        .tradeIn_title_con{
+            width: 2.5rem;
+            height: auto;
+            margin: 0 auto;
+            font-size: 0.32rem;
+            line-height: 0.88rem;
+            text-align: center;
+            color: #fff;
+        }
+        .back_yyt{
+            width: 0.18rem;
+            height: 0.28rem;
+            position: absolute;
+            left: 0.2rem;
+            top: 0.3rem;
+            background: url("../../image/back_yyt.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .search_{
+            width: 5.4rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 0.2rem;
+            border-radius: 0.3rem;
+            overflow: hidden;
+        }
+        .search_box{
+            width: 4.65rem;
+            height: 0.6rem;
+            background: #fff;
+            border: 0.01rem solid #eeeeee;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 0.24rem;
+            line-height: 0.6rem;
+            padding-left: 0.2rem;
+            color: #cccccc;
+            float: left;
+        }
+        .btn_box{
+            width: 0.75rem;
+            height: 0.6rem;
+            background: #2493f7;
+            float: left;
+        }
+        .btn_box img{
+            width: 0.29rem;
+            height: 0.29rem;
+            display: block;
+            background: url("../../image/img_yyt/glass_.png") no-repeat;
+            background-size: 100% 100%;
+            margin-left: 0.2rem;
+        }
+        .hot_in{
+            width: 6rem;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 0.2rem;
+            overflow: hidden;
+        }
+        .hot_in_title{
+            width: 100%;
+            height: auto;
+            font-size: 0.24rem;
+            line-height: 0.3rem;
+            color: #2493f7;
+            text-align: left;
+        }
+        .hot_one{
+            width: 1.4rem;
+            height: 1.85rem;
+            float: left;
+            margin: 0.1rem 0.05rem;
+            padding-top: 0.1rem;
+            box-sizing: border-box;
+            background: #fff;
+            border-radius: 0.05rem;
+        }
+        .hot_one_name{
+            width: 100%;
+            height: auto;
+            font-size: 0.22rem;
+            line-height: 0.34rem;
+            color: #1b8bef;
+            text-align: center;
+        }
+        .hot_one_price{
+            width: 100%;
+            height: auto;
+            text-align: center;
+            font-size: 0.2rem;
+            line-height: 0.34rem;
+            color: #999;
+        }
+        .hot_one_img{
+            width: 1rem;
+            height: 0.7rem;
+            margin: 0 auto;
+        }
+        .hot_one_img img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .hot_one_num{
+            width: 100%;
+            height: auto;
+            font-size: 0.22rem;
+            line-height: 0.34rem;
+            text-align: center;
+            color: #a0a0a0;
+        }
+    </style>
+</head>
+<body>
+<div class="tradeIn_title">
+    <div class="tradeIn_title_con">销售录入</div>
+    <div class="back_yyt" onclick="api.closeWin();"></div>
+</div>
+<div class="search_">
+    <input type="text" class="search_box" placeholder="搜素关键词">
+    <button id="" class="btn_box" type="submit">
+        <img src="" alt="">
+    </button>
+</div>
+<!--<div class="hot_in">-->
+    <!--<div class="hot_in_title">热门录入</div>-->
+    <!--<ul class="hot_in_con">-->
+        <!--<li class="hot_one">-->
+            <!--<div class="hot_one_name">产品名</div>-->
+            <!--<div class="hot_one_price">70￥</div>-->
+            <!--<div class="hot_one_img">-->
+                <!--<img src="../../image/img_yyt/hot_one_img.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="hot_one_num">库存10套</div>-->
+        <!--</li>-->
+
+    <!--</ul>-->
+<!--</div>-->
+<!--<div class="hot_in">-->
+    <!--<div class="hot_in_title">分类1</div>-->
+    <!--<ul class="hot_in_con">-->
+        <!--<li class="hot_one">-->
+            <!--<div class="hot_one_name">产品名</div>-->
+            <!--<div class="hot_one_price">70￥</div>-->
+            <!--<div class="hot_one_img">-->
+                <!--<img src="../../image/img_yyt/hot_one_img.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="hot_one_num">库存10套</div>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+</body>
+<script>
+    var store_id;
+//    apiready=function () {
+//        store_id=api.getPrefs({sync:true,key:'store_id'});
+//    }
+    function get_data() {
+        apiready = function () {
+            store_id=api.getPrefs({sync:true,key:'store_id'});
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work',
+                method: 'post',
+                data: {
+                    values: {store_id:store_id}
+                },
+                dataType: 'txt'
+            }, function (ret, err) {
+                $("body").append(ret);
+            });
+        }
+    }
+    get_data()
+    function open_sales(gid) {
+        api.openWin({
+            name: 'trade_in_',
+            url: 'widget://html/work/trade_in_.html',
+            bounces: false,
+            pageParam: {gid: gid},
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+    function trade_in() {
+        api.toast({
+            msg: "录入成功",
+            duration: 3000,
+            location: 'bottom'
+        });
+    }
+</script>
+</html>

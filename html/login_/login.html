@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        .tc_log{
+            width: 1.82rem;
+            height: 1.85rem;
+            margin: 0 auto;
+            margin-top: 1.55rem;
+            margin-bottom: 1.2rem;
+            background: url("../../image/tc_log.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .login_f{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        .login_z{
+            display: block;
+            width: 6rem;
+            height: 0.9rem;
+            margin: 0 auto;
+            font-size: 0.26rem;
+            line-height: 0.9rem;
+            border-bottom: 0.01rem solid #eeeeee;
+            outline: none;
+        }
+        .login_m{
+            display: block;
+            width: 6rem;
+            height: 0.9rem;
+            margin: 0 auto;
+            font-size: 0.26rem;
+            line-height: 0.9rem;
+            border-bottom: 0.01rem solid #eeeeee;
+            outline: none;
+        }
+        .password_a{
+            width: 6rem;
+            height: 0.3rem;
+            margin: 0 auto;
+            margin-top: 0.45rem;
+        }
+        .password_new{
+            float: left;
+            font-size: 0.26rem;
+            color: #1b8bef;
+            line-height: 0.3rem;
+        }
+        .password_for{
+            float: right;
+            font-size: 0.26rem;
+            color: #1b8bef;
+            line-height: 0.3rem;
+        }
+        .login_sub{
+            outline: none;
+            display: block;
+            width: 6rem;
+            height: 0.88rem;
+            border-radius: 0.08rem;
+            background: #1b8bef;
+            text-align: center;
+            line-height: 0.88rem;
+            color: #fff;
+            font-size: 0.28rem;
+            margin: 0 auto;
+            margin-top: 0.65rem;
+        }
+    </style>
+</head>
+<body>
+<div class="tc_log"></div>
+<form class="login_f" action="">
+    <input type="text" class="login_z" name="loginname" autocomplete="off" placeholder="请输入您的手机号">
+    <input type="password" class="login_m" name="nloginpwd" autocomplete="off" placeholder="请输入您的密码">
+    <div class="password_a">
+        <span class="password_new" onclick="open_sign()">注册新用户</span>
+        <span class="password_for" onclick="phone_password()">忘记密码</span>
+    </div>
+    <input class="login_sub" type="button" value="登录" onclick="login()">
+</form>
+</body>
+<script>
+//    var roleid;
+//    var user_role;
+//    var uid;
+    var type;
+    var login_z;
+    var login_m;
+    var name;
+    var mobile;
+    var store_id;
+    apiready=function () {
+        type=api.pageParam.type;
+    }
+    function open_sign() {
+        api.openFrame({
+            name: 'sign',
+            url: 'widget://html/login_/sign.html',
+            bounces: false,
+            pageParam:{type:type},
+            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+        });
+    }
+    function phone_password() {
+        api.openFrame({
+            name: 'forgetPassword',
+            url: 'widget://html/login_/forgetPassword.html',
+            bounces: false,
+            pageParam:{type:type},
+            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+        });
+    }
+    function checkMobile(){
+        var sMobile = $(".login_z").val();
+        if(!(/^1[34578]\d{9}$/.test(sMobile))){
+            $(".login_z").focus();
+            return 0;
+        }
+    }
+    function login() {
+        if (checkMobile()==0) {
+//            alert("请输入正确的手机号码")
+            api.toast({
+                msg: '请输入正确的手机号码',
+                duration: 4000,
+                location: 'bottom'
+            });
+        }
+        if(!$(".login_z").val()){
+//            alert("请输入手机号码")
+            api.toast({
+                msg: '请输入手机号码',
+                duration: 4000,
+                location: 'bottom'
+            });
+            return false;
+        }
+        if(!$(".login_m").val()){
+//            alert("请输入您的密码")
+            api.toast({
+                msg: '请输入您的密码',
+                duration: 4000,
+                location: 'bottom'
+            });
+            return false;
+        }
+//        需要知道账号密码是否匹配，给出不同操作
+        login_z = $(".login_z").val();
+        login_m = $(".login_m").val();
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=login',
+            method: 'post',
+            data: {
+                values:{user_name:login_z,type:type,password:login_m}
+            },
+            dataType:'json'
+        },function(ret,err){
+//            alert(JSON.stringify(ret))
+            if(ret.code == 200){
+//                name = ret.name;
+                api.setPrefs({
+                    key: 'name',
+                    value: ret.name
+                });
+                api.setPrefs({
+                    key: 'type',
+                    value: ret.type
+                });
+//                mobile = ret.mobile;
+                api.setPrefs({
+                    key: 'mobile',
+                    value: ret.mobile
+                });
+//                store_id = ret.store_id;
+                api.setPrefs({
+                    key: 'store_id',
+                    value: ret.store_id
+                });
+//                uid = ret.uid;
+                api.setPrefs({
+                    key: 'uid',
+                    value: ret.uid
+                });
+//                user_role = ret.user_role;
+                api.setPrefs({
+                    key: 'user_role',
+                    value: ret.user_role
+                });
+//                roleid = ret.roleid;
+                api.setPrefs({
+                    key: 'roleid',
+                    value: ret.roleid
+                });
+                open_main()
+            }else if(ret.code == 500){
+//                alert(ret.msg)
+                api.toast({
+                    msg: ret.msg,
+                    duration: 4000,
+                    location: 'bottom'
+                });
+            }
+        });
+    }
+    function open_main() {
+        api.openWin({
+            name:'main',
+            url:'widget://html/main.html',
+            bounces: false,
+            pageParam:{name:name,mobile:mobile},
+            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+        })
+    }
+</script>
+</html>

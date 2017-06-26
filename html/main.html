@@ -2,65 +2,252 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
-    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>Hello APP</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
-	<style>
-		#con{
-			margin: 10px;
-			font-size: 24px; 
-		}
-		ul{
-			margin-bottom: 10px;
-		}
-		ul li{ 
-			margin: 5px 10px;
-			padding: 5px;
-			color: #000;
-			word-wrap: break-word;
-		}
-	</style>
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/rem.js"></script>
+    <style>
+
+    </style>
 </head>
 <body>
-    <label id="con">Hello APP</label>
-	<div id='sys-info'></div>
+
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
+    var aa=0;
+    var h1;
+    var uid;
+    var select_idx;
     apiready = function(){
-		var ver = api.version;
-		var sType = api.systemType;
-		var sVer = api.systemVersion;
-		var id = api.deviceId;
-		var model = api.deviceModel;
-		var name = api.deviceName;
-		var cType = api.connectionType;
-		var winName = api.winName;
-		var winWidth = api.winWidth;
-		var winHeight = api.winHeight;
-		var frameName = api.frameName || '';
-		var frameWidth = api.frameWidth || '';
-		var frameHeight = api.frameHeight || '';
-
-		var str = '<ul>';
-		str += '<li>引擎版本信息: ' + ver + '</li>';
-		str += '<li>系统类型: ' + sType + '</li>';
-		str += '<li>系统版本: ' + sVer + '</li>';
-		str += '<li>设备标识: ' + id + '</li>';
-		str += '<li>设备型号: ' + model + '</li>';
-		str += '<li>设备名称: ' + name + '</li>';
-		str += '<li>网络状态: ' + cType + '</li>';
-		str += '<li>主窗口名字: ' + winName + '</li>';
-		str += '<li>主窗口宽度: ' + winWidth + '</li>';
-		str += '<li>主窗口高度: ' + winHeight + '</li>';
-		str += '<li>子窗口名字: ' + frameName + '</li>';
-		str += '<li>子窗口宽度: ' + frameWidth + '</li>';
-		str += '<li>子窗口高度: ' + frameHeight + '</li>';
-		str += '</ul>';
-
-		$api.byId('sys-info').innerHTML = str;
-
+        var hh=api.winHeight;
+        h1=hh-65;
+        nvtabbar();
+        uid=api.getPrefs({sync:true,key:'uid'});
+        api.addEventListener({
+            name: 'keyback'
+        }, function(ret, err) {
+            if(aa==0){
+                api.toast({
+                    msg: '再按一次退出',
+                    duration: 2000,
+                    location: 'center'
+                });
+                aa=3;
+            }else if(aa>0 && aa<=3){
+                api.closeWidget({
+                    id:'A6941282178145',
+                    retData: {
+                        name: 'closeWidget'
+                    },
+                    silent:true
+                });
+            }
+            var djs=setInterval(function(){
+                --aa;
+                if(aa==0){
+                    clearInterval(djs);
+                }
+            },1000);
+        });
     };
+    function nvtabbar(){
+        NVTabBar = api.require('NVTabBar');
+        NVTabBar.open({
+            styles: {
+                bg: '#fff',
+                h: 65,
+                badge:{bgColor:'#fff',numColor: '#999999', size: 6.0}
+            },
+            items: [{
+                w: api.winWidth / 4.0,
+                bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
+                iconRect: {w: 26.0,h: 26.0,},
+                icon: {
+                    normal: 'widget://image/img_yyt/data_.png',
+                    highlight: 'widget://image/img_yyt/data_b.png',
+                    selected: 'widget://image/img_yyt/data_b.png'
+                },
+                title: {text: '资料',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
+            }, {
+                w: api.winWidth / 4.0,
+                bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
+                iconRect: {w: 26.0,h: 26.0,},
+                icon: {
+                    normal: 'widget://image/img_yyt/message_.png',
+                    highlight: 'widget://image/img_yyt/message_b.png',
+                    selected: 'widget://image/img_yyt/message_b.png'
+                },
+                title: {text: '消息',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
+            }, {
+
+                w: api.winWidth / 4.0,
+                bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
+                iconRect: {w: 26.0,h: 26.0,},
+                icon: {
+                    normal: 'widget://image/img_yyt/work_.png',
+                    highlight: 'widget://image/img_yyt/work_b.png',
+                    selected: 'widget://image/img_yyt/work_b.png'
+                },
+                title: {text: '工作',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
+            },{
+
+                w: api.winWidth / 4.0,
+                bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
+                iconRect: {w: 26.0,h: 26.0,},
+                icon: {
+                    normal: 'widget://image/img_yyt/me_.png',
+                    highlight: 'widget://image/img_yyt/me_b.png',
+                    selected: 'widget://image/img_yyt/me_b.png'
+                },
+                title: {text: '我的',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
+            },],
+            selectedIndex: 3
+        }, function(ret, err) {
+            if (ret){
+                select_idx=ret.index;
+                if(ret.eventType=='show' || ret.index==3){
+                    api.openFrame({
+                        name: 'me',
+                        url: 'widget://html/me/me_.html',
+                        bounces: false,
+                        reload:true,
+                        rect: {x: 0,y: 0,w: 'auto',h: h1}
+                    });
+                }else{
+                    api.setFrameAttr({
+                        name: 'me',
+                        hidden:true
+                    });
+                }
+                if(ret.index==0){
+                    api.openFrame({
+                        name: 'document_',
+                        url: 'widget://html/document_/data_qty.html',
+//                        reload:true,
+                        pageParam: {h1:h1},
+                        rect: {x: 0,y: 0,w: 'auto',h:h1}
+                    });
+                }else{
+                    api.setFrameAttr({
+                        name: 'document_',
+                        hidden:true
+                    });
+                }
+                if(ret.index==1){
+                    api.openFrame({
+                        name: 'message',
+                        url: 'widget://html/message/info_qty.html',
+                        reload:true,
+                        pageParam: {h1:h1},
+                        rect: {x: 0,y: 0,w: 'auto',h:h1}
+                    });
+                }else{
+                    api.setFrameAttr({
+                        name: 'message',
+                        hidden:true
+                    });
+                }
+                if(ret.index==2){
+                    api.openFrame({
+                        name: 'work',
+                        url: 'widget://html/work/work_in.html',
+                        pageParam: {h1:h1},
+                        rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+                    });
+                }else{
+                    api.setFrameAttr({
+                        name: 'work',
+                        hidden:true
+                    });
+                }
+                NVTabBar.bringToFront();
+            }
+        });
+    };
+    // 将已经打开的模块置为最上层显示
+    function tap_up(){
+        NVTabBar.bringToFront();
+    }
+//    设置按钮选中状态
+    function select_nav(idx){
+        NVTabBar.setSelect({
+            index: idx
+        });
+    }
+    // 设置按钮右上角的徽章,badge:若不传则表示清除已显示的徽章，若传空字符串则显示小红点（大小为徽章的1.0/2.0）
+    function set_badge(idx){
+        NVTabBar.setBadge({
+            index: idx,
+            badge: ''
+        });
+    }
+        function back_shouye(n){
+            if(n==0){
+                api.setFrameAttr({
+                    name: 'index',
+                    hidden:false
+                });
+                api.setFrameAttr({
+                    name: 'document_',
+                    hidden:true
+                });
+                api.setFrameAttr({
+                    name: 'login',
+                    hidden:true
+                });
+                api.setFrameAttr({
+                    name: 'me',
+                    hidden:true
+                });
+                api.setFrameAttr({
+                    name: 'message',
+                    hidden:true
+                });
+                api.setFrameGroupAttr({
+                    name: 'gongzuo_group',
+                    hidden: true
+                });
+                api.setFrameGroupAttr({
+                    name: 'shujufenxi_group',
+                    hidden: true
+                });
+            }else if(n==1){
+                api.setFrameAttr({
+                    name: 'msg',
+                    hidden:false
+                });
+                api.setFrameAttr({
+                    name: 'index',
+                    hidden:true
+                });
+                api.setFrameAttr({
+                    name: 'shuju',
+                    hidden:true
+                });
+                api.setFrameAttr({
+                    name: 'tongxunlu',
+                    hidden:true
+                });
+                api.setFrameAttr({
+                    name: 'gongzuo',
+                    hidden:true
+                });
+                api.setFrameGroupAttr({
+                    name: 'gongzuo_group',
+                    hidden: true
+                });
+                api.setFrameGroupAttr({
+                    name: 'shujufenxi_group',
+                    hidden: true
+                });
+                api.setFrameGroupAttr({
+                    name: 'xiaoxi_group',
+                    hidden: false
+                });
+            }
+        }
 </script>
 </html>

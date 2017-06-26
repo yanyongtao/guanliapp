@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+            position: relative;
+        }
+        .header_qty{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.34rem;
+            color: #fff;
+            line-height: 0.88rem;
+            float: left;
+            position: relative;
+        }
+        .arrow_qty{
+            width: 1.2rem;
+            height: 0.88rem;
+            position: absolute;
+            left: 0rem;
+            top: 0rem;
+        }
+        .arrowLeft_qty{
+            width: 0.15rem;
+            height: 0.28rem;
+            float: left;
+            background-image: url(../../image/img_qty/arrowLeft_06.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        .repair_qty{
+        	width: 6rem;
+        	height: 0.62rem;
+        	line-height: 0.62rem;
+        	font-size: 0.24rem;
+        	float: left;
+        	margin-left: 0.2rem;
+            color: #575757;
+        }
+        .iponeBox_qty{
+        	width: 100%;
+        	height: 0.8rem;
+        	background: #fff;
+        	float: left;
+        	border-bottom: 1px solid #fff;
+        }
+        .iponeSmallBox_qty{
+        	width: 6rem;
+        	height: 0.8rem;
+        	float: left;
+        	margin-left: 0.2rem;
+        	border-bottom: 1px solid #F6F6F6;
+        }
+        .iponeImg_qty{
+        	width: 0.21rem;
+        	height: 0.3rem;
+        	float: left;
+        	margin-top: 0.23rem;
+        }
+        .iponeImg_qty img{
+        	height: 0.3rem;
+        	float: left;
+        }
+        .inputBox_qty{
+        	width: 5.4rem;
+        	height: 0.6rem;
+        	float: left;
+        	margin-left: 0.2rem;
+        	margin-top: 0.1rem;
+        }
+        .inputBox_qty input{
+        	width: 5.59rem;
+        	height: 0.6rem;
+        	float: left;
+        	outline: none;
+        	font-size: 0.24rem;
+        }
+        .ver_qty{
+        	border-bottom: none;
+        }
+        .verSmall_qty{
+        	border-bottom: none;
+        }
+        .inputbox_qty{
+        	width: 5.59rem;
+        }
+        .inputbox_qty input{
+        	width: 3.59rem;
+        	float: left;
+        }
+        .submit{
+        	width: 1.6rem !important;
+        	float: left;
+			margin-top: 0.05rem;
+        	background: #2493f7;
+        	color: #fff;
+        	border-radius: 0.04rem;
+            font-size: 0.22rem;
+        }
+        .nextBox_qty{
+        	width: 6rem;
+        	height: 0.6rem;
+        	float: left;
+        	background: #2493f7;
+        	margin-left: 0.2rem;
+        	border-radius: 0.04rem;
+        	margin-top: 0.5rem;
+        }
+        .nextBox_qty input{
+			line-height: 0.6rem;
+        	width: 6rem;
+        	height: 0.6rem;
+        	float: left;
+        	font-size: 0.3rem;
+        	color: #fff;
+        	outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_qty">账号与安全</div>
+    <div class="arrow_qty" onclick="api.closeWin()">
+        <div class="arrowLeft_qty"></div>
+    </div>
+    <div class="repair_qty">修改密码</div>
+    <form action="">
+    	<div class="iponeBox_qty">
+	    	<div class="iponeSmallBox_qty">
+	    		<div class="iponeImg_qty">
+	    			<img src="../../image/img_qty/ipone_03.png" alt="">
+	    		</div>
+	    		<div class="inputBox_qty">
+	    			<input type="text" name="" id="" placeholder="请输入您的手机号">
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="iponeBox_qty ver_qty">
+	    	<div class="iponeSmallBox_qty verSmall_qty">
+	    		<div class="iponeImg_qty">
+	    			<img src="../../image/img_qty/ver_08.png" alt="">
+	    		</div>
+	    		<div class="inputBox_qty inputbox_qty">
+	    			<input type="text" name="" id="" placeholder="请输入验证码">
+	    			<input type="submit" value="获取验证码" class="submit">
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="nextBox_qty">
+	    	<input type="submit" value="下一步" onclick="open_forwardkey()">
+	    </div>
+    </form>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        
+    };
+    function open_forwardkey() {
+		api.openWin({
+			name: 'forwardKey_qty',
+			url: 'widget://html/me/forwardKey_qty.html',
+			bounces: false,
+			reload:true,
+			rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+		});
+	}
+</script>
+</html>

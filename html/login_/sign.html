@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            background: #f6f6f6;
+        }
+        .sign_header{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+        }
+        .s_h_t{
+            width: 6rem;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .sign_zc{
+            display: block;
+            width: 2rem;
+            height: 100%;
+            text-align: center;
+            line-height: 0.88rem;
+            color: #fff;
+            font-size: 0.32rem;
+            margin: 0 auto;
+        }
+        .sign_back{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0.23rem;
+            height: 0.36rem;
+            background: url("../../image/back_yyt.png") no-repeat;
+            background-size: 100% 100%;
+            margin-top: 0.26rem;
+        }
+        .sign_wel{
+            width: 100%;
+            height: 0.6rem;
+            background: #f6f6f6;
+        }
+        .sign_w_c{
+            width: 6rem;
+            height: 100%;
+            text-align: left;
+            font-size: 0.24rem;
+            line-height: 0.6rem;
+            color: #2493f7;
+            margin: 0 auto;
+        }
+        .sign_f{
+            display: block;
+            width: 100%;
+            background: #fff;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .sign_z{
+            display: block;
+            width: 6rem;
+            height: 0.88rem;
+            font-size: 0.26rem;
+            line-height: 0.88rem;
+            color: #666;
+            text-align: left;
+            outline: none;
+            border-bottom: 0.01rem solid #f6f6f6;
+            margin: 0 auto;
+        }
+        .sign_p{
+            display: block;
+            width: 6rem;
+            height: 0.88rem;
+            font-size: 0.26rem;
+            line-height: 0.88rem;
+            color: #666;
+            text-align: left;
+            outline: none;
+            border-bottom: 0.01rem solid #f6f6f6;
+            margin: 0 auto;
+        }
+        .sign_p_a{
+            display: block;
+            width: 6rem;
+            height: 0.88rem;
+            font-size: 0.26rem;
+            line-height: 0.88rem;
+            color: #666;
+            text-align: left;
+            outline: none;
+            border-bottom: 0.01rem solid #f6f6f6;
+            margin: 0 auto;
+        }
+        .code_a_b{
+            width: 6rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .code_get{
+            float: left;
+            width: 4.5rem;
+            height: 0.88rem;
+            font-size: 0.26rem;
+            line-height: 0.88rem;
+            color: #666;
+            text-align: left;
+            outline: none;
+        }
+        .get_code{
+            float: right;
+            width:1.5rem;
+            height: 0.6rem;
+            margin-top: 0.14rem;
+            background: #2493f7;
+            border-radius: 0.04rem;
+            text-align: center;
+            line-height: 0.6rem;
+            color: #fff;
+            font-size: 0.22rem;
+        }
+        .sign_user{
+            width: 6rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 0.3rem;
+        }
+        #sign_check{
+            width: 0.26rem;
+            height: 0.26rem;
+            float: left;
+            margin-top: 0.02rem;
+        }
+        .sign_xy{
+            width: auto;
+            height: auto;
+            overflow: hidden;
+            float: left;
+            font-size: 0.24rem;
+            line-height: 0.3rem;
+            color: #999999;
+        }
+        .sign_xy span{
+            color: #1b8bef;
+        }
+        .sign_sure{
+            display: block;
+            width: 6rem;
+            height: 0.88rem;
+            margin: 0 auto;
+            border-radius: 0.09rem;
+            overflow: hidden;
+            text-align: center;
+            font-size: 0.28rem;
+            line-height: 0.88rem;
+            color: #fff;
+            background: #1b8bef;
+            margin-top: 0.6rem;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div class="sign_header">
+    <div class="s_h_t">
+        <span class="sign_zc">注册</span>
+        <span class="sign_back" onclick="open_login()"></span>
+    </div>
+</div>
+<div class="sign_wel">
+    <div class="sign_w_c">欢迎注册独一张</div>
+</div>
+<form action="">
+    <div class="sign_f">
+        <input type="hidden" name="verifycode" class="code_yyt">
+        <input type="text" placeholder="请输入您的手机号" class="sign_z">
+        <input type="password" placeholder="请设置您的密码" class="sign_p">
+        <input type="password" placeholder="请确认您的密码" class="sign_p_a">
+        <div class="code_a_b">
+            <input type="text" class="code_get" placeholder="请输入您收到的验证码">
+            <a href="javascript:;" class="get_code" onclick="get_code()">获取验证码</a>
+        </div>
+    </div>
+    <div class="sign_user">
+        <input type="checkbox" id="sign_check" checked="checked" >
+        <label for="sign_check" class="sign_xy">我已阅读并同意 <span>用户协议</span> </label>
+    </div>
+    <input class="sign_sure" type="button" value="注册" onclick="sign_ok()">
+</form>
+</body>
+<script>
+    var type;
+    var sign_z;
+    var password;
+    var confirmpass;
+    var code;
+    var verifycode;
+    apiready=function () {
+        type=api.pageParam.type;
+//        api.setPrefs({
+//            key: 'type',
+//            value: type
+//        });
+    }
+    function open_login() {
+        api.openFrame({
+            name:'login',
+            url:'widget://html/login_/login.html',
+            bounces: false,
+            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+        })
+    }
+    function checkMobile(){
+        var sMobile = $(".sign_z").val();
+        if(!(/^1[34578]\d{9}$/.test(sMobile))){
+            $(".sign_z").focus();
+            return 0;
+        }
+    }
+
+    var flag=true;
+    function get_code() {
+        if (checkMobile()==0){
+//            alert("请输入正确的手机号码")
+            api.toast({
+                msg: '请输入正确的手机号码',
+                duration: 4000,
+                location: 'bottom'
+            });
+        }else {
+            function time_over() {
+                if (flag==true){
+                    flag=false;
+                    var miao=60;
+                    var aa=setInterval(again,1000)
+                    function again() {
+                        miao--;
+                        if(miao<=0){
+                            clearInterval(aa)
+                            $(".get_code").html("获取验证码")
+                            flag=true;
+                        }else{
+                            var daojishi="<span>"+miao+"</span> s";
+                            $(".get_code").html(daojishi);
+                        }
+                    }
+                }
+            }
+            time_over()
+            sign_z = $(".sign_z").val();
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=sms&do=getverifycode',
+                method: 'post',
+                data: {
+                    values:{mobile:sign_z,type:type}
+                },
+                dataType:'json'
+            },function(ret,err){
+                if(ret.code == 200){
+                    $(".code_yyt").val(ret.verifycode);
+
+                }else if(ret.code == 500){
+                    alert(ret.msg)
+                }
+            });
+        }
+    }
+    function sign_ok() {
+        var password_a=$(".sign_p").val();
+        var password_b=$(".sign_p_a").val();
+        var codeGet=$(".code_get").val();
+        if (password_a==password_b&&codeGet&&$('#sign_check').attr('checked')){
+//            需要返回数据确认注册成功
+            password=$(".sign_p").val();
+            confirmpass = $(".sign_p_a").val();
+            code = $(".code_get").val();
+            verifycode = $(".code_yyt").val();
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=register',
+                method: 'post',
+                data: {
+                    values:{mobile:sign_z,type:type,password:password,confirmpass:confirmpass,code:code,verifycode:verifycode}
+                },
+                dataType:'json'
+            },function(ret,err){
+                if(ret.code == 200){
+                    open_login()
+                }else if(ret.code == 500){
+//                    alert(ret.msg)
+                    api.toast({
+                        msg: ret.msg,
+                        duration: 4000,
+                        location: 'bottom'
+                    });
+                    open_login()
+                }
+            });
+
+
+        }
+        if (!password_a||!password_b){
+//            alert("请输入密码")
+            api.toast({
+                msg: '请输入密码',
+                duration: 4000,
+                location: 'bottom'
+            });
+            return false;
+        }
+        if (password_a != password_b) {
+//            alert("两次输入密码不一致")
+            api.toast({
+                msg: '两次输入密码不一致',
+                duration: 4000,
+                location: 'bottom'
+            });
+            return false;
+        }
+        if (!codeGet){
+//            alert("请输入验证码")
+            api.toast({
+                msg: '请输入验证码',
+                duration: 4000,
+                location: 'bottom'
+            });
+            return false;
+        }
+        if (!$('#sign_check').attr('checked')) {
+//            alert("请阅读并同意用户协议")
+            api.toast({
+                msg: '请阅读并同意用户协议',
+                duration: 4000,
+                location: 'bottom'
+            });
+            return false;
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+        }
+        .record_title{
+            width: 100%;
+            position: relative;
+            height: 0.88rem;
+            background: #1b8bef;
+        }
+        .record_title_con{
+            width: 2.5rem;
+            height: auto;
+            font-size: 0.32rem;
+            line-height: 0.88rem;
+            color: #fff;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .back_yyt{
+            width: 0.18rem;
+            height: 0.28rem;
+            background: url("../../image/back_yyt.png") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 0.3rem;
+            left: 0.2rem;
+        }
+        .goods_record{
+            width: 6rem;
+            height: 1.9rem;
+            margin: 0 auto;
+            background: #fff;
+            margin-top: 0.2rem;
+            padding: 0.2rem;
+            box-sizing: border-box;
+        }
+        .goods_img{
+            width: 1.47rem;
+            height: 1.47rem;
+            float: left;
+            margin-right: 0.2rem;
+        }
+        .goods_name{
+            width: 3.9rem;
+            height: auto;
+            font-size: 0.26rem;
+            overflow: hidden;
+        }
+        .goods_name_a{
+            width: 0.7rem;
+            height: auto;
+            float: left;
+            color: #333;
+        }
+        .goods_name_b{
+            width: 3.15rem;
+            line-height: 0.36rem;
+            height: auto;
+            float: left;
+            color: #999;
+        }
+        .product_num{
+            width: 6rem;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 0.2rem;
+            background: #fff;
+        }
+        .product_num_con{
+            width: 5.6rem;
+            height: 100%;
+            margin: 0 auto;
+            border-bottom: 0.01rem dashed #f1f1f1;
+        }
+        .goodsNum_a{
+            width: 3rem;
+            height: 0.63rem;
+            margin: 0 auto;
+        }
+        .gn_a{
+            width: 1rem;
+            height: auto;
+            overflow: hidden;
+            float: left;
+            text-align: center;
+            font-size: 0.24rem;
+            line-height: 0.63rem;
+            color: #999;
+        }
+        .gn_b{
+            width: 1rem;
+            height: auto;
+            overflow: hidden;
+            float: left;
+            text-align: center;
+            font-size: 0.24rem;
+            line-height: 0.63rem;
+            color: #999;
+        }
+        .gn_c{
+            width: 1rem;
+            height: auto;
+            overflow: hidden;
+            float: left;
+            text-align: center;
+            font-size: 0.24rem;
+            line-height: 0.63rem;
+            color: #999;
+        }
+        .goods_add{
+            width: 6rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .ga_title{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.26rem;
+            line-height: 100px;
+            text-align: center;
+            color: #333;
+        }
+        .add_reduce{
+            width: 4.3rem;
+            height: 0.8rem;
+            margin: 0 auto;
+        }
+        .add_yyt{
+            width: 1.1rem;
+            height: 0.8rem;
+            float: left;
+            font-size: 0.42rem;
+            line-height: 0.8rem;
+            text-align: center;
+            color: #fff;
+            background: #1b8bef;
+        }
+        .goods_num_yyt{
+            display: inline-block;
+            width: 2.1rem;
+            height: 0.8rem;
+            float: left;
+            font-size: 0.3rem;
+            line-height: 0.8rem;
+            text-align: center;
+            color: #333;
+            outline: none;
+        }
+        .reduce_yyt{
+            width: 1.1rem;
+            height: 0.8rem;
+            float: right;
+            color: #fff;
+            font-size: 0.42rem;
+            line-height: 0.8rem;
+            text-align: center;
+            background: #1b8bef;
+        }
+        .Mr_msg{
+            width: 6rem;
+            height: auto;
+            background: #fff;
+            margin: 0 auto;
+            margin-top: 0.4rem;
+        }
+        .Mr_title{
+            width: 100%;
+            height: auto;
+            font-size: 0.26rem;
+            line-height: 0.85rem;
+            text-align: center;
+            color: #333;
+        }
+        .Mr_form{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        .Mr_name_{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin: 0.1rem 0;
+        }
+        .Mr_name_ span{
+            width: 0.6rem;
+            height: 0.6rem;
+            float: left;
+            font-size: 0.26rem;
+            line-height: 0.6rem;
+            text-align: center;
+            padding-left: 0.2rem;
+            padding-right: 0.1rem;
+        }
+        .Mr_name_ input{
+            width: 4.5rem;
+            height: 0.6rem;
+            border: 0.01rem solid #ccc;
+            outline: none;
+            float: left;
+            font-size: 0.28rem;
+            color: #333;
+            padding: 0 0.1rem;
+            box-sizing: border-box;
+        }
+        .Mr_name_ div{
+            width: auto;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.2rem;
+            line-height: 0.6rem;
+            color: #1b8bef;
+            padding: 0 0.1rem;
+        }
+        .gooods_sub{
+            width: 100%;
+            height: 1rem;
+            background: #1b8bef;
+            margin-top: 0.2rem;
+            text-align: center;
+            font-size: 0.28rem;
+            line-height: 0.1rem;
+            display: block;
+            color: #fff;
+            outline: none;
+        }
+        .nan_yyt{
+            width: 2rem;
+            height: 0.6rem;
+            float: left;
+        }
+        .mrSex label{
+            width: 2.25rem;
+            height: 0.6rem;
+            float: left;
+            font-size: 0.3rem;
+            line-height: 0.6rem;
+        }
+        .mrSex label input{
+            width: 0.5rem;
+            height: 0.3rem;
+            margin-top: 0.15rem;
+        }
+    </style>
+</head>
+<body>
+<div class="record_title">
+    <div class="record_title_con">销售录入</div>
+    <div class="back_yyt" onclick="api.closeWin()"></div>
+</div>
+<div class="goods_record">
+    <img src="../../image/img_yyt/goods_img.png" alt="" class="goods_img">
+    <div class="goods_name">
+        <span class="goods_name_a">名称</span>
+        <span class="goods_name_b goods_namea">载入中...</span>
+    </div>
+    <div class="goods_name">
+        <span class="goods_name_a">介绍</span>
+        <span class="goods_name_b goods_introduce">载入中...</span>
+    </div>
+    <div class="goods_name">
+        <span class="goods_name_a">价格</span>
+        <span class="goods_name_b goods_price">载入中...</span>
+    </div>
+
+</div>
+<div class="product_num">
+    <div class="product_num_con">
+        <div class="goodsNum_a">
+            <span class="gn_a">已知库存</span>
+            <span class="gn_b goods_cucun">1</span>
+            <span class="gn_c">套</span>
+        </div>
+    </div>
+    <div class="product_num_con">
+        <div class="goodsNum_a">
+            <span class="gn_a">已选数量</span>
+            <span class="gn_b select_num">1</span>
+            <span class="gn_c">套</span>
+        </div>
+    </div>
+    <div class="product_num_con">
+        <div class="goodsNum_a" style="border: none">
+            <span class="gn_a">应收付款</span>
+            <span class="gn_b select_money">1</span>
+            <span class="gn_c">RMB</span>
+        </div>
+    </div>
+
+</div>
+<div class="goods_add">
+    <div class="ga_title">增减要卖产品数量</div>
+    <div class="add_reduce">
+        <span class="add_yyt">-</span>
+        <input class="goods_num_yyt" type="text" value="1">
+        <span class="reduce_yyt">+</span>
+    </div>
+</div>
+<form action="">
+    <div class="Mr_msg">
+        <div class="Mr_title">顾客信息</div>
+        <div class="Mr_form">
+            <div class="Mr_name_ mrName">
+                <span>姓名</span>
+                <input type="text">
+                <div>*</div>
+            </div>
+            <div class="Mr_name_ mrSex">
+                <span>性别</span>
+                <label><input name="sex" class="nan_yyt" type="radio" value="1"/>男</label>
+                <label><input name="sex" class="nv_www" type="radio" value="2"/>女</label>
+                <div>*</div>
+            </div>
+            <div class="Mr_name_ mrAge">
+                <span>年龄</span>
+                <input type="text">
+                <div>*</div>
+            </div>
+            <div class="Mr_name_ mrPhone">
+                <span>电话</span>
+                <input type="text">
+                <div>*</div>
+            </div>
+            <div class="Mr_name_ mrAddress">
+                <span>住址</span>
+                <input type="text">
+                <!--<div>*</div>-->
+            </div>
+        </div>
+    </div>
+    <input type="button" class="gooods_sub" value="录入完成" onclick="submit_data()">
+</form>
+</body>
+<script>
+    var store_id;
+    var gid;
+    var goodsMsg;
+    var select_money;
+    var select_num;
+    var money;
+    var sex;
+    var address;
+    var mobile;
+    var username;
+    var age;
+    var uid;
+    var roleid;
+    function get_gdata() {
+        apiready=function () {
+            store_id = api.getPrefs({sync:true,key:'store_id'});
+            roleid = api.getPrefs({sync:true,key:'roleid'});
+            gid = api.pageParam.gid;
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work&do=sales_view',
+                method: 'post',
+                data: {
+                    values:{store_id:store_id,gid:gid}
+                },
+                dataType:'json'
+            },function(ret,err){
+                if(ret.code == 200){
+                    goodsMsg=ret;
+                    $(".goods_namea").html(goodsMsg.goodinfo.name);
+                    $(".goods_price").html(goodsMsg.goodinfo.money+"元/套");
+                    $(".goods_introduce").html(goodsMsg.goodinfo.description);
+                    $(".goods_cucun").html(goodsMsg.goodinfo.kucun);
+                    $(".select_money").html(goodsMsg.goodinfo.money*$(".select_num").html());
+                    select_num = $(".goods_num_yyt").val();
+                    select_money = goodsMsg.goodinfo.money;
+                    $(".add_yyt").on("click",function () {
+                        if (select_num>1){
+                            select_num--
+                            $(".goods_num_yyt").val(select_num);
+                            $(".select_num").html(select_num);
+                            $(".select_money").html(goodsMsg.goodinfo.money*$(".select_num").html());
+                        }
+
+                    })
+                    $(".reduce_yyt").on("click",function () {
+                        if (select_num<goodsMsg.goodinfo.kucun){
+                            select_num++
+                            $(".goods_num_yyt").val(select_num);
+                            $(".select_num").html(select_num);
+                            $(".select_money").html(goodsMsg.goodinfo.money*$(".select_num").html());
+                        }
+                    })
+                    $(".goods_num_yyt").on("blur",function () {
+                        if ($(".goods_num_yyt").val()>100){
+                            $(this).focus();
+                            api.toast({
+                                msg: "录入数量不能大于库存",
+                                duration: 2000,
+                                location: 'bottom'
+                            });
+                        }
+                        if (!/^[0-9]*$/.test($(this).val())){
+                            $(this).focus();
+                            api.toast({
+                                msg: "请输入合法数字",
+                                duration: 4000,
+                                location: 'bottom'
+                            });
+                        }
+                        if (!$(this).val()){
+                            $(this).val(1)
+                        }
+                        $(".select_num").html($(".goods_num_yyt").val());
+                        $(".select_money").html(goodsMsg.goodinfo.money*$(".goods_num_yyt").val());
+                    })
+                }else if(ret.code == 500){
+                    api.toast({
+                        msg: ret.msg,
+                        duration: 4000,
+                        location: 'bottom'
+                    });
+                }
+            });
+        }
+    }
+    get_gdata()
+    function submit_data() {
+        money = select_num*select_money;
+        sex = $(".mrSex input").val();
+        address = $(".mrAddress input").val();
+        mobile = $(".mrPhone input").val();
+        username = $(".mrName input").val();
+        age = $(".mrAge input").val();
+        uid = api.getPrefs({sync:true,key:'uid'});
+        if (!$(".mrName input").val()){
+            api.toast({
+                msg: "请填写顾客名字",
+                duration: 3000,
+                location: 'bottom'
+            });
+            return
+        }
+        if (!$(".mrSex input").val()){
+            api.toast({
+                msg: "请填写顾客性别",
+                duration: 3000,
+                location: 'bottom'
+            });
+            return
+        }
+        if (!$(".mrAge input").val()){
+            api.toast({
+                msg: "请填写顾客年龄",
+                duration: 3000,
+                location: 'bottom'
+            });
+            return
+        }
+        if (!$(".mrPhone input").val()){
+            api.toast({
+                msg: "请填写顾客电话",
+                duration: 3000,
+                location: 'bottom'
+            });
+            return
+        }
+        if (!/^[0-9]*$/.test($(".mrAge").val())){
+            $(this).focus();
+            api.toast({
+                msg: "年龄必须是数字",
+                duration: 4000,
+                location: 'bottom'
+            });
+        }
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work&do=sales_add',
+            method: 'post',
+            data: {
+                values:{uid:uid,gid:gid,store_id:store_id,count:select_num,total_price:money,sex:sex,address:address,mobile:mobile,username:username,age:age,roleid:roleid}
+            },
+            dataType:'json'
+        },function(ret,err){
+            if(ret.code == 200){
+                api.execScript({
+                    name:'trade_in',
+                    frameName: 'work',
+                    script: 'trade_in()'
+                });
+                api.closeWin();
+            }else if(ret.code == 500){
+                api.toast({
+                    msg: ret.msg,
+                    duration: 2000,
+                    location: 'bottom'
+                });
+            }
+        });
+    }
+</script>
+</html>
