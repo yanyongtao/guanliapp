@@ -163,7 +163,7 @@
         <div class="work_one_icon"></div>
         <div class="work_one_w">销售记录</div>
     </li>
-    <li class="work_one">
+    <li class="work_one" onclick="open_shenhe()">
         <div class="work_one_icon"></div>
         <div class="work_one_w">我的审核</div>
     </li>
@@ -171,7 +171,7 @@
         <div class="work_one_icon"></div>
         <div class="work_one_w">店员管理</div>
     </li>
-    <li class="work_one">
+    <li class="work_one" onclick="open_check()">
         <div class="work_one_icon"></div>
         <div class="work_one_w">查看库存</div>
     </li>
@@ -264,6 +264,52 @@
             api.openWin({
                 name: 'shopMangment_qty',
                 url: 'widget://html/work/shopMangment_qty.html',
+                bounces: false,
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        } else {
+            api.toast({
+                msg: '请选择您所属门店',
+                duration: 4000,
+                location: 'bottom'
+            });
+            api.openWin({
+                name: 'personInfo_qty',
+                url: 'widget://html/me/personInfo_qty.html',
+                bounces: false,
+                pageParam: {type: 1},
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }
+    }
+    function open_check() {
+        if (store_id) {
+            api.openWin({
+                name: 'check_qty',
+                url: 'widget://html/work/check_qty.html',
+                bounces: false,
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        } else {
+            api.toast({
+                msg: '请选择您所属门店',
+                duration: 4000,
+                location: 'bottom'
+            });
+            api.openWin({
+                name: 'personInfo_qty',
+                url: 'widget://html/me/personInfo_qty.html',
+                bounces: false,
+                pageParam: {type: 1},
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }
+    }
+    function open_shenhe() {
+        if (store_id) {
+            api.openWin({
+                name: 'myaudit',
+                url: 'widget://html/work/myaudit.html',
                 bounces: false,
                 rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
             });
