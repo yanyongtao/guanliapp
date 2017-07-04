@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+            position: relative;
+        }
+        .header_qty{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.34rem;
+            color: #fff;
+            line-height: 0.88rem;
+            float: left;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 111;
+        }
+        .arrow_qty{
+            width: 1.2rem;
+            height: 0.88rem;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 99999;
+        }
+        .arrowLeft_qty{
+        	width: 0.15rem;
+        	height: 0.28rem;
+        	float: left;
+        	background-image: url(../../image/img_qty/arrowLeft_06.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        .productBox_qty{
+        	width: 100%;
+        	height: 4rem;
+        	float: left;
+        	position: relative;
+            margin-top: 0.88rem;
+        }
+        .productBox_qty img{
+        	width: 100%;
+        	height: 4rem;
+        	float: left;
+        }   
+        .produceOpicity_qty{
+        	width: 100%;
+        	height: 0.5rem;
+        	position: absolute;
+        	background: #000;
+        	opacity: 0.38;
+        	bottom: 0;
+        	left: 0;
+        }
+        .produceOp_qty{
+        	width: 6rem;
+        	height: 0.5rem;
+        	float: left;
+        	margin-left: 0.2rem;
+        	background: transparent;
+        }
+        .produceF_qty{
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #fff;
+        	line-height: 0.5rem;
+            letter-spacing: 0.03rem;
+        }
+        .produceEnglish_qty{
+        	float: right;
+        	font-size: 0.24rem;
+        	color: #fff;
+        	line-height: 0.5rem;
+        	letter-spacing: 0.03rem;
+        }
+        .productIndroduce_qty{
+        	width: 100%;
+        	height: 0.4rem;
+        	float: left;
+        	margin-top: 0.2rem;
+        }
+        .produceColor_qty{
+        	width: 0.1rem;
+        	height: 0.4rem;
+        	float: left;
+        	background: #2493f7;
+        }
+        .produceFont_qty{
+        	font-size: 0.24rem;
+        	float: left;
+        	color: #2493f7;
+        	line-height: 0.4rem;
+        	margin-left: 0.2rem;
+        }
+        .produceColor_qty_qty{
+        	width: 0.1rem;
+        	height: 0.4rem;
+        	float: right;
+        	background: #2493f7;
+        }
+        .produceBigBox_qty{
+        	width: 100%;
+        	float: left;
+        	margin-top: 0.15rem;
+        }
+        .produceSmallBox_qty{
+        	width: 6rem;
+        	float: left;
+        	margin-left: 0.2rem;
+        }
+        .produceSmallBox_qty h4{
+        	width: 6rem;
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #333333;
+            letter-spacing: 0.02rem;
+            line-height: 2;
+        }
+        .produceSmallBox_qty p{
+        	width: 6rem;
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #999999;
+        	text-indent: 0.5rem;
+        	margin-top: 0.1rem;
+            letter-spacing: 0.02rem;
+            line-height: 1.8;
+        }
+        .padding{
+            padding-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_qty">产品详情</div>
+    <div class="arrow_qty" onclick="api.closeWin()">
+        <div class="arrowLeft_qty"></div>
+    </div> 
+    <div class="productBox_qty">
+    	<img src="../../image/img_qty/gaoyaobig_02.png" alt="">
+    	<div class="produceOpicity_qty">
+    		<div class="produceOp_qty">
+    			<div class="produceF_qty">独一张【老膏药】</div>
+    			<div class="produceEnglish_qty">PLASTER</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="productIndroduce_qty">
+    	<div class="produceColor_qty"></div>
+    	<div class="produceFont_qty">产品介绍</div>
+    	<div class="produceColor_qty_qty"></div>
+    </div>
+    <div class="produceBigBox_qty">
+    	<div class="produceSmallBox_qty">
+    		<h4>十代传承一贴好药</h4>
+    		<p>
+    			独一张第七代传人张树信膝下无子，只好打破“传男不传女”的祖训，将“独一张”秘方传于女婿王氏，但“独一张”名称不变，以示对张氏先祖之尊重。第十代传人王小平认为，传统膏药如不进一步解决药效吸收问题，就会被逐步淘汰。自2000年以来，他一直试图寻找一种能够携带膏药有效成分直达患处的物质，并进行了多次尝试，均不成功。
+    		</p>
+    		<p>
+    			直到2005年，王小平从一份学术刊物上看到关于“多肽”的报道，顿时眼前一亮，活性多肽分子量极小，具有很强的穿透能力，能不能像火箭发射卫星一样，让小分子的肽将更多膏药的有效成分带到病灶深处？
+    		</p>   
+    		<p>
+    			经简单试验，效果确实增强了，但他仍不满足，因为小分子肽处理不当会很快失活。必须保证膏药中的“肽”活性不丢失，才能效果最大化。经过近10年的不断尝试，他终于发明了“三联固肽法”，使膏药中的肽活性能保持96%以上！经临床试验，有效率比传统膏药提升50%以上！中国第一个“肽”膏药由此诞生！
+    		</p>   
+    	</div>
+    </div>
+    <div class="produceBigBox_qty">
+    	<div class="produceSmallBox_qty">
+    		<h4>独一张黑膏药治疗机理</h4>
+    		<p>
+    			经医学研究证明，人体关节分八层组织，痹毒，增生，多在第八层骨基质，要彻底治愈骨病，药物成分必须有极强的渗透力，从肌肉到骨基质，必须渗透八层。才能达到骨基质层，拔出痹毒，铲除病根。根治骨病，普通膏药药效只能进入2-7层，不能穿透八层到达骨质基层。因此只能起到暂时的止痛作用，并且大多膏药，含铅，含汞，容易过敏，长期贴用对身体有害，容易引起铅汞中毒。特别有一些不法厂商，私自添加激素，拿患者当试验品，贴上以后，皮肤火辣辣的疼，你还要忍受红肿，骚痒，溃烂，灼烧等痛苦！
+    		</p>
+    		<p>
+    			独一张黑膏药添加多为中药材运用现代加工萃取技术精制而成，具有祛风湿，散风寒，透筋骨之功效。是治疗痹症的良药，其独含的透骨肽因子，能迅速渗入细胞组织，产生内热效应使患处毛细血管迅速扩张，把积聚在骨基质层的痹毒拔出体外，一贴顶传统膏药十贴。从根本上治疗老风湿，老骨病，彻底告别疼痛病。
+    		</p>   
+    	</div>
+    </div>
+    <div class="produceBigBox_qty">
+    	<div class="produceSmallBox_qty">
+    		<h4>三步彻底治疗 老风湿，老骨病</h4>
+    		<p>
+    		    第一步：化骨刺 在透骨肽因子的作用下，药物有效成分透皮吸收，进入骨刺部位，使骨刺由硬变软，由大变小，层层剥离，层层脱落，一部分随人体代谢排除体外，一部分被层层拔出体外，修复破裂的纤维环，解除受压的神经线，通经络，活血脉，使您疼痛，麻木，僵直的感觉迅速消失。
+    		</p>
+    		<p>
+    			第二步：除痹毒 在透骨肽因子的作用下，药物成分直击病患部位，深层杀灭骨组织细胞内的风寒湿痹毒，斩断风湿病痛根源，彻底解决老寒腿，老寒腰等症状。
+    		</p>   
+    		<p class="padding">
+    			第三步：重建骨免疫 独一张黑膏药内的药物有效成分快速给骨骼补充营养，增强骨质密度，修复破损的骨细胞和软骨层，制止骨骼退化，使骨骼恢复健康恢复弹性，骨骼永久的复位，形成对骨关节的保护。
+    		</p>  
+    	</div>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        
+    };
+</script>
+</html>

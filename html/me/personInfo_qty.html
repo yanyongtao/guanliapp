@@ -211,6 +211,18 @@
             height: 0.3rem;
             margin-top: 0.25rem;
         }
+        .inputBox_qty .man_yyt{
+            display: block;
+            width: 0.3rem;
+            height: 0.3rem;
+            margin-top: 0.25rem;
+        }
+        .inputBox_qty .woman_yyt{
+            display: block;
+            width: 0.3rem;
+            height: 0.3rem;
+            margin-top: 0.25rem;
+        }
     </style>
 </head>
 <body>
@@ -239,10 +251,12 @@
         <div class="headPartSmall_qty headpartsmall">
             <div class="headFont_qty headfont">性别</div>
             <div class="inputBox_qty">
-                <select name="" id="" style="background: #fff">
-                    <option value="0" class="man_yyt">男</option>
-                    <option value="1" class="woman_yyt">女</option>
-                </select>
+                <!--<select name="" id="" style="background: #fff">-->
+                <!--<option value="0" class="man_yyt">男</option>-->
+                <!--<option value="1" class="woman_yyt">女</option>-->
+                <label><input name="sex" type="radio"  class="man_yyt"/>男</label>
+                <label><input name="sex" type="radio"  class="woman_yyt"/>女</label>
+                <!--</select>-->
             </div>
         </div>
     </div>
@@ -258,7 +272,7 @@
         <div class="headPartSmall_qty headpartsmall">
             <div class="headFont_qty headfont1">所属门店</div>
             <div class="inputBox_qty inputBox_qtya">
-                <select name="" id="" style="background: #fff">
+                <select name="" id="mdlb_" style="background: #fff">
                     <option value="">请选择您的所属门店</option>
                 </select>
             </div>
@@ -268,13 +282,13 @@
         <div class="headPartSmall_qty headpartsmall">
             <div class="headFont_qty headfont">职位</div>
             <div class="inputBox_qty">
-                <label><input name="Fruit" type="radio" value="5" class="store_small"/>店员 </label>
-                <label><input name="Fruit" type="radio" value="3" class="store_big"/>店长 </label>
+                <label><input name="Fruit" type="radio"  class="store_small"/>店员 </label>
+                <label><input name="Fruit" type="radio"  class="store_big"/>店长 </label>
                 <!--<div id="goodcover"></div>-->
                 <!--<div id="code">-->
-                    <!--<div class="applyFont_qty">申请</div>-->
-                    <!--<div class="applyBig_qty">我要申请成为店长</div>-->
-                    <!--<div class="sure" id="closebt">确定</div>-->
+                <!--<div class="applyFont_qty">申请</div>-->
+                <!--<div class="applyBig_qty">我要申请成为店长</div>-->
+                <!--<div class="sure" id="closebt">确定</div>-->
                 <!--</div>-->
             </div>
         </div>
@@ -309,14 +323,21 @@
                     }else if (ret.userinfo.sex ==1){
                         $(".woman_yyt").attr("checked","checked");
                     }
+                }else {
+                    $(".man_yyt").attr("checked","checked");
                 }
                 if (ret.userinfo.age){
                     $(".age_yyt input").val(ret.userinfo.age)
                 }
                 if (ret.stroe_list){
                     var store_yyt;
+                    store_id = api.getPrefs({sync:true,key:'store_id'});
                     for (var i=0;i<ret.stroe_list.length;i++){
-                        store_yyt="<option value="+ret.stroe_list[i].id+">"+ret.stroe_list[i].name+"</option>"
+                        if (ret.stroe_list[i].id == store_id){
+                            store_yyt = "<option selected='selected' value=" + ret.stroe_list[i].id + ">" + ret.stroe_list[i].name + "</option>"
+                        }else {
+                            store_yyt = "<option value=" + ret.stroe_list[i].id + ">" + ret.stroe_list[i].name + "</option>"
+                        }
                         $(".inputBox_qtya select").append(store_yyt);
                     }
 
@@ -338,7 +359,9 @@
     var age;
     var roleid;
     var sex;
+    var store_id;
     function submit_yyt(){
+//        apiready = function(){
         name = $(".name_yyt input").val();
         age = $(".age_yyt input").val();
         if($(".store_small").attr("checked") == "checked"){
@@ -353,25 +376,24 @@
         if($(".woman_yyt").attr("checked") == "checked"){
             sex = 1
         }
-        apiready = function(){
-            uid = api.getPrefs({sync:true,key:'uid'});
-            type = api.getPrefs({sync:true,key:'type'});
-            api.ajax({
-                url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=userinfo&dosubmit=1',
-                method: 'post',
-                data: {
-                    values:{uid:uid,type:type,name:name,age:age,roleid:roleid,sex:sex}
-                },
-                dataType:'json'
-            },function(ret,err){
-                alert(JSON.stringify(ret))
-                api.toast({
-                    msg: ret.msg,
-                    duration: 3000,
-                    location: 'bottom'
-                });
+        uid = api.getPrefs({sync:true,key:'uid'});
+        type = api.getPrefs({sync:true,key:'type'});
+        store_id = $('#mdlb_ option:selected').val();
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=userinfo&dosubmit=1',
+            method: 'post',
+            data: {
+                values:{uid:uid,type:type,name:name,age:age,roleid:roleid,sex:sex,stroe_id:store_id}
+            },
+            dataType:'json'
+        },function(ret,err){
+            api.toast({
+                msg: ret.msg,
+                duration: 3000,
+                location: 'bottom'
             });
-        };
+        });
+//        };
     }
 </script>
 <script type="text/javascript">
@@ -422,7 +444,6 @@
                 $(window).bind('scroll', function() {
                     obj.center(!loaded);
                 });
-
             } else {
                 obj.stop();
                 obj.css({

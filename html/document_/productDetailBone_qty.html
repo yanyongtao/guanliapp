@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+            position: relative;
+        }
+        .header_qty{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.34rem;
+            color: #fff;
+            line-height: 0.88rem;
+            float: left;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 111;
+        }
+        .arrow_qty{
+        	width: 1.2rem;
+            height: 0.88rem;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 99999;
+        }
+        .arrowLeft_qty{
+        	width: 0.15rem;
+        	height: 0.28rem;
+        	float: left;
+        	background-image: url(../../image/img_qty/arrowLeft_06.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        .productBox_qty{
+        	width: 100%;
+        	height: 4rem;
+        	float: left;
+        	position: relative;
+            margin-top: 0.88rem;
+        }
+        .productBox_qty img{
+        	width: 100%;
+        	height: 4rem;
+        	float: left;
+        }   
+        .produceOpicity_qty{
+        	width: 100%;
+        	height: 0.5rem;
+        	position: absolute;
+        	background: #000;
+        	opacity: 0.38;
+        	bottom: 0;
+        	left: 0;
+        }
+        .produceOp_qty{
+        	width: 6rem;
+        	height: 0.5rem;
+        	float: left;
+        	margin-left: 0.2rem;
+        	background: transparent;
+        }
+        .produceF_qty{
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #fff;
+        	line-height: 0.5rem;
+            letter-spacing: 0.03rem;
+        }
+        .produceEnglish_qty{
+        	float: right;
+        	font-size: 0.24rem;
+        	color: #fff;
+        	line-height: 0.5rem;
+        	letter-spacing: 0.03rem;
+        }
+        .productIndroduce_qty{
+        	width: 100%;
+        	height: 0.4rem;
+        	float: left;
+        	margin-top: 0.2rem;
+        }
+        .produceColor_qty{
+        	width: 0.1rem;
+        	height: 0.4rem;
+        	float: left;
+        	background: #2493f7;
+        }
+        .produceFont_qty{
+        	font-size: 0.24rem;
+        	float: left;
+        	color: #2493f7;
+        	line-height: 0.4rem;
+        	margin-left: 0.2rem;
+        }
+        .produceColor_qty_qty{
+        	width: 0.1rem;
+        	height: 0.4rem;
+        	float: right;
+        	background: #2493f7;
+        }
+        .produceBigBox_qty{
+        	width: 100%;
+        	float: left;
+        	margin-top: 0.15rem;
+        }
+        .produceSmallBox_qty{
+        	width: 6rem;
+        	float: left;
+        	margin-left: 0.2rem;
+        }
+        .produceSmallBox_qty h4{
+        	width: 6rem;
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #333333;
+            letter-spacing: 0.02rem;
+            line-height: 2;
+        }
+        .produceSmallBox_qty h5{
+            width: 6rem;
+            float: left;
+            font-size: 0.24rem;
+            color: #333333;
+            margin-top: 0.2rem;
+            letter-spacing: 0.02rem;
+            line-height: 2;
+        }
+        .produceSmallBox_qty p{
+        	width: 6rem;
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #999999;
+        	text-indent: 0.5rem;
+        	margin-top: 0.1rem;
+            letter-spacing: 0.02rem;
+            line-height: 1.8;
+        }
+        .padding{
+            padding-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_qty">产品详情</div>
+    <div class="arrow_qty" onclick="api.closeWin()">
+        <div class="arrowLeft_qty"></div>
+    </div> 
+    <div class="productBox_qty">
+    	<img src="../../image/img_qty/duyizhangbig_02.png" alt="">
+    	<div class="produceOpicity_qty">
+    		<div class="produceOp_qty">
+    			<div class="produceF_qty">独一张【炙骨宁】</div>
+    			<div class="produceEnglish_qty">MAIN BONE NING</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="productIndroduce_qty">
+    	<div class="produceColor_qty"></div>
+    	<div class="produceFont_qty">产品介绍</div>
+    	<div class="produceColor_qty_qty"></div>
+    </div>
+    <div class="produceBigBox_qty">
+    	<div class="produceSmallBox_qty">
+    		<h4>独一张治骨病，找病因挖病根</h4>
+    		<p>
+    			独一张炙骨宁袋以特制纯中草药药包为载体，与特制药酒相结合，药借酒力，酒助药性，深入筋骨，产生聚合热效应让“筋骨发热”，不仅用于治疗局部病变，而且广泛用于调理全身性疾病，在临床各科治疗中占有重要地位。独一张炙骨宁袋通过一通，二活，三养，找出骨病原因，挖出骨病病根。
+    		</p>
+            <h5>一通：</h5>
+    		<p>
+    			祖国医学认为“痛则不通，通则不痛”，任何疾病的发生，都会导致血瘀气滞、经络痹阻，都会阻碍肌肉、筋膜、软骨和骨骼周围组织对营养的吸收，也会阻碍对病毒、细菌的杀灭和排泄，影响药效的发挥。独一张炙骨宁袋通经、通络、通气、通血，一通百通。经络通，气血行；筋骨健，骨病消。
+    		</p>   
+            <h5>二活：</h5>
+    		<p>
+    			在一通百通的基础上，活血化瘀、理气止痛、解毒清热、除湿散寒，是中医治疗骨病的根本大纲。独一张炙骨宁袋活气血、化瘀滞、祛风寒、除湿邪、消淤肿、止疼痛。
+    		</p>   
+            <h5>三养：</h5>
+            <p>
+                养是营养和保健，在治疗中补给营养，在治疗中达到养生保健相结合，天人相应，方能疗疾祛疴。骨病治疗“三分靠治，七分靠养”，独一张炙骨宁药包中的有效成分借酒力入骨入髓，找病因，挖骨根，治骨养髓，治养结合。
+            </p>  
+    	</div>
+    </div>
+    <div class="produceBigBox_qty">
+    	<div class="produceSmallBox_qty">
+    		<h4>独一张五大特色除骨病</h4>
+            <h5>1.配方独特：</h5>
+    		<p>
+    			独一张炙骨宁袋由二十余味纯正中草药和特制药酒组成，产生聚合热效应，药力显效快，不含激素对人体有害物质，没有任何副作用，患者可放心使用。
+    		</p>
+    		<h5>2.立时显效：</h5>
+            <p>
+                凡敷用独一张炙骨宁袋20分钟即产生聚合热效应，药借酒力，充分发挥药效，外敷患病部位，药物可达病灶，避免了口服药物或药酒刺激肠胃带来的血液循环受阻、药物浓度降低等副作用。
+            </p> 
+            <h5>3.自动寻找病变部位：</h5>
+            <p>
+                有一些患者在病变中，会感到大面积的肿胀和疼痛，却又说不出具体部位。当外敷独一张炙骨宁袋20分钟，就会感到病变部位随着药力的渗透，所谓的疼只有一两个部位而已，病变部位的位置的温度会比其它部位热得多。病重的患者会感到热度难忍，这时切不可拿掉药袋，因为此时是您治疗的最佳时机。
+            </p> 
+            <h5>4.药效持久:</h5>
+            <p>
+                当患者把药袋取下来后，病变部位的温度并没有随着取下药袋而消失，反而温度还会上升，此时是寒气祛除之际，这种效果持续30分钟，从而在较短时间内，快速无误地根治疾病。
+            </p> 
+            <h5>5.感受治愈的过程：</h5>
+            <p class="padding">
+                独一张炙骨宁袋是有别于其他同类药物的，患者从用药开始就能够通过自身的感受，充分体会到病愈的全过程，也能在自知自愿中接受治疗直到病愈。
+            </p> 
+    	</div>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        
+    };
+</script>
+</html>

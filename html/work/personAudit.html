@@ -172,7 +172,7 @@
     	}
     	.teleBox_qty{
     		width: 5.62rem;
-    		height: 2.44rem;
+    		height: 3.66rem;
     		float: left;
     		margin-left: 0.39rem;
     		margin-top: 0.2rem;
@@ -204,7 +204,7 @@
     		float: left;
     	}
     	.teleRightFont_qty{
-    		width: 4rem;
+    		width: 3rem;
     		height: 1.22rem;
     		float: left;
     		margin-left: 0.15rem;
@@ -215,11 +215,24 @@
     	.tele_qty{
     		border-bottom: none;
     	}
+        .teleImg_qty_qty{
+            width: 0.4rem;
+            height: 0.4rem;
+            float: right;
+            margin-top: 0.41rem;
+            border-radius: 50%;
+        }
+        .teleImg_qty_qty img{
+            width: 0.4rem;
+            height: 0.4rem;
+            float: left;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
-    <div class="header_qty">人员审核</div>
-    <div class="arrow_qty" onclick="api.closeWin()">
+    <div class="header_qty">录入审核</div>
+    <div class="arrow_qty"  onclick="api.closeWin()">
         <div class="arrowLeft_qty"></div>
     </div> 
     <div class="auditBox_qty">
@@ -241,47 +254,64 @@
     		<div class="clerkFontTop_qty">等待店长审批</div>
     	</div>
     </div>
-    <div class="applyBox_qty">
-    	<div class="applySmall_qty">
-    		<div class="apply_qty">
-    			<div class="applyLeft_qty">所在门店</div>
-    			<div class="applyRightFont_qty">太常旗舰店</div>
-    		</div>
-    		<div class="apply_qty">
-    			<div class="applyLeft_qty">审批内容</div>
-    			<div class="applyRightFont_qty">申请成为太常旗舰店店员</div>
-    		</div>
-    		<div class="apply_qty">
-    			<div class="applyLeft_qty">开始时间</div>
-    			<div class="applytime_qty">2017.06.25 <span class="time_qty">14:42:00</span></div>
-    		</div>
-    		<div class="apply_qty">
-    			<div class="applyLeft_qty">结束时间</div>
-    			<div class="applytime_qty">2017.06.25 <span class="time_qty">14:42:00</span></div>
-    		</div>
-    	</div>
-    </div>
-    <div class="teleBox_qty">
-    	<div class="teleSmall_qty">
-    		<div class="teleSmallBox_qty">
-    			<div class="teleImg_qty">
-    				<img src="../../image/img_qty/auditBg_03.png">
-    			</div>
-    			<div class="teleRightFont_qty">高彦发起了审批申请</div>
-    		</div>
-    		<div class="teleSmallBox_qty">
-    			<div class="teleImg_qty">
-    				<img src="../../image/img_qty/auditBg_03.png">
-    			</div>
-    			<div class="teleRightFont_qty tele_qty">等待店长审批</div>
-    		</div>
-    	</div>
-    </div>
+    <!--<div class="applyBox_qty">-->
+    	<!--<div class="applySmall_qty">-->
+    		<!--<div class="apply_qty">-->
+    			<!--<div class="applyLeft_qty">所在门店</div>-->
+    			<!--<div class="applyRightFont_qty">太常旗舰店</div>-->
+    		<!--</div>-->
+    		<!--<div class="apply_qty">-->
+    			<!--<div class="applyLeft_qty">审批内容</div>-->
+    			<!--<div class="applyRightFont_qty">申请成为太常旗舰店店员</div>-->
+    		<!--</div>-->
+    		<!--<div class="apply_qty">-->
+    			<!--<div class="applyLeft_qty">开始时间</div>-->
+    			<!--<div class="applytime_qty">2017.06.25 <span class="time_qty">14:42:00</span></div>-->
+    		<!--</div>-->
+    		<!--<div class="apply_qty">-->
+    			<!--<div class="applyLeft_qty">结束时间</div>-->
+    			<!--<div class="applytime_qty">2017.06.25 <span class="time_qty">14:42:00</span></div>-->
+    		<!--</div>-->
+    	<!--</div>-->
+    <!--</div>-->
+    <!--<div class="teleBox_qty">-->
+    	<!--<div class="teleSmall_qty">-->
+    		<!--<div class="teleSmallBox_qty">-->
+    			<!--<div class="teleImg_qty">-->
+    				<!--<img src="../../image/img_qty/auditBg_03.png">-->
+    			<!--</div>-->
+    			<!--<div class="teleRightFont_qty">高彦发起了审批申请</div>-->
+                <!--<div class="teleImg_qty_qty">-->
+                    <!--<img src="../../image/img_qty/dui_03.png" alt="">-->
+                <!--</div>-->
+    		<!--</div>-->
+    		<!--<div class="teleSmallBox_qty">-->
+    			<!--<div class="teleImg_qty">-->
+    				<!--<img src="../../image/img_qty/auditBg_03.png">-->
+    			<!--</div>-->
+    			<!--<div class="teleRightFont_qty tele_qty">等待店长审批</div>-->
+    		<!--</div>-->
+    	<!--</div>-->
+    <!--</div>-->
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
-    apiready = function(){
-        
-    };
+	var vid;
+    function get_data() {
+		apiready = function() {
+			vid = api.pageParam.vid;
+			api.ajax({
+				url: 'http://192.168.1.143/dyz_manage/index.php?action=verify&dir=work&do=show_i_verify',
+				method: 'post',
+				data: {
+					values: {vid: vid}
+				},
+				dataType: 'text'
+			}, function (ret, err) {
+				$("body").append(ret)
+			});
+		}
+	}
+	get_data()
 </script>
 </html>

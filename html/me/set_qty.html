@@ -91,14 +91,14 @@
 </head>
 <body>
     <div class="header_qty">设置</div>
-    <div class="arrow_qty" onclick="api.closeWin()">
+    <div class="arrow_qty" onclick="api.closeFrame()">
         <div class="arrowLeft_qty"></div>
     </div>
     <div class="clearBox_qty">
 	    <div class="clearSmall_qty">
 	    	<div class="clearFont_qty">清除缓存</div>
 	    	<div class="arrow_qty_qty"></div>
-	    </div>	
+	    </div>
     </div>
     <div class="clearBox_qty">
 	    <div class="clearSmall_qty">
@@ -113,7 +113,7 @@
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
     apiready = function(){
-        
+
     };
     function tuichu(){
         api.confirm({
@@ -126,12 +126,35 @@
                 api.removePrefs({
                     key: 'uid'
                 });
-                api.openWin({
+                api.removePrefs({
+                    key: 'name'
+                });
+                api.removePrefs({
+                    key: 'type'
+                });
+                api.removePrefs({
+                    key: 'mobile'
+                });
+                api.removePrefs({
+                    key: 'store_id'
+                });
+                api.removePrefs({
+                    key: 'user_role'
+                });
+                api.removePrefs({
+                    key: 'roleid'
+                });
+                api.closeWin({
+                    name: 'main'
+                });
+                api.openFrame({
                     name: 'dyz_swj',
                     url: 'widget://html/dyz_swj.html',
                     bounces: false,
-                    rect: {x: 0,y: 0,w: 'auto',h:'auto'}
+                    rect: {x: 0,y: 0,w: 'auto',h:'auto'},
+                    type: "none"
                 });
+
             }
         });
     }

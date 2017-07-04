@@ -16,16 +16,22 @@
 
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
+<script src="../script/socket.io.js"></script>
 <script type="text/javascript">
     var aa=0;
     var h1;
     var uid;
     var select_idx;
+    var socket;
     apiready = function(){
+        api.closeFrame({
+            name: 'login'
+        });
         var hh=api.winHeight;
         h1=hh-65;
         nvtabbar();
         uid=api.getPrefs({sync:true,key:'uid'});
+//        alert(uid)
         api.addEventListener({
             name: 'keyback'
         }, function(ret, err) {
@@ -53,6 +59,28 @@
             },1000);
         });
     };
+
+
+    //打通服务端与客户端双向通讯
+    socket = io('http://192.168.1.143:4003');
+    socket.on('connect', function(){
+        socket.emit('login', uid);
+    });
+    //同意审核实时通讯事件
+    socket.on('verify_to_user',function(obj){
+        var obj=eval('('+obj+')');
+        api.setPrefs({
+            key: 'objMeg',
+            value: obj.msg
+        });
+        var jsfun = 'chongzai();';
+        api.execScript({
+            name: 'myaudita',
+            script: jsfun
+        });
+    });
+
+
     function nvtabbar(){
         NVTabBar = api.require('NVTabBar');
         NVTabBar.open({
@@ -62,15 +90,27 @@
                 badge:{bgColor:'#fff',numColor: '#999999', size: 6.0}
             },
             items: [{
+//                w: api.winWidth / 4.0,
+//                bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
+//                iconRect: {w: 26.0,h: 26.0,},
+//                icon: {
+//                    normal: 'widget://image/img_yyt/data_.png',
+//                    highlight: 'widget://image/img_yyt/data_b.png',
+//                    selected: 'widget://image/img_yyt/data_b.png'
+//                },
+//                title: {text: '资料',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
+
+
+
                 w: api.winWidth / 4.0,
                 bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
                 iconRect: {w: 26.0,h: 26.0,},
                 icon: {
-                    normal: 'widget://image/img_yyt/data_.png',
-                    highlight: 'widget://image/img_yyt/data_b.png',
-                    selected: 'widget://image/img_yyt/data_b.png'
+                    normal: 'widget://image/img_yyt/work_.png',
+                    highlight: 'widget://image/img_yyt/work_b.png',
+                    selected: 'widget://image/img_yyt/work_b.png'
                 },
-                title: {text: '资料',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
+                title: {text: '首页',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
             }, {
                 w: api.winWidth / 4.0,
                 bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
@@ -83,15 +123,26 @@
                 title: {text: '消息',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
             }, {
 
+//                w: api.winWidth / 4.0,
+//                bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
+//                iconRect: {w: 26.0,h: 26.0,},
+//                icon: {
+//                    normal: 'widget://image/img_yyt/work_.png',
+//                    highlight: 'widget://image/img_yyt/work_b.png',
+//                    selected: 'widget://image/img_yyt/work_b.png'
+//                },
+//                title: {text: '工作',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
+
+
                 w: api.winWidth / 4.0,
                 bg: {marginB: -5,image: 'rgba(0,0,0,0)'},
                 iconRect: {w: 26.0,h: 26.0,},
                 icon: {
-                    normal: 'widget://image/img_yyt/work_.png',
-                    highlight: 'widget://image/img_yyt/work_b.png',
-                    selected: 'widget://image/img_yyt/work_b.png'
+                    normal: 'widget://image/img_yyt/data_.png',
+                    highlight: 'widget://image/img_yyt/data_b.png',
+                    selected: 'widget://image/img_yyt/data_b.png'
                 },
-                title: {text: '工作',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
+                title: {text: '资料',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
             },{
 
                 w: api.winWidth / 4.0,
@@ -104,14 +155,14 @@
                 },
                 title: {text: '我的',size: 11.0,normal: '#9c9c9c',selected: '#1387ea',marginB: 9.0}
             },],
-            selectedIndex: 3
+            selectedIndex: 0
         }, function(ret, err) {
             if (ret){
                 select_idx=ret.index;
-                if(ret.eventType=='show' || ret.index==3){
+                if(ret.eventType=='show' || ret.index==0){
                     api.openFrame({
                         name: 'me',
-                        url: 'widget://html/me/me_.html',
+                        url: 'widget://html/work/work_in.html',
                         bounces: false,
                         reload:true,
                         rect: {x: 0,y: 0,w: 'auto',h: h1}
@@ -122,7 +173,7 @@
                         hidden:true
                     });
                 }
-                if(ret.index==0){
+                if(ret.index==2){
                     api.openFrame({
                         name: 'document_',
                         url: 'widget://html/document_/data_qty.html',
@@ -150,10 +201,10 @@
                         hidden:true
                     });
                 }
-                if(ret.index==2){
+                if(ret.index==3){
                     api.openFrame({
                         name: 'work',
-                        url: 'widget://html/work/work_in.html',
+                        url: 'widget://html/me/me_.html',
                         pageParam: {h1:h1},
                         rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
                     });
@@ -171,7 +222,7 @@
     function tap_up(){
         NVTabBar.bringToFront();
     }
-//    设置按钮选中状态
+    //    设置按钮选中状态
     function select_nav(idx){
         NVTabBar.setSelect({
             index: idx
@@ -184,70 +235,70 @@
             badge: ''
         });
     }
-        function back_shouye(n){
-            if(n==0){
-                api.setFrameAttr({
-                    name: 'index',
-                    hidden:false
-                });
-                api.setFrameAttr({
-                    name: 'document_',
-                    hidden:true
-                });
-                api.setFrameAttr({
-                    name: 'login',
-                    hidden:true
-                });
-                api.setFrameAttr({
-                    name: 'me',
-                    hidden:true
-                });
-                api.setFrameAttr({
-                    name: 'message',
-                    hidden:true
-                });
-                api.setFrameGroupAttr({
-                    name: 'gongzuo_group',
-                    hidden: true
-                });
-                api.setFrameGroupAttr({
-                    name: 'shujufenxi_group',
-                    hidden: true
-                });
-            }else if(n==1){
-                api.setFrameAttr({
-                    name: 'msg',
-                    hidden:false
-                });
-                api.setFrameAttr({
-                    name: 'index',
-                    hidden:true
-                });
-                api.setFrameAttr({
-                    name: 'shuju',
-                    hidden:true
-                });
-                api.setFrameAttr({
-                    name: 'tongxunlu',
-                    hidden:true
-                });
-                api.setFrameAttr({
-                    name: 'gongzuo',
-                    hidden:true
-                });
-                api.setFrameGroupAttr({
-                    name: 'gongzuo_group',
-                    hidden: true
-                });
-                api.setFrameGroupAttr({
-                    name: 'shujufenxi_group',
-                    hidden: true
-                });
-                api.setFrameGroupAttr({
-                    name: 'xiaoxi_group',
-                    hidden: false
-                });
-            }
+    function back_shouye(n){
+        if(n==0){
+            api.setFrameAttr({
+                name: 'index',
+                hidden:false
+            });
+            api.setFrameAttr({
+                name: 'document_',
+                hidden:true
+            });
+            api.setFrameAttr({
+                name: 'login',
+                hidden:true
+            });
+            api.setFrameAttr({
+                name: 'me',
+                hidden:true
+            });
+            api.setFrameAttr({
+                name: 'message',
+                hidden:true
+            });
+            api.setFrameGroupAttr({
+                name: 'gongzuo_group',
+                hidden: true
+            });
+            api.setFrameGroupAttr({
+                name: 'shujufenxi_group',
+                hidden: true
+            });
+        }else if(n==1){
+            api.setFrameAttr({
+                name: 'msg',
+                hidden:false
+            });
+            api.setFrameAttr({
+                name: 'index',
+                hidden:true
+            });
+            api.setFrameAttr({
+                name: 'shuju',
+                hidden:true
+            });
+            api.setFrameAttr({
+                name: 'tongxunlu',
+                hidden:true
+            });
+            api.setFrameAttr({
+                name: 'gongzuo',
+                hidden:true
+            });
+            api.setFrameGroupAttr({
+                name: 'gongzuo_group',
+                hidden: true
+            });
+            api.setFrameGroupAttr({
+                name: 'shujufenxi_group',
+                hidden: true
+            });
+            api.setFrameGroupAttr({
+                name: 'xiaoxi_group',
+                hidden: false
+            });
         }
+    }
 </script>
 </html>

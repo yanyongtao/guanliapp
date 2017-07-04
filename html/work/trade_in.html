@@ -140,7 +140,7 @@
 </div>
 <div class="search_">
     <input type="text" class="search_box" placeholder="搜素关键词">
-    <button id="" class="btn_box" type="submit">
+    <button id="" class="btn_box" type="submit" onclick="open_search()">
         <img src="" alt="">
     </button>
 </div>
@@ -203,11 +203,18 @@
             rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
         });
     }
-    function trade_in() {
-        api.toast({
-            msg: "录入成功",
-            duration: 3000,
-            location: 'bottom'
+    function open_search() {
+        con_s = $(".search_box").val();
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work',
+            method: 'post',
+            data: {
+                values: {keywords:con_s}
+            },
+            dataType: 'txt'
+        }, function (ret, err) {
+            $(".con_s_y").empty();
+            $(".con_s_y").append(ret);
         });
     }
 </script>

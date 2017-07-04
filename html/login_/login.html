@@ -101,6 +101,9 @@
     var store_id;
     apiready=function () {
         type=api.pageParam.type;
+        api.closeFrame({
+            name: 'dyz_swj'
+        });
     }
     function open_sign() {
         api.openFrame({
@@ -165,8 +168,8 @@
             },
             dataType:'json'
         },function(ret,err){
-//            alert(JSON.stringify(ret))
             if(ret.code == 200){
+//                alert(ret.uid)
 //                name = ret.name;
                 api.setPrefs({
                     key: 'name',
@@ -201,7 +204,7 @@
                     key: 'roleid',
                     value: ret.roleid
                 });
-                open_main()
+                open_main();
             }else if(ret.code == 500){
 //                alert(ret.msg)
                 api.toast({
@@ -213,11 +216,13 @@
         });
     }
     function open_main() {
+        api.closeFrame({
+            name: 'login'
+        });
         api.openWin({
             name:'main',
             url:'widget://html/main.html',
             bounces: false,
-            pageParam:{name:name,mobile:mobile},
             rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
         })
     }

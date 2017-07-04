@@ -72,6 +72,7 @@
         .productBigBox_qty{
         	width: 100%;
         	float: left;
+            margin-top: 0.2rem;
         }
         .prductBigSmallBox_qty{
         	width: 6rem;
@@ -79,34 +80,35 @@
         	margin-left: 0.2rem;
         }
         .prductBigSmallBox_qty li{
-        	width: 1.92rem;
-        	height: 1.84rem;
+        	width: 2.9rem;
+        	height: 2.7rem;
         	float: left;
         	background: #fff;
-        	margin-right: 0.12rem;
+        	margin-left: 0.2rem;
         	margin-bottom: 0.18rem;
         }
         .productSmall_qty{
-        	margin-right: 0rem !important;
-        }
-        .product{
-        	margin-bottom: 0rem !important;
+        	margin-left: 0rem !important;
         }
         .colorcolor_qty{
-        	width: 1.92rem;
-        	height: 1.44rem;
+        	width: 2.9rem;
+        	height: 2.19rem;
         	float: left;
-        	background: #999999;
+        }
+        .colorcolor_qty img{
+            width: 2.9rem;
+            height: 2.19rem;
+            float: left;
         }
         .colorFont_qty{
-        	width: 1.92rem;
-        	height: 0.4rem;
+        	width: 2.9rem;
+        	height: 0.51rem;
         	float: left;
-        	background: #fff;
-        	color: #999999;
+        	background: #2493f7;
+        	color: #fff;
         	font-size: 0.24rem;
         	text-align: center;
-        	line-height: 0.4rem;
+        	line-height: 0.51rem;
         }
     </style>
 </head>
@@ -118,68 +120,32 @@
     	</div>
     	<div class="productSmallBox_qty">培训视频</div>
     </div>
-    <div class="productFont_qty">
-    	<div class="color_qty"></div>
-    	炙骨宁
-    </div>
     <div class="productBigBox_qty">
     	<ul class="prductBigSmallBox_qty">
-    		<li>
-    			<div class="colorcolor_qty"></div>
+    		<li class="productSmall_qty" onclick="open_ynt()">
+    			<div class="colorcolor_qty">
+                    <img src="../../image/img_qty/yiniantang_03.png" alt="">             
+                </div>
+    			<div class="colorFont_qty">仪年堂</div>
+    		</li>
+    		<li onclick="open_zgn()">
+    			<div class="colorcolor_qty">
+                    <img src="../../image/img_qty/duyizhang_05.png" alt="">         
+                </div>
     			<div class="colorFont_qty">炙骨宁</div>
     		</li>
-    		<li>
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">炙骨宁</div>
-    		</li>
-    		<li class="productSmall_qty">
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">炙骨宁</div>
-    		</li>
-    		<li class="product">
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">炙骨宁</div>
-    		</li>
-    		<li class="product">
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">炙骨宁</div>
-    		</li>
-    		<li class="productSmall_qty product">
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">炙骨宁</div>
-    		</li>
-    	</ul>
-    </div>
-    <div class="productFont_qty">
-    	<div class="color_qty"></div>
-    	温泉
-    </div>
-    <div class="productBigBox_qty">
-    	<ul class="prductBigSmallBox_qty">
-    		<li>
-    			<div class="colorcolor_qty"></div>
+    		<li class="productSmall_qty" onclick="open_wq()">
+    			<div class="colorcolor_qty">
+                    <img src="../../image/img_qty/wenquan_09.png" alt="">          
+                </div>
     			<div class="colorFont_qty">温泉</div>
     		</li>
-    		<li>
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">温泉</div>
+    		<li class="product" onclick="open_lgy()">
+    			<div class="colorcolor_qty">
+                    <img src="../../image/img_qty/gaoyao_10.png" alt="">          
+                </div>
+    			<div class="colorFont_qty">老膏药</div>
     		</li>
-    		<li class="productSmall_qty">
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">温泉</div>
-    		</li>
-    		<!-- <li class="product">
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">温泉</div>
-    		</li>
-    		<li class="product">
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">温泉</div>
-    		</li>
-    		<li class="productSmall_qty product">
-    			<div class="colorcolor_qty"></div>
-    			<div class="colorFont_qty">温泉</div>
-    		</li> -->
     	</ul>
     </div>
 </body>
@@ -188,5 +154,41 @@
     apiready = function(){
         
     };
+    function open_ynt() {
+        api.openWin({
+            name: 'productDetailYear_qty',
+            url: 'widget://html/document_/productDetailYear_qty.html',
+            bounces: false,
+            reload:true,
+            rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+        });
+    }
+    function open_zgn() {
+        api.openWin({
+            name: 'productDetailBone_qty',
+            url: 'widget://html/document_/productDetailBone_qty.html',
+            bounces: false,
+            reload:true,
+            rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+        });
+    }
+    function open_wq() {
+        api.openWin({
+            name: 'productDetailHot_qty',
+            url: 'widget://html/document_/productDetailHot_qty.html',
+            bounces: false,
+            reload:true,
+            rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+        });
+    }
+    function open_lgy() {
+        api.openWin({
+            name: 'productDetail_qty',
+            url: 'widget://html/document_/productDetail_qty.html',
+            bounces: false,
+            reload:true,
+            rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+        });
+    }
 </script>
 </html>

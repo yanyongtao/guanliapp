@@ -488,12 +488,17 @@
             dataType:'json'
         },function(ret,err){
             if(ret.code == 200){
-                api.execScript({
-                    name:'trade_in',
-                    frameName: 'work',
-                    script: 'trade_in()'
+                api.toast({
+                    msg: ret.msg,
+                    duration: 4000,
+                    location: 'bottom'
                 });
-                api.closeWin();
+                $(".mrName input").val("");
+                $(".mrAge input").val("");
+                $(".mrPhone input").val("");
+                $(".mrAddress input").val("");
+                $(".nan_yyt").removeAttr('checked');
+                $(".nv_www").removeAttr('checked');
             }else if(ret.code == 500){
                 api.toast({
                     msg: ret.msg,

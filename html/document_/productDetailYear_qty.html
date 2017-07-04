@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+            position: relative;
+        }
+        .header_qty{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.34rem;
+            color: #fff;
+            line-height: 0.88rem;
+            float: left;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 111;
+        }
+        .arrow_qty{
+            width: 1.2rem;
+            height: 0.88rem;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 99999;
+        }
+        .arrowLeft_qty{
+        	width: 0.15rem;
+        	height: 0.28rem;
+        	float: left;
+        	background-image: url(../../image/img_qty/arrowLeft_06.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        .productBox_qty{
+        	width: 100%;
+        	height: 4rem;
+        	float: left;
+        	position: relative;
+            margin-top: 0.88rem;
+        }
+        .productBox_qty img{
+        	width: 100%;
+        	height: 4rem;
+        	float: left;
+        }   
+        .produceOpicity_qty{
+        	width: 100%;
+        	height: 0.5rem;
+        	position: absolute;
+        	background: #000;
+        	opacity: 0.38;
+        	bottom: 0;
+        	left: 0;
+        }
+        .produceOp_qty{
+        	width: 6rem;
+        	height: 0.5rem;
+        	float: left;
+        	margin-left: 0.2rem;
+        	background: transparent;
+        }
+        .produceF_qty{
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #fff;
+        	line-height: 0.5rem;
+            letter-spacing: 0.03rem;
+        }
+        .produceEnglish_qty{
+        	float: right;
+        	font-size: 0.24rem;
+        	color: #fff;
+        	line-height: 0.5rem;
+        	letter-spacing: 0.03rem;
+        }
+        .productIndroduce_qty{
+        	width: 100%;
+        	height: 0.4rem;
+        	float: left;
+        	margin-top: 0.2rem;
+        }
+        .produceColor_qty{
+        	width: 0.1rem;
+        	height: 0.4rem;
+        	float: left;
+        	background: #2493f7;
+        }
+        .produceFont_qty{
+        	font-size: 0.24rem;
+        	float: left;
+        	color: #2493f7;
+        	line-height: 0.4rem;
+        	margin-left: 0.2rem;
+        }
+        .produceColor_qty_qty{
+        	width: 0.1rem;
+        	height: 0.4rem;
+        	float: right;
+        	background: #2493f7;
+        }
+        .produceBigBox_qty{
+        	width: 100%;
+        	float: left;
+        	margin-top: 0.15rem;
+        }
+        .produceSmallBox_qty{
+        	width: 6rem;
+        	float: left;
+        	margin-left: 0.2rem;
+        }
+        .produceSmallBox_qty h4{
+        	width: 6rem;
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #333333;
+            letter-spacing: 0.02rem;
+            line-height: 2;
+        }
+        .produceSmallBox_qty p{
+        	width: 6rem;
+        	float: left;
+        	font-size: 0.24rem;
+        	color: #999999;
+        	text-indent: 0.5rem;
+        	margin-top: 0.1rem;
+            letter-spacing: 0.02rem;
+            line-height: 1.8;
+        }
+        .produceSmallBox_qty span{
+            width: 6rem;
+            float: left;
+            font-size: 0.24rem;
+            color: #999999;
+            text-indent: 0.5rem;
+            margin-top: 0.3rem;
+            letter-spacing: 0.02rem;
+            line-height: 1.8;
+        }
+        .padding{
+            padding-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_qty">产品详情</div>
+    <div class="arrow_qty" onclick="api.closeWin()">
+        <div class="arrowLeft_qty"></div>
+    </div> 
+    <div class="productBox_qty">
+    	<img src="../../image/img_qty/yiniantangbig_02.png" alt="">
+    	<div class="produceOpicity_qty">
+    		<div class="produceOp_qty">
+    			<div class="produceF_qty">独一张【仪年堂】</div>
+    			<div class="produceEnglish_qty">INSTRUMENT IN HALL</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="productIndroduce_qty">
+    	<div class="produceColor_qty"></div>
+    	<div class="produceFont_qty">产品介绍</div>
+    	<div class="produceColor_qty_qty"></div>
+    </div>
+    <div class="produceBigBox_qty">
+    	<div class="produceSmallBox_qty">
+    		<h4>气血助跑器-仪年堂气血能量养生仪</h4>
+    		<p>
+    			美国著名声音治疗师詹姆斯.丹吉洛突破性的发现，安徽省科学技术研究所于1997年立项，组织中国科技大学、安徽中医学院、安徽省立医院、安徽医科大学、安徽医科大学附属医院等单位专家、教授、学者展开历经10余年的研究工作，研究中发现语言中元音以及辅音的音频可以在一定程度上刺激身体的神经节点打开从而达到人体气血可以顺利接受声音能量。
+    		</p>
+    		<p>
+    			科研专家利用元音和辅音相配合产生的复合音频，反复采用各种尖端技术融入，终于成功研发出人体气血助跑器-仪年堂气血能量养生仪，开启了从肌体运动到血液运动的新健康时代!
+    		</p>   
+    		<p>
+    			仪年堂气血能量养生仪对人体气血强大的推动作用，30秒就可使全身血流速度快速提升，30分钟推动人体的血液循环速度相当于人跑步5公里后的血液运行总量。仪年堂气血能量养生仪经数家三甲医院千余例患者临床数据的统计，证实了《黄帝内经》气血旺百病不生，气血通百病全消的伟大理论，打破了中医药只能局部活血，不能让全身气血畅通运行的弊端，突破了火、光、电、磁、热产品局部活血，暂时缓解。长期无效的不足、仪年堂气血能量养生仪用强大的效果来证实气血主百病的神奇之：气血顺畅、百病不生、气血畅通、百病向愈。仪年堂气血能量养生仪为气血助跑，实现完美的健康。
+    		</p>   
+    	</div>
+    </div>
+    <div class="produceBigBox_qty">
+    	<div class="produceSmallBox_qty">
+    		<h4>仪年堂五大突破实现全民血运动</h4>
+    		<p>
+    			突破一、独：独家研发复合音频导入推动气血运行；
+    		</p>
+    		<p>
+    			突破二、快：30秒快速提升血流速度；
+    		</p>   
+            <p>
+                突破三、全：实现对全身细胞整体滋养修复；
+            </p>
+            <p>
+                突破四、大：实现推送人体10万公里的血液大循环；
+            </p>
+            <p>
+                突破五、通：打通瘀滞，让血液畅行。
+            </p>
+            <span class="padding">
+                仪年堂气血能量养生仪已突破传统药物治疗以及光、热、电、火、磁等产品调治的局部性，单一性，请勿混淆和对比。
+            </span>
+    	</div>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        
+    };
+</script>
+</html>

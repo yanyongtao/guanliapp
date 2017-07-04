@@ -128,27 +128,40 @@
 </div>
 </body>
 <script>
-    apiready=function () {
-
-
-    }
+//    var uid;
+//    apiready=function () {
+//        uid = api.getPrefs({sync: true, key: 'uid'});
+//        alert(uid)
+//    }
     function open_login_dyz() {
+//        api.closeWin()
+        api.closeFrame({
+            name: 'set_qty'
+        });
         api.openFrame({
             name: 'login',
             url: 'widget://html/login_/login.html',
             bounces: false,
             pageParam:{type:0},
-            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+            rect: {x: 0,y: 0,w: 'auto',h: 'auto'},
         });
     }
     function open_login_swj() {
-        api.openFrame({
-            name: 'login',
-            url: 'widget://html/login_/login.html',
-            bounces: false,
-            pageParam:{type:1},
-            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+//        api.closeWin()
+//        api.openFrame({
+//            name: 'login',
+//            url: 'widget://html/login_/login.html',
+//            bounces: false,
+//            pageParam:{type:1},
+//            rect: {x: 0,y: 0,w: 'auto',h: 'auto'},
+//            type: "none"
+//        });
+        api.toast({
+            msg: "正在开发中",
+            duration: 4000,
+            location: 'bottom'
         });
+
     }
 </script>
 </html>

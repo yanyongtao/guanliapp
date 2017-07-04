@@ -183,13 +183,13 @@
 </ul>
 </body>
 <script>
-    var store_id=163;
+    var store_id;
     apiready=function () {
 //        需要在个人信息页面返回门店ID，并设置为偏好值
         store_id=api.getPrefs({sync:true,key:'store_id'});
     }
     function open_trade_in() {
-        if (store_id) {
+        if (parseInt(store_id)) {
             api.openWin({
                 name: 'trade_in',
                 url: 'widget://html/work/trade_in.html',
@@ -213,31 +213,30 @@
         }
     }
     function open_feed() {
-        if (store_id) {
+//        if (store_id) {
             api.openWin({
                 name: 'feed_qty',
                 url: 'widget://html/work/feed_qty.html',
                 bounces: false,
                 rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
             });
-        } else {
-            api.toast({
-                msg: '请选择您所属门店',
-                duration: 4000,
-                location: 'bottom'
-            });
-            api.openWin({
-                name: 'personInfo_qty',
-                url: 'widget://html/me/personInfo_qty.html',
-                bounces: false,
-                pageParam: {type: 1},
-                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
-            });
-        }
+//        } else {
+//            api.toast({
+//                msg: '请选择您所属门店',
+//                duration: 4000,
+//                location: 'bottom'
+//            });
+//            api.openWin({
+//                name: 'personInfo_qty',
+//                url: 'widget://html/me/personInfo_qty.html',
+//                bounces: false,
+//                pageParam: {type: 1},
+//                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+//            });
+//        }
     }
     function open_saleRecord() {
-
-        if (store_id) {
+        if (parseInt(store_id)) {
             api.openWin({
                 name: 'saleRecord',
                 url: 'widget://html/work/saleRecord.html',
@@ -260,7 +259,7 @@
         }
     }
     function open_shopM() {
-        if (store_id) {
+        if (parseInt(store_id)) {
             api.openWin({
                 name: 'shopMangment_qty',
                 url: 'widget://html/work/shopMangment_qty.html',
@@ -283,7 +282,7 @@
         }
     }
     function open_check() {
-        if (store_id) {
+        if (parseInt(store_id)) {
             api.openWin({
                 name: 'check_qty',
                 url: 'widget://html/work/check_qty.html',
@@ -305,28 +304,14 @@
             });
         }
     }
+
     function open_shenhe() {
-        if (store_id) {
-            api.openWin({
-                name: 'myaudit',
-                url: 'widget://html/work/myaudit.html',
-                bounces: false,
-                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
-            });
-        } else {
-            api.toast({
-                msg: '请选择您所属门店',
-                duration: 4000,
-                location: 'bottom'
-            });
-            api.openWin({
-                name: 'personInfo_qty',
-                url: 'widget://html/me/personInfo_qty.html',
-                bounces: false,
-                pageParam: {type: 1},
-                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
-            });
-        }
+        api.openWin({
+            name: 'auditEnter',
+            url: 'widget://html/work/auditEnter.html',
+            bounces: false,
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
     }
 </script>
 </html>
