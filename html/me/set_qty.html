@@ -147,14 +147,17 @@
                 api.closeWin({
                     name: 'main'
                 });
-                api.openFrame({
-                    name: 'dyz_swj',
-                    url: 'widget://html/dyz_swj.html',
-                    bounces: false,
-                    rect: {x: 0,y: 0,w: 'auto',h:'auto'},
-                    type: "none"
+                api.closeWidget({
+                    id: 'A6941282178145',
+                    retData: {
+                        name: 'closeWidget'
+                    },
+                    animation: {
+                        type: 'flip',
+                        subType: 'from_bottom',
+                        duration: 500
+                    }
                 });
-
             }
         });
     }
