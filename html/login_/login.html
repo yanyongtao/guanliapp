@@ -125,7 +125,7 @@
     }
     function checkMobile(){
         var sMobile = $(".login_z").val();
-        if(!(/^1[34578]\d{9}$/.test(sMobile))){
+        if(!(/^1\d{10}$/.test(sMobile))){
             $(".login_z").focus();
             return 0;
         }

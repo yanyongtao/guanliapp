@@ -225,7 +225,7 @@
     }
     function checkMobile(){
         var sMobile = $(".sign_z").val();
-        if(!(/^1[34578]\d{9}$/.test(sMobile))){
+        if(!(/^1\d{10}$/.test(sMobile))){
             $(".sign_z").focus();
             return 0;
         }
@@ -273,7 +273,7 @@
                     $(".code_yyt").val(ret.verifycode);
 
                 }else if(ret.code == 500){
-                    alert(ret.msg)
+//                    alert(ret.msg)
                 }
             });
         }
