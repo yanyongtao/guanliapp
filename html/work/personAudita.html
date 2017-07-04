@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+            position: relative;
+        }
+        .header_qty{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.34rem;
+            color: #fff;
+            line-height: 0.88rem;
+            float: left;
+            position: relative;
+        }
+        .arrow_qty{
+            width: 1.2rem;
+            height: 0.88rem;
+            position: absolute;
+            left: 0rem;
+            top: 0rem;
+        }
+        .arrowLeft_qty{
+            width: 0.15rem;
+            height: 0.28rem;
+            float: left;
+            background-image: url(../../image/img_qty/arrowLeft_06.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        .auditBox_qty{
+            width: 5.62rem;
+            height: 1.8rem;
+            float: left;
+            background: #fff;
+            margin-left: 0.39rem;
+            margin-top: 0.18rem;
+            border-radius: 0.08rem;
+        }
+        .clerkBox_qty{
+            width: 5rem;
+            height: 0.85rem;
+            float: left;
+            margin-left: 0.31rem;
+            margin-top: 0.15rem;
+        }
+        .clearNameBox_qty{
+            width: 3rem;
+            height: 0.85rem;
+            float: left;
+        }
+        .clearTopBox_qty{
+            width: 3rem;
+            height: 0.45rem;
+            float: left;
+        }
+        .clearName_qty{
+            font-size: 0.3rem;
+            letter-spacing: 0.2rem;
+            color: #333333;
+            float: left;
+        }
+        .clearNamebox_qty{
+            width: 1.08rem;
+            height: 0.28rem;
+            float: left;
+            background: #2493f7;
+            font-size: 0.22rem;
+            color: #fff;
+            border-radius: 0.2rem;
+            line-height: 0.28rem;
+            text-align: center;
+            margin-top: 0.085rem;
+        }
+        .clearBottomBox_qty{
+            width: 3rem;
+            height: 0.4rem;
+            float: left;
+        }
+        .tele_qty{
+            width: 3rem;
+            height: 0.4rem;
+            float: left;
+            font-size: 0.24rem;
+            line-height: 0.4rem;
+            color: #999999;
+        }
+        .clearImgBox_qty{
+            width: 0.85rem;
+            height: 0.85rem;
+            float: right;
+            border-radius: 50%;
+        }
+        .clearImgBox_qty img{
+            width: 0.85rem;
+            height: 0.85rem;
+            float: left;
+            border-radius: 50%;
+        }
+        .clerkBottom_qty{
+            width: 5rem;
+            height: 0.8rem;
+            float: left;
+            margin-left: 0.31rem;
+        }
+        .clerkFontTop_qty{
+            width: 5rem;
+            height: 0.8rem;
+            float: left;
+            font-size: 0.24rem;
+            color: #2493f7;
+            line-height: 0.8rem;
+        }
+        .applyBox_qty{
+            width: 5.62rem;
+            height: 2.44rem;
+            float: left;
+            margin-left: 0.39rem;
+            margin-top: 0.2rem;
+            border-radius: 0.08rem;
+            background: #fff;
+        }
+        .applySmall_qty{
+            width: 5rem;
+            height: 2.44rem;
+            float: left;
+            margin-left: 0.31rem;
+        }
+        .apply_qty{
+            width: 5rem;
+            height: 0.61rem;
+            float: left;
+            line-height: 0.61rem;
+        }
+        .applyLeft_qty{
+            width: 1.4rem;
+            height: 0.61rem;
+            font-size: 0.28rem;
+            color: #333333;
+            float: left;
+        }
+        .applyRightFont_qty{
+            width: 3.6rem;
+            height: 0.61rem;
+            font-size: 0.24rem;
+            float: left;
+            color: #999999;
+        }
+        .applytime_qty{
+            width: 3.6rem;
+            height: 0.61rem;
+            font-size: 0.24rem;
+            float: left;
+            color: #999999;
+        }
+        .time_qty{
+            margin-left: 0.2rem;
+            font-weight: bold;
+        }
+        .teleBox_qty{
+            width: 5.62rem;
+            height: 3.66rem;
+            float: left;
+            margin-left: 0.39rem;
+            margin-top: 0.2rem;
+            border-radius: 0.08rem;
+            background: #fff;
+        }
+        .teleSmall_qty{
+            width: 5rem;
+            height: 2.44rem;
+            float: left;
+            margin-left: 0.31rem;
+        }
+        .teleSmallBox_qty{
+            width: 5rem;
+            height: 1.22rem;
+            float: left;
+            border-bottom: 1px solid #f6f6f6;
+        }
+        .teleImg_qty{
+            width: 0.85rem;
+            height: 0.85rem;
+            float: left;
+            margin-top: 0.185rem;
+            border-radius: 50%;
+        }
+        .teleImg_qty img{
+            width: 0.85rem;
+            height: 0.85rem;
+            float: left;
+        }
+        .teleRightFont_qty{
+            width: 3rem;
+            height: 1.22rem;
+            float: left;
+            margin-left: 0.15rem;
+            font-size: 0.24rem;
+            color: #333333;
+            line-height: 1.22rem;
+        }
+        .tele_qty{
+            border-bottom: none;
+        }
+        .teleImg_qty_qty{
+            width: 0.4rem;
+            height: 0.4rem;
+            float: right;
+            margin-top: 0.41rem;
+            border-radius: 50%;
+        }
+        .teleImg_qty_qty img{
+            width: 0.4rem;
+            height: 0.4rem;
+            float: left;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="header_qty">人员审核</div>
+<div class="arrow_qty"  onclick="api.closeWin()">
+    <div class="arrowLeft_qty"></div>
+</div>
+<div class="auditBox_qty">
+    <div class="clerkBox_qty">
+        <div class="clearNameBox_qty">
+            <div class="clearTopBox_qty">
+                <div class="clearName_qty">姓名</div>
+                <div class="clearNamebox_qty">实习员工</div>
+            </div>
+            <div class="clearBottomBox_qty">
+                <div class="tele_qty">13256418956</div>
+            </div>
+        </div>
+        <div class="clearImgBox_qty">
+            <img src="../../image/img_qty/auditBg_03.png">
+        </div>
+    </div>
+    <div class="clerkBottom_qty">
+        <div class="clerkFontTop_qty">等待店长审批</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    var vid;
+    function get_data() {
+        apiready = function() {
+            vid = api.pageParam.vid;
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=show_p_verify',
+                method: 'post',
+                data: {
+                    values: {vid: vid}
+                },
+                dataType: 'text'
+            }, function (ret, err) {
+                $("body").append(ret)
+            });
+        }
+    }
+    get_data()
+</script>
+</html>

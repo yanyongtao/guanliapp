@@ -250,11 +250,12 @@
         });
     }
     function open_set() {
-        api.openFrame({
+        api.openWin({
             name: 'set_qty',
             url: 'widget://html/me/set_qty.html',
             bounces: false,
             reload:true,
+            type:"none",
             rect: {x: 0,y: 0,w: 'auto',h: "auto"}
         });
     }

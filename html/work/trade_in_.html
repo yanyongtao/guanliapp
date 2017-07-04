@@ -374,6 +374,7 @@
                 if(ret.code == 200){
                     goodsMsg=ret;
                     $(".goods_namea").html(goodsMsg.goodinfo.name);
+                    $(".goods_img").attr("src","http://app.duyiwang.cn"+goodsMsg.goodinfo.good_img+"")
                     $(".goods_price").html(goodsMsg.goodinfo.money+"元/套");
                     $(".goods_introduce").html(goodsMsg.goodinfo.description);
                     $(".goods_cucun").html(goodsMsg.goodinfo.kucun);

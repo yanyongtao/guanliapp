@@ -22,7 +22,9 @@
 			color: #fff;
 			line-height: 0.88rem;
 			float: left;
-			position: relative;
+			position: fixed;
+			left: 0rem;
+			top:0rem;
 		}
 		.auditBox_qty{
 			width: 5.62rem;
@@ -30,7 +32,8 @@
 			float: left;
 			background: #fff;
 			margin-left: 0.39rem;
-			margin-top: 0.18rem;
+			margin-top: 1.06rem;
+			margin-bottom: 0.2rem;
 			border-radius: 0.08rem;
 		}
 		.clerkBox_qty{
@@ -116,7 +119,9 @@
 		}
 		.applyBox_qty{
 			width: 6rem;
-			height: 2.38rem;
+			height: 2.78rem;
+			/*height: auto;*/
+			/*overflow: hidden;*/
 			float: left;
 			margin-top: 0.18rem;
 			background: #fff;
@@ -171,6 +176,7 @@
 			width: 5.6rem;
 			height: 0.8rem;
 			float: left;
+			margin-top: 0.4rem;
 		}
 		.data_qty{
 			font-size: 0.24rem;
@@ -216,8 +222,9 @@
 			height: 0.8rem;
 			float: left;
 			margin-left: -0.2rem;
-			margin-top: 0.1rem;
+			margin-top: -0.3rem;
 			display: none;
+			margin-top: 0rem;
 		}
 		.agree_qty,.cancel_qty{
 			width: 3rem;
@@ -312,7 +319,7 @@
 		.arrow_qty{
 			width: 1.2rem;
 			height: 0.88rem;
-			position: absolute;
+			position: fixed;
 			left: 0rem;
 			top: 0rem;
 		}
@@ -327,91 +334,370 @@
 			margin-left: 0.2rem;
 		}
 	</style>
+	<style>
+		.shBox_yyt{
+			width: 6rem;
+			height: auto;
+			overflow: hidden;
+			background: #fff;
+			margin: 0 auto;
+			border-radius: 0.05rem;
+			margin-bottom: 0.2rem;
+		}
+		.person_sq_yyt{
+			width: 3rem;
+			height: auto;
+			overflow: hidden;
+			font-size: 0.24rem;
+			line-height: 0.5rem;
+			margin-left: 0.2rem;
+			float: left;
+			margin-top: 0.3rem;
+		}
+		.person_sq_name{
+			float: left;
+			width: 1.1rem;
+			text-align: left;
+			height: 100%;
+			color: #333;
+		}
+		.person_sq_con{
+			width: auto;
+			height: 100%;
+			float: left;
+			text-align: left;
+			color: #999;
+		}
+		.shWatch_yyt{
+			width: 0.8rem;
+			height: 0.5rem;
+			font-size: 0.26rem;
+			line-height: 0.5rem;
+			text-align: center;
+			color: #1b8bef;
+			float: right;
+			margin-top: 0.05rem;
+		}
+		.shXiang_yyt{
+			width: 5.6rem;
+			height: 1.3rem;
+			float: left;
+			margin-left: 0.2rem;
+		}
+		.shXiang_yyt_name{
+			width: 1.1rem;
+			height: auto;
+			font-size: 0.24rem;
+			line-height: 0.5rem;
+			color: #333;
+			text-align: left;
+			float: left;
+		}
+		.shXiang_con_yyt{
+			width: 4.45rem;
+			height: 1.3rem;
+			float: left;
+			color: #999;
+			font-size: 0.24rem;
+			line-height: 0.4rem;
+			float: left;
+		}
+		.shTime_yyt{
+			width: auto;
+			height: auto;
+			font-size: 0.18rem;
+			line-height: 0.52rem;
+			float: left;
+			text-align: left;
+			color: #999;
+			margin-left: 0.2rem;
+		}
+		.wait_sh_yyt{
+			width: 1rem;
+			height: 0.5rem;
+			float: right;
+			border: 0.02rem solid #eee;
+			box-sizing: border-box;
+			text-align: center;
+			line-height: 0.5rem;
+			font-size: 0.24rem;
+			color: #1b8bef;
+			margin-right: 0.2rem;
+			border-radius: 0.04rem;
+			margin-bottom: 0.1rem;
+		}
+		.alert_yyt{
+			width: 100%;
+			height: 0.85rem;
+			float: left;
+			display: none;
+		}
+		.agree_a_yyt{
+			width: 50%;
+			height: 100%;
+			float: left;
+			background: #1b8bef;
+			text-align: center;
+			font-size: 0.3rem;
+			line-height: 0.85rem;
+			color: #fff;
+		}
+		.refuse_a_yyt{
+			width: 50%;
+			height: 100%;
+			float: left;
+			background: #ccc;
+			text-align: center;
+			font-size: 0.3rem;
+			line-height: 0.85rem;
+			color: #fff;
+		}
+		.me_card{
+			width: 5.6rem;
+			height: 1.8rem;
+			margin: 0 auto;
+			margin-top: 0.2rem;
+			margin-bottom: 0.2rem;
+			background: #fff;
+			border-radius: 0.07rem;
+			overflow: hidden;
+			padding: 0.2rem;
+			box-sizing: border-box;
+			margin-top: 1.1rem;
+		}
+		.card_name{
+			width: 3rem;
+			height: 0.9rem;
+			float: left;
+		}
+		.me_name_{
+			width: auto;
+			height: auto;
+			float: left;
+			padding-right:0.1rem;
+			text-align: center;
+			font-size: 0.28rem;
+			line-height: 0.42rem;
+			text-align: left;
+		}
+		.me_job_{
+			width: auto;
+			height: auto;
+			float: left;
+			padding: 0.03rem 0.1rem;
+			color: #fff;
+			text-align: center;
+			font-size: 0.22rem;
+			line-height: 0.28rem;
+			background: #2493f7;
+			border-radius: 0.15rem;
+			margin-top: 0.035rem;
+		}
+		.me_phone{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			font-size: 0.18rem;
+			line-height: 0.32rem;
+			color: #333;
+		}
+		.me_photo{
+			width: 0.85rem;
+			height: 0.85rem;
+			border-radius: 50%;
+			overflow: hidden;
+			float: right;
+		}
+		.me_photo img{
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		.belong_to{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+		}
+		.company_n{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			font-size: 0.24rem;
+			text-align: left;
+			color: #999;
+		}
+		.company_e{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			font-size: 0.12rem;
+			line-height: 0.18rem;
+			text-align: left;
+			color: #999;
+		}
+		.get_data_yyt{
+			margin-top: 1.1rem;
+		}
+	</style>
 </head>
 <body>
 <div class="header_qty">人员审核</div>
 <div class="arrow_qty" onclick="api.closeWin()">
 	<div class="arrowLeft_qty"></div>
 </div>
-<div class="auditBox_qty">
-	<div class="clerkBox_qty">
-		<div class="clearNameBox_qty">
-			<div class="clearTopBox_qty">
-				<div class="clearName_qty">姓名</div>
-				<div class="clearNamebox_qty">店长</div>
-			</div>
-			<div class="clearBottomBox_qty">
-				<div class="tele_qty">13256418956</div>
-			</div>
-		</div>
-		<div class="clearImgBox_qty">
-			<img src="../../image/img_qty/auditBg_03.png">
-		</div>
-	</div>
-	<div class="clerkBottom_qty">
-		<div class="clerkFontTop_qty">山西太常生物科技有限公司</div>
-		<div class="clerkB_qty">Shan Xi Tai Chang Biological Technology</div>
-	</div>
-</div>
+<!--<div class="me_card">-->
+	<!--<div class="card_name">-->
+		<!--<div class="me_name_">载入中...</div>-->
+		<!--<div class="me_job_">店员</div>-->
+		<!--<div class="me_phone">载入中...</div>-->
+	<!--</div>-->
+	<!--<div class="me_photo">-->
+		<!--<img src="../../image/img_yyt/me_photo.jpg" alt="">-->
+	<!--</div>-->
+	<!--<div class="belong_to">-->
+		<!--<div class="company_n">山西太常生物科技有限公司</div>-->
+		<!--<div class="company_e">Shan Xi Tai Chang Biological Technology Co.,Ltd.</div>-->
+	<!--</div>-->
+<!--</div>-->
+<!--<div class="auditBox_qty">-->
+	<!--<div class="clerkBox_qty">-->
+		<!--<div class="clearNameBox_qty">-->
+			<!--<div class="clearTopBox_qty">-->
+				<!--<div class="clearName_qty">姓名</div>-->
+				<!--<div class="clearNamebox_qty">店长</div>-->
+			<!--</div>-->
+			<!--<div class="clearBottomBox_qty">-->
+				<!--<div class="tele_qty">13256418956</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="clearImgBox_qty">-->
+			<!--<img src="../../image/img_qty/auditBg_03.png">-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="clerkBottom_qty">-->
+		<!--<div class="clerkFontTop_qty">山西太常生物科技有限公司</div>-->
+		<!--<div class="clerkB_qty">Shan Xi Tai Chang Biological Technology</div>-->
+	<!--</div>-->
+<!--</div>-->
 <div class="get_data_yyt"></div>
-<!--<div class="applyBox_qty">-->
-	<!--<div class="applySmallBox_qty">-->
-		<!--<div class="seeBox_qty">-->
-			<!--<div class="see_qty" onclick="open_personAudit()">查看</div>-->
-		<!--</div>-->
-		<!--<div class="apply_qty">-->
-			<!--<div class="applyLeftFont_qty apply">申请人</div>-->
-			<!--<div class="applyName_qty">高彦</div>-->
-		<!--</div>-->
-		<!--<div class="apply_qty">-->
-			<!--<div class="applyLeftFont_qty">申请事项</div>-->
-			<!--<div class="applyName_qty">高彦申请成太常独一张旗舰店店员/专员</div>-->
-		<!--</div>-->
-		<!--<div class="dateBox_qty">-->
-			<!--<div class="data_qty">2017.06.04</div>-->
-			<!--<div class="time_qty">15:45:12</div>-->
-			<!--<div class="pendApproved_qty" onclick="shenpi_yyt()">待审批</div>-->
-		<!--</div>-->
+
+<!--&lt;!&ndash;人员审核 2017.07.04&ndash;&gt;-->
+<!--<div class="shBox_yyt">-->
+	<!--<div class="person_sq_yyt">-->
+		<!--<div class="person_sq_name">申请人</div>-->
+		<!--<div class="person_sq_con">闫永涛</div>-->
+	<!--</div>-->
+	<!--<div class="shWatch_yyt">查看</div>-->
+	<!--<div class="shXiang_yyt">-->
+		<!--<div class="shXiang_yyt_name">录入详情</div>-->
+		<!--<div class="shXiang_con_yyt">张建设与2017年06月01日录入产品1，产品数量为2件，共计140元，请您及时查收并审批</div>-->
+	<!--</div>-->
+	<!--<div class="shTime_yyt">2017.01.02</div>-->
+	<!--<div class="wait_sh_yyt">待审批</div>-->
+	<!--<div class="alert_yyt">-->
+		<!--<div class="agree_a_yyt">同意</div>-->
+		<!--<div class="refuse_a_yyt">拒绝</div>-->
 	<!--</div>-->
 <!--</div>-->
-<!--<div class="agreeBox_qty">-->
-	<!--<div class="agree_qty ClickMe_qty">同意</div>-->
-	<!--<div class="cancel_qty ClickMe_qty">拒绝</div>-->
-<!--</div>-->
-<!--<div class="applyBox_qty">-->
-	<!--<div class="applySmallBox_qty">-->
-		<!--<div class="seeBox_qty">-->
-			<!--<div class="see_qty">查看</div>-->
-		<!--</div>-->
-		<!--<div class="apply_qty">-->
-			<!--<div class="applyLeftFont_qty apply">申请人</div>-->
-			<!--<div class="applyName_qty">高彦</div>-->
-		<!--</div>-->
-		<!--<div class="apply_qty">-->
-			<!--<div class="applyLeftFont_qty">申请事项</div>-->
-			<!--<div class="applyName_qty">高彦申请成太常独一张旗舰店店员/专员</div>-->
-		<!--</div>-->
-		<!--<div class="dateBox_qty">-->
-			<!--<div class="data_qty">2017.06.04</div>-->
-			<!--<div class="time_qty">15:45:12</div>-->
-			<!--<div class="approved_qty">已审批</div>-->
-		<!--</div>-->
-	<!--</div>-->
-<!--</div>-->
-<!-- 弹框代码 -->
-<!--<div id="goodcover"></div>-->
-<!--<div id="code">-->
-	<!--<div class="applyFont_qty">提示</div>-->
-	<!--<div class="applyBig_qty">您确认同意高彦成为您的店员吗？</div>-->
-	<!--<div class="sure_qty">-->
-		<!--<div class="sure" id="closebt">确定</div>-->
-		<!--<div class="sure cancel">取消</div>-->
-	<!--</div>-->
-<!--</div>-->
+
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
 	var roleid;
+	var name;
+	var mobile;
+	apiready=function () {
+		roleid = api.getPrefs({
+			sync: true,
+			key: 'roleid'
+		});
+		mobile = api.getPrefs({
+			sync: true,
+			key: 'mobile'
+		});
+		name = api.getPrefs({
+			sync: true,
+			key: 'name'
+		});
+	}
+	function name_mobile() {
+		var aa=setInterval(function () {
+			alert(roleid)
+			alert(mobile)
+			alert(name)
+			if (name){
+				if ($(".me_name_").html()!=name||$(".me_phone").html()!=mobile){
+					$(".me_name_").html(name)
+					$(".me_phone").html(mobile)
+					if (roleid==3){
+						$(".me_job_").html("店长");
+					}
+					if (roleid==5){
+						$(".me_job_").html("店员")
+					}
+				}else {
+					clearInterval(aa)
+				}
+			}
+
+		},180)
+	}
+//	name_mobile()
+
+	function shenhe_yyt(bid,name,touid,mid) {
+		roleid=api.getPrefs({sync:true,key:'roleid'});
+		store_id=api.getPrefs({sync:true,key:'store_id'});
+		api.confirm({
+			title: '',
+			msg: '您是否同意该申请',
+			buttons: ['同意', '拒绝']
+		}, function(ret, err) {
+			var index = ret.buttonIndex;
+			if (index == 1){
+				api.ajax({
+					url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=agree_p_verify',
+					method: 'post',
+					data: {
+						values:{vid:bid,roleid:roleid,mid:mid,store_id:store_id,name:name,touid:touid}
+					},
+					dataType:'json'
+				},function(ret,err){
+					if(ret.code == 200){
+						api.toast({
+							msg: ret.msg,
+							duration: 3000,
+							location: 'bottom'
+						});
+						window.location.reload();
+					}else if(ret.code == 500){
+						alert(ret.msg)
+					}
+				});
+			}else {
+				api.ajax({
+					url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=refuse_p_verify',
+					method: 'post',
+					data: {
+						values:{bid:bid,roleid:roleid,mid:mid,store_id:store_id,name:name,touid:touid}
+					},
+					dataType:'json'
+				},function(ret,err){
+					if(ret.code == 200){
+						api.toast({
+							msg: ret.msg,
+							duration: 3000,
+							location: 'bottom'
+						});
+						window.location.reload();
+					}else if(ret.code == 500){
+						alert(ret.msg)
+					}
+				});
+			}
+
+		});
+	}
+
 
 	function agree_p_verify() {
 		$('.agreeBox_qty').css({"display": "none"});
@@ -437,7 +723,7 @@
 		apiready=function () {
 			roleid=api.getPrefs({sync:true,key:'roleid'});
 			api.ajax({
-				url: 'http://192.168.1.143/dyz_manage/index.php?action=verify&dir=work&do=people_verify_list',
+				url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=people_verify_list',
 				method: 'post',
 				data: {
 					values: {roleid:roleid}
@@ -451,172 +737,17 @@
 	get_data()
 
 
-	function open_verify() {
+	function open_verify(vid) {
 		api.openWin({
 			name: 'personAudita',
 			url: 'widget://html/work/personAudita.html',
 			bounces: false,
+			pageParam: ({vid:vid}),
 			rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
 		});
 	}
-	// 查看点击效果
-	// $('.see_qty').click(function(){
-	//     $('.pendApproved_qty').css({"background":"#fff","color":"#2493f7","border":"1px solid #ccc"});
-	//     $('.agreeBox_qty').css({"display":"block"})
-	// })
-	function shenpi_yyt() {
-			if ($(".agreeBox_qty").css("display") == "none") {
-				$(".agreeBox_qty").show();
-				$('.pendApproved_qty').css({"background": "#fff", "color": "#2493f7", "border": "1px solid #ccc"});
-			} else {
-				$(".agreeBox_qty").hide();
-				$('.pendApproved_qty').css({"background": "#2493f7", "color": "#fff", "border": "none"});
-			}
-
-	}
 
 
 
-	// 弹框效果代码
-//	function agree_p_verify(){
-//			$('#code').center();
-//			$('#goodcover').show();
-//			$('#code').fadeIn();
-////		$('.ClickMe_qty').click(function() {
-////			$('#code').center();
-////			$('#goodcover').show();
-////			$('#code').fadeIn();
-////		});
-//
-//
-//		$('#closebt').click(function() {
-//			$('#code').hide();
-//			$('#goodcover').hide();
-//		});
-//		$('.cancel').click(function() {
-//			$('#code').hide();
-//			$('#goodcover').hide();
-//		});
-////		$('#goodcover').click(function() {
-////			$('#code').hide();
-////			$('#goodcover').hide();
-////		});
-//		jQuery.fn.center = function(loaded) {
-//			var obj = this;
-//			body_width = parseInt($(window).width());
-//			body_height = parseInt($(window).height());
-//			block_width = parseInt(obj.width());
-//			block_height = parseInt(obj.height());
-//
-//			left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
-//			if (body_width < block_width) {
-//				left_position = 0 + $(window).scrollLeft();
-//			};
-//
-//			top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
-//			if (body_height < block_height) {
-//				top_position = 0 + $(window).scrollTop();
-//			};
-//
-//			if (!loaded) {
-//
-//				obj.css({
-//					'position': 'absolute'
-//				});
-//				obj.css({
-//					'top': ($(window).height() - $('#code').height()) * 0.5,
-//					'left': left_position
-//				});
-//				$(window).bind('resize', function() {
-//					obj.center(!loaded);
-//				});
-//				$(window).bind('scroll', function() {
-//					obj.center(!loaded);
-//				});
-//
-//			} else {
-//				obj.stop();
-//				obj.css({
-//					'position': 'absolute'
-//				});
-//				obj.animate({
-//					'top': top_position
-//				}, 200, 'linear');
-//			}
-//		}
-//
-//	}
-//
-//
-//
-//
-//
-//
-//
-//
-//	function refuse_p_verify(){
-//		// alert($(window).height());
-//		$('.ClickMe_qty').click(function() {
-//			$('#code').center();
-//			$('#goodcover').show();
-//			$('#code').fadeIn();
-//		});
-//		$('#closebt').click(function() {
-//			$('#code').hide();
-//			$('#goodcover').hide();
-//		});
-//		$('.cancel').click(function() {
-//			$('#code').hide();
-//			$('#goodcover').hide();
-//		});
-//		$('#goodcover').click(function() {
-//			$('#code').hide();
-//			$('#goodcover').hide();
-//		});
-//		jQuery.fn.center = function(loaded) {
-//			var obj = this;
-//			body_width = parseInt($(window).width());
-//			body_height = parseInt($(window).height());
-//			block_width = parseInt(obj.width());
-//			block_height = parseInt(obj.height());
-//
-//			left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
-//			if (body_width < block_width) {
-//				left_position = 0 + $(window).scrollLeft();
-//			};
-//
-//			top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
-//			if (body_height < block_height) {
-//				top_position = 0 + $(window).scrollTop();
-//			};
-//
-//			if (!loaded) {
-//
-//				obj.css({
-//					'position': 'absolute'
-//				});
-//				obj.css({
-//					'top': ($(window).height() - $('#code').height()) * 0.5,
-//					'left': left_position
-//				});
-//				$(window).bind('resize', function() {
-//					obj.center(!loaded);
-//				});
-//				$(window).bind('scroll', function() {
-//					obj.center(!loaded);
-//				});
-//
-//			} else {
-//				obj.stop();
-//				obj.css({
-//					'position': 'absolute'
-//				});
-//				obj.animate({
-//					'top': top_position
-//				}, 200, 'linear');
-//			}
-//		}
-//
-//	}
 </script>
 </html>

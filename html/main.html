@@ -31,7 +31,6 @@
         h1=hh-65;
         nvtabbar();
         uid=api.getPrefs({sync:true,key:'uid'});
-//        alert(uid)
         api.addEventListener({
             name: 'keyback'
         }, function(ret, err) {
@@ -58,27 +57,96 @@
                 }
             },1000);
         });
+
+
+        api.addEventListener({
+            name: 'noticeclicked'
+        }, function (ret, err) {
+            api.openWin({
+                name: 'myaudita',
+                url: 'widget://html/work/myaudita.html',
+                bounces: false,
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        });
     };
 
 
     //打通服务端与客户端双向通讯
-    socket = io('http://192.168.1.143:4003');
+    socket = io('http://60.205.153.37:4003');
     socket.on('connect', function(){
         socket.emit('login', uid);
     });
     //同意审核实时通讯事件
     socket.on('verify_to_user',function(obj){
         var obj=eval('('+obj+')');
+        if (obj.store_id){
+            alert(obj.msg)
+            api.removePrefs({
+                key: 'uid'
+            });
+            api.removePrefs({
+                key: 'name'
+            });
+            api.removePrefs({
+                key: 'type'
+            });
+            api.removePrefs({
+                key: 'mobile'
+            });
+            api.removePrefs({
+                key: 'store_id'
+            });
+            api.removePrefs({
+                key: 'user_role'
+            });
+            api.removePrefs({
+                key: 'roleid'
+            });
+//            api.closeWin({
+//                name: 'main'
+//            });
+            api.closeWidget({
+                id: 'A6941282178145',
+                retData: {
+                    name: 'closeWidget'
+                },
+                animation: {
+                    type: 'flip',
+                    subType: 'from_bottom',
+                    duration: 500
+                }
+            });
+            api.openWin({
+                name:'login',
+                url:'widget://html/login_/login.html',
+                bounces: false,
+                rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+            })
+        }
         api.setPrefs({
             key: 'objMeg',
             value: obj.msg
         });
-        var jsfun = 'chongzai();';
+        var jsfun = 'chongzai()';
         api.execScript({
             name: 'myaudita',
             script: jsfun
         });
+        //    通知栏
+        api.notification({//手机通知栏通知消息
+            vibrate:100,
+            notify: {
+                content: obj.msg,
+                updateCurrent: true,
+//                extra:{key:'dl',toid:obj.toid}
+            }
+
+        }, function(ret, err) {
+            var id = ret.id;
+        });
     });
+
 
 
     function nvtabbar(){
