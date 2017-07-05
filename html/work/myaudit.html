@@ -606,6 +606,7 @@
 	var roleid;
 	var name;
 	var mobile;
+	var store_id;
 	apiready=function () {
 		roleid = api.getPrefs({
 			sync: true,
@@ -721,12 +722,13 @@
 	}
 	function get_data() {
 		apiready=function () {
+			store_id=api.getPrefs({sync:true,key:'store_id'});
 			roleid=api.getPrefs({sync:true,key:'roleid'});
 			api.ajax({
 				url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=people_verify_list',
 				method: 'post',
 				data: {
-					values: {roleid:roleid}
+					values: {roleid:roleid,store_id:store_id}
 				},
 				dataType: 'text'
 			}, function (ret, err) {
