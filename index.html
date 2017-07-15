@@ -30,7 +30,7 @@
     apiready = function(){
         uid = api.getPrefs({sync:true,key:'uid'});
         if(uid){
-            api.openFrame({
+            api.openWin({
                 name: 'main',
                 url: 'html/main.html',
                 bounces: false,

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f6f6f6;
+        }
+        .header_qty{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.34rem;
+            color: #fff;
+            line-height: 0.88rem;
+            float: left;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 1;
+        }
+        .arrow_qty{
+            width: 1.2rem;
+            height: 0.88rem;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 2;
+        }
+        .arrowLeft_qty{
+            width: 0.15rem;
+            height: 0.28rem;
+            float: left;
+            background-image: url(../../image/img_qty/arrowLeft_06.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        /*.person_qty{*/
+            /*width: 0.39rem;*/
+            /*height: 0.29rem;*/
+            /*background-image: url(../../image/img_qty/perChart_03.png);*/
+            /*background-repeat: no-repeat;*/
+            /*background-size: cover;*/
+            /*position: fixed;*/
+            /*right: 0.2rem;*/
+            /*top: 0.295rem;*/
+            /*z-index: 2;*/
+        /*}*/
+        .gg_qty{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            position: fixed;
+            top: 0.88rem;
+            background: #DEDEDE;
+            color: #e33636;
+            padding: 0 0.3rem;
+            box-sizing: border-box;
+            font-size: 0.24rem;
+            text-align: center;
+            line-height: 0.62rem;
+            z-index: 1
+        }
+        /*中间聊天部分*/
+        .secret_chat_zn{
+            width: 100%;
+            /*margin-top: 0.88rem;*/
+            /*box-sizing: border-box;*/
+            overflow:hidden;
+            /*margin-bottom:1.5rem;*/
+            /*float: left;*/
+            position: absolute;
+            left: 0;
+            top: 0.88rem;
+            /*padding-top: 0.5rem;*/
+            box-sizing: border-box;
+        }
+        .time_zn{
+            height: 1.1rem;
+            width:100%;
+            text-align: center;
+            position: relative;
+        }
+        .time_zn span{
+            display: block;
+            height:0.3rem;
+            width:1.8rem;
+            margin: 0 auto;
+            position: absolute;
+            top:0.3rem;
+            left:36%;
+            color:#fff;
+            font-size:0.24rem;
+            background: #bebebe;
+            z-index: 0
+        }
+        /*最底部输入框*/
+        .chat_input_zn{
+            background: #fff;
+            width:100%;
+            overflow: hidden;
+            height:1.5rem;
+            position: fixed;
+            bottom:0rem;
+            left: 0rem;
+        }
+        .chat_input_box{
+            margin:0.15rem 0.2rem;
+            overflow: hidden;
+        }
+        .chat_icon_box{
+            overflow: hidden;
+        }
+        .chat_icon{
+            float:left;
+        }
+        .chat_icon div{
+            height: 0.35rem;
+            float:left;
+            margin-right:0.15rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .voice_qty{
+            width: 0.28rem;
+            background-image: url('../../image/img_qty/voice_07.png');
+        }
+        .picture_qty{
+            width: 0.34rem;
+            background-image: url('../../image/img_qty/picture_09.png');
+        }
+        .emo_qty{
+            width: 0.35rem;
+            background-image: url('../../image/img_qty/emo_11.png');
+        }
+        .chat_send{
+            float:right;
+            font-size: 0.26rem;
+            color:#2493f7;
+        }
+        .in_con{
+            width:6rem;
+            height:0.8rem;
+            margin-top:0.1rem;
+        }
+        .in_con input{
+            width:6rem;
+            height:0.6rem;
+            display:block;
+            border-radius: 0.1rem;
+            background: #dedede;
+            outline:none;
+            font-size:0.28rem;
+            text-indent: 0.2rem;
+            margin-top: 0.2rem;
+        }
+        .secret_chat_left,.secret_chat_right{
+            min-height:1rem;
+            width:100%;
+            float: left;
+        }
+        .secret_chat_left{
+            margin-bottom:0.2rem;
+        }
+        .secret_chat_right{
+            margin-bottom:0.2rem;
+        }
+        .secret_chat_right_img{
+            height:2rem;
+            margin-bottom: 0.2rem;
+        }
+        .icon_img{
+            float:left;
+        }
+        .icon_img img{
+            width:0.7rem;
+            height: 0.7rem;
+            display: block;
+        }
+        .icon_img p{
+            font-size: 0.2rem;
+            color:#999;
+            margin-top:0.08rem;
+        }
+        .icon_chat{
+            min-height: 0.7rem;
+            max-width:4.2rem;
+            background: #fff;
+            margin-left:0.2rem;
+            float:left;
+            font-size:0.24rem;
+            padding:0.24rem;
+            box-sizing: border-box;
+            border-radius: 0.1rem;
+            /*border-top-left-radius: 0;*/
+        }
+        .icon_img_right{
+            float:right;
+            margin-left:0.2rem;
+        }
+        .icon_img_left{
+            float:left;
+        }
+        .icon_img_right img,.icon_img_left img{
+            width:0.7rem;
+            height: 0.7rem;
+            display: block;
+        }
+        .icon_img_right p,.icon_img_left p{
+            font-size: 0.2rem;
+            color:#999;
+            margin-top:0.08rem;
+        }
+        .icon_chat_right{
+            min-height: 0.7rem;
+            max-width:4.2rem;
+            background: #2493f7;
+            float:right;
+            font-size:0.24rem;
+            padding:0.24rem;
+            box-sizing: border-box;
+            border-radius: 0.1rem;
+            /*border-top-right-radius: 0;*/
+        }
+        .icon_chat_left_img{
+            border: 0.01rem solid #333;
+            width:1.5rem;
+            height:2rem;
+            float:left;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 0.1rem;
+            margin-left: 0.2rem;
+        }
+        .icon_chat_right_img{
+            border: 0.01rem solid #333;
+            width:1.5rem;
+            height:2rem;
+            float:right;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 0.1rem;
+            margin-left: 0.2rem;
+        }
+        .icon_chat_right_img img,.icon_chat_left_img img{
+            width:100%;
+            height:100%;
+            display: block;
+        }
+        .secret_chat_left_mc,.secret_chat_right_mc{
+            width: 100%;
+            float: left;
+            margin-bottom: 0.2rem;
+        }
+        .icon_chat_mc,.icon_chat_mc_right,.icon_chat_mc_left{
+            height:0.72rem;
+        }
+        .icon_chat_mc img{
+            width:1.35rem;
+            height:0.7rem;
+            display: block;
+            float:left;
+            margin-left:0.2rem;
+        }
+        .icon_chat_mc span{
+            color:#999;
+            font-size:0.22rem;
+            float:left;
+            line-height: 0.72rem;
+            height: 100%;
+            margin-left:0.2rem;
+        }
+        .icon_chat_mc_right img{
+            width:1.35rem;
+            height:0.7rem;
+            display: block;
+            float:right;
+            margin-left:0.2rem;
+        }
+        .icon_chat_mc_right span{
+            color:#999;
+            font-size:0.22rem;
+            float:right;
+            line-height: 0.72rem;
+            height: 100%;
+        }
+        .secret_chat_con_zn{
+            padding-top: 0.88rem;
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+            padding-bottom: 0.2rem;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="header_qty">
+        <!--<span class="num_qty">（10）</span>-->
+    </div>
+    <div class="arrow_qty" onclick="closeW_yyt()">
+        <div class="arrowLeft_qty"></div>
+    </div>
+    <!--<div class="person_qty" onclick="open_personList()"></div>-->
+    <!--<div class="gg_qty"></div>-->
+    <div class="secret_chat_zn">
+        <div class="secret_chat_con_zn">
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--<div class="secret_chat_box">-->
+                <!--<div class="time_zn">-->
+                    <!--<span>7月7日14:20</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="secret_chat_con">-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_right">-->
+                    <!--<div class="icon_img_right">-->
+                        <!--<img src="../../image/img_qty/leftper.png" alt="">-->
+                        <!--<p>王小仪</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_right">-->
+                        <!--大家好，我是王小二-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好,我是小夏，我最近遇到了一些问题， 请大家帮个忙。-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_right">-->
+                    <!--<div class="icon_img_right">-->
+                        <!--<img src="../../image/img_qty/leftper.png" alt="">-->
+                        <!--<p>王小仪</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_right">-->
+                        <!--大家好,我是小夏，我最近遇到了一些问题， 请大家帮个忙。-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left_mc">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_mc">-->
+                        <!--<img src="../../image/img_qty/con_right.png" alt="">-->
+                        <!--<span>2"</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_right_mc">-->
+                    <!--<div class="icon_img_right">-->
+                        <!--<img src="../../image/img_qty/leftper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_mc_right">-->
+                        <!--<img src="../../image/img_qty/con_left.png" alt="">-->
+                        <!--<span>2"</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left_mc">-->
+                    <!--<div class="icon_img_left">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_left_img">-->
+                        <!--<img src="../../image/img_qty/person.png" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_right_mc">-->
+                    <!--<div class="icon_img_right">-->
+                        <!--<img src="../../image/img_qty/leftper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_right_img">-->
+                        <!--<img src="../../image/img_qty/person.png" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="chat_input_zn">
+            <div class="chat_input_box">
+                <div class="chat_icon_box">
+                    <div class="chat_icon">
+                        <!--<div class="voice_qty"></div>-->
+                        <div class="picture_qty" onclick="open_picture()"></div>
+                        <!--<div class="emo_qty"></div>-->
+                    </div>
+                    <div class="chat_send" onclick="send_data()">发送</div>
+                </div>
+                <div class="in_con">
+                    <input type="text" class="send_text_yyt">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+
+    var uid;
+    var id;
+    var text;
+    var myName;
+    var toName;
+    function window_zishiying() {
+        $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
+        var height = $(this).height();
+        var a = $(".header_qty").height();
+        var b = $(".chat_input_zn").height();
+        var newH = height - a - b;
+        $(".secret_chat_zn").css("height", newH);
+        $(window).resize(function () {
+            var height = $(this).height();
+            var a = $(".header_qty").height();
+            var b = $(".chat_input_zn").height();
+            var newH = height - a - b;
+            $(".secret_chat_zn").css("height", newH);
+            $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight);
+        })
+    }
+    window_zishiying();
+
+
+
+    function getdata() {
+        apiready=function () {
+            uid = api.getPrefs({sync: true, key: 'uid'});
+            id = api.pageParam.friend_id;
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=dhk&dir=xiaoxi&do=dhr',
+                method: 'post',
+                data: {
+                    values: {uid: uid, id: id}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                $(".header_qty").html(ret.to_name);
+                myName = ret.wo_name;
+                toName = ret.toName;
+            });
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=dhk&dir=xiaoxi&do=dhk',
+                method: 'post',
+                data: {
+                    values: {uid: uid, id: id}
+                },
+                dataType: 'text'
+            }, function (ret, err) {
+                $(".secret_chat_con_zn").append(ret);
+                $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
+            });
+        }
+    }
+    getdata()
+
+
+
+    function send_data() {
+        $(".send_text_yyt").focus();
+        text = $(".send_text_yyt").val()
+        if (text == ""){
+            return
+        }
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=dhk&dir=xiaoxi&do=fasixin',
+            method: 'post',
+            data: {
+                values: {uid: uid, toid: id,txt:text}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+            if (ret.code = 200){
+                $(".send_text_yyt").val("");
+                var aa = "<div class='secret_chat_right'><div class='icon_img_right'><img src='../../image/img_qty/leftper.png' alt=''><p>"+myName+"</p></div><div class='icon_chat_right'>"+text+"</div></div>"
+                $(".secret_chat_con_zn").append(aa);
+                $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
+            }
+        });
+    }
+
+
+    function jieshou(msg) {
+        var msga = eval('('+msg+')');
+        if(msga.from_id !=uid) {
+            if (msga.lx == 0) {
+                var bb = "<div class='secret_chat_left'><div class='icon_img'><img src='../../image/img_qty/rightper.png' alt=''><p>" + toName + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
+            } else if (msga.lx == 1) {
+                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + toName + "</p></div><div class='icon_chat_left_img'><img src="+msga.url+" alt=''></div></div>"
+            }
+            $(".secret_chat_con_zn").append(bb);
+            $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
+        }
+    }
+
+
+
+    function closeW_yyt() {
+        api.execScript({
+            name: 'main',
+            frameName: 'info_qty',
+            script: 'chat_list_yyt()'
+        });
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=update_openwin',
+            method: 'post',
+            data: {
+                values: {uid: uid}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+            api.closeWin();
+        });
+    }
+
+
+//    function open_personList() {
+//        api.openWin({
+//            name:'groupChartPer_qty',
+//            url:'widget://html/message/groupChartPer_qty.html',
+//            bounces: false,
+//            pageParam: {gid: gid},
+//            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+//        })
+//    }
+
+
+
+    function open_picture() {
+        api.getPicture({
+            sourceType: 'album',
+            encodingType: 'jpg',
+            mediaValue: 'pic',
+            destinationType: 'base64',
+            allowEdit: true,
+            quality: 100,
+            targetWidth: 100,
+            targetHeight: 100,
+            saveToPhotoAlbum: false
+        }, function(ret, err) {
+            if (ret.base64Data != '') {
+                var photo = ret.base64Data.substr(ret.base64Data.indexOf(',') + 1);
+                api.ajax({
+                    url: 'http://appapi.duyiwang.cn/index.php?action=upload&do=fasixin_img',
+                    method: 'post',
+                    data: {
+                        values: {uid:uid,toid:id,formFile:photo}
+                    },
+                    dataType: 'json'
+                }, function (ret, err) {
+                    if (ret.code == 200) {
+                        var asd = "<div class='secret_chat_right_mc'><div class='icon_img_right'><img src='../../image/img_qty/leftper.png' alt=''><p>" + myName + "</p></div><div class='icon_chat_right_img'><img src=" + ret.url + " alt=''></div></div>";
+                        $(".secret_chat_con_zn").append(asd);
+                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    }
+                });
+            } else {
+
+            }
+        });
+    }
+
+    $(document).on("click",".icon_chat_right_img img",function () {
+        var add = $(this).attr("src");
+        var photoBrowser = api.require('photoBrowser');
+        photoBrowser.open({
+            images: [
+                add
+//                'fs://img/encryption.png'
+            ],
+            placeholderImg: 'widget://res/img/apicloud.png',
+            bgColor: '#000'
+        }, function(ret, err) {
+            if (ret) {
+//                alert(JSON.stringify(ret));
+            } else {
+//                alert(JSON.stringify(err));
+            }
+        });
+    })
+
+
+
+</script>
+</html>

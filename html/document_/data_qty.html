@@ -9,7 +9,7 @@
     <script src="../../script/jquery.min.js"></script>
     <script src="../../script/rem.js"></script>
     <style>
-       html,body{
+        html,body{
             background: #f5f5f5;
         }
         .header_qty{
@@ -23,77 +23,77 @@
             float: left;
         }
         .productBox_qty{
-        	width: 100%;
-        	height: 0.88rem;
-        	float: left;
-        	background: #fff;
+            width: 100%;
+            height: 0.88rem;
+            float: left;
+            background: #fff;
         }
         .productSmallBox_qty{
-        	width: 50%;
-        	height: 0.88rem;
-        	float: left;
-        	text-align: center;
-        	line-height: 0.88rem;
-        	font-size: 0.24rem;
-        	color: #343434;
+            width: 50%;
+            height: 0.88rem;
+            float: left;
+            text-align: center;
+            line-height: 0.88rem;
+            font-size: 0.24rem;
+            color: #343434;
         }
         .product_qty:after{
-        	content: "";
-        	width: 0.01rem;
-        	height: 0.6rem;
-        	background: #EFEFEF;
-        	position: absolute;
-        	left: 50%;
-        	margin-top: 0.14rem;
+            content: "";
+            width: 0.01rem;
+            height: 0.6rem;
+            background: #EFEFEF;
+            position: absolute;
+            left: 50%;
+            margin-top: 0.14rem;
         }
         .product_qty{
-        	width: 1rem;
-        	height: 0.88rem;
-        	float: left;
-        	margin-left: 1rem;
-        	border-bottom: 2px solid #2493f7;
+            width: 1rem;
+            height: 0.88rem;
+            float: left;
+            margin-left: 1rem;
+            border-bottom: 2px solid #2493f7;
         }
         .productFont_qty{
-        	width: 100%;
-        	height: 0.88rem;
-        	float: left;
-        	line-height: 0.88rem;
-        	font-size: 0.24rem;
-        	color: #343434;
+            width: 100%;
+            height: 0.88rem;
+            float: left;
+            line-height: 0.88rem;
+            font-size: 0.24rem;
+            color: #343434;
         }
         .color_qty{
-        	width: 0.1rem;
-        	height: 0.4rem;
-        	float: left;
-        	background: #F8C21F;
-        	margin-top: 0.22rem;
-        	margin-right: 0.1rem;
+            width: 0.1rem;
+            height: 0.4rem;
+            float: left;
+            background: #F8C21F;
+            margin-top: 0.22rem;
+            margin-right: 0.1rem;
         }
         .productBigBox_qty{
-        	width: 100%;
-        	float: left;
+            width: 100%;
+            float: left;
             margin-top: 0.2rem;
         }
         .prductBigSmallBox_qty{
-        	width: 6rem;
-        	float: left;
-        	margin-left: 0.2rem;
+            width: 6rem;
+            float: left;
+            margin-left: 0.2rem;
         }
         .prductBigSmallBox_qty li{
-        	width: 2.9rem;
-        	height: 2.7rem;
-        	float: left;
-        	background: #fff;
-        	margin-left: 0.2rem;
-        	margin-bottom: 0.18rem;
+            width: 2.9rem;
+            height: 2.7rem;
+            float: left;
+            background: #fff;
+            margin-left: 0.2rem;
+            margin-bottom: 0.18rem;
         }
         .productSmall_qty{
-        	margin-left: 0rem !important;
+            margin-left: 0rem !important;
         }
         .colorcolor_qty{
-        	width: 2.9rem;
-        	height: 2.19rem;
-        	float: left;
+            width: 2.9rem;
+            height: 2.19rem;
+            float: left;
         }
         .colorcolor_qty img{
             width: 2.9rem;
@@ -101,58 +101,59 @@
             float: left;
         }
         .colorFont_qty{
-        	width: 2.9rem;
-        	height: 0.51rem;
-        	float: left;
-        	background: #2493f7;
-        	color: #fff;
-        	font-size: 0.24rem;
-        	text-align: center;
-        	line-height: 0.51rem;
+            width: 2.9rem;
+            height: 0.51rem;
+            float: left;
+            background: #2493f7;
+            color: #fff;
+            font-size: 0.24rem;
+            text-align: center;
+            line-height: 0.51rem;
         }
     </style>
 </head>
 <body>
-    <div class="header_qty">资料</div>
-    <div class="productBox_qty">
-    	<div class="productSmallBox_qty">
-    		<div class="product_qty">产品资料</div>
-    	</div>
-    	<div class="productSmallBox_qty">培训视频</div>
+<div class="header_qty">资料</div>
+<div class="productBox_qty">
+    <div class="productSmallBox_qty">
+        <div class="product_qty">产品资料</div>
     </div>
-    <div class="productBigBox_qty">
-    	<ul class="prductBigSmallBox_qty">
-    		<li class="productSmall_qty" onclick="open_ynt()">
-    			<div class="colorcolor_qty">
-                    <img src="../../image/img_qty/yiniantang_03.png" alt="">             
-                </div>
-    			<div class="colorFont_qty">仪年堂</div>
-    		</li>
-    		<li onclick="open_zgn()">
-    			<div class="colorcolor_qty">
-                    <img src="../../image/img_qty/duyizhang_05.png" alt="">         
-                </div>
-    			<div class="colorFont_qty">炙骨宁</div>
-    		</li>
-    		<li class="productSmall_qty" onclick="open_wq()">
-    			<div class="colorcolor_qty">
-                    <img src="../../image/img_qty/wenquan_09.png" alt="">          
-                </div>
-    			<div class="colorFont_qty">温泉</div>
-    		</li>
-    		<li class="product" onclick="open_lgy()">
-    			<div class="colorcolor_qty">
-                    <img src="../../image/img_qty/gaoyao_10.png" alt="">          
-                </div>
-    			<div class="colorFont_qty">老膏药</div>
-    		</li>
-    	</ul>
-    </div>
+    <div class="productSmallBox_qty">培训视频</div>
+</div>
+<div class="productBigBox_qty">
+    <ul class="prductBigSmallBox_qty">
+        <li class="productSmall_qty" onclick="open_ynt()">
+            <div class="colorcolor_qty">
+                <img src="../../image/img_qty/yiniantang_03.png" alt="">
+            </div>
+            <div class="colorFont_qty">仪年堂</div>
+        </li>
+        <li onclick="open_zgn()">
+            <div class="colorcolor_qty">
+                <img src="../../image/img_qty/duyizhang_05.png" alt="">
+            </div>
+            <div class="colorFont_qty">炙骨宁</div>
+        </li>
+        <li class="productSmall_qty" onclick="open_wq()">
+            <div class="colorcolor_qty">
+                <img src="../../image/img_qty/wenquan_09.png" alt="">
+            </div>
+            <div class="colorFont_qty">温泉</div>
+        </li>
+        <li class="product" onclick="open_lgy()">
+            <div class="colorcolor_qty">
+                <img src="../../image/img_qty/gaoyao_10.png" alt="">
+            </div>
+            <div class="colorFont_qty">老膏药</div>
+        </li>
+    </ul>
+</div>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
+
     apiready = function(){
-        
+
     };
     function open_ynt() {
         api.openWin({

@@ -77,6 +77,161 @@
     socket.on('connect', function(){
         socket.emit('login', uid);
     });
+
+
+    //socke服务端定时更新是否有新的群组
+    socket.on("update_msg",function(){
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=check_user_groups',
+            method: 'post',
+            data: {
+                values:{uid:uid}
+            },
+            dataType:'json'
+        },function(ret,err){
+            if(ret.code == 200){
+                if(ret.groups_gids){
+                    for(var v in ret.groups_gids){
+                        var groups_room="groups_"+ret.groups_gids[v]['gu_gid'];
+                        socket.emit('join',uid,groups_room);
+                    }
+                }
+            }
+        });
+    });
+
+
+
+
+
+    //群聊socke实时回调函数
+    socket.on('sixin_to_groups',function(msg){
+        var obj=eval('('+msg+')');
+
+        api.ajax({
+            url: ' http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=get_user_openwin',
+            method: 'post',
+            data: {
+                values: {uid: uid}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+            if (ret.is_openwin == 0){
+                var notify_msg="【群聊】";
+                api.notification({//手机通知栏通知消息
+                    notify: {
+                        content:notify_msg+obj.send_name+" : "+obj.nr,
+                        updateCurrent: true,
+                        extra:{key:'ql',gid:obj.gid}
+                    }
+
+                }, function(ret, err) {
+
+                });
+            }
+        });
+
+        var jieshou = 'jieshou(\''+msg+'\');';
+        api.execScript({
+            name:'groupChartNumber_qty',
+            script: jieshou
+        });
+        if(select_idx==1){
+            api.execScript({
+                name: 'main',
+                frameName: 'info_qty',
+                script: 'chat_list_yyt()'
+            });
+        }
+        set_badge(1);
+    });
+
+
+
+
+    //单聊socket实时回调函数
+    socket.on('sixin_to', function(msg){
+        var obj=eval('('+msg+')');
+
+        api.ajax({
+            url: ' http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=get_user_openwin',
+            method: 'post',
+            data: {
+                values: {uid: uid}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+            if (ret.is_openwin == 0){
+//                api.notification({//手机通知栏通知消息
+//                    notify: {
+//                        content:"您有一条新消息："+obj.nr,
+//                        updateCurrent: true,
+//                        extra:{key:'ql',gid:obj.gid}
+//                    }
+//
+//                }, function(ret, err) {
+//
+//
+//
+//
+//                });
+                if(obj.lx=0){
+                    api.notification({//手机通知栏通知消息
+                        vibrate:100,
+                        notify: {
+                            content:"您有一条新消息："+obj.nr,
+                            updateCurrent: true,
+                            extra:{key:'dl',toid:obj.toid}
+                        }
+                    }, function(ret, err) {
+                        var id = ret.id;
+                    });
+                }
+
+
+                if(obj.lx=1){
+                    api.notification({//手机通知栏通知消息
+                        vibrate:100,
+                        notify: {
+                            content:"您有一条新消息:发了一张图片",
+                            updateCurrent: true,
+                            extra:{key:'dl',toid:obj.toid}
+                        }
+
+                    }, function(ret, err) {
+                        var id = ret.id;
+                    });
+                }
+            }
+        });
+
+
+
+
+
+
+        var jieshou = 'jieshou(\''+msg+'\');';
+        api.execScript({
+            name:'talk_about',
+            script: jieshou
+        });
+        if(select_idx==1){
+            api.execScript({
+                name: 'main',
+                frameName: 'info_qty',
+                script: 'chat_list_yyt()'
+            });
+        }
+        set_badge(1);
+
+    });
+
+
+
+
+
+
+
     //同意审核实时通讯事件
     socket.on('verify_to_user',function(obj){
         var obj=eval('('+obj+')');
@@ -258,7 +413,7 @@
                 }
                 if(ret.index==1){
                     api.openFrame({
-                        name: 'message',
+                        name: 'info_qty',
                         url: 'widget://html/message/info_qty.html',
                         reload:true,
                         pageParam: {h1:h1},
@@ -266,7 +421,7 @@
                     });
                 }else{
                     api.setFrameAttr({
-                        name: 'message',
+                        name: 'info_qty',
                         hidden:true
                     });
                 }

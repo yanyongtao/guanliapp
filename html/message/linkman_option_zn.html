@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f6f6f6;
+        }
+        .box_zn{
+            width:100%;
+        }
+        .address_zn{
+            height:1.2rem;
+            width:100%;
+            background: #fff;
+            overflow: hidden;
+        }
+        .address_zn_box{
+            margin-top:.2rem;
+        }
+        .ul_zn{
+            width:100%;
+            height:.4rem;
+            box-sizing: border-box;
+        }
+        .li_zn{
+            float:left;
+            width:1.86rem;
+            height:.4rem;
+            box-sizing: border-box;
+            margin-left: .2rem;
+            color:#333;
+            text-align: center;
+        }
+        .select_zn{
+            float:left;
+            width:1.86rem;
+            height:.4rem;
+            box-sizing: border-box;
+            border-radius: .1rem;
+            outline: none;
+            text-align: center;
+            border:1px solid #d0d0d0;
+        }
+        .select_zn option{
+            width: 100%;
+            display: block;
+            text-align: center;
+            background: #999;
+            color:#fff;
+            /*border:none;*/
+        }
+        .content_zn{
+            color:#3fa1f8;
+            font-size:.24rem;
+            margin-left: .2rem;
+            margin-top:.2rem;
+        }
+        .picture_zn{
+            background: #fff;
+            width:100%;
+            margin-top: .26rem;
+            overflow: hidden;
+        }
+        .picture_zn_box{
+            margin-left: .2rem;
+        }
+        .user_box_zn{
+            width:100%;
+            height:1.1rem;
+            border-bottom: 1px solid #f6f6f6;
+        }
+        .user_picture_zn{
+            width:0.7rem;
+            height:0.7rem;
+            float: left;
+            margin-top:.2rem;
+        }
+        .user_picture_zn img{
+            width:100%;
+            height:100%;
+            display: block;
+        }
+        .user_name_zn{
+            float:left;
+            width:5.3rem;
+            font-size: .22rem;
+            height: 100%;
+            line-height: 1.1rem;
+            margin-left:0.2rem;
+        }
+        .zn_oneError{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493F7;
+            position: relative;
+        }
+        .zn_twoError{
+            width: 2rem;
+            height: 100%;
+            font-size: 0.28rem;
+            line-height: 0.88rem;
+            color: #fff;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .zn_back{
+            width: 0.29rem;
+            height: 0.49rem;
+            position: absolute;
+            left: 0.2rem;
+            top: 0.2rem;
+            background: url("../../image/image_zn/zn_back.png") no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box_zn">
+    <!--<div class="linkman_zn">-->
+    <!--<div class="linkman_zn_box">-->
+    <!--<div class="left_icon_zn"></div>-->
+    <!--<div class="center_zn">联系人</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="zn_oneError">
+        <div class="zn_twoError">联系人</div>
+        <div class="zn_back" onclick="api.closeWin()"></div>
+    </div>
+    <div class="address_zn">
+        <div class="address_zn_box">
+            <ul class="ul_zn">
+                <li class="li_zn">
+                    <select name="" class="select_zn sheng_yyt" onchange="get_shi()">
+                        <!--<option value="" class="option_zn">山西省</option>-->
+                        <!--<option value="" class="option_zn">陕西省</option>-->
+                    </select>
+                </li>
+                <li class="li_zn">
+                    <select name="" class="select_zn city_yyt" onchange="get_store()">
+                        <option value="" class="option_zn">请选择</option>
+                        <!--<option value="" class="option_zn">临汾市</option>-->
+                    </select>
+                </li>
+                <li class="li_zn">
+                    <select name="" class="select_zn store_yyt" onchange="store_in()">
+                        <option value="" class="option_zn">请选择</option>
+                    </select>
+                </li>
+            </ul>
+            <!--<p class="content_zn">-->
+                <!--山西省太原市太矿店-->
+            <!--</p>-->
+        </div>
+    </div>
+    <div class="picture_zn">
+        <div class="picture_zn_box">
+            <ul>
+                <!--<li class="user_box_zn">-->
+                    <!--<div class="user_zn">-->
+                        <!--<div class="user_picture_zn">-->
+                            <!--<img src="../../image/image_zn/user.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="user_name_zn">-->
+                            <!--王小二-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="user_box_zn">-->
+                    <!--<div class="user_zn">-->
+                        <!--<div class="user_picture_zn">-->
+                            <!--<img src="../../image/image_zn/user.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="user_name_zn">-->
+                            <!--李虎虎-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="user_box_zn">-->
+                    <!--<div class="user_zn">-->
+                        <!--<div class="user_picture_zn">-->
+                            <!--<img src="../../image/image_zn/user.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="user_name_zn">-->
+                            <!--王小二-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="user_box_zn">-->
+                    <!--<div class="user_zn">-->
+                        <!--<div class="user_picture_zn">-->
+                            <!--<img src="../../image/image_zn/user.png" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="user_name_zn">-->
+                            <!--李虎虎-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    function get_sheng() {
+        apiready=function () {
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=region&do=ajax_region',
+                method: 'post',
+                data: {
+                    values: {type: 1}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if (ret.code == 200) {
+                    for (var i = 0; i < ret.province.length; i++) {
+                        var aa = "<option value=" + ret.province[i].provinceid + " class='option_zn'>" + ret.province[i].province + "</option>";
+                        $(".sheng_yyt").append(aa);
+                    }
+                }
+            });
+        }
+    }
+    get_sheng()
+    function get_shi() {
+        var id = $(".sheng_yyt").find("option:selected").attr("value");
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=region&do=ajax_region',
+            method: 'post',
+            data: {
+                values: {type: 2,id:id}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+            if (ret.code == 200) {
+                $(".city_yyt").empty();
+                $(".city_yyt").append("<option value='' class='option_zn'>请选择</option>");
+                for (var i = 0; i < ret.cities.length; i++) {
+                    var aa = "<option value=" + ret.cities[i].cityid + " class='option_zn'>" + ret.cities[i].city + "</option>";
+                    $(".city_yyt").append(aa);
+                }
+            }
+        });
+    }
+    function get_store() {
+        var type = api.getPrefs({sync:true,key:'type'});
+        var id = $(".city_yyt").find("option:selected").attr("value");
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=txl&dir=txl&do=get_store',
+            method: 'post',
+            data: {
+                values: {cityid:id,type:type}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+            if (ret.code == 200) {
+                $(".store_yyt").empty();
+                $(".store_yyt").append("<option value='' class='option_zn'>请选择</option>");
+                for (var i = 0; i < ret.stores.length; i++) {
+                    var aa = "<option value=" + ret.stores[i].id + " class='option_zn'>" + ret.stores[i].name + "</option>";
+                    $(".store_yyt").append(aa);
+                }
+            }
+        });
+    }
+    function store_in() {
+        var id = $(".store_yyt").find("option:selected").attr("value");
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=txl&dir=txl&do=single_txl',
+            method: 'post',
+            data: {
+                values: {store_id:id}
+            },
+            dataType: 'txt'
+        }, function (ret, err) {
+                $(".picture_zn_box ul").empty();
+                $(".picture_zn_box ul").append(ret);
+        });
+    }
+    function talk_about(id) {
+        api.openWin({
+            name:'talk_about',
+            url:'widget://html/message/talk_about.html',
+            bounces: false,
+            pageParam: {friend_id:id},
+            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+        })
+    }
+</script>
+</html>

@@ -21,26 +21,89 @@
             color: #fff;
             line-height: 0.88rem;
             float: left;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 99;
         }
-        .bannerBox_qty{
-            width: 100%;
-            height: 2rem;
+        .per_qty{
+            width: 0.33rem;
+            height: 0.36rem;
+            background: url(../../image/img_qty/per+_03.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: fixed;
+            top: 0.26rem;
+            right: 0.34rem;
+            z-index: 9999;
+        }
+        .perBox_qty{
+            width: 1.4rem;
+            height: 1.6rem;
+            background: #444547;
+            position: absolute;
+            right: -0.1rem;
+            top: 0.62rem;
+            display: none;
+        }
+        .star_qty{
+            width: 0;
+            height: 0;
+            border-right: 0.1rem solid transparent;
+            border-bottom: 0.15rem solid #444547;
+            border-left: 0.1rem solid transparent;
+            position: absolute;
+            top: -0.12rem;
+            right: 0.2rem;
+        }
+        .perSmall_qty{
+            width: 1.4rem;
+            height: 0.8rem;
+            border-bottom: 1px solid #6D6D6D;
+        }
+        .perSmall_qty:last-child{
+            border-bottom: none;
+        }
+        .perLi_qty{
+            width: 1.2rem;
+            height: 0.8rem;
+            margin-left: 0.1rem;
+        }
+        .perSmallImg_qty,.mess_qty{
+            width: 0.3rem;
+            background-size: cover;
+            background-repeat: no-repeat;
             float: left;
+            margin-top: 0.265rem;
         }
-        .bannerBox_qty img{
-            width: 100%;
-            height: 2rem;
+        .perSmallImg_qty{
+            height: 0.27rem;
+            background-image: url(../../image/img_qty/contactPer.png);
+        }
+        .mess_qty{
+            height: 0.26rem;
+            background-image: url(../../image/img_qty/mess_10.png);
+            margin-top: 0.27rem;
+        }
+        .contactPer{
+            width: 0.8rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            color: #fff;
+            font-size: 0.24rem;
+            float: left;
+            margin-left: 0.1rem;
         }
         .systemBox_qty{
             width: 100%;
             height: 0.78rem;
             background: #fff;
             float: left;
-            margin-top: 0.2rem;
             border-bottom: 1px solid #F6F6F6;
         }
-        .system{
-            margin-top: 0rem;
+        .system_qty{
+            margin-top: 0.88rem;
+            float: left;
         }
         .systemSmallBox_qty{
             width: 6rem;
@@ -98,51 +161,314 @@
             background-size: cover;
             margin-top: 0.28rem;
         }
+        .groupChat_qty{
+            width: 100%;
+            float: left;
+            margin-top: 0.22rem;
+        }
+        .groupChat_qty li{
+            width: 100%;
+            height: 1.2rem;
+            background: #fff;
+            border-bottom: 1px solid #fff;
+            float: left;
+        }
+        .groupImg_qty{
+            width: 0.85rem;
+            height: 0.85rem;
+            float: left;
+            border-radius: 50%;
+            margin-top: 0.175rem;
+            margin-left: 0.2rem;
+            position: relative;
+        }
+        .groupImg_qty img{
+            width: 0.85rem;
+            height: 0.85rem;
+            float: left;
+            border-radius: 50%;
+        }
+        .math_qty{
+            width: 0.35rem;
+            height: 0.35rem;
+            background: #F8C21F;
+            border-radius: 50%;
+            line-height: 0.35rem;
+            text-align: center;
+            position: absolute;
+            top:0rem;
+            right: -0.1rem;
+            font-size: 0.24rem;
+            color: #fff;
+        }
+        .groupChartBox_qty{
+            width: 5.1rem;
+            height: 1.2rem;
+            float: left;
+            margin-left: 0.25rem;
+            border-bottom: 1px solid #F6F6F6;
+        }
+        .groupSmall_qty{
+            width: 5.1rem;
+            height: 0.86rem;
+            float: left;
+            margin-top: 0.17rem;
+        }
+        .groupTop_qty{
+            width: 5.1rem;
+            height: 0.43rem;
+            line-height: 0.43rem;
+            font-size: 0.3rem;
+            color: #333333;
+            text-align: left;
+            float: left;
+        }
+        .time_qty{
+            float: right;
+            margin-right: 0.2rem;
+            color: #999999;
+            font-size: 0.24rem;
+        }
+        .groupB_qty{
+            width: 5.1rem;
+            height: 0.43rem;
+            line-height: 0.43rem;
+            color: #999999;
+            font-size: 0.24rem;
+            text-align: left;
+            float: left;
+        }
     </style>
 </head>
 <body>
     <div class="header_qty">消息</div>
-    <div class="bannerBox_qty">
-        <img src="../../image/img_qty/bg_02.png" alt="">
-    </div>
-    <div class="systemBox_qty">
-        <div class="systemSmallBox_qty">
-            <div class="bellBox_qty"></div>
-            <div class="systemInfo_qty">系统消息</div>
-            <div class="arrowRight"></div>
-            <!--<div class="systemNew_qty">您有两条新的消息</div>-->
+    <div class="per_qty">
+        <div class="perBox_qty">
+            <span class="star_qty"></span>
+            <div class="perSmall_qty">
+                <div class="perLi_qty" onclick="open_lianxiren()">
+                    <div class="perSmallImg_qty"></div>
+                    <div class="contactPer">联系人</div>
+                </div>
+            </div>
+            <div class="perSmall_qty" onclick="open_qunliao()">
+                <div class="perLi_qty">
+                    <div class="mess_qty"></div>
+                    <div class="contactPer">群&nbsp;&nbsp;&nbsp;聊</div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="systemBox_qty system">
-        <div class="systemSmallBox_qty">
-            <div class="personBox_qty"></div>
-            <div class="systemInfo_qty">待我审批</div>
-            <div class="arrowRight"></div>
-            <!--<div class="systemNew_qty">您有两条新的消息</div>-->
-        </div>
-    </div>
-    <div class="systemBox_qty system">
-        <div class="systemSmallBox_qty">
-            <div class="info_qty"></div>
-            <div class="systemInfo_qty">反馈消息</div>
-            <div class="arrowRight"></div>
-            <!--<div class="systemNew_qty">您有两条新的消息</div>-->
-        </div>
-    </div>
+    <ul class="system_qty">
+        <li class="systemBox_qty">
+            <div class="systemSmallBox_qty">
+                <div class="bellBox_qty"></div>
+                <div class="systemInfo_qty">系统消息</div>
+                <div class="arrowRight"></div>
+                <div class="systemNew_qty">您有两条新的消息</div>
+            </div>
+        </li>
+        <li class="systemBox_qty">
+            <div class="systemSmallBox_qty">
+                <div class="personBox_qty"></div>
+                <div class="systemInfo_qty">待我审批</div>
+                <div class="arrowRight"></div>
+                <div class="systemNew_qty">您有两条新的消息</div>
+            </div>
+        </li>
+        <li class="systemBox_qty">
+            <div class="systemSmallBox_qty">
+                <div class="info_qty"></div>
+                <div class="systemInfo_qty">反馈消息</div>
+                <div class="arrowRight"></div>
+                <div class="systemNew_qty">您有两条新的消息</div>
+            </div>
+        </li>
+    </ul>
+    <ul class="groupChat_qty">
+        <!--<li>-->
+            <!--<div class="groupImg_qty">-->
+                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
+                <!--<div class="math_qty">1</div>-->
+            <!--</div>-->
+            <!--<div class="groupChartBox_qty">-->
+                <!--<div class="groupSmall_qty">-->
+                    <!--<div class="groupTop_qty">-->
+                        <!--<span>群聊</span><span class="time_qty">06:03</span>-->
+                    <!--</div>-->
+                    <!--<div class="groupB_qty">-->
+                        <!--欢迎大家加入我们的群聊...-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="groupImg_qty">-->
+                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
+                <!--<div class="math_qty">2</div>-->
+            <!--</div>-->
+            <!--<div class="groupChartBox_qty">-->
+                <!--<div class="groupSmall_qty">-->
+                    <!--<div class="groupTop_qty">-->
+                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
+                    <!--</div>-->
+                    <!--<div class="groupB_qty">-->
+                        <!--我有一些问题需要您的帮助与...-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="groupImg_qty">-->
+                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
+                <!--<div class="math_qty">4</div>-->
+            <!--</div>-->
+            <!--<div class="groupChartBox_qty">-->
+                <!--<div class="groupSmall_qty">-->
+                    <!--<div class="groupTop_qty">-->
+                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
+                    <!--</div>-->
+                    <!--<div class="groupB_qty">-->
+                        <!--我有一些问题需要您的帮助与...-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="groupImg_qty">-->
+                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
+                <!--<div class="math_qty">10</div>-->
+            <!--</div>-->
+            <!--<div class="groupChartBox_qty">-->
+                <!--<div class="groupSmall_qty">-->
+                    <!--<div class="groupTop_qty">-->
+                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
+                    <!--</div>-->
+                    <!--<div class="groupB_qty">-->
+                        <!--我有一些问题需要您的帮助与...-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="groupImg_qty">-->
+                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
+                <!--<div class="math_qty">2</div>-->
+            <!--</div>-->
+            <!--<div class="groupChartBox_qty">-->
+                <!--<div class="groupSmall_qty">-->
+                    <!--<div class="groupTop_qty">-->
+                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
+                    <!--</div>-->
+                    <!--<div class="groupB_qty">-->
+                        <!--我有一些问题需要您的帮助与...-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="groupImg_qty">-->
+                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
+                <!--<div class="math_qty">5</div>-->
+            <!--</div>-->
+            <!--<div class="groupChartBox_qty">-->
+                <!--<div class="groupSmall_qty">-->
+                    <!--<div class="groupTop_qty">-->
+                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
+                    <!--</div>-->
+                    <!--<div class="groupB_qty">-->
+                        <!--我有一些问题需要您的帮助与...-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+    </ul>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
-    apiready = function(){
-        
-    };
-    function open_system() {
+    var page = 1;
+    var uid;
+
+    function onclick_qty(){
+        $('.per_qty').click(function(){
+            if($('.perBox_qty').css("display")=="none"){
+                $('.perBox_qty').show()
+            }else{
+                $('.perBox_qty').hide()
+            }
+        })
+    }
+    onclick_qty()
+
+    function open_lianxiren() {
         api.openWin({
-            name: 'systemInfo_qty',
-            url: 'widget://html/message/systemInfo_qty.html',
+            name: 'linkman_option_zn',
+            url: 'widget://html/message/linkman_option_zn.html',
             bounces: false,
-            pageParam: {type: 1},
+//            pageParam: {gid: gid},
             rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
         });
     }
+
+    function open_qunliao() {
+        api.openWin({
+            name: 'groupChart_qty',
+            url: 'widget://html/message/groupChart_qty.html',
+            bounces: false,
+//            pageParam: {gid: gid},
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+
+    function chat_list(page) {
+        apiready=function () {
+            uid = api.getPrefs({sync: true, key: 'uid'});
+            api.ajax({
+                url: ' http://appapi.duyiwang.cn/index.php?action=xiaoxi&dir=xiaoxi&do=xiaoxi',
+                method: 'post',
+                data: {
+                    values: {uid: uid, page: page}
+                },
+                dataType: 'text'
+            }, function (ret, err) {
+                $(".groupChat_qty").append(ret)
+            });
+        }
+    }
+    chat_list(page)
+
+    function open_chat(gid) {
+        api.openWin({
+            name: 'groupChartNumber_qty',
+            url: 'widget://html/message/groupChartNumber_qty.html',
+            bounces: false,
+            pageParam: {gid: gid},
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+
+    function talk_about(to_id) {
+        api.openWin({
+            name: 'talk_about',
+            url: 'widget://html/message/talk_about.html',
+            bounces: false,
+            pageParam: {friend_id: to_id},
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+
+function chat_list_yyt() {
+    api.ajax({
+        url: ' http://appapi.duyiwang.cn/index.php?action=xiaoxi&dir=xiaoxi&do=xiaoxi',
+        method: 'post',
+        data: {
+            values: {uid: uid, page: page}
+        },
+        dataType: 'text'
+    }, function (ret, err) {
+        $(".groupChat_qty").empty();
+        $(".groupChat_qty").append(ret)
+    });
+}
 </script>
 </html>
