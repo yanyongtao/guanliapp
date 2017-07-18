@@ -45,6 +45,7 @@
                 api.closeWidget({
                     id:'A6941282178145',
                     retData: {
+                        type: "none",
                         name: 'closeWidget'
                     },
                     silent:true
@@ -236,49 +237,57 @@
     socket.on('verify_to_user',function(obj){
         var obj=eval('('+obj+')');
         if (obj.store_id){
-            alert(obj.msg)
-            api.removePrefs({
-                key: 'uid'
-            });
-            api.removePrefs({
-                key: 'name'
-            });
-            api.removePrefs({
-                key: 'type'
-            });
-            api.removePrefs({
-                key: 'mobile'
-            });
+            alert(obj.roleid)
+//            api.removePrefs({
+//                key: 'uid'
+//            });
+//            api.removePrefs({
+//                key: 'name'
+//            });
+//            api.removePrefs({
+//                key: 'type'
+//            });
+//            api.removePrefs({
+//                key: 'mobile'
+//            });
             api.removePrefs({
                 key: 'store_id'
             });
             api.removePrefs({
                 key: 'user_role'
             });
-            api.removePrefs({
-                key: 'roleid'
+            api.setPrefs({
+                key: 'roleid',
+                value: obj.roleid
             });
+            api.setPrefs({
+                key: 'store_id',
+                value: obj.store_id
+            });
+//            api.removePrefs({
+//                key: 'roleid'
+//            });
 //            api.closeWin({
 //                name: 'main'
 //            });
-            api.closeWidget({
-                id: 'A6941282178145',
-                retData: {
-                    name: 'closeWidget'
-                },
-                silent: false,
-                animation: {
-                    type: 'flip',
-                    subType: 'from_bottom',
-                    duration: 500
-                }
-            });
-            api.openWin({
-                name:'login',
-                url:'widget://html/login_/login.html',
-                bounces: false,
-                rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
-            })
+//            api.closeWidget({
+//                id: 'A6941282178145',
+//                retData: {
+//                    name: 'closeWidget'
+//                },
+//                silent: false,
+//                animation: {
+//                    type: 'flip',
+//                    subType: 'from_bottom',
+//                    duration: 500
+//                }
+//            });
+//            api.openWin({
+//                name:'login',
+//                url:'widget://html/login_/login.html',
+//                bounces: false,
+//                rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+//            })
         }
         api.setPrefs({
             key: 'objMeg',
@@ -385,7 +394,7 @@
                 select_idx=ret.index;
                 if(ret.eventType=='show' || ret.index==0){
                     api.openFrame({
-                        name: 'me',
+                        name: 'work_in',
                         url: 'widget://html/work/work_in.html',
                         bounces: false,
                         reload:true,
@@ -393,13 +402,13 @@
                     });
                 }else{
                     api.setFrameAttr({
-                        name: 'me',
+                        name: 'work_in',
                         hidden:true
                     });
                 }
                 if(ret.index==2){
                     api.openFrame({
-                        name: 'document_',
+                        name: 'data_qty',
                         url: 'widget://html/document_/data_qty.html',
 //                        reload:true,
                         pageParam: {h1:h1},
@@ -407,7 +416,7 @@
                     });
                 }else{
                     api.setFrameAttr({
-                        name: 'document_',
+                        name: 'data_qty',
                         hidden:true
                     });
                 }
@@ -427,14 +436,14 @@
                 }
                 if(ret.index==3){
                     api.openFrame({
-                        name: 'work',
+                        name: 'me_',
                         url: 'widget://html/me/me_.html',
                         pageParam: {h1:h1},
                         rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
                     });
                 }else{
                     api.setFrameAttr({
-                        name: 'work',
+                        name: 'me_',
                         hidden:true
                     });
                 }

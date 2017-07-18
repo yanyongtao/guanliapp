@@ -628,7 +628,7 @@
 
 
 
-    function shenhe_yyt(bid,name,touid,mid) {
+    function shenhe_yyt(bid,name,touid,mid,count,gid) {
         roleid=api.getPrefs({sync:true,key:'roleid'});
         store_id=api.getPrefs({sync:true,key:'store_id'});
         api.confirm({
@@ -642,7 +642,7 @@
                     url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=agree_i_verify',
                     method: 'post',
                     data: {
-                        values:{bid:bid,roleid:roleid,mid:mid,store_id:store_id,name:name,touid:touid}
+                        values:{gid:gid,bid:bid,roleid:roleid,mid:mid,store_id:store_id,name:name,touid:touid,count:count}
                     },
                     dataType:'json'
                 },function(ret,err){
@@ -683,6 +683,7 @@
     }
     function chongzai() {
         window.location.reload();
+        $('body').scrollTop($('body').height);
     }
 
     function get_data() {
@@ -698,6 +699,7 @@
                 dataType: 'text'
             }, function (ret, err) {
                 $(".get_data_yyt").append(ret);
+                $('body').scrollTop($('body').height);
             });
         }
     }

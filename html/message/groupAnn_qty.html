@@ -106,6 +106,15 @@
                 },
                 dataType: 'json'
             }, function (ret, err) {
+                api.execScript({
+                    name: 'groupChartPer_qty',
+                    script: 'get_gg()'
+                });
+                api.execScript({
+                    name: 'groupChartNumber_qty',
+                    script: 'get_gg()'
+                });
+
                 api.toast({
                     msg: ret.msg,
                     duration: 3000,

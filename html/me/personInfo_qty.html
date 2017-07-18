@@ -114,8 +114,9 @@
             height: 1rem;
             line-height: 1rem;
             background: #2493f7;
-            float: left;
-            margin-top: 1rem;
+            position: fixed;
+            left: 0;
+            bottom: 0;
         }
         .submitBox input{
             width: 100%;
@@ -223,6 +224,14 @@
             height: 0.3rem;
             margin-top: 0.25rem;
         }
+        #mdlb{
+            width: 4rem;
+            height: 0.8rem;
+            font-size: 0.24rem;
+            line-height: 0.8rem;
+            text-align: left;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -272,9 +281,10 @@
         <div class="headPartSmall_qty headpartsmall">
             <div class="headFont_qty headfont1">所属门店</div>
             <div class="inputBox_qty inputBox_qtya">
-                <select name="" id="mdlb_" style="background: #fff">
-                    <option value="">请选择您的所属门店</option>
-                </select>
+                <div id="mdlb" onclick="open_list_city()">请选择您的所属门店</div>
+                <!--<select name="" id="mdlb_" style="background: #fff">-->
+                    <!--<option value="">请选择您的所属门店</option>-->
+                <!--</select>-->
             </div>
         </div>
     </div>
@@ -293,10 +303,10 @@
             </div>
         </div>
     </div>
-    <div class="submitBox">
-        <input type="button" name="" id="" value="提交" onclick="submit_yyt()">
-    </div>
 </form>
+<div class="submitBox">
+    <input type="button" name="" id="" value="提交" onclick="submit_yyt()">
+</div>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
@@ -304,13 +314,14 @@
     var type;
     function get_data() {
         apiready = function(){
+            store_id = api.getPrefs({sync:true,key:'store_id'});
             uid = api.getPrefs({sync:true,key:'uid'});
             type = api.getPrefs({sync:true,key:'type'});
             api.ajax({
                 url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=userinfo',
                 method: 'post',
                 data: {
-                    values:{uid:uid,type:type}
+                    values:{uid:uid,type:type,stroe_id:store_id}
                 },
                 dataType:'json'
             },function(ret,err){
@@ -329,18 +340,9 @@
                 if (ret.userinfo.age){
                     $(".age_yyt input").val(ret.userinfo.age)
                 }
-                if (ret.stroe_list){
-                    var store_yyt;
-                    store_id = api.getPrefs({sync:true,key:'store_id'});
-                    for (var i=0;i<ret.stroe_list.length;i++){
-                        if (ret.stroe_list[i].id == store_id){
-                            store_yyt = "<option selected='selected' value=" + ret.stroe_list[i].id + ">" + ret.stroe_list[i].name + "</option>"
-                        }else {
-                            store_yyt = "<option value=" + ret.stroe_list[i].id + ">" + ret.stroe_list[i].name + "</option>"
-                        }
-                        $(".inputBox_qtya select").append(store_yyt);
-                    }
-
+//                拿到所属门店，写入
+                if (ret.stroe.name){
+                    $("#mdlb").html(ret.stroe.name)
                 }
                 if (ret.userinfo.roleid){
                     if (ret.userinfo.roleid == 5){
@@ -354,6 +356,22 @@
         };
     }
     get_data()
+
+    function open_list_city() {
+        api.openWin({
+            name: 'store_qty',
+            url: 'widget://html/me/store_qty.html',
+            bounces: false,
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+
+    function updata_store(a,b) {
+        $("#mdlb").html(a)
+        store_id =b;
+    }
+
+
 
     var name;
     var age;
@@ -378,7 +396,7 @@
         }
         uid = api.getPrefs({sync:true,key:'uid'});
         type = api.getPrefs({sync:true,key:'type'});
-        store_id = $('#mdlb_ option:selected').val();
+//        store_id = $('#mdlb').html();
         api.ajax({
             url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=userinfo&dosubmit=1',
             method: 'post',
@@ -392,11 +410,14 @@
                 duration: 3000,
                 location: 'bottom'
             });
+            api.execScript({
+                name: 'main',
+                frameName: 'me_',
+                script: 'get_data()'
+            });
         });
 //        };
     }
-</script>
-<script type="text/javascript">
     $(function() {
         // alert($(window).height());
         $('#ClickMe_qty').click(function() {

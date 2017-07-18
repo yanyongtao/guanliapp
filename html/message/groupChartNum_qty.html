@@ -103,7 +103,6 @@
     function submit_chatName() {
         gid = api.pageParam.gid;
         gg_con = $(".groupChartInput_qty input").val();
-        alert(gg_con)
         api.ajax({
             url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=edit',
             method: 'post',
@@ -112,6 +111,14 @@
             },
             dataType: 'json'
         }, function (ret, err) {
+            api.execScript({
+                name: 'groupChartPer_qty',
+                script: 'get_name()'
+            });
+            api.execScript({
+                name: 'groupChartNumber_qty',
+                script: 'get_name()'
+            });
             api.toast({
                 msg: ret.msg,
                 duration: 3000,

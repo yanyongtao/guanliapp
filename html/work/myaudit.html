@@ -707,7 +707,7 @@
 			msg: '您确定同意该申请吗？',
 			buttons: ['确定', '取消']
 		}, function(ret, err) {
-			alert(JSON.stringify(ret))
+//			alert(JSON.stringify(ret))
 		});
 	}
 	function refuse_p_verify() {
@@ -717,7 +717,7 @@
 			msg: '您确定拒绝该申请吗？',
 			buttons: ['确定', '取消']
 		}, function(ret, err) {
-			alert(JSON.stringify(ret))
+//			alert(JSON.stringify(ret))
 		});
 	}
 	function get_data() {
@@ -733,6 +733,7 @@
 				dataType: 'text'
 			}, function (ret, err) {
 				$(".get_data_yyt").append(ret);
+				$('body').scrollTop($('body').height);
 			});
 		}
 	}

@@ -95,7 +95,8 @@
         }
         .addChartName_qty li{
         	width: 100%;
-        	height: 0.8rem;
+        	height: auto;
+			overflow: hidden;
         	float: left;
         	border-bottom: 1px solid #f6f6f6;
         	background: #fff;
@@ -105,7 +106,8 @@
         }
         .addChart_qty{
         	width: 6rem;
-        	height: 0.8rem;
+        	height: auto;
+			overflow: hidden;
         	margin: auto;
         }
         .groupChartName_qty{
@@ -203,6 +205,43 @@
 		}
 	}
 	getData()
+
+	function get_gg() {
+		api.ajax({
+			url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qlxx',
+			method: 'post',
+			data: {
+				values: {gid: gid}
+			},
+			dataType: 'json'
+		}, function (ret, err) {
+//			$(".groupCard_qty").html(ret.groups_info.ug_name);
+			$(".groupChartName_yyt").html("群公告："+ret.groups_info.ug_notice);
+//			for (var i=0;i<ret.groups_users_list.length;i++){
+//				var aa = "<span class='addName_qty'>"+ret.groups_users_list[i].gu_group_nick+"、</span>";
+//				$(".addChartFont_qty").append(aa)
+//			}
+		});
+	}
+
+
+	function get_name() {
+		api.ajax({
+			url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qlxx',
+			method: 'post',
+			data: {
+				values: {gid: gid}
+			},
+			dataType: 'json'
+		}, function (ret, err) {
+			$(".groupCard_qty").html(ret.groups_info.ug_name);
+//			$(".groupChartName_yyt").html("群公告："+ret.groups_info.ug_notice);
+//			for (var i=0;i<ret.groups_users_list.length;i++){
+//				var aa = "<span class='addName_qty'>"+ret.groups_users_list[i].gu_group_nick+"、</span>";
+//				$(".addChartFont_qty").append(aa)
+//			}
+		});
+	}
 	
 	function getData_again() {
 		gid = api.pageParam.gid;

@@ -57,7 +57,7 @@
         }
         .gg_qty{
             width: 100%;
-            height: auto;
+            height: 0.62rem;
             overflow: hidden;
             position: fixed;
             top: 0.88rem;
@@ -543,13 +543,49 @@
                 dataType: 'text'
             }, function (ret, err) {
                 $(".secret_chat_con_zn").append(ret);
-                $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
+                $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight);
             });
         }
     }
     getdata()
 
 
+    function get_name() {
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhxx',
+            method: 'post',
+            data: {
+                values: {uid: uid, gid: gid}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+//            if (ret.groups_info.ug_name == "未命名"){
+//                ret.groups_info.ug_name = "群聊"
+//            }
+            $(".header_qty").html(ret.groups_info.ug_name+"("+ret.groups_users_count+")");
+//            if (ret.groups_info.ug_notice){
+//                $(".gg_qty").html("公告："+ret.groups_info.ug_notice)
+//            }
+        });
+    }
+    function get_gg() {
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhxx',
+            method: 'post',
+            data: {
+                values: {uid: uid, gid: gid}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+//            if (ret.groups_info.ug_name == "未命名"){
+//                ret.groups_info.ug_name = "群聊"
+//            }
+//            $(".header_qty").html(ret.groups_info.ug_name+"("+ret.groups_users_count+")");
+            if (ret.groups_info.ug_notice){
+                $(".gg_qty").html("公告："+ret.groups_info.ug_notice)
+            }
+        });
+    }
 
     function send_data() {
         $(".send_text_yyt").focus();
