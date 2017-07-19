@@ -98,6 +98,7 @@
         }
         .work_one{
             width: 2rem;
+            position: relative;
             height: 2rem;
             float: left;
             border-right: 0.01rem solid #eeeeee;
@@ -141,6 +142,15 @@
             text-align: center;
             color: #333;
         }
+        .biaoji_yyt{
+            width: 0.14rem;
+            height: 0.14rem;
+            position: absolute;
+            right: 0.22rem;
+            top: 0.22rem;
+            background: red;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -166,6 +176,7 @@
     <li class="work_one" onclick="open_shenhe()">
         <div class="work_one_icon"></div>
         <div class="work_one_w">我的审核</div>
+        <!--<div class="biaoji_yyt"></div>-->
     </li>
     <li class="work_one" onclick="open_shopM()">
         <div class="work_one_icon"></div>
@@ -183,6 +194,14 @@
 </ul>
 </body>
 <script>
+    function biaoji_in() {
+        $(".biaoji_yyt").css("display","block")
+    }
+    function biaoji_off() {
+        $(".biaoji_yyt").css("display","none")
+    }
+    
+    
     var store_id;
     apiready=function () {
 //        需要在个人信息页面返回门店ID，并设置为偏好值

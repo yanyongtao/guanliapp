@@ -43,6 +43,7 @@
 		}
 		.auditBox_qty{
 			width: 100%;
+			position: relative;
 			height: 1.4rem;
 			float: left;
 			background: #fff;
@@ -102,6 +103,24 @@
 		.audit_qty{
 			border-bottom: none;
 		}
+		.biaojiOne_yyt{
+			width: 0.14rem;
+			height: 0.14rem;
+			position: absolute;
+			right: 1.05rem;
+			top: 0.64rem;
+			background: red;
+			border-radius: 50%;
+		}
+		.biaojiTwo_yyt{
+			width: 0.14rem;
+			height: 0.14rem;
+			position: absolute;
+			right: 1.05rem;
+			top: 0.64rem;
+			background: red;
+			border-radius: 50%;
+		}
 	</style>
 </head>
 <body>
@@ -120,6 +139,7 @@
 		</div>
 		<div class="arrowR_qty"></div>
 	</div>
+	<!--<div class="biaojiOne_yyt"></div>-->
 </div>
 <div class="auditBox_qty audit_qty" onclick="open_shenhe()">
 	<div class="auditSmall_qty">
@@ -132,6 +152,7 @@
 		</div>
 		<div class="arrowR_qty"></div>
 	</div>
+	<!--<div class="biaojiTwo_yyt"></div>-->
 </div>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
@@ -170,6 +191,20 @@
 			bounces: false,
 			rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
 		});
+	}
+
+
+	function biaojiOne_in() {
+		$(".biaojiOne_yyt").css("display","block")
+	}
+	function biaojiOne_off() {
+		$(".biaojiOne_yyt").css("display","none")
+	}
+	function biaojiTwo_in() {
+		$(".biaojiTwo_yyt").css("display","block")
+	}
+	function biaojiTwo_off() {
+		$(".biaojiTwo_yyt").css("display","none")
 	}
 </script>
 </html>

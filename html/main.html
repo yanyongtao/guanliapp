@@ -153,7 +153,6 @@
     //单聊socket实时回调函数
     socket.on('sixin_to', function(msg){
         var obj=eval('('+msg+')');
-
         api.ajax({
             url: ' http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=get_user_openwin',
             method: 'post',
@@ -237,7 +236,6 @@
     socket.on('verify_to_user',function(obj){
         var obj=eval('('+obj+')');
         if (obj.store_id){
-            alert(obj.roleid)
 //            api.removePrefs({
 //                key: 'uid'
 //            });

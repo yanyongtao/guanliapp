@@ -584,6 +584,39 @@
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script>
+    function close_() {
+        var wait_sh_yyt = $(".wait_sh_yyt");
+        for (var i=wait_sh_yyt.length-1;i>0;i--){
+            if($(wait_sh_yyt[i]).html() == "待审批"){
+                api.execScript({
+                    name: 'auditEnter',
+                    script: "biaojiTwo_in()"
+                });
+                api.execScript({
+                    frameName: 'work_in',
+                    script: "biaoji_in()"
+                });
+                api.closeWin()
+                return
+            }else {
+                api.execScript({
+                    name: 'auditEnter',
+                    script: "biaojiTwo_off()"
+                });
+                api.execScript({
+                    frameName: 'work_in',
+                    script: "biaoji_off()"
+                });
+                api.closeWin()
+                return
+            }
+        }
+    }
+
+
+
+
+
     var roleid;
     var store_id;
     var objMsg;
@@ -700,6 +733,11 @@
             }, function (ret, err) {
                 $(".get_data_yyt").append(ret);
                 $('body').scrollTop($('body').height);
+                function bar() {
+                    var bar = $(document).height();
+                    $(document).scrollTop(bar);
+                }
+                bar()
             });
         }
     }

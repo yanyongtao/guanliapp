@@ -617,7 +617,7 @@
             if (msga.lx == 0) {
                 var bb = "<div class='secret_chat_left'><div class='icon_img'><img src='../../image/img_qty/rightper.png' alt=''><p>" + msga.send_name + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
             } else if (msga.lx == 1) {
-                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + msga.send_name + "</p></div><div class='icon_chat_left_img'><img src="+msga.url+" alt=''></div></div>"
+                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + msga.send_name + "</p></div><div class='icon_chat_left_img'><img src="+msga.nr+" alt=''></div></div>"
             }
             $(".secret_chat_con_zn").append(bb);
             $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
@@ -695,23 +695,23 @@
         });
     }
 
-    $(document).on("click",".icon_chat_right_img img",function () {
-        var add = $(this).attr("src");
-        var photoBrowser = api.require('photoBrowser');
-        photoBrowser.open({
-            images: [
-                add
-//                'fs://img/encryption.png'
-            ],
-            placeholderImg: 'widget://res/img/apicloud.png',
-            bgColor: '#000'
-        }, function(ret, err) {
-            if (ret) {
-//                alert(JSON.stringify(ret));
-            } else {
-//                alert(JSON.stringify(err));
-            }
-        });
-    })
+//    $(document).on("click",".icon_chat_right_img img",function () {
+//        var add = $(this).attr("src");
+//        var photoBrowser = api.require('photoBrowser');
+//        photoBrowser.open({
+//            images: [
+//                add
+////                'fs://img/encryption.png'
+//            ],
+//            placeholderImg: 'widget://res/img/apicloud.png',
+//            bgColor: '#000'
+//        }, function(ret, err) {
+//            if (ret) {
+////                alert(JSON.stringify(ret));
+//            } else {
+////                alert(JSON.stringify(err));
+//            }
+//        });
+//    })
 </script>
 </html>

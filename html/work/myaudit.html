@@ -581,7 +581,7 @@
 <!--</div>-->
 <div class="get_data_yyt"></div>
 
-<!--&lt;!&ndash;人员审核 2017.07.04&ndash;&gt;-->
+<!--人员审核 2017.07.04-->
 <!--<div class="shBox_yyt">-->
 	<!--<div class="person_sq_yyt">-->
 		<!--<div class="person_sq_name">申请人</div>-->
@@ -599,10 +599,98 @@
 		<!--<div class="refuse_a_yyt">拒绝</div>-->
 	<!--</div>-->
 <!--</div>-->
+<!--<div class="shBox_yyt">-->
+	<!--<div class="person_sq_yyt">-->
+		<!--<div class="person_sq_name">申请人</div>-->
+		<!--<div class="person_sq_con">闫永涛</div>-->
+	<!--</div>-->
+	<!--<div class="shWatch_yyt">查看</div>-->
+	<!--<div class="shXiang_yyt">-->
+		<!--<div class="shXiang_yyt_name">录入详情</div>-->
+		<!--<div class="shXiang_con_yyt">张建设与2017年06月01日录入产品1，产品数量为2件，共计140元，请您及时查收并审批</div>-->
+	<!--</div>-->
+	<!--<div class="shTime_yyt">2017.01.02</div>-->
+	<!--<div class="wait_sh_yyt">待审批</div>-->
+	<!--<div class="alert_yyt">-->
+		<!--<div class="agree_a_yyt">同意</div>-->
+		<!--<div class="refuse_a_yyt">拒绝</div>-->
+	<!--</div>-->
+<!--</div><div class="shBox_yyt">-->
+	<!--<div class="person_sq_yyt">-->
+		<!--<div class="person_sq_name">申请人</div>-->
+		<!--<div class="person_sq_con">闫永涛</div>-->
+	<!--</div>-->
+	<!--<div class="shWatch_yyt">查看</div>-->
+	<!--<div class="shXiang_yyt">-->
+		<!--<div class="shXiang_yyt_name">录入详情</div>-->
+		<!--<div class="shXiang_con_yyt">张建设与2017年06月01日录入产品1，产品数量为2件，共计140元，请您及时查收并审批</div>-->
+	<!--</div>-->
+	<!--<div class="shTime_yyt">2017.01.02</div>-->
+	<!--<div class="wait_sh_yyt">待审批</div>-->
+	<!--<div class="alert_yyt">-->
+		<!--<div class="agree_a_yyt">同意</div>-->
+		<!--<div class="refuse_a_yyt">拒绝</div>-->
+	<!--</div>-->
+<!--</div><div class="shBox_yyt">-->
+	<!--<div class="person_sq_yyt">-->
+		<!--<div class="person_sq_name">申请人</div>-->
+		<!--<div class="person_sq_con">闫永涛</div>-->
+	<!--</div>-->
+	<!--<div class="shWatch_yyt">查看</div>-->
+	<!--<div class="shXiang_yyt">-->
+		<!--<div class="shXiang_yyt_name">录入详情</div>-->
+		<!--<div class="shXiang_con_yyt">张建设与2017年06月01日录入产品1，产品数量为2件，共计140元，请您及时查收并审批</div>-->
+	<!--</div>-->
+	<!--<div class="shTime_yyt">2017.01.02</div>-->
+	<!--<div class="wait_sh_yyt">待审批</div>-->
+	<!--<div class="alert_yyt">-->
+		<!--<div class="agree_a_yyt">同意</div>-->
+		<!--<div class="refuse_a_yyt">拒绝</div>-->
+	<!--</div>-->
+<!--</div>-->
+
+
+
+
 
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
+
+
+
+
+
+	function close_() {
+		var wait_sh_yyt = $(".wait_sh_yyt");
+		for (var i=wait_sh_yyt.length-1;i>0;i--){
+			if($(wait_sh_yyt[i]).html() == "待审批"){
+				api.execScript({
+					name: 'auditEnter',
+					script: "biaojiOne_in()"
+				});
+				api.execScript({
+					frameName: 'work_in',
+					script: "biaoji_in()"
+				});
+				api.closeWin()
+				return
+			}else {
+				api.execScript({
+					name: 'auditEnter',
+					script: "biaojiOne_off()"
+				});
+				api.execScript({
+					frameName: 'work_in',
+					script: "biaoji_off()"
+				});
+				api.closeWin()
+				return
+			}
+		}
+	}
+	
+	
 	var roleid;
 	var name;
 	var mobile;
@@ -734,6 +822,11 @@
 			}, function (ret, err) {
 				$(".get_data_yyt").append(ret);
 				$('body').scrollTop($('body').height);
+				function bar() {
+					var bar = $(document).height();
+					$(document).scrollTop(bar);
+				}
+				bar()
 			});
 		}
 	}

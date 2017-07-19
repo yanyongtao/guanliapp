@@ -127,13 +127,15 @@
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
 
+    var type;
 	function get_data() {
 		apiready=function () {
+            type=api.getPrefs({sync:true,key:'type'});
 			api.ajax({
 				url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=area',
 				method: 'post',
 				data: {
-					values: {}
+					values: {type:type}
 				},
 				dataType: 'txt'
 			}, function (ret, err) {

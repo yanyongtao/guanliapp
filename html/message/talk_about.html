@@ -45,15 +45,15 @@
             margin-left: 0.2rem;
         }
         /*.person_qty{*/
-            /*width: 0.39rem;*/
-            /*height: 0.29rem;*/
-            /*background-image: url(../../image/img_qty/perChart_03.png);*/
-            /*background-repeat: no-repeat;*/
-            /*background-size: cover;*/
-            /*position: fixed;*/
-            /*right: 0.2rem;*/
-            /*top: 0.295rem;*/
-            /*z-index: 2;*/
+        /*width: 0.39rem;*/
+        /*height: 0.29rem;*/
+        /*background-image: url(../../image/img_qty/perChart_03.png);*/
+        /*background-repeat: no-repeat;*/
+        /*background-size: cover;*/
+        /*position: fixed;*/
+        /*right: 0.2rem;*/
+        /*top: 0.295rem;*/
+        /*z-index: 2;*/
         /*}*/
         .gg_qty{
             width: 100%;
@@ -455,7 +455,7 @@
                         <!--<img src="../../image/img_qty/person.png" alt="">-->
                     <!--</div>-->
                 <!--</div>-->
-                <!--</div>-->
+            <!--</div>-->
 
 
 
@@ -468,24 +468,24 @@
 
 
 
-            </div>
         </div>
-        <div class="chat_input_zn">
-            <div class="chat_input_box">
-                <div class="chat_icon_box">
-                    <div class="chat_icon">
-                        <!--<div class="voice_qty"></div>-->
-                        <div class="picture_qty" onclick="open_picture()"></div>
-                        <!--<div class="emo_qty"></div>-->
-                    </div>
-                    <div class="chat_send" onclick="send_data()">发送</div>
+    </div>
+    <div class="chat_input_zn">
+        <div class="chat_input_box">
+            <div class="chat_icon_box">
+                <div class="chat_icon">
+                    <!--<div class="voice_qty"></div>-->
+                    <div class="picture_qty" onclick="open_picture()"></div>
+                    <!--<div class="emo_qty"></div>-->
                 </div>
-                <div class="in_con">
-                    <input type="text" class="send_text_yyt">
-                </div>
+                <div class="chat_send" onclick="send_data()">发送</div>
+            </div>
+            <div class="in_con">
+                <input type="text" class="send_text_yyt">
             </div>
         </div>
     </div>
+</div>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script>
@@ -529,7 +529,7 @@
             }, function (ret, err) {
                 $(".header_qty").html(ret.to_name);
                 myName = ret.wo_name;
-                toName = ret.toName;
+                toName = ret.to_name;
             });
             api.ajax({
                 url: 'http://appapi.duyiwang.cn/index.php?action=dhk&dir=xiaoxi&do=dhk',
@@ -540,7 +540,7 @@
                 dataType: 'text'
             }, function (ret, err) {
                 $(".secret_chat_con_zn").append(ret);
-                $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
+                $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
             });
         }
     }
@@ -578,7 +578,7 @@
             if (msga.lx == 0) {
                 var bb = "<div class='secret_chat_left'><div class='icon_img'><img src='../../image/img_qty/rightper.png' alt=''><p>" + toName + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
             } else if (msga.lx == 1) {
-                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + toName + "</p></div><div class='icon_chat_left_img'><img src="+msga.url+" alt=''></div></div>"
+                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + toName + "</p></div><div class='icon_chat_left_img'><img src="+msga.nr+" alt=''></div></div>"
             }
             $(".secret_chat_con_zn").append(bb);
             $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
@@ -606,15 +606,15 @@
     }
 
 
-//    function open_personList() {
-//        api.openWin({
-//            name:'groupChartPer_qty',
-//            url:'widget://html/message/groupChartPer_qty.html',
-//            bounces: false,
-//            pageParam: {gid: gid},
-//            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
-//        })
-//    }
+    //    function open_personList() {
+    //        api.openWin({
+    //            name:'groupChartPer_qty',
+    //            url:'widget://html/message/groupChartPer_qty.html',
+    //            bounces: false,
+    //            pageParam: {gid: gid},
+    //            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+    //        })
+    //    }
 
 
 
@@ -652,24 +652,24 @@
         });
     }
 
-    $(document).on("click",".icon_chat_right_img img",function () {
-        var add = $(this).attr("src");
-        var photoBrowser = api.require('photoBrowser');
-        photoBrowser.open({
-            images: [
-                add
-//                'fs://img/encryption.png'
-            ],
-            placeholderImg: 'widget://res/img/apicloud.png',
-            bgColor: '#000'
-        }, function(ret, err) {
-            if (ret) {
-//                alert(JSON.stringify(ret));
-            } else {
-//                alert(JSON.stringify(err));
-            }
-        });
-    })
+//    $(document).on("click",".icon_chat_right_img img",function () {
+//        var add = $(this).attr("src");
+//        var photoBrowser = api.require('photoBrowser');
+//        photoBrowser.open({
+//            images: [
+//                add
+////                'fs://img/encryption.png'
+//            ],
+//            placeholderImg: 'widget://res/img/apicloud.png',
+//            bgColor: '#000'
+//        }, function(ret, err) {
+//            if (ret) {
+////                alert(JSON.stringify(ret));
+//            } else {
+////                alert(JSON.stringify(err));
+//            }
+//        });
+//    })
 
 
 
