@@ -70,6 +70,13 @@
                 rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
             });
         });
+
+        api.addEventListener({
+            name: 'keyback'
+        }, function(ret, err) {
+            api.toLauncher();
+        });
+
     };
 
 

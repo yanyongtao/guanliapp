@@ -143,6 +143,7 @@
             color: #333;
         }
         .biaoji_yyt{
+            display: none;
             width: 0.14rem;
             height: 0.14rem;
             position: absolute;
@@ -157,11 +158,11 @@
 <div class="work_title">工作</div>
 <div class="work_msg">
     <!--<div class="work_msg_con">-->
-        <!--<div class="goods_name">商品名称</div>-->
-        <!--<div class="study_today_e">Activity today</div>-->
-        <!--<div class="study_today">今日学习</div>-->
-        <!--<div class="big_title">大标题</div>-->
-        <!--<div class="study_con">大概学习内容文字</div>-->
+    <!--<div class="goods_name">商品名称</div>-->
+    <!--<div class="study_today_e">Activity today</div>-->
+    <!--<div class="study_today">今日学习</div>-->
+    <!--<div class="big_title">大标题</div>-->
+    <!--<div class="study_con">大概学习内容文字</div>-->
     <!--</div>-->
 </div>
 <ul class="work_con">
@@ -176,7 +177,7 @@
     <li class="work_one" onclick="open_shenhe()">
         <div class="work_one_icon"></div>
         <div class="work_one_w">我的审核</div>
-        <!--<div class="biaoji_yyt"></div>-->
+        <div class="biaoji_yyt"></div>
     </li>
     <li class="work_one" onclick="open_shopM()">
         <div class="work_one_icon"></div>
@@ -194,19 +195,37 @@
 </ul>
 </body>
 <script>
-    function biaoji_in() {
-        $(".biaoji_yyt").css("display","block")
-    }
-    function biaoji_off() {
-        $(".biaoji_yyt").css("display","none")
-    }
-    
-    
+
+
+
+
+
     var store_id;
-    apiready=function () {
-//        需要在个人信息页面返回门店ID，并设置为偏好值
-        store_id=api.getPrefs({sync:true,key:'store_id'});
+    var uid;
+    function biaoji() {
+        apiready=function () {
+            store_id=api.getPrefs({sync:true,key:'store_id'});
+            uid=api.getPrefs({sync:true,key:'uid'});
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=wdstatus',
+                method: 'post',
+                data: {
+                    values: {uid:uid}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if (ret.verify == 1 || ret.buy == 1){
+                    $(".biaoji_yyt").css("display","block");
+                }
+            });
+        }
     }
+    biaoji()
+
+
+
+
+
     function open_trade_in() {
         if (parseInt(store_id)) {
             api.openWin({
@@ -233,12 +252,12 @@
     }
     function open_feed() {
 //        if (store_id) {
-            api.openWin({
-                name: 'feed_qty',
-                url: 'widget://html/work/feed_qty.html',
-                bounces: false,
-                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
-            });
+        api.openWin({
+            name: 'feed_qty',
+            url: 'widget://html/work/feed_qty.html',
+            bounces: false,
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
 //        } else {
 //            api.toast({
 //                msg: '请选择您所属门店',

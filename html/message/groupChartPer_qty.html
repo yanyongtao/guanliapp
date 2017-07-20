@@ -53,7 +53,10 @@
         }
         .addChartFont_qty{
         	width: 6rem;
-        	margin: auto;
+			height: 3rem;
+			overflow: hidden;
+        	margin: 0 auto;
+			padding: 0.2rem 0;
         }
         .addName_qty{
         	float: left;
@@ -123,16 +126,26 @@
         	line-height: 0.8rem;
         }
 		.delChat_yyt{
-			width: 100%;
-			height: 0.88rem;
+			width: 5.4rem;
+			height: 0.8rem;
 			background: #1b8bef;
 			text-align: center;
-			line-height: 0.88rem;
+			line-height: 0.8rem;
 			color: #fff;
 			font-size: 0.3rem;
-			position: absolute;
-			left: 0;
-			bottom: 0;
+			border-radius: 0.1rem;
+			margin: 0 auto;
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+		.click_del{
+			width: 100%;
+			height: 0.4rem;
+			text-align: center;
+			line-height: 0.4rem;
+			font-size: 0.26rem;
+			padding-top: 0.15rem;
+			margin-bottom: -0.1rem;
 		}
     </style>
 </head>
@@ -149,15 +162,8 @@
     		<!--<span class="addName_qty">王五、</span>-->
     		<!--<span class="addName_qty">白晓宇、</span>-->
     		<!--<span class="addName_qty">李白、</span>-->
-    		<!--<span class="addName_qty">杜甫、</span>-->
-    		<!--<span class="addName_qty">李庆宇、</span>-->
-    		<!--<span class="addName_qty">小王、</span>-->
-    		<!--<span class="addName_qty">林志玲、</span>-->
-    		<!--<span class="addName_qty">罗志祥、</span>-->
-    		<!--<span class="addName_qty">三毛、</span>-->
-    		<!--<span class="addName_qty">李宇春、</span>-->
-    		<!--<span class="addName_qty">吴非、</span>-->
     	</div>
+		<div class="click_del"  onclick="watch_all()">点击查看全部</div>
     	<div class="addContact_qty">
     		<div class="addContactImg_qty" onclick="open_tongxunlu()"></div>
     		<div class="addFontChart_qty" onclick="open_tongxunlu()">添加联系人</div>
@@ -181,6 +187,19 @@
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
 
+	var flag = true;
+	function watch_all() {
+		if (flag == true){
+			flag = false;
+			$(".addChartFont_qty").css("height","auto");
+			$(".click_del").html("点击收起");
+		}else if (flag == false){
+			flag = true;
+			$(".addChartFont_qty").css("height","3rem");
+			$(".click_del").html("点击查看全部");
+		}
+	}
+//	watch_all()
 
 	var uid;
     var gid;

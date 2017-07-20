@@ -542,6 +542,15 @@
                 $(".secret_chat_con_zn").append(ret);
                 $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
             });
+
+            api.addEventListener({
+                name: 'keyback'
+            }, function(ret, err) {
+                closeW_yyt()
+            });
+
+
+
         }
     }
     getdata()

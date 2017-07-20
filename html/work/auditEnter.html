@@ -104,6 +104,7 @@
 			border-bottom: none;
 		}
 		.biaojiOne_yyt{
+			display: none;
 			width: 0.14rem;
 			height: 0.14rem;
 			position: absolute;
@@ -113,6 +114,7 @@
 			border-radius: 50%;
 		}
 		.biaojiTwo_yyt{
+			display: none;
 			width: 0.14rem;
 			height: 0.14rem;
 			position: absolute;
@@ -139,7 +141,7 @@
 		</div>
 		<div class="arrowR_qty"></div>
 	</div>
-	<!--<div class="biaojiOne_yyt"></div>-->
+	<div class="biaojiOne_yyt"></div>
 </div>
 <div class="auditBox_qty audit_qty" onclick="open_shenhe()">
 	<div class="auditSmall_qty">
@@ -152,15 +154,13 @@
 		</div>
 		<div class="arrowR_qty"></div>
 	</div>
-	<!--<div class="biaojiTwo_yyt"></div>-->
+	<div class="biaojiTwo_yyt"></div>
 </div>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
 	var store_id;
-	apiready = function(){
-		store_id=api.getPrefs({sync:true,key:'store_id'});
-	};
+
 	function open_shenhe() {
 		if (parseInt(store_id)) {
 			api.openWin({
@@ -194,17 +194,27 @@
 	}
 
 
-	function biaojiOne_in() {
-		$(".biaojiOne_yyt").css("display","block")
+	function biaoji() {
+		apiready=function () {
+			store_id=api.getPrefs({sync:true,key:'store_id'});
+			uid=api.getPrefs({sync:true,key:'uid'});
+			api.ajax({
+				url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=wdstatus',
+				method: 'post',
+				data: {
+					values: {uid:uid}
+				},
+				dataType: 'json'
+			}, function (ret, err) {
+				if (ret.verify == 1){
+					$(".biaojiOne_yyt").css("display","block")
+				}
+				if (ret.buy == 1){
+					$(".biaojiTwo_yyt").css("display","block")
+				}
+			});
+		}
 	}
-	function biaojiOne_off() {
-		$(".biaojiOne_yyt").css("display","none")
-	}
-	function biaojiTwo_in() {
-		$(".biaojiTwo_yyt").css("display","block")
-	}
-	function biaojiTwo_off() {
-		$(".biaojiTwo_yyt").css("display","none")
-	}
+	biaoji()
 </script>
 </html>

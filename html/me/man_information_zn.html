@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f6f6f6;
+        }
+        .stock_box_zn{
+            background: #2493F7;
+            height:.88rem;
+            width:100%;
+            position:relative;
+        }
+        .stock_zn{
+            color:#fff;
+            font-size: .3rem;
+            height:100%;
+            line-height: .88rem;
+            text-align: center;
+        }
+        .icon_zn{
+            width: 0.29rem;
+            height: 0.43rem;
+            position: absolute;
+            left: 0.15rem;
+            top: 0.25rem;
+            background: url("../../image/image_zn/icon_lefta_zn.png") no-repeat;
+            background-size: cover;
+        }
+        .edit_zn{
+            width: 1rem;
+            color:#fff;
+            font-size: .3rem;
+            height:100%;
+            line-height: .88rem;
+            position:absolute;
+            top:0;
+            right:0.2rem;
+            outline: none;
+            letter-spacing:0.03rem;
+        }
+        .man_information_zn{
+            width:5.6rem;
+            height:3.3rem;
+            box-sizing: border-box;
+            border-radius: 0.1rem;
+            background: #fff;
+            margin:0 auto;
+            margin-top:0.2rem;
+            overflow: hidden;
+        }
+        .man_information_zn img{
+            display: block;
+            margin:0 auto;
+            width:1.6rem;
+            height:1.6rem;
+            margin-top:0.3rem;
+            margin-bottom:0.1rem;
+        }
+        .name_man_zn{
+            width:100%;
+            height:0.32rem;
+            line-height:0.32rem;
+            text-align: center;
+            font-size:0.28rem;
+            color:#8a8a8a;
+            letter-spacing: 0.02rem;
+            margin-top:0.2rem;
+            margin-bottom:0.2rem;
+        }
+        .company_name{
+            width:100%;
+            height:0.32rem;
+            line-height:0.32rem;
+            text-align: center;
+            font-size:0.24rem;
+            color:#999;
+            margin-top:0.1rem;
+            letter-spacing: 0.02rem;
+        }
+        .department{
+            width:5.6rem;
+            height:0.95rem;
+            line-height:0.95rem;
+            background: #fff;
+            border-radius: 0.1rem;
+            margin:0 auto;
+            margin-top:0.2rem;
+            overflow: hidden;
+        }
+        .span_left{
+            display: block;
+            float:left;
+            font-size:0.28rem;
+            height:0.95rem;
+            line-height:0.95rem;
+            width:1.2rem;
+            margin-left:0.2rem;
+        }
+        .span_right{
+            display: block;
+            margin-left:0.2rem;
+            float:left;
+            font-size:0.28rem;
+            height:0.95rem;
+            line-height:0.95rem;
+            width:3.7rem;
+            color:#8a8a8a;
+        }
+        .left_zn{
+            display: block;
+            float:left;
+            font-size:0.28rem;
+            margin-right:0.4rem;
+            height:0.95rem;
+            line-height:0.95rem;
+            margin-left:0.2rem;
+        }
+        .left_zn_zn{
+            margin-right:0.05rem;
+        }
+    </style>
+</head>
+<body>
+<div class="stock_box_zn">
+    <div class="stock_zn">个人信息</div>
+    <div class="icon_zn" onclick="api.closeWin()"></div>
+    <button class="edit_zn" onclick="open_edit()">编辑</button>
+</div>
+<div class="man_information_zn">
+    <img src="../../image/image_zn/man_information_zn.png" alt="">
+    <p class="name_man_zn">
+        <span class="name_man">姓名</span>
+        <span class="sex_man">性别</span>
+    </p>
+    <p class="company_name">山西太常生物科技有限公司</p>
+</div>
+<div class="department">
+    <span class="span_left">所属门店</span>
+    <span class="span_right">待完善</span>
+</div>
+<div class="department">
+    <span class="left_zn">职</span>
+    <span class="left_zn left_zn_zn">位</span>
+    <span class="span_right span_right_yyt">店员</span>
+</div>
+<script type="text/javascript" src="../script/api.js"></script>
+<script>
+    var uid;
+    function get_data() {
+        apiready=function () {
+            uid=api.getPrefs({sync:true,key:'uid'});
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=info',
+                method: 'post',
+                data: {
+                    values:{uid:uid}
+                },
+                dataType:'json'
+            },function(ret,err){
+                if(ret.code == 200){
+                   $(".name_man").html(ret.info[0].name);
+                    if (ret.info[0].sex == 1){
+                        $(".sex_man").html("男");
+                    }else if (ret.info[0].sex == 2){
+                        $(".sex_man").html("女");
+                    }else {
+                        $(".sex_man").html("性别");
+                    }
+                    $(".span_right").html(ret.info[0].mdname);
+                    if (ret.info[0].roleid == 5){
+                        $(".span_right_yyt").html("店员")
+                    }else if (ret.info[0].roleid == 3){
+                        $(".span_right_yyt").html("店长")
+                    }
+                }else if(ret.code == 500){
+
+                }
+            });
+        }
+    }
+    get_data()
+
+    function open_edit() {
+        api.openWin({
+            name: 'personInfo_qty',
+            url: 'widget://html/me/personInfo_qty.html',
+            bounces: false,
+            reload:true,
+            rect: {x: 0,y: 0,w: 'auto',h: "auto"}
+        });
+
+    }
+</script>
+</body>
+</html>
