@@ -205,16 +205,16 @@
     function biaoji() {
         apiready=function () {
             store_id=api.getPrefs({sync:true,key:'store_id'});
-            uid=api.getPrefs({sync:true,key:'uid'});
+//            uid=api.getPrefs({sync:true,key:'uid'});
             api.ajax({
                 url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=wdstatus',
                 method: 'post',
                 data: {
-                    values: {uid:uid}
+                    values: {store_id:store_id}
                 },
                 dataType: 'json'
             }, function (ret, err) {
-                if (ret.verify == 1 || ret.buy == 1){
+                if (ret.verify != 0 || ret.buy != 0){
                     $(".biaoji_yyt").css("display","block");
                 }
             });
@@ -229,8 +229,8 @@
     function open_trade_in() {
         if (parseInt(store_id)) {
             api.openWin({
-                name: 'trade_in',
-                url: 'widget://html/work/trade_in.html',
+                name: 'saleEntry',
+                url: 'widget://html/work/saleEntry.html',
                 bounces: false,
                 pageParam: {type: 1},
                 rect: {x: 0, y: 0, w: 'auto', h: 'auto'}

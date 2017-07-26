@@ -197,19 +197,19 @@
 	function biaoji() {
 		apiready=function () {
 			store_id=api.getPrefs({sync:true,key:'store_id'});
-			uid=api.getPrefs({sync:true,key:'uid'});
+//			uid=api.getPrefs({sync:true,key:'uid'});
 			api.ajax({
 				url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=wdstatus',
 				method: 'post',
 				data: {
-					values: {uid:uid}
+					values: {store_id:store_id}
 				},
 				dataType: 'json'
 			}, function (ret, err) {
-				if (ret.verify == 1){
+				if (ret.verify != 0){
 					$(".biaojiOne_yyt").css("display","block")
 				}
-				if (ret.buy == 1){
+				if (ret.buy != 0){
 					$(".biaojiTwo_yyt").css("display","block")
 				}
 			});

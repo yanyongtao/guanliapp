@@ -53,7 +53,7 @@
             border-radius: 0.1rem;
             background: #fff;
             margin:0 auto;
-            margin-top:0.2rem;
+            margin-top:0.28rem;
             overflow: hidden;
         }
         .man_information_zn img{
@@ -126,6 +126,79 @@
         .left_zn_zn{
             margin-right:0.05rem;
         }
+        .jindu_yyt{
+            width: 5.6rem;
+            height: 2.2rem;
+            margin: 0 auto;
+            margin-top: 0.2rem;
+            background: #fff;
+            border-radius: 0.1rem;
+        }
+        .jindu_name_yyt{
+            width: 5.2rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+            font-size: 0.26rem;
+            line-height: 0.7rem;
+            color: #2493f7;
+        }
+        .jindu_num_yyt{
+            width: 5.2rem;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .num_yyt{
+            width: 1.73rem;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.2rem;
+            line-height: 0.4rem;
+            float: left;
+        }
+        .num_a_yyt{
+            text-align: left;
+        }
+        .num_b_yyt{
+            text-align: center;
+        }
+        .num_c_yyt{
+            float: right;
+            text-align: right;
+        }
+        .img_yyt{
+            width: 5.1rem;
+            height: 0.3rem;
+            margin: 0 auto;
+            display: block;
+            padding: 0.05rem 0;
+        }
+        .result_zn{
+            width: 5.2rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .result_zn_{
+            width: 1.73rem;
+            height: auto;
+            overflow: hidden;
+            float: left;
+            font-size: 0.26rem;
+            color: #1b8bef;
+            line-height: 0.4rem;
+        }
+        .result_a_zn{
+            text-align: left;
+        }
+        .result_b_zn{
+            text-align: center;
+        }
+        .result_c_zn{
+            text-align: right;
+            float: right;
+        }
     </style>
 </head>
 <body>
@@ -151,6 +224,20 @@
     <span class="left_zn left_zn_zn">位</span>
     <span class="span_right span_right_yyt">店员</span>
 </div>
+<div class="jindu_yyt">
+    <div class="jindu_name_yyt">审核进度</div>
+    <div class="jindu_num_yyt">
+        <span class="num_yyt num_a_yyt">0%</span>
+        <span class="num_yyt num_b_yyt">50%</span>
+        <span class="num_yyt num_c_yyt">100%</span>
+    </div>
+    <img class="img_yyt" src="../../image/image_zn/half_yyt.png" alt="">
+    <div class="result_zn">
+        <span class="result_zn_ result_a_zn">申请</span>
+        <span class="result_zn_ result_b_zn">审核</span>
+        <span class="result_zn_ result_c_zn">通过</span>
+    </div>
+</div>
 <script type="text/javascript" src="../script/api.js"></script>
 <script>
     var uid;
@@ -167,7 +254,7 @@
             },function(ret,err){
                 if(ret.code == 200){
                    $(".name_man").html(ret.info[0].name);
-                    if (ret.info[0].sex == 1){
+                    if (ret.info[0].sex == 1 || ret.info[0].sex == 0){
                         $(".sex_man").html("男");
                     }else if (ret.info[0].sex == 2){
                         $(".sex_man").html("女");

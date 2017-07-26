@@ -696,6 +696,8 @@
 	var mobile;
 	var store_id;
 	apiready=function () {
+		roleid=api.getPrefs({sync:true,key:'roleid'});
+		store_id=api.getPrefs({sync:true,key:'store_id'});
 		roleid = api.getPrefs({
 			sync: true,
 			key: 'roleid'
@@ -734,8 +736,8 @@
 //	name_mobile()
 
 	function shenhe_yyt(bid,name,touid,mid) {
-		roleid=api.getPrefs({sync:true,key:'roleid'});
-		store_id=api.getPrefs({sync:true,key:'store_id'});
+//		roleid=api.getPrefs({sync:true,key:'roleid'});
+//		store_id=api.getPrefs({sync:true,key:'store_id'});
 		api.confirm({
 			title: '',
 			msg: '您是否同意该申请',
@@ -783,7 +785,14 @@
 					}
 				});
 			}
-
+			api.execScript({
+				name: 'auditEnter',
+				script: 'biaoji()'
+			});
+			api.execScript({
+				frameName: 'work_in',
+				script: 'biaoji()'
+			});
 		});
 	}
 
@@ -821,12 +830,12 @@
 				dataType: 'text'
 			}, function (ret, err) {
 				$(".get_data_yyt").append(ret);
-				$('body').scrollTop($('body').height);
-				function bar() {
-					var bar = $(document).height();
-					$(document).scrollTop(bar);
-				}
-				bar()
+//				$('body').scrollTop($('body').height);
+//				function bar() {
+//					var bar = $(document).height();
+//					$(document).scrollTop(bar);
+//				}
+//				bar()
 			});
 		}
 	}

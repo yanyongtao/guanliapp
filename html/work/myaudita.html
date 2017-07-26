@@ -716,7 +716,7 @@
     }
     function chongzai() {
         window.location.reload();
-        $('body').scrollTop($('body').height);
+//        $('body').scrollTop($('body').height);
     }
 
     function get_data() {
@@ -732,12 +732,12 @@
                 dataType: 'text'
             }, function (ret, err) {
                 $(".get_data_yyt").append(ret);
-                $('body').scrollTop($('body').height);
-                function bar() {
-                    var bar = $(document).height();
-                    $(document).scrollTop(bar);
-                }
-                bar()
+//                $('body').scrollTop($('body').height);
+//                function bar() {
+//                    var bar = $(document).height();
+//                    $(document).scrollTop(bar);
+//                }
+//                bar()
             });
         }
     }

@@ -303,6 +303,80 @@
             height: 100%;
             overflow: auto;
         }
+        .icon_chat_left_yuyin{
+            border: 0.01rem solid #ccc;
+            width:3.6rem;
+            height:0.6rem;
+            float:left;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 0.1rem;
+            margin-left: 0.2rem;
+            margin-top: 0.06rem;
+            background: #fff;
+        }
+        .icon_chat_right_yuyin{
+            border: 0.01rem solid #ccc;
+            width:0.6rem;
+            height:0.6rem;
+            float:right;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 0.1rem;
+            /*margin-right: 0.2rem;*/
+            margin-top: 0.06rem;
+            background: #fff;
+        }
+        .yuyin_yyt_l{
+            width: 0.3rem;
+            height: 0.3rem;
+            float: left;
+            background: url("../../image/img_yyt/yuyin_left_yyt.png") no-repeat;
+            background-size: 100% 100%;
+            margin-top: 0.15rem;
+            margin-left: 0.15rem;
+        }
+        .yuyin_yyt_r{
+            width: 0.3rem;
+            height: 0.3rem;
+            float: right;
+            background: url("../../image/img_yyt/yuyin_right_yyt.png") no-repeat;
+            background-size: 100% 100%;
+            margin-top: 0.15rem;
+            margin-right: 0.15rem;
+        }
+        .yuyin_time_left{
+            width: auto;
+            height: 0.6rem;
+            float: left;
+            line-height: 0.6rem;
+            overflow: hidden;
+            font-size: 0.26rem;
+            color: #333;
+            margin-top: 0.06rem;
+            margin-left: 0.1rem;
+        }
+        .yuyin_time_right{
+            width: auto;
+            height: 0.6rem;
+            float: right;
+            line-height: 0.6rem;
+            overflow: hidden;
+            font-size: 0.26rem;
+            color: #333;
+            margin-top: 0.06rem;
+            margin-right: 0.1rem;
+        }
+        .yuyin_icon{
+            width: 0.35rem;
+            height: 0.35rem;
+            float: left;
+            background: url("../../image/img_yyt/yuyin_left_yyt.png") no-repeat;
+            background-size: 100% 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 0.02rem solid #ccc;
+        }
     </style>
 </head>
 <body>
@@ -317,8 +391,6 @@
     <!--<div class="gg_qty"></div>-->
     <div class="secret_chat_zn">
         <div class="secret_chat_con_zn">
-
-
 
 
 
@@ -437,24 +509,35 @@
                         <!--<span>2"</span>-->
                     <!--</div>-->
                 <!--</div>-->
+
+
+            <!--发送语音模块-->
+
                 <!--<div class="secret_chat_left_mc">-->
                     <!--<div class="icon_img_left">-->
                         <!--<img src="../../image/img_qty/rightper.png" alt="">-->
                         <!--<p>王小二</p>-->
                     <!--</div>-->
-                    <!--<div class="icon_chat_left_img">-->
-                        <!--<img src="../../image/img_qty/person.png" alt="">-->
+                    <!--<div class="icon_chat_left_yuyin" path="">-->
+                        <!--<span class="yuyin_yyt_l"></span>-->
                     <!--</div>-->
+                    <!--<span class="yuyin_time_left">60s</span>-->
                 <!--</div>-->
                 <!--<div class="secret_chat_right_mc">-->
                     <!--<div class="icon_img_right">-->
                         <!--<img src="../../image/img_qty/leftper.png" alt="">-->
                         <!--<p>王小二</p>-->
                     <!--</div>-->
-                    <!--<div class="icon_chat_right_img">-->
-                        <!--<img src="../../image/img_qty/person.png" alt="">-->
+                    <!--<div class="icon_chat_right_yuyin" path="path">-->
+                        <!--<span class="yuyin_yyt_r"></span>-->
                     <!--</div>-->
+                    <!--<span class="yuyin_time_right">1s</span>-->
                 <!--</div>-->
+
+
+
+
+
             <!--</div>-->
 
 
@@ -478,6 +561,7 @@
                     <div class="picture_qty" onclick="open_picture()"></div>
                     <!--<div class="emo_qty"></div>-->
                 </div>
+                <div class="yuyin_icon"></div>
                 <div class="chat_send" onclick="send_data()">发送</div>
             </div>
             <div class="in_con">
@@ -495,8 +579,9 @@
     var text;
     var myName;
     var toName;
+    var num_voice = 0;
     function window_zishiying() {
-        $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
+        $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight);
         var height = $(this).height();
         var a = $(".header_qty").height();
         var b = $(".chat_input_zn").height();
@@ -589,6 +674,9 @@
             } else if (msga.lx == 1) {
                 var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + toName + "</p></div><div class='icon_chat_left_img'><img src="+msga.nr+" alt=''></div></div>"
             }
+            else if (msga.lx == 2){
+                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>"+toName+"</p></div><div class='icon_chat_left_yuyin'  style='width: "+send_length+"' path=''><span class='yuyin_yyt_l'></span></div><span class='yuyin_time_left'>"+time_length+"</span></div>"
+            }
             $(".secret_chat_con_zn").append(bb);
             $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
         }
@@ -661,26 +749,73 @@
         });
     }
 
-//    $(document).on("click",".icon_chat_right_img img",function () {
-//        var add = $(this).attr("src");
-//        var photoBrowser = api.require('photoBrowser');
-//        photoBrowser.open({
-//            images: [
-//                add
-////                'fs://img/encryption.png'
-//            ],
-//            placeholderImg: 'widget://res/img/apicloud.png',
-//            bgColor: '#000'
-//        }, function(ret, err) {
-//            if (ret) {
-////                alert(JSON.stringify(ret));
-//            } else {
-////                alert(JSON.stringify(err));
-//            }
-//        });
-//    })
+
+    $(".yuyin_icon").on("touchstart",function (event) {
+        console.log(1)
+        num_voice++
+        api.startRecord({
+            path: 'fs://tc_'+num_voice+'.amr'
+        });
+        $(this).on("touchend",function (event) {
+            console.log(2)
+            api.stopRecord(function(ret, err) {
+                if (ret) {
+                    var path = ret.path;
+                    var duration = ret.duration;
+                    var width_voice = duration/40+0.6;
+                    var voice_ = "<div class='secret_chat_right_mc'><div class='icon_img_right'><img src='../../image/img_qty/leftper.png' alt=''><p>王小二</p> </div><div class='icon_chat_right_yuyin' style='width: "+width_voice+"rem' path="+path+"><span class='yuyin_yyt_r'></span></div><span class='yuyin_time_right'>"+duration+"s</span></div>"
+                    $(".secret_chat_con_zn").append(voice_);
+                    $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    api.ajax({
+                        url: 'http://appapi.duyiwang.cn/index.php?action=upload_amr&do=send_voice',
+                        method: 'post',
+                        data: {
+                            values: {
+                                uid:uid,
+                                toid:id,
+                                local_url: path,
+                                time_length:duration+"s",
+                                send_length:width_voice+"rem"
+                            },
+                            files: {
+                                file: path
+                            }
+                        },
+                        dataType:"json"
+                    }, function(ret, err) {
+//                        alert(JSON.stringify(ret))
+                    })
+                }
+            });
+            $(this).off("touchend")
+        })
+    })
 
 
+    $(document).on("click",".icon_chat_right_yuyin",function () {
+        var path = $(this).attr("path");
+        api.startPlay({
+            path: path
+        }, function(ret, err) {
+            if (ret) {
 
+            } else {
+
+            }
+        });
+    })
+
+    $(document).on("click",".icon_chat_left_yuyin",function () {
+        var path = $(this).attr("path");
+        api.startPlay({
+            path: path
+        }, function(ret, err) {
+            if (ret) {
+
+            } else {
+
+            }
+        });
+    })
 </script>
 </html>
