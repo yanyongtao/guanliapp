@@ -368,14 +368,17 @@
             margin-right: 0.1rem;
         }
         .yuyin_icon{
-            width: 0.35rem;
+            width: 1rem;
             height: 0.35rem;
             float: left;
-            background: url("../../image/img_yyt/yuyin_left_yyt.png") no-repeat;
+            /*background: url("../../image/img_yyt/yuyin_left_yyt.png") no-repeat;*/
             background-size: 100% 100%;
-            border-radius: 50%;
+            border-radius: 0.15rem;
             overflow: hidden;
             border: 0.02rem solid #ccc;
+            font-size: 0.26rem;
+            line-height: 0.35rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -561,7 +564,7 @@
                     <div class="picture_qty" onclick="open_picture()"></div>
                     <!--<div class="emo_qty"></div>-->
                 </div>
-                <div class="yuyin_icon"></div>
+                <div class="yuyin_icon">语音</div>
                 <div class="chat_send" onclick="send_data()">发送</div>
             </div>
             <div class="in_con">
@@ -570,6 +573,7 @@
         </div>
     </div>
 </div>
+<video controls='controls' autoplay='autoplay' class='video_yyt' style='visibility: hidden' src=''></video>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script>
@@ -669,13 +673,14 @@
     function jieshou(msg) {
         var msga = eval('('+msg+')');
         if(msga.from_id !=uid) {
+//            alert(JSON.stringify(msga))
             if (msga.lx == 0) {
                 var bb = "<div class='secret_chat_left'><div class='icon_img'><img src='../../image/img_qty/rightper.png' alt=''><p>" + toName + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
             } else if (msga.lx == 1) {
                 var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + toName + "</p></div><div class='icon_chat_left_img'><img src="+msga.nr+" alt=''></div></div>"
             }
             else if (msga.lx == 2){
-                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>"+toName+"</p></div><div class='icon_chat_left_yuyin'  style='width: "+send_length+"' path=''><span class='yuyin_yyt_l'></span></div><span class='yuyin_time_left'>"+time_length+"</span></div>"
+                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>"+toName+"</p></div><div class='icon_chat_left_yuyin'  style='width: "+msga.send_length+"' path=''><span class='yuyin_yyt_l'></span></div><span class='yuyin_time_left'>"+msga.time_length+"</span></div>"
             }
             $(".secret_chat_con_zn").append(bb);
             $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
@@ -751,13 +756,11 @@
 
 
     $(".yuyin_icon").on("touchstart",function (event) {
-        console.log(1)
         num_voice++
         api.startRecord({
             path: 'fs://tc_'+num_voice+'.amr'
         });
         $(this).on("touchend",function (event) {
-            console.log(2)
             api.stopRecord(function(ret, err) {
                 if (ret) {
                     var path = ret.path;
@@ -783,7 +786,7 @@
                         },
                         dataType:"json"
                     }, function(ret, err) {
-//                        alert(JSON.stringify(ret))
+                        my_path = ret.url
                     })
                 }
             });
@@ -792,30 +795,29 @@
     })
 
 
+    var my_path;
     $(document).on("click",".icon_chat_right_yuyin",function () {
         var path = $(this).attr("path");
-        api.startPlay({
-            path: path
-        }, function(ret, err) {
-            if (ret) {
-
-            } else {
-
-            }
-        });
+        if (path) {
+            $(".video_yyt").attr("src", path)
+        }else {
+            $(".video_yyt").attr("src", my_path)
+        }
+//        api.startPlay({
+//            path: path
+//        }, function(ret, err) {
+//            if (ret) {
+//
+//            } else {
+//                var path = $(this).attr("path");
+//                $(".video_yyt").attr("src",path)
+//            }
+//        });
     })
 
     $(document).on("click",".icon_chat_left_yuyin",function () {
         var path = $(this).attr("path");
-        api.startPlay({
-            path: path
-        }, function(ret, err) {
-            if (ret) {
-
-            } else {
-
-            }
-        });
+        $(".video_yyt").attr("src",path)
     })
 </script>
 </html>

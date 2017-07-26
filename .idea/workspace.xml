@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="saleEntry.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="saleEntry.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/work/saleEntry.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="394" column="14" selection-start-line="394" selection-start-column="14" selection-end-line="394" selection-end-column="14" />
+            <state relative-caret-position="7828">
+              <caret line="412" column="5" selection-start-line="412" selection-start-column="5" selection-end-line="412" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -36,8 +36,8 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3135">
-              <caret line="165" column="31" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
+            <state relative-caret-position="2451">
+              <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -46,8 +46,28 @@
       <file leaf-file-name="entrySheet.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/work/entrySheet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="852">
-              <caret line="667" column="20" selection-start-line="667" selection-start-column="20" selection-end-line="667" selection-end-column="20" />
+            <state relative-caret-position="16872">
+              <caret line="888" column="7" selection-start-line="888" selection-start-column="7" selection-end-line="888" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auditEnter.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/work/auditEnter.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3534">
+              <caret line="186" column="26" selection-start-line="186" selection-start-column="26" selection-end-line="186" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sign.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/login_/sign.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4503">
+              <caret line="237" column="12" selection-start-line="237" selection-start-column="12" selection-end-line="241" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -56,25 +76,47 @@
       <file leaf-file-name="talk_about.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/message/talk_about.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14611">
-              <caret line="769" column="61" selection-start-line="769" selection-start-column="61" selection-end-line="769" selection-end-column="61" />
+            <state relative-caret-position="490">
+              <caret line="379" column="29" selection-start-line="379" selection-start-column="29" selection-end-line="379" selection-end-column="29" />
               <folding>
-                <marker date="1501064263027" expanded="true" signature="21979:21986" ph="..." />
-                <marker date="1501064263027" expanded="true" signature="25215:25240" ph="..." />
+                <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1501073014925" expanded="true" signature="22234:22241" ph="..." />
+                <marker date="1501073014925" expanded="true" signature="25430:25455" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="groupChartNumber_qty.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="work_in.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/work/work_in.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="302" column="53" selection-start-line="302" selection-start-column="53" selection-end-line="302" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="groupChartNumber_qty.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/message/groupChartNumber_qty.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15637">
-              <caret line="823" column="61" selection-start-line="823" selection-start-column="61" selection-end-line="823" selection-end-column="61" />
+            <state relative-caret-position="270">
+              <caret line="555" column="42" selection-start-line="555" selection-start-column="42" selection-end-line="555" selection-end-column="42" />
               <folding>
-                <marker date="1501064327423" expanded="true" signature="22325:22332" ph="..." />
-                <marker date="1501064327423" expanded="true" signature="26224:26249" ph="..." />
+                <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1501073040486" expanded="true" signature="22506:22513" ph="..." />
+                <marker date="1501073040486" expanded="true" signature="26415:26440" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myaudita.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/work/myaudita.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="803">
+              <caret line="688" column="12" selection-start-line="688" selection-start-column="12" selection-end-line="688" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,15 +155,15 @@
         <option value="$PROJECT_DIR$/html/me/me_.html" />
         <option value="$PROJECT_DIR$/html/work/myaudita.html" />
         <option value="$PROJECT_DIR$/html/me/man_information_zn.html" />
-        <option value="$PROJECT_DIR$/html/work/auditEnter.html" />
         <option value="$PROJECT_DIR$/html/work/myaudit.html" />
         <option value="$PROJECT_DIR$/html/work/work_in.html" />
         <option value="$PROJECT_DIR$/html/message/groupChart_qty.html" />
         <option value="$PROJECT_DIR$/html/main.html" />
+        <option value="$PROJECT_DIR$/html/work/entrySheet.html" />
+        <option value="$PROJECT_DIR$/html/work/saleEntry.html" />
+        <option value="$PROJECT_DIR$/html/work/auditEnter.html" />
         <option value="$PROJECT_DIR$/html/message/talk_about.html" />
         <option value="$PROJECT_DIR$/html/message/groupChartNumber_qty.html" />
-        <option value="$PROJECT_DIR$/html/work/saleEntry.html" />
-        <option value="$PROJECT_DIR$/html/work/entrySheet.html" />
       </list>
     </option>
   </component>
@@ -162,6 +204,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -282,30 +326,28 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../manager_aaaa" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../manager_aaa" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\manager\manager_\image\img_qty" />
+      <recent name="C:\Users\Administrator\Desktop\manager\manager_\html\me" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Desktop\manager\manager_\image\img_yyt" />
       <recent name="C:\Users\Administrator\Desktop\manager\manager_\html\work" />
       <recent name="C:\Users\Administrator\Desktop\manager\manager_\image\img_qty" />
       <recent name="C:\Users\Administrator\Desktop\manager\manager_\image\image_zn" />
       <recent name="C:\Users\Administrator\Desktop\manager\manager_\html\message" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\manager\manager_\image\img_qty" />
-      <recent name="C:\Users\Administrator\Desktop\manager\manager_\html\me" />
     </key>
   </component>
   <component name="RunManager">
@@ -398,16 +440,18 @@
       <workItem from="1500962530818" duration="93000" />
       <workItem from="1500962630969" duration="18282000" />
       <workItem from="1501029149029" duration="22069000" />
-      <workItem from="1501064770339" duration="68000" />
+      <workItem from="1501064770339" duration="616000" />
+      <workItem from="1501067455677" duration="5204000" />
+      <workItem from="1501072694558" duration="415000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253447000" />
+    <option name="totallyTimeSpent" value="259614000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1924" height="1056" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.121420994" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -612,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/work/myaudita.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="718" column="29" selection-start-line="718" selection-start-column="29" selection-end-line="718" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/me/man_information_zn.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="433">
@@ -665,13 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/work/auditEnter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="202" column="31" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/work/myaudit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -715,13 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/work/work_in.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-152">
-          <caret line="302" column="53" selection-start-line="302" selection-start-column="53" selection-end-line="302" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/login_/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -736,13 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login_/sign.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="262" column="8" selection-start-line="262" selection-start-column="8" selection-end-line="262" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/message/groupChart_qty.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="803">
@@ -752,47 +768,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3135">
-          <caret line="165" column="31" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
+        <state relative-caret-position="2451">
+          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/work/saleEntry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7828">
+          <caret line="412" column="5" selection-start-line="412" selection-start-column="5" selection-end-line="412" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/work/entrySheet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="852">
-          <caret line="667" column="20" selection-start-line="667" selection-start-column="20" selection-end-line="667" selection-end-column="20" />
+        <state relative-caret-position="16872">
+          <caret line="888" column="7" selection-start-line="888" selection-start-column="7" selection-end-line="888" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login_/sign.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4503">
+          <caret line="237" column="12" selection-start-line="237" selection-start-column="12" selection-end-line="241" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/work/auditEnter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3534">
+          <caret line="186" column="26" selection-start-line="186" selection-start-column="26" selection-end-line="186" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/work/work_in.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="302" column="53" selection-start-line="302" selection-start-column="53" selection-end-line="302" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/message/talk_about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14611">
-          <caret line="769" column="61" selection-start-line="769" selection-start-column="61" selection-end-line="769" selection-end-column="61" />
+        <state relative-caret-position="490">
+          <caret line="379" column="29" selection-start-line="379" selection-start-column="29" selection-end-line="379" selection-end-column="29" />
           <folding>
-            <marker date="1501064263027" expanded="true" signature="21979:21986" ph="..." />
-            <marker date="1501064263027" expanded="true" signature="25215:25240" ph="..." />
+            <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1501073014925" expanded="true" signature="22234:22241" ph="..." />
+            <marker date="1501073014925" expanded="true" signature="25430:25455" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/work/myaudita.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="688" column="12" selection-start-line="688" selection-start-column="12" selection-end-line="688" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/message/groupChartNumber_qty.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15637">
-          <caret line="823" column="61" selection-start-line="823" selection-start-column="61" selection-end-line="823" selection-end-column="61" />
+        <state relative-caret-position="270">
+          <caret line="555" column="42" selection-start-line="555" selection-start-column="42" selection-end-line="555" selection-end-column="42" />
           <folding>
-            <marker date="1501064327423" expanded="true" signature="22325:22332" ph="..." />
-            <marker date="1501064327423" expanded="true" signature="26224:26249" ph="..." />
+            <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1501073040486" expanded="true" signature="22506:22513" ph="..." />
+            <marker date="1501073040486" expanded="true" signature="26415:26440" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/work/saleEntry.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="394" column="14" selection-start-line="394" selection-start-column="14" selection-end-line="394" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>

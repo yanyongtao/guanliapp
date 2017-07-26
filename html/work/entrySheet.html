@@ -666,6 +666,9 @@
 	var th=-1;
 	var store_id;
 	var store_goods;
+	var num = 0;
+	//	var numm;
+	var num_znn;
 	var zp_num = "zp_num_";
 	var total_price;
 	var goodslist;
@@ -676,7 +679,7 @@
 			goods_list = api.pageParam.goods_list;
 			store_id = api.pageParam.store_id;
 			api.ajax({
-				url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work&do=sales_view',
+				url: 'http://192.168.1.143/dyz_manage/index.php?action=sales&dir=work&do=sales_view',
 				method: 'post',
 				data: {
 					values: {type: type, goods_list: goods_list, store_id: store_id}
@@ -685,6 +688,7 @@
 			}, function (ret, err) {
 				goodslist = ret.goodslist;
 				store_goods = ret.store_goods;
+//				alert(JSON.stringify(store_goods));
 				for (var i=0;i<store_goods.length;i++){
 					var aa = "<option value="+store_goods[i].gid+">"+store_goods[i].name+"</option>"
 					$($(".zp_first_yyt")[0]).children(".zp_list_yyt").append(aa);
@@ -696,10 +700,10 @@
 					$(".entrySheetSmall_qty ul").append(aa);
 					money_zn+=parseInt(ret.goodslist[i].money);
 					type=0;
-					num=$('.num_zn').val();
+					numm=$('.num_zn').val();
 					goods_list_zn[th] = new Array();
 					goods_list_zn[th][0]=ret.goodslist[i].gid;
-					goods_list_zn[th][1]=parseInt(num);
+					goods_list_zn[th][1]=parseInt(numm);
 					goods_list_zn[th][2]=type;
 				}
 				var bb = "<div class='lastToal_qty'><span class='toalNum_qty'>￥"+money_zn+"</span><span class='toalMath_qty'>合计</span></div>"
@@ -721,6 +725,7 @@
 		$(this).parent().remove();
 		var thisId = $(this).attr("znid");
 		for(var i=0;i<goods_list_zn.length;i++){
+//			alert(JSON.stringify(goodslist[i]))
 			if (goods_list_zn[i][0]== thisId){
 				goods_list_zn.splice(i,1);
 			}
@@ -740,17 +745,16 @@
 				});
 			}
 			num_znn=$(this).val();
-			num=num_znn;
+			numm=num_znn;
 			goods_list_zn[th] = new Array();
 			goods_list_zn[th][0]=a;
-			goods_list_zn[th][1]=parseInt(num);
+			goods_list_zn[th][1]=parseInt(numm);
 			goods_list_zn[th][2]=type;
 		})
 //		goods_list_zn[th] = new Array();
 //		goods_list_zn[th][0]=a;
 //		goods_list_zn[th][1]=parseInt(num);
 //		goods_list_zn[th][2]=type;
-
 	})
 	$(document).on("change",".num_zn",function () {
 		if (!(/^\+?[1-9]\d*$/.test($(this).val()))){
@@ -761,6 +765,10 @@
 				location: 'bottom'
 			});
 		}
+		var th=$(this).attr('biaoji_zn');
+		numm_znn=$(this).val();
+		numm=numm_znn;
+		goods_list_zn[th][1]=parseInt(numm);
 		var money = parseInt($(this).val())*parseInt($(this).parent().parent().attr("biaoji"));
 		var total = 0;
 		for (var i=0;i<$(".num_zn").length;i++){
@@ -770,24 +778,29 @@
 		$(this).parent().parent().children(".toal_qty").html("￥"+money);
 		$(".toalNum_qty").html("￥"+total);
 		$(".disMath_qty").val(total);
-		var th=$(this).attr('biaoji_zn');
 		sale_price=total;
-		num_znn=$(this).val();
-		num=num_znn;
-		goods_list_zn[th][1]=parseInt(num);
 	})
 
 	function add_zp() {
-		if (num == 1){
-			$(".addBox_qty").css("display","none")
+//		if (num == 1){
+//			$(".addBox_qty").css("display","none")
+//		}
+		num++;
+		if(num==2){
+			$(".addBox_qty").css("display","none");
 		}
-		var new_zp = "<div class='zp_first_yyt'><select name='' id='' class='zp_list_yyt'><option value=''>请选择您的赠品</option></select><input type='text' value='填写数量' class='zp_num_yyt'></div>";
+		var new_zp = "<div class='zp_first_yyt'><select name='' id='' class='zp_list_yyt'><option value=''>请选择您的赠品</option></select><input type='text' value='' class='zp_num_yyt' placeholder='填写数量'></div>";
 		$(".zp_right_yyt").append(new_zp);
 		for (var i=0;i<store_goods.length;i++){
 			var aa = "<option value="+store_goods[i].id+">"+store_goods[i].name+"</option>"
-			$($(".zp_first_yyt")[num+1]).children(".zp_list_yyt").append(aa)
+			$($(".zp_first_yyt")[num]).children(".zp_list_yyt").append(aa);
 		}
-		num++
+		num_znn=$(this).val();
+		numm=num_znn;
+		goods_list_zn[th] = new Array();
+		goods_list_zn[th][0]=a;
+		goods_list_zn[th][1]=parseInt(numm);
+		goods_list_zn[th][2]=type;
 	}
 	var sex;
 	var age;
@@ -806,9 +819,10 @@
 			$(this).val($(".toalNum_qty").html().slice(1));
 		}
 		var real_total=parseInt($(this).val());
-		var total_price=parseInt($(".toalNum_qty").html().slice(1));
-		var bili = Math.floor(real_total/total_price);
+		var total_price=parseInt($('.toalNum_qty').html().slice(1));
+		var bili = (real_total/total_price).toFixed(2);
 		$(".dis_zn").html(bili*100+"%");
+		total_price=real_total;
 	})
 	var real_total=parseInt($(this).val());
 	function submit_zn(){
@@ -857,19 +871,19 @@
 		roleid=api.getPrefs({sync:true,key:'roleid'});
 		uid=api.getPrefs({sync:true,key:'uid'});
 		api.ajax({
-			url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work&do=sales_add',
+			url: 'http://192.168.1.143/dyz_manage/index.php?action=sales&dir=work&do=sales_add',
 			method: 'post',
 			data: {
 				values:{uid:uid,goods_list:goods_list_zn,total_price:total_price,sale_price:sale_price,sex:sex,address:address,roleid:roleid,username:username,age:age,mobile:mobile,store_id:store_id}
 			},
 			dataType:'json'
 		},function(ret,err){
-//			api.toast({
-//				msg: ret.msg,
-//				duration: 3000,
-//				location: 'bottom'
-//			});
+			api.execScript({
+				name: 'saleEntry',
+				script: 'tishi_zn()'
+			});
 		});
+		api.closeWin();
 	}
 </script>
 </html>
