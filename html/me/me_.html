@@ -194,46 +194,59 @@
 <!--</div>-->
 </body>
 <script>
-    var name;
-    var mobile;
-    var roleid;
-    apiready=function () {
-        roleid = api.getPrefs({
-            sync: true,
-            key: 'roleid'
-        });
-        mobile = api.getPrefs({
-            sync: true,
-            key: 'mobile'
-        });
-        name = api.getPrefs({
-            sync: true,
-            key: 'name'
-        });
-    }
-    function name_mobile() {
-        var aa=setInterval(function () {
-            if (name){
-                if ($(".me_name_").html()!=name||$(".me_phone").html()!=mobile){
-                    $(".me_name_").html(name)
-                    $(".me_phone").html(mobile)
-                    if (roleid==3){
-                        $(".me_job_").html("店长");
-                    }
-                    if (roleid==5){
-                        $(".me_job_").html("店员")
-                    }
-                }else {
-                    clearInterval(aa)
+    var uid;
+    var type;
+
+
+    function get_data() {
+        apiready=function () {
+            type = api.getPrefs({
+                sync: true,
+                key: 'type'
+            });
+            uid = api.getPrefs({
+                sync: true,
+                key: 'uid'
+            });
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=userinfo',
+                method: 'post',
+                data: {
+                    values: {uid:uid, type: type}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                $(".me_name_").html(ret.userinfo.name);
+                if (ret.userinfo.roleid == 5){
+                    $(".me_job_").html("店员");
+                }else if (ret.userinfo.roleid == 3){
+                    $(".me_job_").html("店长");
                 }
-            }
-
-        },180)
+                $(".me_phone").html(ret.userinfo.mobile);
+            });
+        }
     }
-    name_mobile()
+    get_data()
 
 
-
+    function updata() {
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=userinfo',
+            method: 'post',
+            data: {
+                values: {uid:uid, type: type}
+            },
+            dataType: 'json'
+        }, function (ret, err) {
+            $(".me_name_").html(ret.userinfo.name);
+            if (ret.userinfo.roleid == 5){
+                $(".me_job_").html("店员");
+            }else if (ret.userinfo.roleid == 3){
+                $(".me_job_").html("店长");
+            }
+            $(".me_phone").html(ret.userinfo.mobile);
+        });
+    }
 
 
     function per_msg() {

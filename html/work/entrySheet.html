@@ -679,7 +679,7 @@
 			goods_list = api.pageParam.goods_list;
 			store_id = api.pageParam.store_id;
 			api.ajax({
-				url: 'http://192.168.1.143/dyz_manage/index.php?action=sales&dir=work&do=sales_view',
+				url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work&do=sales_view',
 				method: 'post',
 				data: {
 					values: {type: type, goods_list: goods_list, store_id: store_id}
@@ -871,7 +871,7 @@
 		roleid=api.getPrefs({sync:true,key:'roleid'});
 		uid=api.getPrefs({sync:true,key:'uid'});
 		api.ajax({
-			url: 'http://192.168.1.143/dyz_manage/index.php?action=sales&dir=work&do=sales_add',
+			url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work&do=sales_add',
 			method: 'post',
 			data: {
 				values:{uid:uid,goods_list:goods_list_zn,total_price:total_price,sale_price:sale_price,sex:sex,address:address,roleid:roleid,username:username,age:age,mobile:mobile,store_id:store_id}

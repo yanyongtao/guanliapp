@@ -238,7 +238,7 @@
         <span class="result_zn_ result_c_zn">通过</span>
     </div>
 </div>
-<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
 <script>
     var uid;
     function get_data() {
@@ -267,6 +267,13 @@
                     }else if (ret.info[0].roleid == 3){
                         $(".span_right_yyt").html("店长")
                     }
+                    if (ret.status.status == 0){
+                        $(".img_yyt").attr("src",'../../image/image_zn/half_yyt.png');
+                    }else if (ret.status.status == 1){
+                        $(".img_yyt").attr("src",'../../image/image_zn/all_yyt.png');
+                    }else if (ret.status.status == 2){
+                        $(".img_yyt").attr("src",'../../image/image_zn/none_yyt.png');
+                    }
                 }else if(ret.code == 500){
 
                 }
@@ -275,6 +282,37 @@
     }
     get_data()
 
+
+
+    function updata() {
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=info',
+            method: 'post',
+            data: {
+                values:{uid:uid}
+            },
+            dataType:'json'
+        },function(ret,err){
+            if(ret.code == 200){
+                $(".name_man").html(ret.info[0].name);
+                if (ret.info[0].sex == 1 || ret.info[0].sex == 0){
+                    $(".sex_man").html("男");
+                }else if (ret.info[0].sex == 2){
+                    $(".sex_man").html("女");
+                }else {
+                    $(".sex_man").html("性别");
+                }
+                $(".span_right").html(ret.info[0].mdname);
+                if (ret.info[0].roleid == 5){
+                    $(".span_right_yyt").html("店员")
+                }else if (ret.info[0].roleid == 3){
+                    $(".span_right_yyt").html("店长")
+                }
+            }else if(ret.code == 500){
+
+            }
+        });
+    }
     function open_edit() {
         api.openWin({
             name: 'personInfo_qty',

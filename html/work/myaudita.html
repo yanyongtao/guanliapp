@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
@@ -612,11 +612,6 @@
             }
         }
     }
-
-
-
-
-
     var roleid;
     var store_id;
     var objMsg;
@@ -660,8 +655,14 @@
 
 
 
-
-    function shenhe_yyt(bid,name,touid,mid,count,gid) {
+    function shenhe_yyt(bid,name,touid,mid) {
+        var goods_list=new Array();
+        var goods_=JSON.parse($('input').val());
+        for (var i=0;i<goods_.length;i++){
+            goods_list[i] = new Array();
+            goods_list[i][0] = goods_[i].id;
+            goods_list[i][1] = goods_[i].count;
+        }
         roleid=api.getPrefs({sync:true,key:'roleid'});
         store_id=api.getPrefs({sync:true,key:'store_id'});
         api.confirm({
@@ -675,7 +676,7 @@
                     url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=agree_i_verify',
                     method: 'post',
                     data: {
-                        values:{gid:gid,bid:bid,roleid:roleid,mid:mid,store_id:store_id,name:name,touid:touid,count:count}
+                        values:{bid:bid,roleid:roleid,store_id:store_id,name:name,touid:touid,goods_list:goods_list}
                     },
                     dataType:'json'
                 },function(ret,err){
@@ -687,7 +688,11 @@
                         });
                         window.location.reload();
                     }else if(ret.code == 500){
-                        alert(ret.msg)
+                        api.toast({
+                            msg: ret.msg,
+                            duration: 3000,
+                            location: 'bottom'
+                        });
                     }
                 });
             }else{
@@ -695,7 +700,7 @@
                     url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=refuse_i_verify',
                     method: 'post',
                     data: {
-                        values:{bid:bid,roleid:roleid,mid:mid,store_id:store_id,name:name,touid:touid}
+                        values:{bid:bid,roleid:roleid,store_id:store_id,name:name,touid:touid,goods_list:goods_list}
                     },
                     dataType:'json'
                 },function(ret,err){
@@ -707,7 +712,11 @@
                         });
                         window.location.reload();
                     }else if(ret.code == 500){
-                        alert(ret.msg)
+                        api.toast({
+                            msg: ret.msg,
+                            duration: 3000,
+                            location: 'bottom'
+                        });
                     }
                 });
             }
@@ -748,8 +757,8 @@
 
     function open_verify(vid) {
         api.openWin({
-            name: 'personAudit',
-            url: 'widget://html/work/personAudit.html',
+            name: 'review_detail_zn',
+            url: 'widget://html/work/review_detail_zn.html',
             bounces: false,
             pageParam: ({vid:vid}),
             rect: {x: 0, y: 0, w: 'auto', h: 'auto'}

@@ -162,32 +162,32 @@
 	var store_id;
 
 	function open_shenhe() {
-//		if (parseInt(store_id)) {
-//			api.openWin({
-//				name: 'myaudita',
-//				url: 'widget://html/work/myaudita.html',
-//				bounces: false,
-//				rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
-			<!--});-->
-		<!--} else {-->
-//			api.toast({
-//				msg: '请选择您所属门店',
-//				duration: 4000,
-//				location: 'bottom'
-			<!--});-->
-//			api.openWin({
-//				name: 'personInfo_qty',
-//				url: 'widget://html/me/personInfo_qty.html',
-//				bounces: false,
-//				pageParam: {type: 1},
-//				rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
-			<!--});-->
-//		}
+		if (parseInt(store_id)) {
+			api.openWin({
+				name: 'myaudita',
+			url: 'widget://html/work/myaudita.html',
+				bounces: false,
+			rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+			});
+		} else {
 		api.toast({
-			msg: '开发中，敬请期待',
+				msg: '请选择您所属门店',
 			duration: 4000,
 			location: 'bottom'
-		});
+			});
+		api.openWin({
+			name: 'personInfo_qty',
+			url: 'widget://html/me/personInfo_qty.html',
+				bounces: false,
+				pageParam: {type: 1},
+				rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+			});
+		}
+//		api.toast({
+//			msg: '开发中，敬请期待',
+//			duration: 4000,
+//			location: 'bottom'
+//		});
 	}
 	function open_renyuan() {
 		api.openWin({
