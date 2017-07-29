@@ -329,7 +329,7 @@
         }
         .icon_chat_right_yuyin{
             border: 0.01rem solid #ccc;
-            width:0.6rem;
+            width:0.9rem;
             height:0.6rem;
             float:right;
             box-sizing: border-box;
@@ -778,7 +778,7 @@
                 var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + msga.send_name + "</p></div><div class='icon_chat_left_img'><img src="+msga.nr+" alt=''></div></div>"
             }
             else if (msga.lx == 2){
-                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>"+toName+"</p></div><div class='icon_chat_left_yuyin'  style='width: "+msga.send_length+"' path=''><span class='yuyin_yyt_l'></span></div><span class='yuyin_time_left'>"+msga.time_length+"</span></div>"
+                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>"+msga.send_name+"</p></div><div class='icon_chat_left_yuyin'  style='width: "+msga.send_length+"' path="+msga.nr+"><span class='yuyin_yyt_l'></span></div><span class='yuyin_time_left'>"+msga.time_length+"</span></div>"
             }
             $(".secret_chat_con_zn").append(bb);
             $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
@@ -1009,7 +1009,7 @@
                 if (ret) {
                     var path = ret.path;
                     var duration = ret.duration;
-                    var width_voice = duration/40+0.6;
+                    var width_voice = duration/40+0.9;
                     api.ajax({
                         url: 'http://appapi.duyiwang.cn/index.php?action=upload_amr&do=send_voice_groups',
                         method: 'post',
@@ -1040,19 +1040,76 @@
     })
 
 
-    var my_path;
+
     $(document).on("click",".icon_chat_right_yuyin",function () {
         var path = $(this).attr("path");
-        if (path) {
-            $(".video_yyt").attr("src", path)
+        var fs = api.require('fs');
+        var ret = fs.removeSync({
+            path: "fs://tc_app.rar"
+        });
+        if (path.substring(0,4) == "http"){
+            api.download({
+                url: path,
+                savePath: "fs://tc_app.rar",
+                report: true,
+                cache: true,
+                allowResume: false
+            }, function(ret, err) {
+                if (ret.state == 1) {
+                    api.startPlay({
+                        path: "fs://tc_app.rar"
+                    }, function(ret, err) {
+                        if (ret) {
+
+                        } else {
+
+                        }
+                    });
+                } else {
+
+                }
+            });
         }else {
-            $(".video_yyt").attr("src", my_path)
+            api.startPlay({
+                path: path
+            }, function(ret, err) {
+                if (ret) {
+
+                } else {
+
+                }
+            });
         }
+
     })
 
     $(document).on("click",".icon_chat_left_yuyin",function () {
         var path = $(this).attr("path");
-        $(".video_yyt").attr("src",path)
+        var fs = api.require('fs');
+        var ret = fs.removeSync({
+            path: "fs://tc_app.rar"
+        });
+        api.download({
+            url: path,
+            savePath: "fs://tc_app.rar",
+            report: true,
+            cache: true,
+            allowResume: false
+        }, function(ret, err) {
+            if (ret.state == 1) {
+                api.startPlay({
+                    path: "fs://tc_app.rar"
+                }, function(ret, err) {
+                    if (ret) {
+
+                    } else {
+
+                    }
+                });
+            } else {
+
+            }
+        });
     })
 
 
