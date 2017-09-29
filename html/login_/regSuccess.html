@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #fff;
+            position: relative;
+        }
+        .success_qty{
+        	width: 1.96rem;
+        	height: 1.96rem;
+        	overflow: hidden;
+        	margin: auto;
+        	background-image: url(../../image/img_qty/dui.png);
+        	background-repeat: no-repeat;
+        	background-size: cover;
+        	margin-top: 2.5rem;
+        }
+        .successFont_qty{
+        	font-size: 0.34rem;
+        	font-weight: 800;
+        	text-align: center;
+        	margin-top: 0.4rem;
+        }
+        .successFont_qty_qty{
+        	font-size: 0.3rem;
+        	font-weight: 500;
+        	text-align: center;
+        	margin-top: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="success_qty"></div>
+    <div class="successFont_qty">恭喜您注册成功</div>
+    <div class="successFont_qty_qty">欢迎使用管理APP</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        
+    };
+    window.onload=function(){
+       setTimeout(function(){
+           api.openWin({
+               name:'login_qty',
+               url:'widget://html/login_/login_qty.html',
+               bounces: false,
+               rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+           })
+       },2000)
+    }
+</script>
+</html>

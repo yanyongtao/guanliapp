@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        .header_yyt{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        .anli_bac_yyt{
+            width: 0.3rem;
+            height: 0.42rem;
+            float: left;
+            background: url("../../image/img_yyt/anli_bac_yyt.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 0.2rem;
+            top: 0.23rem;
+        }
+        .header_con_yyt{
+            width: 2rem;
+            height: 0.88rem;
+            font-size: 0.32rem;
+            line-height: 0.88rem;
+            text-align: center;
+            margin: 0 auto;
+            color: #fff;
+        }
+        html,body{
+            background: #f5f5f5;
+        }
+        .anli_con{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            background: #fff;
+            margin-top: 1.18rem;
+        }
+        .anli_list_con{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .anli_one_yyt{
+            width: 6rem;
+            padding:0.15rem 0.2rem;
+            height: 1.27rem;
+        }
+        .anli_ong_img_yyt{
+            width: 1.93rem;
+            height: 1.27rem;
+            float: left
+        }
+        .anli_one_con{
+            width: 3.85rem;
+            height: 1.27rem;
+            float: right;
+        }
+        .anli_title_yyt{
+            width: 100%;
+            height: auto;
+            font-size: 0.26rem;
+            line-height: 0.36rem;
+            text-align: left;
+            float: left;
+        }
+        .anli_about_yyt{
+            width: 100%;
+            height: 0.56rem;
+            overflow: hidden;
+            font-size: 0.2rem;
+            line-height: 0.28rem;
+            color: #5c5c5c;
+            float: left;
+        }
+        .anli_pro_yyt{
+            width: auto;
+            height: auto;
+            float: left;
+            font-size: 0.18rem;
+            line-height: 0.28rem;
+            color: #959595;
+        }
+        .anli_time_yyt{
+            width: auto;
+            height: auto;
+            font-size: 0.2rem;
+            line-height: 0.28rem;
+            float: right;
+            color: #959595;
+        }
+    </style>
+</head>
+<body>
+<div class="header_yyt">
+    <div class="anli_bac_yyt" onclick="api.closeWin()"></div>
+    <div class="header_con_yyt">康复案例</div>
+</div>
+<div class="anli_con">
+    <ul class="anli_list_con">
+        <!--<li class="anli_one_yyt">-->
+            <!--<img src="" alt="" class="anli_ong_img_yyt">-->
+            <!--<div class="anli_one_con">-->
+                <!--<span class="anli_title_yyt">来自：独一张太矿店</span>-->
+                <!--<span class="anli_about_yyt">康复案例的一些文字简介，康复案例的一些文字简介...</span>-->
+                <!--<span class="anli_pro_yyt">产品：独一张·老膏药/仪年堂</span>-->
+                <!--<span class="anli_time_yyt">2017-08-04</span>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="anli_one_yyt">-->
+            <!--<img src="" alt="" class="anli_ong_img_yyt">-->
+            <!--<div class="anli_one_con">-->
+                <!--<span class="anli_title_yyt">来自：独一张太矿店</span>-->
+                <!--<span class="anli_about_yyt">康复案例的一些文字简介，康复案例的一些文字简介...</span>-->
+                <!--<span class="anli_pro_yyt">产品：独一张·老膏药/仪年堂</span>-->
+                <!--<span class="anli_time_yyt">2017-08-04</span>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="anli_one_yyt">-->
+            <!--<img src="" alt="" class="anli_ong_img_yyt">-->
+            <!--<div class="anli_one_con">-->
+                <!--<span class="anli_title_yyt">来自：独一张太矿店</span>-->
+                <!--<span class="anli_about_yyt">康复案例的一些文字简介，康复案例的一些文字简介...</span>-->
+                <!--<span class="anli_pro_yyt">产品：独一张·老膏药/仪年堂</span>-->
+                <!--<span class="anli_time_yyt">2017-08-04</span>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="anli_one_yyt">-->
+            <!--<img src="" alt="" class="anli_ong_img_yyt">-->
+            <!--<div class="anli_one_con">-->
+                <!--<span class="anli_title_yyt">来自：独一张太矿店</span>-->
+                <!--<span class="anli_about_yyt">康复案例的一些文字简介，康复案例的一些文字简介...</span>-->
+                <!--<span class="anli_pro_yyt">产品：独一张·老膏药/仪年堂</span>-->
+                <!--<span class="anli_time_yyt">2017-08-04</span>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="anli_one_yyt">-->
+            <!--<img src="" alt="" class="anli_ong_img_yyt">-->
+            <!--<div class="anli_one_con">-->
+                <!--<span class="anli_title_yyt">来自：独一张太矿店</span>-->
+                <!--<span class="anli_about_yyt">康复案例的一些文字简介，康复案例的一些文字简介...</span>-->
+                <!--<span class="anli_pro_yyt">产品：独一张·老膏药/仪年堂</span>-->
+                <!--<span class="anli_time_yyt">2017-08-04</span>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="anli_one_yyt">-->
+            <!--<img src="" alt="" class="anli_ong_img_yyt">-->
+            <!--<div class="anli_one_con">-->
+                <!--<span class="anli_title_yyt">来自：独一张太矿店</span>-->
+                <!--<span class="anli_about_yyt">康复案例的一些文字简介，康复案例的一些文字简介...</span>-->
+                <!--<span class="anli_pro_yyt">产品：独一张·老膏药/仪年堂</span>-->
+                <!--<span class="anli_time_yyt">2017-08-04</span>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="anli_one_yyt">-->
+            <!--<img src="" alt="" class="anli_ong_img_yyt">-->
+            <!--<div class="anli_one_con">-->
+                <!--<span class="anli_title_yyt">来自：独一张太矿店</span>-->
+                <!--<span class="anli_about_yyt">康复案例的一些文字简介，康复案例的一些文字简介...</span>-->
+                <!--<span class="anli_pro_yyt">产品：独一张·老膏药/仪年堂</span>-->
+                <!--<span class="anli_time_yyt">2017-08-04</span>-->
+            <!--</div>-->
+        <!--</li>-->
+
+    </ul>
+</div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+    function get_data() {
+        apiready=function(){
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=case&dir=ziliao&do=clist',
+                method: 'post',
+                dataType: 'txt'
+            }, function (ret, err) {
+                $(".anli_list_con").append(ret);
+            });
+        }
+    }
+    get_data();
+    $(document).on('click','.anli_one_yyt',function(){
+        var cid=$(this).attr('cid');
+        $(this).css('background','#eee');
+        api.openWin({
+            name: 'product_detail_zn',
+            pageParam: {
+                cid: cid
+            },
+            url: 'widget://html/reference/anli_detail.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    function reload_zn(){
+        location.reload();
+    }
+</script>
+</body>
+</html>

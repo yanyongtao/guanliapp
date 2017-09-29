@@ -221,5 +221,13 @@
 		}
 	}
 	biaoji()
+
+	$(".auditBox_qty").on("touchstart",function () {
+		$(this).css("background","#eee")
+		$(this).on("touchend",function () {
+			$(this).css("background","#fff")
+			$(this).off("touchend")
+		})
+	})
 </script>
 </html>

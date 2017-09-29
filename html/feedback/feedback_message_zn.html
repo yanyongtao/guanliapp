@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f6f6f6;
+        }
+        .stock_box_zn{
+            background: #2493F7;
+            height:.88rem;
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            overflow: hidden;
+        }
+        .stock_zn{
+            color:#fff;
+            font-size: .3rem;
+            height:100%;
+            line-height: .88rem;
+            text-align: center;
+        }
+        .icon_zn{
+            width: 0.29rem;
+            height: 0.43rem;
+            position: absolute;
+            left: 0.15rem;
+            top: 0.25rem;
+            background: url("../../image/image_zn/icon_lefta_zn.png") no-repeat;
+            background-size: cover;
+        }
+        .question_zn_box{
+            width:6rem;
+            height:0.9rem;
+            margin:0 auto;
+            margin-top:1.1rem;
+            box-sizing: border-box;
+            border-radius: 0.1rem;
+            overflow: hidden;
+        }
+        .question_zn_left{
+            display: block;
+            height:100%;
+            width:1.9rem;
+            float:left;
+            background: #2493f7;
+            line-height:0.9rem;
+            box-sizing: border-box;
+            font-size:0.3rem;
+            color:#fff;
+            font-weight:bold;
+            text-align: center;
+            letter-spacing: 0.15rem;
+        }
+        .question_zn_right{
+            display: block;
+            height:100%;
+            width:4.1rem;
+            float:left;
+            background: #fff;
+            line-height:0.9rem;
+            box-sizing: border-box;
+            font-size:0.3rem;
+            color:#5a5a5a;
+            text-align: center;
+            letter-spacing: 0.02rem;
+        }
+        .chengxiaojing_question_box{
+            width:6rem;
+            height:auto;
+            margin:0 auto;
+            box-sizing:border-box;
+            margin-bottom:0.2rem;
+        }
+        .question_list_zn{
+            width:6rem;
+            height:auto;
+            box-sizing: border-box;
+            background: #fff;
+            margin-top:0.2rem;
+            border-radius: 0.1rem;
+        }
+        .question_list_box{
+            width:5.6rem;
+            height:auto;
+            box-sizing: border-box;
+            overflow: hidden;
+            margin:0 auto;
+        }
+        .xiaojing_question_title{
+            width:100%;
+            height:0.33rem;
+            line-height:0.33rem;
+            /*margin-top:0.2rem;*/
+            overflow: hidden;
+        }
+        .xiaojing_question_title img{
+            display: block;
+            width:0.33rem;
+            height:0.33rem;
+            float:left;
+        }
+        .xiaojing_question_title span{
+            float:left;
+            width:auto;
+            margin-left:0.1rem;
+            height:0.33rem;
+            line-height:0.33rem;
+            font-size:0.22rem;
+            color:#979797;
+        }
+        .question_describe_zn{
+            width:100%;
+            height:auto;
+            line-height:0.4rem;
+            font-size:0.28rem;
+            color:#333;
+            margin-top:0.2rem;
+        }
+        .bigDcheng_answer_title{
+            width:100%;
+            height:auto;
+            line-height:0.5rem;
+            color:#727272;
+            font-size:0.24rem;
+            margin-top:0.1rem;
+        }
+        .bigDcheng_answer_con{
+            width:100%;
+            max-height:1.4rem;
+            box-sizing: border-box;
+            border-radius: 0.1rem;
+            line-height:0.36rem;
+            font-size:0.24rem;
+            color:#747474;
+            letter-spacing: 0.02rem;
+            overflow: hidden;
+        }
+        .follow_with_interest{
+            width:100%;
+            height:0.8rem;
+            overflow: hidden;
+        }
+        .interset_left_zn{
+            float:left;
+            height:0.7rem;
+            margin-top:0.1rem;
+            line-height:0.7rem;
+        }
+        .none_interset_zn{
+            display: block;
+            float:left;
+            width:0.8rem;
+            height:0.7rem;
+            line-height:0.7rem;
+            text-align: left;
+            color:#9e9e9e;
+            font-size:0.24rem;
+        }
+        .num_interset_zn{
+            font-size:0.2rem;
+            display: block;
+            color:#2493f7;
+            float:left;
+            height:0.7rem;
+            line-height:0.7rem;
+        }
+        .answer_right_zn{
+            float:right;
+            margin-top:0.1rem;
+        }
+        .click_input_zn{
+            display: block;
+            float:right;
+            width:0.46rem;
+            height:0.36rem;
+            margin-top:0.2rem;
+        }
+        .answer_zn{
+            width:0.8rem;
+            text-align: center;
+        }
+        .inputBox_qty input{
+            width: 4.6rem;
+            height: 0.7rem;
+            float: left;
+            outline: none;
+            background: #fff;
+            font-size: 0.24rem;
+            margin-top: 0.05rem;
+            line-height: 0.4rem;
+            resize: none;
+            margin-left: 0.08rem;
+        }
+        .question_type_zn{
+            width:100%;
+            margin-top: 0.1rem;
+            height:0.7rem;
+            line-height:0.7rem;
+            font-size:0.28rem;
+            color:#7a7a7a;
+        }
+        .click_big_zn{
+            display:block;
+            float:left;
+            width:0.7rem;
+            height:0.7rem;
+        }
+        .like_span_box{
+            width:0.6rem;
+            height:0.7rem;
+            box-sizing: border-box;
+            float:left;
+            display: block;
+        }
+        .like_or_no{
+            width:0.46rem;
+            height:0.36rem;
+            box-sizing: border-box;
+            margin-top:0.15rem;
+            display: block;
+        }
+        .click_shuru_zn{
+            display:none;
+            width:100%;
+            height:0.8rem;
+            background: #fbfbfb;
+            overflow: hidden;
+            position: fixed;
+            bottom:0;
+            left:0;
+            box-sizing: border-box;
+        }
+        .value_zn{
+            width:5rem;
+            height:0.6rem;
+            line-height:0.6rem;
+            margin-left:0.2rem;
+            margin-top:0.1rem;
+            padding-left:0.2rem;
+            display: block;
+            outline: none;
+            background: #fff;
+            font-size:0.24rem;
+            float:left;
+        }
+        .click_send_zn{
+            font-size:0.28rem;
+            color:#515050;
+            display: block;
+            float:left;
+            width:1rem;
+            height:0.8rem;
+            line-height:0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="stock_box_zn">
+    <div class="stock_zn">问答专区</div>
+    <div class="icon_zn" onclick="api.closeWin()"></div>
+</div>
+<div class="question_zn_box" onclick="open_feed()">
+    <span class="question_zn_left">提问</span>
+    <span class="question_zn_right">APP/门店运营</span>
+</div>
+<ul class="chengxiaojing_question_box">
+    <!--<li class="question_list_zn">-->
+        <!--<div class="question_list_box">-->
+            <!--<p class="question_type_zn">APP使用</p>-->
+            <!--<p class="xiaojing_question_title">-->
+                <!--<img src="../../image/image_zn/user_title_zn.png" alt="">-->
+                <!--<span>程晓静的提问</span>-->
+            <!--</p>-->
+            <!--<div class="question_describe_zn">-->
+                <!--在销售录入中，如何多选择产品进行销售录入？又如何添加赠品？-->
+            <!--</div>-->
+            <!--<p class="bigDcheng_answer_title">BigDcheng的回答：</p>-->
+            <!--<div class="bigDcheng_answer_con">-->
+                <!--进入销售录入产品选择页面，点击右上角选择按钮，然后选择您要录入的所有产品，等下方灰色的“添加到”按钮变亮......-->
+            <!--</div>-->
+            <!--<div class="follow_with_interest">-->
+                <!--<p class="interset_left_zn">-->
+                    <!--<span class="like_span_box"><img src="../../image/image_zn/like_gray_zn.png" alt="" class="like_or_no"></span>-->
+                    <!--<span class="none_interset_zn interset_zn">未关注</span>-->
+                    <!--<span class="num_interset_zn num_interset_zn_zn">312</span>-->
+                <!--</p>-->
+                <!--<p class="answer_right_zn">-->
+                    <!--<span class="click_big_zn"><img src="../../image/image_zn/message_zn.png" alt="" class="click_input_zn"></span>-->
+                    <!--<span class="none_interset_zn answer_zn">回答</span>-->
+                    <!--<span class="num_interset_zn">132</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li class="question_list_zn">-->
+    <!--<div class="question_list_box">-->
+    <!--<p class="xiaojing_question_title">-->
+    <!--<img src="../../image/image_zn/user_title_zn.png" alt="">-->
+    <!--<span>程晓静的提问</span>-->
+    <!--</p>-->
+    <!--<div class="question_describe_zn">-->
+    <!--在销售录入中，如何多选择产品进行销售录入？又如何添加赠品？-->
+    <!--</div>-->
+    <!--<p class="bigDcheng_answer_title">BigDcheng的回答：</p>-->
+    <!--<div class="bigDcheng_answer_con">-->
+    <!--进入销售录入产品选择页面，点击右上角选择按钮，然后选择您要录入的所有产品，等下方灰色的“添加到”按钮变亮......-->
+    <!--</div>-->
+    <!--<hr class="hr_zn">-->
+    <!--<div class="follow_with_interest">-->
+    <!--<p class="interset_left_zn">-->
+    <!--<img src="../../image/image_zn/like_gray_zn.png" alt="" class="like_or_no">-->
+    <!--<span class="none_interset_zn">未关注</span>-->
+    <!--<span class="num_interset_zn">312</span>-->
+    <!--</p>-->
+    <!--<p class="answer_right_zn">-->
+    <!--<img src="../../image/image_zn/message_zn.png" alt="" class="click_input_zn">-->
+    <!--<span class="none_interset_zn answer_zn">回答</span>-->
+    <!--<span class="num_interset_zn">132</span>-->
+    <!--</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</li>-->
+</ul>
+<div class="click_shuru_zn">
+    <input type="text" class="value_zn" placeholder="请输入您的回答">
+    <span class="click_send_zn">发送</span>
+</div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+    function open_feed() {
+        api.openWin({
+            name: 'feed_qty',
+            url: 'widget://html/feedback/feed_qty.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+    $(document).on('click','.bigDcheng_answer_con',function(){
+        qid=$(this).attr('qid');
+        $(this).parent().parent().css('background','#eee');
+        api.openWin({
+            name: 'questionDetail_qty',
+            pageParam: {
+                qid: qid
+            },
+            url: 'widget://html/feedback/questionDetail_qty.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    $(document).on('click','.bigDcheng_answer_title',function(){
+        qid=$(this).attr('qid');
+        $(this).parent().parent().css('background','#eee');
+        api.openWin({
+            name: 'questionDetail_qty',
+            pageParam: {
+                qid: qid
+            },
+            url: 'widget://html/feedback/questionDetail_qty.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    $(document).on('click','.question_describe_zn',function(){
+        qid=$(this).attr('qid');
+        $(this).parent().parent().css('background','#eee');
+        api.openWin({
+            name: 'questionDetail_qty',
+            pageParam: {
+                qid: qid
+            },
+            url: 'widget://html/feedback/questionDetail_qty.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    $(document).on('click','.xiaojing_question_title',function(){
+        qid=$(this).attr('qid');
+        $(this).parent().parent().css('background','#eee');
+        api.openWin({
+            name: 'questionDetail_qty',
+            pageParam: {
+                qid: qid
+            },
+            url: 'widget://html/feedback/questionDetail_qty.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+
+    //    页面加载出来，显示问题
+    var page=1;
+    var status=0;
+    var qid;
+    function get_data_page() {
+        apiready=function(){
+            api.addEventListener({
+                name: 'keyback'
+            }, function(ret, err) {
+//                api.openWin({
+//                    name: 'main',
+//                    url: 'widget://html/main.html',
+//                    bounces: false,
+//                    animation:{
+//                        type:"push",                //动画类型（详见动画类型常量）
+//                        subType:"from_left",       //动画子类型（详见动画子类型常量）
+//                        duration:300
+//                    },
+//                    rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+//                });
+                api.closeWin();
+            })
+
+
+            var uid=api.getPrefs({sync:true,key:'uid'});
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=feedback&dir=work&do=index',
+                method: 'post',
+                data: {
+                    values: {uid: uid,page:page}
+                },
+                dataType: 'txt'
+            }, function (ret, err) {
+                $(".chengxiaojing_question_box").append(ret);
+                page++;
+            });
+            api.addEventListener({
+                name:'scrolltobottom',
+                extra:{
+                    threshold: 0        //设置距离底部多少距离时触发，默认值为0，数字类型
+                }
+            }, function(ret, err){
+                var uid=api.getPrefs({sync:true,key:'uid'});
+                api.ajax({
+                    url: 'http://appapi.duyiwang.cn/index.php?action=feedback&dir=work&do=index',
+                    method: 'post',
+                    data: {
+                        values: {uid: uid,page:page}
+                    },
+                    dataType: 'txt'
+                }, function (ret, err) {
+                    $(".chengxiaojing_question_box").append(ret);
+                    page++;
+                });
+            });
+        }
+    }
+    var num;
+    //    关注功能
+    get_data_page();
+    $(document).on('click','.like_span_box',function(){
+        if($(this).children('.like_or_no').attr('src')=='../../image/image_zn/like_gray_zn.png'){
+            $(this).children('.like_or_no').attr('src','../../image/image_zn/like_red_zn.png');
+            $(this).next().html('已关注');
+            if($(this).next().next().html()==""){
+                num=0;
+                $(this).next().next().html(++num);
+            }else{
+                num=parseInt($(this).next().next().html());
+                $(this).next().next().html(++num);
+            }
+            var status=1;
+            var uid=api.getPrefs({sync:true,key:'uid'});
+            qid=$(this).next().attr('qid');
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=feedback&dir=work&do=guanzhu',
+                method: 'post',
+                data: {
+                    values: {uid: uid,qid:qid,status:status}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if(ret.code=200){
+                    api.toast({
+                        msg: ret.msg,
+                        duration: 3000,
+                        location: 'bottom'
+                    });
+                }
+            });
+        }else {
+            $(this).children('.like_or_no').attr('src', '../../image/image_zn/like_gray_zn.png');
+            $(this).next().html('未关注');
+            status=0;
+            uid=api.getPrefs({sync:true,key:'uid'});
+            qid=$(this).next().attr('qid');
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=feedback&dir=work&do=guanzhu',
+                method: 'post',
+                data: {
+                    values: {uid: uid,qid:qid,status:status}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if(ret.code=500){
+                    api.toast({
+                        msg: "您已取消关注",
+                        duration: 3000,
+                        location: 'bottom'
+                    });
+                }
+            });
+            num=parseInt($(this).next().next().html());
+            $(this).next().next().html(--num);
+        }
+    });
+    //    回答功能
+    $(document).on('click','.answer_zn',function(){
+        $('.click_shuru_zn').css('display','block');
+        $('.value_zn').focus();
+        qid=$(this).attr('qid');
+    })
+
+
+    $(document).on('click','.click_big_zn',function(){
+        $('.click_shuru_zn').css('display','block');
+        $('.value_zn').focus();
+        qid=$(this).attr('qid');
+    });
+    $(document).on('touchstart','.chengxiaojing_question_box',function(){
+        $('.click_shuru_zn').css('display','none');
+    })
+    $(document).on('click','.click_send_zn',function(event){
+        event.stopPropagation();
+        var uid=api.getPrefs({sync:true,key:'uid'});
+        var content=$('.value_zn').val();
+        if(content==''){
+            $('.value_zn').focus();
+            api.toast({
+                msg: '回答内容不能为空',
+                duration: 1000,
+                location: 'bottom'
+            });
+        }else{
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=feedback&dir=work&do=reply',
+                method: 'post',
+                data: {
+                    values: {uid: uid,qid:qid,content:content}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if(ret.code=200){
+                    api.toast({
+                        msg: ret.msg,
+                        duration: 1000,
+                        location: 'bottom'
+                    });
+                    $('.click_shuru_zn').css('display','none');
+                    api.openWin({
+                        name: 'questionDetail_qty',
+                        url: 'widget://html/feedback/questionDetail_qty.html',
+                        pageParam: {
+                            qid: qid
+                        },
+                        rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+                    });
+                }
+            });
+            $('.value_zn').attr('value','');
+        }
+    })
+    function tishi_zn() {
+        api.toast({
+            msg: "您的问题已提交，请在问答专区中查看",
+            duration: 2000,
+            location: 'bottom'
+        })
+        location.reload();
+    }
+    function close_zn() {
+        location.reload();
+    }
+</script>
+</body>
+</html>

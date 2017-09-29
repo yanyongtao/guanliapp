@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f5f5f5;
+        }
+        .stock_box_zn{
+            background: #2493F7;
+            height:.88rem;
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            overflow: hidden;
+        }
+        .stock_zn{
+            color:#fff;
+            font-size: .3rem;
+            height:100%;
+            line-height: .88rem;
+            text-align: center;
+            letter-spacing: 0.02rem;
+        }
+        .icon_zn{
+            width: 0.29rem;
+            height: 0.43rem;
+            position: absolute;
+            left: 0.15rem;
+            top: 0.25rem;
+            background: url("../../image/image_zn/icon_lefta_zn.png") no-repeat;
+            background-size: cover;
+        }
+        .marketing_cheats_box{
+            margin-top:1.2rem;
+            width:100%;
+            height:auto;
+            background: #fff;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .marketing_list_zn{
+            width:6rem;
+            height:1.27rem;
+            margin: 0 auto;
+            padding:0.15rem 0.2rem;
+            overflow: hidden;
+        }
+        .marketing_img_zn{
+            float:left;
+            width:1.93rem;
+            height:1.27rem;
+            box-sizing: border-box;
+        }
+        .marketing_img_zn img{
+            width:1.93rem;
+            height:1.27rem;
+            box-sizing: border-box;
+        }
+        .skill_box{
+            float:left;
+            margin-left:0.27rem;
+            width:3.8rem;
+            height:1.27rem;
+            box-sizing: border-box;
+        }
+        .skill_title{
+            height:0.24rem;
+            line-height:0.24rem;
+            font-size:0.24rem;
+            width:100%;
+            color:#525252;
+            letter-spacing: 0.02rem;
+        }
+        .skill_con{
+            width:100%;
+            height:0.6rem;
+            line-height:0.3rem;
+            font-size:0.2rem;
+            letter-spacing: 0.01rem;
+            color:#999;
+            margin-top:0.15rem;
+        }
+        .study_zn{
+            width:100%;
+            height:0.23rem;
+            line-height:0.23rem;
+            font-size:0.18rem;
+            color:#b8b8b8;
+            overflow: hidden;
+            margin-top:0.07rem;
+        }
+        .study_zn span:last-child{
+            float:right;
+        }
+        .marketing_list_zn_zn{
+            width:6rem;
+            height:1.27rem;
+            margin: 0 auto;
+            padding:0.15rem 0.2rem;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="stock_box_zn">
+    <div class="stock_zn">营销秘籍列表</div>
+    <div class="icon_zn" onclick="api.closeWin()"></div>0
+</div>
+<ul class="marketing_cheats_box">
+    <!--<li class="marketing_list_zn">-->
+        <!--<p class="marketing_img_zn">-->
+            <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+        <!--</p>-->
+        <!--<div class="skill_box">-->
+            <!--<p class="skill_title">门店运营的精炼技巧</p>-->
+            <!--<p class="skill_con">-->
+                <!--如何快速的学习到门店运营的技巧，将直接影响您的门店收入。-->
+            <!--</p>-->
+            <!--<p class="study_zn">-->
+                <!--<span>24门课/134人学习</span>-->
+                <!--<span>24视频</span>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li class="marketing_list_zn">-->
+        <!--<p class="marketing_img_zn">-->
+            <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+        <!--</p>-->
+        <!--<div class="skill_box">-->
+            <!--<p class="skill_title">门店运营的精炼技巧</p>-->
+            <!--<p class="skill_con">-->
+                <!--如何快速的学习到门店运营的技巧，将直接影响您的门店收入。-->
+            <!--</p>-->
+            <!--<p class="study_zn">-->
+                <!--<span>24门课/134人学习</span>-->
+                <!--<span>12视频</span>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li class="marketing_list_zn">-->
+        <!--<p class="marketing_img_zn">-->
+            <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+        <!--</p>-->
+        <!--<div class="skill_box">-->
+            <!--<p class="skill_title">门店运营的精炼技巧</p>-->
+            <!--<p class="skill_con">-->
+                <!--如何快速的学习到门店运营的技巧，将直接影响您的门店收入。-->
+            <!--</p>-->
+            <!--<p class="study_zn">-->
+                <!--<span>24门课/134人学习</span>-->
+                <!--<span>6视频</span>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li class="marketing_list_zn">-->
+        <!--<p class="marketing_img_zn">-->
+            <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+        <!--</p>-->
+        <!--<div class="skill_box">-->
+            <!--<p class="skill_title">门店运营的精炼技巧</p>-->
+            <!--<p class="skill_con">-->
+                <!--如何快速的学习到门店运营的技巧，将直接影响您的门店收入。-->
+            <!--</p>-->
+            <!--<p class="study_zn">-->
+                <!--<span>24门课/134人学习</span>-->
+                <!--<span>11视频</span>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li class="marketing_list_zn_zn">-->
+        <!--<p class="marketing_img_zn">-->
+            <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+        <!--</p>-->
+        <!--<div class="skill_box">-->
+            <!--<p class="skill_title">门店运营的精炼技巧</p>-->
+            <!--<p class="skill_con">-->
+                <!--如何快速的学习到门店运营的技巧，将直接影响您的门店收入。-->
+            <!--</p>-->
+            <!--<p class="study_zn">-->
+                <!--<span>24门课/134人学习</span>-->
+                <!--<span>15视频</span>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</li>-->
+</ul>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+    setTimeout(function () {
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=video&dir=ziliao&do=video_type',
+            method: 'post',
+            dataType: 'txt'
+        }, function (ret, err) {
+            $(".marketing_cheats_box").append(ret);
+        });
+    },200);
+    var type;
+    $(document).on('click','.marketing_list_zn',function(){
+        $(this).css('background','#eee');
+        var vid=$(this).attr('vid');
+        type=parseInt($(this).attr('type'));
+        if(type===0){
+            api.openWin({
+                name: 'manager_training_zn',
+                pageParam: {
+                    vid:vid,
+                    type:type
+                },
+                url: 'widget://html/reference/manager_training_zn.html',
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }else{
+            api.openWin({
+                name: 'miji_fenlei_yyt',
+                pageParam: {
+                    vid:vid,
+                    type:type
+                },
+                url: 'widget://html/reference/miji_fenlei_yyt.html',
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }
+
+    })
+    function reload_zn(){
+        location.reload();
+    }
+</script>
+</body>
+</html>

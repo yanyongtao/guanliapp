@@ -59,16 +59,37 @@
             }, 1000);
         });
 
-
+//通知栏点击事件
         api.addEventListener({
             name: 'noticeclicked'
         }, function (ret, err) {
-            api.openWin({
-                name: 'myaudita',
-                url: 'widget://html/work/myaudita.html',
-                bounces: false,
-                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
-            });
+            var obj = eval('(' + ret.value + ')');
+            if(obj.key == 'ql'){
+                api.openWin({
+                    name: 'groupChartNumber_qty',
+                    url: 'widget://html/message/groupChartNumber_qty.html',
+                    bounces: false,
+                    pageParam: {gid:obj.gid },
+                    allowEdit:true,
+                    rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+                });
+            }else if (obj.key == 'dl'){
+                api.openWin({
+                    name: 'talk_about',
+                    url: 'widget://html/message/talk_about.html',
+                    bounces: false,
+                    pageParam: {friend_id: obj.toid},
+                    allowEdit:true,
+                    rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+                });
+            }else{
+                api.openWin({
+                    name: 'man_information_zn',
+                    url: 'widget://html/me/man_information_zn.html',
+                    bounces: false,
+                    rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+                });
+            }
         });
 
         api.addEventListener({
@@ -97,20 +118,24 @@
             }, function (ret, err) {
                 if (ret.code == 200) {
                     if (ret.groups_gids) {
-                        for (var v in ret.groups_gids) {
-                            var groups_room = "groups_" + ret.groups_gids[v]['gu_gid'];
-                            socket.emit('join', uid, groups_room);
-                        }
+                        socket.emit('join', uid, ret.groups_gids);
+                        /* for (var v in ret.groups_gids) {
+                         var groups_room = "groups_"+ret.groups_gids[v]['gu_gid'];
+                         if(groups_room=="groups_313"){
+                         }
+                         socket.emit('join', uid, groups_room);
+                         }*/
                     }
                 }
             });
         });
-
+        socket.on('test_to_groups',function(msg){
+            var obj = eval('(' + msg + ')');
+        });
 
         //群聊socke实时回调函数
         socket.on('sixin_to_groups', function (msg) {
             var obj = eval('(' + msg + ')');
-
             api.ajax({
                 url: ' http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=get_user_openwin',
                 method: 'post',
@@ -121,9 +146,17 @@
             }, function (ret, err) {
                 if (ret.is_openwin == 0) {
                     var notify_msg = "【群聊】";
+                    var notice_zn;
+                    if(obj.lx==0){
+                        notice_zn=obj.nr;
+                    }else if(obj.lx==1){
+                        notice_zn="发送了一张图片";
+                    }else{
+                        notice_zn="发送了一条语音";
+                    }
                     api.notification({//手机通知栏通知消息
                         notify: {
-                            content: notify_msg + obj.send_name + " : " + obj.nr,
+                            content: notify_msg + obj.send_name + " : " + notice_zn,
                             updateCurrent: true,
                             extra: {key: 'ql', gid: obj.gid}
                         }
@@ -133,12 +166,19 @@
                     });
                 }
             });
-
-            var jieshou = 'jieshou(\'' + msg + '\');';
-            api.execScript({
-                name: 'groupChartNumber_qty',
-                script: jieshou
-            });
+            if(obj.sj==0) {
+                var jieshou = 'jieshou(\'' + msg + '\');';
+                api.execScript({
+                    name: 'groupChartNumber_qty',
+                    script: jieshou
+                });
+            }else {
+                var delete_zn = 'delete_zn(\'' + msg + '\')';
+                api.execScript({
+                    name: 'groupChartNumber_qty',
+                    script: delete_zn
+                });
+            }
             if (select_idx == 1) {
                 api.execScript({
                     name: 'main',
@@ -150,6 +190,20 @@
         });
 
 
+        socket.on('reply_to_msg',function(obj){
+            var obj=eval('('+obj+')');
+            var msg=obj.msg;
+            api.notification({//手机通知栏通知消息
+                vibrate: 100,
+                notify: {
+                    content: msg,
+                    updateCurrent: true,
+//                    extra: {key: 'dl', toid: obj.toid}
+                }
+            }, function (ret, err) {
+
+            });
+        })
         //单聊socket实时回调函数
         socket.on('sixin_to', function (msg) {
             var obj = eval('(' + msg + ')');
@@ -227,6 +281,19 @@
         socket.on('verify_to_user', function (obj) {
             var obj = eval('(' + obj + ')');
             if (obj.store_id) {
+                api.execScript({
+                    name: 'main',
+                    frameName: 'me_',
+                    script: 'updata()'
+                })
+                api.execScript({
+                    name: 'man_information_zn',
+                    script: 'updata()'
+                })
+                api.execScript({
+                    name: 'personInfo_qty',
+                    script: 'updata_zn()'
+                })
                 api.removePrefs({
                     key: 'store_id'
                 });
@@ -251,18 +318,24 @@
                 name: 'myaudita',
                 script: jsfun
             });
+            api.execScript({
+                frameName: 'work_in',
+                script: 'store_id_cz()'
+            });
             //    通知栏
             api.notification({//手机通知栏通知消息
-                vibrate: 100,
+//                vibrate: 100,
                 notify: {
                     content: obj.msg,
                     updateCurrent: true,
-//                extra:{key:'dl',toid:obj.toid}
+                    extra:{key:'sh'}
                 }
 
             }, function (ret, err) {
-                var id = ret.id;
+//                var id = ret.id;
             });
+
+
 
 
             api.execScript({
@@ -360,7 +433,7 @@
                         name: 'work_in',
                         url: 'widget://html/work/work_in.html',
                         bounces: false,
-                        reload:true,
+//                        reload:true,
                         rect: {x: 0,y: 0,w: 'auto',h: h1}
                     });
                 }else{
@@ -371,8 +444,8 @@
                 }
                 if(ret.index==2){
                     api.openFrame({
-                        name: 'data_qty',
-                        url: 'widget://html/document_/data_qty.html',
+                        name: 'reference_index_zn',
+                        url: 'widget://html/reference/reference_index_zn.html',
 //                        reload:true,
                         pageParam: {h1:h1},
                         rect: {x: 0,y: 0,w: 'auto',h:h1}
@@ -387,7 +460,7 @@
                     api.openFrame({
                         name: 'info_qty',
                         url: 'widget://html/message/info_qty.html',
-                        reload:true,
+//                        reload:true,
                         pageParam: {h1:h1},
                         rect: {x: 0,y: 0,w: 'auto',h:h1}
                     });

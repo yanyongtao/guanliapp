@@ -166,17 +166,17 @@
         <div class="company_e">Shan Xi Tai Chang Biological Technology Co.,Ltd.</div>
     </div>
 </div>
-<div class="per_msg" onclick="per_msg()">
+<div class="per_msg per_msg_one" onclick="per_msg()">
     <img class="msg_icon" src="../../image/img_yyt/per_meg.png" alt="">
     <div class="per_con">个人信息</div>
     <img src="../../image/img_yyt/arrow_right.png" alt="" class="arrow_right">
 </div>
-<div class="per_msg">
+<div class="per_msg per_msg_two">
     <img class="msg_icon" src="../../image/img_yyt/id_safe.png" alt="">
     <div class="per_con">账号与安全</div>
     <img src="../../image/img_yyt/arrow_right.png" alt="" class="arrow_right">
 </div>
-<div class="per_msg" style="border-bottom: 0" onclick="open_set()">
+<div class="per_msg per_msg_three" style="border-bottom: 0" onclick="open_set()">
     <img class="msg_icon" src="../../image/img_yyt/setting_.png" alt="">
     <div class="per_con">设置</div>
     <img src="../../image/img_yyt/arrow_right.png" alt="" class="arrow_right">
@@ -196,8 +196,6 @@
 <script>
     var uid;
     var type;
-
-
     function get_data() {
         apiready=function () {
             type = api.getPrefs({
@@ -216,17 +214,30 @@
                 },
                 dataType: 'json'
             }, function (ret, err) {
+                if (ret.userinfo.head_img){
+                    $(".me_photo img").attr("src","../../image/header_picture/"+ret.userinfo.head_img+"")
+                }
                 $(".me_name_").html(ret.userinfo.name);
                 if (ret.userinfo.roleid == 5){
                     $(".me_job_").html("店员");
                 }else if (ret.userinfo.roleid == 3){
                     $(".me_job_").html("店长");
+                }else if (ret.userinfo.roleid == 2){
+                    $(".me_job_").html("经销商");
+                }else if (ret.userinfo.roleid == 4){
+                    $(".me_job_").html("加盟商");
+                }else if (ret.userinfo.roleid == 1){
+                    $(".me_job_").html("总部人员");
+                }else if (ret.userinfo.roleid == 6){
+                    $(".me_job_").html("董事长");
+                }else if (ret.userinfo.roleid == 7){
+                    $(".me_job_").html("总经理");
                 }
                 $(".me_phone").html(ret.userinfo.mobile);
             });
         }
     }
-    get_data()
+    get_data();
 
 
     function updata() {
@@ -238,11 +249,24 @@
             },
             dataType: 'json'
         }, function (ret, err) {
+            if (ret.userinfo.head_img){
+                $(".me_photo img").attr("src","../../image/header_picture/"+ret.userinfo.head_img+"")
+            }
             $(".me_name_").html(ret.userinfo.name);
             if (ret.userinfo.roleid == 5){
                 $(".me_job_").html("店员");
             }else if (ret.userinfo.roleid == 3){
                 $(".me_job_").html("店长");
+            }else if (ret.userinfo.roleid == 2){
+                $(".me_job_").html("经销商");
+            }else if (ret.userinfo.roleid == 4){
+                $(".me_job_").html("加盟商");
+            }else if (ret.userinfo.roleid == 1){
+                $(".me_job_").html("总部人员");
+            }else if (ret.userinfo.roleid == 6){
+                $(".me_job_").html("董事长");
+            }else if (ret.userinfo.roleid == 7){
+                $(".me_job_").html("总经理");
             }
             $(".me_phone").html(ret.userinfo.mobile);
         });
@@ -278,5 +302,22 @@
             rect: {x: 0,y: 0,w: 'auto',h: "auto"}
         });
     }
+
+    $(".per_msg_one").on("touchstart",function () {
+        $(this).css("background","#eee")
+        $(this).on("touchend",function () {
+            $(this).css("background","#fff")
+            $(this).off("touchend")
+        })
+    })
+
+    $(".per_msg_three").on("touchstart",function () {
+        $(this).css("background","#eee")
+        $(this).on("touchend",function () {
+            $(this).css("background","#fff")
+            $(this).off("touchend")
+        })
+    })
+
 </script>
 </html>

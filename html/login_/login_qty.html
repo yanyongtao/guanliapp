@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #2493F7;
+        }
+        .loginBox_qty{
+        	width: 5.82rem;
+        	height: 7.8rem;
+        	background: #fff;
+        	margin: auto;
+        	border-radius: 0.1rem;
+        	margin-top: 0.8rem;
+        	overflow: hidden;
+        }
+        .loginImg_qty{
+        	width: 2.19rem;
+        	height: 2.19rem;
+        	background-image: url(../../image/img_qty/logo_03.png);
+        	background-size: cover;
+        	background-repeat: no-repeat;
+        	margin: auto;
+        	margin-top: 0.6rem;
+        	overflow: hidden;
+        }
+        .top_qty{
+        	width: 4.82rem;
+        	margin: auto;
+        	overflow: hidden;
+        	margin-top: 0.5rem;
+        }
+        .loginInput_qty{
+        	width: 4.82rem;
+        	height: 0.64rem;
+        	border-bottom: 1px solid #dfdfdf;
+        	margin-top: 0.1rem;
+        	overflow: hidden;
+        }
+        .iphoneImg_qty,.iphoneImg_qty_qty{
+        	width: 0.21rem;
+        	height: 0.3rem;
+        	float: left;
+        	margin-top: 0.17rem;
+        	background-size: cover;
+        	background-repeat: no-repeat;
+        	margin-left: 0.1rem;
+        }
+        .iphoneImg_qty{
+        	background-image: url(../../image/img_qty/ipone_03.png);
+        }
+        .iphoneImg_qty_qty{
+        	width: 0.24rem;
+        	background-image: url(../../image/img_qty/key_03.png);
+        }
+        .input_qty{
+        	width: 4rem;
+        	height: 0.4rem;
+        	font-size: 0.24rem;
+        	margin-left: 0.2rem;
+        	margin-top: 0.12rem;
+        	outline: none;
+        	float: left;
+        }
+        .chacha_qty{
+        	width: 0.2rem;
+        	height: 0.2rem;
+        	background-image: url(../../image/img_qty/cuo_07.png);
+        	background-size: cover;
+        	background-repeat: no-repeat;
+        	margin-top: 0.22rem;
+            float: left;
+            display: none;
+        }
+     	.sumbit_qty{
+     		width: 4.82rem;
+     		height: 0.88rem;
+     		background: #2493F7;
+     		overflow: hidden;
+     		margin-top: 0.8rem;
+     		border-radius: 0.5rem;
+     	}
+     	.sumbit_qty button{
+     		width: 4.82rem;
+     		height: 0.88rem;
+     		color: #fff;
+     		font-size: 0.34rem;
+     		float: left;
+     		outline: none;
+     	}
+     	.forward_qty{
+     		width: 4.82rem;
+     		height: 0.5rem;
+     		margin-top: 0.2rem;
+     		overflow: hidden;
+     	}
+     	.password_qty{
+     		width: 2.41rem;
+     		height: 0.5rem;
+     		font-size: 0.26rem;
+     		line-height: 0.5rem;
+			margin:0 auto;
+     		text-align: center;
+     		display: block;
+     		color: #2493F7;
+     		position: relative;
+     	}
+    </style>
+</head>
+<body>
+    <div class="loginBox_qty">
+    	<div class="loginImg_qty"></div>
+    	<!--<form action="">-->
+    		<div class="top_qty">
+    			<div class="loginInput_qty">
+		    		<div class="iphoneImg_qty"></div>
+		    		<input type="text" name="text" placeholder="请输入您的号码" class="input_qty login_z">
+                    <div class="chacha_qty"></div>
+		    	</div>
+		    	<div class="loginInput_qty">
+		    		<div class="iphoneImg_qty_qty"></div>
+		    		<input type="password" name="text" placeholder="请输入您的密码" class="input_qty login_m">
+                    <div class="chacha_qty"></div>
+		    	</div>
+		    	<div class="sumbit_qty">
+		    		<button  onclick="login()" type="button">登陆</button>
+		    	</div>
+		    	<div class="forward_qty">
+		    		<span class="password_qty" onclick="open_sign()">免费注册</span>
+		    	</div>
+    		</div>
+    	<!--</form>-->
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+
+//    onclick()
+//	function onclick(){
+//        $('.input_qty').click(function(){
+//            $(this).next('.chacha_qty').show();
+//            $(this).parent().siblings().children(".chacha_qty").hide();
+//        })
+//
+//		$(".chacha_qty").click(function() {
+//			 $(this).prev().val("").focus(); // 清空并获得焦点
+//			 $(this).hide();
+//		});
+//	}
+
+
+	var type;
+	var login_z;
+	var login_m;
+	var name;
+	var mobile;
+	var store_id;
+	apiready=function () {
+		type=api.pageParam.type;
+		api.closeFrame({
+			name: 'dyz_swj'
+		});
+	}
+	function open_sign() {
+		api.openFrame({
+			name: 'register_qty',
+			url: 'widget://html/login_/register_qty.html',
+			bounces: false,
+			pageParam:{type:type},
+			rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+		});
+	}
+	function phone_password() {
+		api.openFrame({
+			name: 'forgetPassword',
+			url: 'widget://html/login_/forgetPassword.html',
+			bounces: false,
+			pageParam:{type:type},
+			rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+		});
+	}
+	function checkMobile(){
+		var sMobile = $(".login_z").val();
+		if(!(/^1\d{10}$/.test(sMobile))){
+			$(".login_z").focus();
+			return 0;
+		}
+	}
+	function login() {
+		if (checkMobile()==0) {
+//            alert("请输入正确的手机号码")
+			api.toast({
+				msg: '请输入正确的手机号码',
+				duration: 4000,
+				location: 'bottom'
+			});
+		}
+		if(!$(".login_z").val()){
+//            alert("请输入手机号码")
+			api.toast({
+				msg: '请输入手机号码',
+				duration: 4000,
+				location: 'bottom'
+			});
+			return false;
+		}
+		if(!$(".login_m").val()){
+//            alert("请输入您的密码")
+			api.toast({
+				msg: '请输入您的密码',
+				duration: 4000,
+				location: 'bottom'
+			});
+			return false;
+		}
+//        需要知道账号密码是否匹配，给出不同操作
+		login_z = $(".login_z").val();
+		login_m = $(".login_m").val();
+		api.ajax({
+			url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=login',
+			method: 'post',
+			data: {
+				values:{user_name:login_z,type:type,password:login_m}
+			},
+			dataType:'json'
+		},function(ret,err){
+			if(ret.code == 200){
+//                alert(ret.uid)
+//                name = ret.name;
+				api.setPrefs({
+					key: 'name',
+					value: ret.name
+				});
+				api.setPrefs({
+					key: 'type',
+					value: ret.type
+				});
+//                mobile = ret.mobile;
+				api.setPrefs({
+					key: 'mobile',
+					value: ret.mobile
+				});
+//                store_id = ret.store_id;
+				api.setPrefs({
+					key: 'store_id',
+					value: ret.store_id
+				});
+//                uid = ret.uid;
+				api.setPrefs({
+					key: 'uid',
+					value: ret.uid
+				});
+//                user_role = ret.user_role;
+				api.setPrefs({
+					key: 'user_role',
+					value: ret.user_role
+				});
+//                roleid = ret.roleid;
+				api.setPrefs({
+					key: 'roleid',
+					value: ret.roleid
+				});
+				open_main();
+
+			}else if(ret.code == 500){
+//                alert(ret.msg)
+				api.toast({
+					msg: ret.msg,
+					duration: 4000,
+					location: 'bottom'
+				});
+			}
+		});
+	}
+	function open_main() {
+		api.openWin({
+			name:'main',
+			url:'widget://html/main.html',
+			bounces: false,
+			rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+		})
+	}
+
+</script>
+</html>

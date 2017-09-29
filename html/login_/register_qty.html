@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+            position: relative;
+        }
+        .header_qty{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.34rem;
+            color: #fff;
+            line-height: 0.88rem;
+            float: left;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 111;
+        }
+        .arrow_qty{
+            width: 1.2rem;
+            height: 0.88rem;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 99999;
+        }
+        .arrowLeft_qty{
+        	width: 0.15rem;
+        	height: 0.28rem;
+        	float: left;
+        	background-image: url(../../image/img_qty/arrowLeft_06.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        .imgBox_qty{
+			width: 100%;
+			height: 2.38rem;
+			margin: auto;
+			overflow: hidden;
+			margin-top: 0.88rem;
+			background-image: url(../../image/img_qty/register_07.png);
+			background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .registerBox_qty{
+        	width: 5.82rem;
+        	height: 5.6rem;
+        	background: #fff;
+        	margin: auto;
+        	/*overflow: hidden;*/
+        	margin-top: -0.72rem;
+        	border-radius: 0.1rem;
+        	box-shadow: 0px 8px 12px #E8E8E8;
+        }
+        .registerInputBox_qty{
+        	width: 4.82rem;
+        	margin: auto;
+        }
+        .registerInput_qty{
+        	width: 4.82rem;
+        	height: 0.9rem;
+        	float: left;
+        	border-bottom: 1px solid #dfdfdf;
+        }
+        .iphoneImg_qty,.iphoneImg_qty_qty,.register_qty{
+        	width: 0.21rem;
+        	height: 0.3rem;
+        	float: left;
+        	margin-top: 0.4rem;
+        	background-size: cover;
+        	background-repeat: no-repeat;
+        	margin-left: 0.1rem;
+        }
+        .iphoneImg_qty{
+        	background-image: url(../../image/img_qty/ipone_03.png);
+        }
+        .iphoneImg_qty_qty{
+        	width: 0.24rem;
+        	background-image: url(../../image/img_qty/key_03.png);
+        }
+        .register_qty{
+        	width: 0.24rem;
+        	background-image: url(../../image/img_qty/ver_08.png);
+        }
+        .input_qty{
+        	width: 4rem;
+        	height: 0.4rem;
+        	font-size: 0.24rem;
+        	margin-left: 0.2rem;
+        	margin-top: 0.38rem;
+        	outline: none;
+        	float: left;
+        }
+        .ver_qty{
+        	width: 2rem;
+        	height: 0.4rem;
+        	font-size: 0.24rem;
+        	margin-left: 0.2rem;
+        	margin-top: 0.38rem;
+        	outline: none;
+        	float: left;
+        }
+        .chacha_qty{
+        	width: 0.2rem;
+        	height: 0.2rem;
+        	float: left;
+        	background-image: url(../../image/img_qty/cuo_07.png);
+        	background-size: cover;
+        	background-repeat: no-repeat;
+        	margin-top: 0.45rem;
+            float: left;
+        	display: none;
+        }
+        .submit_qty{
+        	/*width: 2rem;*/
+        	height: 0.4rem;
+        	font-size: 0.24rem;
+			margin-top: 0.38rem;
+			float: left;
+			margin-left: 0.85rem;
+			outline: none;
+			color: #2493f7;
+			text-align: right;
+        }
+        .labelInput_qty{
+        	width: 4.82rem;
+        	height: 0.6rem;
+        	float: left;
+        	margin-top: 0.2rem;
+        }
+        .labelInput_qty label{
+        	float: left;
+        	font-size: 0.22rem;
+        	margin-left: 0.1rem;
+        }
+        .labelInput_qty label span{
+        	color: #2493f7;
+        }
+        .labelInput_qty label input{
+        	width: 0.26rem;
+        	height: 0.26rem;
+			float: left;
+			margin-right: 0.2rem;
+			margin-top: 0.02rem;
+        }
+        .register_qty_qty{
+        	width: 4.82rem;
+        	height: 0.88rem;
+        	background: #2493f7;
+        	float: left;
+        	border-radius: 0.5rem;
+        }
+        .reg_qty{
+        	width: 4.82rem;
+        	height: 0.88rem;
+        	font-size: 0.34rem;
+        	color: #fff;
+        	float: left;
+        	outline: none;
+        }
+        .password_qty{
+        	width: 3.5rem;
+        	height: 0.5rem;
+        	background: #7D7D7D;
+        	float: left;
+        	margin-top: 0.5rem;
+        	font-size: 0.26rem;
+        	color: #fff;
+        	text-align: center;
+        	line-height: 0.5rem;
+        	margin-left: 0.5rem;
+        	border-radius: 0.12rem;
+        }
+        .companyBox_qty{
+        	width: 100%;
+        	height: 0.6rem;
+        	float: left;
+        	/*position: fixed;*/
+        	/*bottom: 0.15rem;*/
+        	margin: auto;
+			margin-top:2.5rem;
+        	overflow: hidden;
+        }
+        .company_qty{
+        	width: 100%;
+        	text-align: center;
+        	font-size: 0.2rem;
+        	margin-top: 0.1rem;
+        	color: #999999;
+        	line-height: 0.3rem;
+        }
+        .compannyEnglish_qty{
+        	width: 100%;
+        	text-align: center;
+        	font-size: 0.12rem;
+        	color: #999999;
+        	line-height: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_qty">注册</div>
+    <div class="arrow_qty" onclick="open_login()">
+        <div class="arrowLeft_qty"></div>
+    </div> 
+    <div class="imgBox_qty"></div>
+    <div class="registerBox_qty">
+    	<!--<form>-->
+    		<div class="registerInputBox_qty">
+				<input type="hidden" name="verifycode" class="code_yyt">
+    			<div class="registerInput_qty">
+    				<div class="iphoneImg_qty"></div>
+		    		<input type="text" name="text" placeholder="请输入您的手机号码" class="input_qty sign_z">
+                    <div class="chacha_qty"></div>
+    			</div>
+    			<div class="registerInput_qty">
+    				<div class="iphoneImg_qty_qty"></div>
+		    		<input type="password" name="text" placeholder="请输入您的登陆密码" class="input_qty sign_p">
+                    <div class="chacha_qty"></div>
+    			</div>
+    			<div class="registerInput_qty">
+    				<div class="iphoneImg_qty_qty"></div>
+		    		<input type="password" name="text" placeholder="请重新输入密码确认" class="input_qty sign_p_a">
+                    <div class="chacha_qty"></div>
+    			</div>
+    			<div class="registerInput_qty">
+    				<div class="register_qty"></div>
+		    		<input type="text" name="text" placeholder="请输入验证码" class="ver_qty code_get">
+					<a href="javascript:;" class="get_code submit_qty" onclick="get_code()">获取验证码</a>
+    			</div>
+    			<div class="labelInput_qty">
+    				<label><input type="checkbox" checked="checked" id="sign_check">同意<span>《用户使用协议》</span></label>
+    			</div>
+    			<div class="register_qty_qty">
+    				<input type="submit" value="注册" class="reg_qty" onclick="sign_ok()">
+    			</div>
+    			<!--<div class="password_qty">两次密码不一致</div>-->
+    		</div>
+    	<!--</form>-->
+    </div>
+    <div class="companyBox_qty">
+    	<div class="company_qty">山西太常生物科技有限公司</div>
+    	<div class="compannyEnglish_qty">Shan Xi Tai Chang Biology Co.ltd</div>
+    </div>
+    
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+
+
+//    onclick()
+//	function onclick(){
+//		$('.input_qty').on("click",function(){
+//            $(this).next('.chacha_qty').show();
+//            $(this).parent().siblings().children(".chacha_qty").hide();
+//        })
+//		$(".ver_qty").on("click",function(){
+//			$(this).parent().siblings().children(".chacha_qty").hide();
+//		})
+//        $('.chacha_qty').on("click",function(){
+//            $(this).prev().val("").focus(); //清空并获得焦点
+//            $(this).hide()
+//        })
+//	}
+
+
+	var type;
+	var sign_z;
+	var password;
+	var confirmpass;
+	var code;
+	var verifycode;
+	apiready=function () {
+		type=api.pageParam.type;
+//        api.setPrefs({
+//            key: 'type',
+//            value: type
+//        });
+	}
+	function open_regSuccess() {
+		api.openFrame({
+			name:'regSuccess',
+			url:'widget://html/login_/regSuccess.html',
+			bounces: false,
+			rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+		})
+	}
+	function open_login() {
+		api.openFrame({
+			name:'login_qty',
+			url:'widget://html/login_/login_qty.html',
+			bounces: false,
+			rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+		})
+	}
+	function checkMobile(){
+		var sMobile = $(".sign_z").val();
+		if(!(/^1\d{10}$/.test(sMobile))){
+			$(".sign_z").focus();
+			return 0;
+		}
+	}
+
+	var flag=true;
+	function get_code() {
+		if (checkMobile()==0){
+//            alert("请输入正确的手机号码")
+			api.toast({
+				msg: '请输入正确的手机号码',
+				duration: 4000,
+				location: 'bottom'
+			});
+		}else {
+			function time_over() {
+				if (flag==true){
+					flag=false;
+					var miao=60;
+					var aa=setInterval(again,1000)
+					function again() {
+						miao--;
+						if(miao<=0){
+							clearInterval(aa)
+							$(".get_code").html("获取验证码")
+							flag=true;
+						}else{
+							var daojishi="<span>"+miao+"</span> s";
+							$(".get_code").html(daojishi);
+						}
+					}
+				}
+			}
+			time_over()
+			sign_z = $(".sign_z").val();
+			api.ajax({
+				url: 'http://appapi.duyiwang.cn/index.php?action=sms&do=getverifycode',
+				method: 'post',
+				data: {
+					values:{mobile:sign_z,type:type}
+				},
+				dataType:'json'
+			},function(ret,err){
+				if(ret.code == 200){
+					$(".code_yyt").val(ret.verifycode);
+
+				}else if(ret.code == 500){
+//                    alert(ret.msg)
+				}
+			});
+		}
+	}
+	function sign_ok() {
+		var password_a=$(".sign_p").val();
+		var password_b=$(".sign_p_a").val();
+		var codeGet=$(".code_get").val();
+		if (password_a==password_b&&codeGet&&$('#sign_check').attr('checked')){
+//            需要返回数据确认注册成功
+			password=$(".sign_p").val();
+			confirmpass = $(".sign_p_a").val();
+			code = $(".code_get").val();
+			verifycode = $(".code_yyt").val();
+
+			api.ajax({
+				url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=register',
+				method: 'post',
+				data: {
+					values:{mobile:sign_z,type:type,password:password,confirmpass:confirmpass,code:code,verifycode:verifycode}
+				},
+				dataType:'json'
+			},function(ret,err){
+				if(ret.code == 200){
+					open_regSuccess();
+				}else if(ret.code == 500){
+//                    alert(ret.msg)
+					api.toast({
+						msg: ret.msg,
+						duration: 4000,
+						location: 'bottom'
+					});
+				}
+			});
+		}
+		if (!password_a||!password_b){
+//            alert("请输入密码")
+			api.toast({
+				msg: '请输入密码',
+				duration: 4000,
+				location: 'bottom'
+			});
+			return false;
+		}
+		if (password_a != password_b) {
+//            alert("两次输入密码不一致")
+			api.toast({
+				msg: '两次输入密码不一致',
+				duration: 4000,
+				location: 'bottom'
+			});
+			return false;
+		}
+		if (!codeGet){
+//            alert("请输入验证码")
+			api.toast({
+				msg: '请输入验证码',
+				duration: 4000,
+				location: 'bottom'
+			});
+			return false;
+		}
+		if (!$('#sign_check').attr('checked')) {
+//            alert("请阅读并同意用户协议")
+			api.toast({
+				msg: '请阅读并同意用户协议',
+				duration: 4000,
+				location: 'bottom'
+			});
+			return false;
+		}
+	}
+</script>
+</html>

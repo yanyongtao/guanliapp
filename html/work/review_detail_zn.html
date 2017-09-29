@@ -17,7 +17,9 @@
             background: #2493F7;
             height:.88rem;
             width:100%;
-            position:relative;
+            position:fixed;
+            top:0;
+            left:0;
         }
         .stock_zn{
             color:#fff;
@@ -37,10 +39,10 @@
         }
         .review_detail_man_zn{
             width:6rem;
-            height:1.5rem;
+            height:1.3rem;
             background: #fff;
             margin:0 auto;
-            margin-top:0.2rem;
+            margin-top:1.2rem;
             overflow: hidden;
             box-sizing: border-box;
             border-radius: 0.1rem;
@@ -54,11 +56,10 @@
         }
         .man_name_zn{
             height:0.28rem;
-            width:100%;
             line-height:0.28rem;
             color:#333;
-            margin-top:0.4rem;
             font-size:0.28rem;
+            float:left;
         }
         .man_phone_zn{
             height:0.5rem;
@@ -79,7 +80,7 @@
             display: block;
             width:0.85rem;
             height:0.85rem;
-            margin-top:0.3rem;
+            margin-top:0.2rem;
         }
         .review_con_zn{
             width:6rem;
@@ -223,6 +224,25 @@
         .hide_zn{
             display: none;
         }
+        .clearNamebox_qty{
+            width: 0.7rem;
+            height: 0.28rem;
+            float: left;
+            background: #2493f7;
+           box-sizing: border-box;
+            font-size: 0.22rem;
+            color: #fff;
+            border-radius: 0.2rem;
+            line-height: 0.28rem;
+            text-align: center;
+            margin-left:0.2rem;
+        }
+        .man_information_box{
+            width:100%;
+            height:0.4rem;
+            overflow: hidden;
+            margin-top:0.3rem;
+        }
     </style>
 </head>
 <body>
@@ -232,7 +252,10 @@
 </div>
 <div class="review_detail_man_zn">
     <div class="man_detail_zn">
-        <p class="man_name_zn">大康康</p>
+        <div class="man_information_box">
+            <p class="man_name_zn">大康康</p>
+            <div class="clearNamebox_qty">实习</div>
+        </div>
         <p class="man_phone_zn">13659462586</p>
         <!--<p class="wait_for_manager">等待店长审批</p>-->
     </div>
@@ -339,6 +362,13 @@
             }, function (ret, err) {
                 var name=ret.userinfo.name;
                 var phone=ret.userinfo.mobile;
+                var roleid=ret.userinfo.roleid;
+                if(roleid==5){
+                    $('.clearNamebox_qty').html('店员');
+                }
+                if(roleid==3){
+                    $('.clearNamebox_qty').html('店长');
+                }
                 $(".man_name_zn").html(name);
                 $(".man_phone_zn").html(phone);
             });

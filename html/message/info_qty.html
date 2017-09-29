@@ -17,7 +17,7 @@
             height: 0.88rem;
             background: #2493f7;
             text-align: center;
-            font-size: 0.34rem;
+            font-size: 0.32rem;
             color: #fff;
             line-height: 0.88rem;
             float: left;
@@ -168,23 +168,24 @@
         }
         .groupChat_qty li{
             width: 100%;
-            height: 1.2rem;
+            height: 1.11rem;
             background: #fff;
+            box-sizing: border-box;
             border-bottom: 1px solid #fff;
             float: left;
         }
         .groupImg_qty{
-            width: 0.85rem;
-            height: 0.85rem;
+            width: 0.8rem;
+            height: 0.8rem;
             float: left;
             border-radius: 50%;
-            margin-top: 0.175rem;
+            margin-top: 0.15rem;
             margin-left: 0.2rem;
             position: relative;
         }
         .groupImg_qty img{
-            width: 0.85rem;
-            height: 0.85rem;
+            width: 0.8rem;
+            height: 0.8rem;
             float: left;
             border-radius: 50%;
         }
@@ -203,7 +204,7 @@
         }
         .groupChartBox_qty{
             width: 5.1rem;
-            height: 1.2rem;
+            height: 1.09rem;
             float: left;
             margin-left: 0.25rem;
             border-bottom: 1px solid #F6F6F6;
@@ -241,151 +242,90 @@
             overflow:hidden;
             text-overflow:ellipsis;
         }
+        .groupB_qty span{
+            color:red;
+        }
     </style>
 </head>
 <body>
-    <div class="header_qty">消息</div>
-    <div class="per_qty">
-        <div class="perBox_qty">
-            <span class="star_qty"></span>
-            <div class="perSmall_qty">
-                <div class="perLi_qty" onclick="open_lianxiren()">
-                    <div class="perSmallImg_qty"></div>
-                    <div class="contactPer">联系人</div>
-                </div>
+<div class="header_qty">消息</div>
+<div class="per_qty">
+    <div class="perBox_qty">
+        <span class="star_qty"></span>
+        <div class="perSmall_qty">
+            <div class="perLi_qty" onclick="open_lianxiren()">
+                <div class="perSmallImg_qty"></div>
+                <div class="contactPer">联系人</div>
             </div>
-            <div class="perSmall_qty" onclick="open_qunliao()">
-                <div class="perLi_qty">
-                    <div class="mess_qty"></div>
-                    <div class="contactPer">群&nbsp;&nbsp;&nbsp;聊</div>
-                </div>
+        </div>
+        <div class="perSmall_qty" onclick="open_qunliao()">
+            <div class="perLi_qty">
+                <div class="mess_qty"></div>
+                <div class="contactPer">群&nbsp;&nbsp;&nbsp;聊</div>
             </div>
         </div>
     </div>
-    <ul class="system_qty">
-        <li class="systemBox_qty">
-            <div class="systemSmallBox_qty">
-                <div class="bellBox_qty"></div>
-                <div class="systemInfo_qty">系统消息</div>
-                <div class="arrowRight"></div>
-                <div class="systemNew_qty">您有两条新的消息</div>
-            </div>
-        </li>
-        <li class="systemBox_qty">
-            <div class="systemSmallBox_qty">
-                <div class="personBox_qty"></div>
-                <div class="systemInfo_qty">待我审批</div>
-                <div class="arrowRight"></div>
-                <div class="systemNew_qty">您有两条新的消息</div>
-            </div>
-        </li>
-        <li class="systemBox_qty">
-            <div class="systemSmallBox_qty">
-                <div class="info_qty"></div>
-                <div class="systemInfo_qty">反馈消息</div>
-                <div class="arrowRight"></div>
-                <div class="systemNew_qty">您有两条新的消息</div>
-            </div>
-        </li>
-    </ul>
-    <ul class="groupChat_qty">
-        <!--<li>-->
-            <!--<div class="groupImg_qty">-->
-                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
-                <!--<div class="math_qty">1</div>-->
-            <!--</div>-->
-            <!--<div class="groupChartBox_qty">-->
-                <!--<div class="groupSmall_qty">-->
-                    <!--<div class="groupTop_qty">-->
-                        <!--<span>群聊</span><span class="time_qty">06:03</span>-->
-                    <!--</div>-->
-                    <!--<div class="groupB_qty">-->
-                        <!--欢迎大家加入我们的群聊...-->
-                    <!--</div>-->
+</div>
+<ul class="system_qty">
+    <li class="systemBox_qty">
+        <div class="systemSmallBox_qty">
+            <div class="bellBox_qty"></div>
+            <div class="systemInfo_qty">系统消息</div>
+            <div class="arrowRight"></div>
+            <div class="systemNew_qty">您有两条新的消息</div>
+        </div>
+    </li>
+    <li class="systemBox_qty">
+        <div class="systemSmallBox_qty">
+            <div class="personBox_qty"></div>
+            <div class="systemInfo_qty">待我审批</div>
+            <div class="arrowRight"></div>
+            <div class="systemNew_qty">您有两条新的消息</div>
+        </div>
+    </li>
+    <li class="systemBox_qty">
+        <div class="systemSmallBox_qty">
+            <div class="info_qty"></div>
+            <div class="systemInfo_qty">反馈消息</div>
+            <div class="arrowRight"></div>
+            <div class="systemNew_qty">您有两条新的消息</div>
+        </div>
+    </li>
+</ul>
+<ul class="groupChat_qty">
+    <!--<li>-->
+        <!--<div class="groupImg_qty">-->
+            <!--<img src="../../image/img_qty/head.jpg" alt="">-->
+            <!--<div class="math_qty">2</div>-->
+        <!--</div>-->
+        <!--<div class="groupChartBox_qty">-->
+            <!--<div class="groupSmall_qty">-->
+                <!--<div class="groupTop_qty">-->
+                    <!--<span>王小二</span><span class="time_qty">06:03</span>-->
+                <!--</div>-->
+                <!--<div class="groupB_qty">-->
+                    <!--我有一些问题需要您的帮助与...-->
                 <!--</div>-->
             <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<div class="groupImg_qty">-->
-                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
-                <!--<div class="math_qty">2</div>-->
-            <!--</div>-->
-            <!--<div class="groupChartBox_qty">-->
-                <!--<div class="groupSmall_qty">-->
-                    <!--<div class="groupTop_qty">-->
-                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
-                    <!--</div>-->
-                    <!--<div class="groupB_qty">-->
-                        <!--我有一些问题需要您的帮助与...-->
-                    <!--</div>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<div class="groupImg_qty">-->
+            <!--<img src="../../image/img_qty/head.jpg" alt="">-->
+            <!--<div class="math_qty">5</div>-->
+        <!--</div>-->
+        <!--<div class="groupChartBox_qty">-->
+            <!--<div class="groupSmall_qty">-->
+                <!--<div class="groupTop_qty">-->
+                    <!--<span>王小二</span><span class="time_qty">06:03</span>-->
+                <!--</div>-->
+                <!--<div class="groupB_qty">-->
+                    <!--<span>[有人@我]</span>我有一些问题需要您的帮助与...-->
                 <!--</div>-->
             <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<div class="groupImg_qty">-->
-                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
-                <!--<div class="math_qty">4</div>-->
-            <!--</div>-->
-            <!--<div class="groupChartBox_qty">-->
-                <!--<div class="groupSmall_qty">-->
-                    <!--<div class="groupTop_qty">-->
-                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
-                    <!--</div>-->
-                    <!--<div class="groupB_qty">-->
-                        <!--我有一些问题需要您的帮助与...-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<div class="groupImg_qty">-->
-                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
-                <!--<div class="math_qty">10</div>-->
-            <!--</div>-->
-            <!--<div class="groupChartBox_qty">-->
-                <!--<div class="groupSmall_qty">-->
-                    <!--<div class="groupTop_qty">-->
-                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
-                    <!--</div>-->
-                    <!--<div class="groupB_qty">-->
-                        <!--我有一些问题需要您的帮助与...-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<div class="groupImg_qty">-->
-                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
-                <!--<div class="math_qty">2</div>-->
-            <!--</div>-->
-            <!--<div class="groupChartBox_qty">-->
-                <!--<div class="groupSmall_qty">-->
-                    <!--<div class="groupTop_qty">-->
-                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
-                    <!--</div>-->
-                    <!--<div class="groupB_qty">-->
-                        <!--我有一些问题需要您的帮助与...-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<div class="groupImg_qty">-->
-                <!--<img src="../../image/img_qty/head.jpg" alt="">-->
-                <!--<div class="math_qty">5</div>-->
-            <!--</div>-->
-            <!--<div class="groupChartBox_qty">-->
-                <!--<div class="groupSmall_qty">-->
-                    <!--<div class="groupTop_qty">-->
-                        <!--<span>王小二</span><span class="time_qty">06:03</span>-->
-                    <!--</div>-->
-                    <!--<div class="groupB_qty">-->
-                        <!--我有一些问题需要您的帮助与...-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-    </ul>
+        <!--</div>-->
+    <!--</li>-->
+</ul>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
@@ -434,7 +374,7 @@
                 },
                 dataType: 'text'
             }, function (ret, err) {
-                $(".groupChat_qty").append(ret)
+                $(".groupChat_qty").append(ret);
             });
         }
     }
@@ -446,6 +386,7 @@
             url: 'widget://html/message/groupChartNumber_qty.html',
             bounces: false,
             pageParam: {gid: gid},
+            allowEdit:true,
             rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
         });
     }
@@ -456,22 +397,38 @@
             url: 'widget://html/message/talk_about.html',
             bounces: false,
             pageParam: {friend_id: to_id},
+            allowEdit:true,
             rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
         });
     }
 
-function chat_list_yyt() {
-    api.ajax({
-        url: ' http://appapi.duyiwang.cn/index.php?action=xiaoxi&dir=xiaoxi&do=xiaoxi',
-        method: 'post',
-        data: {
-            values: {uid: uid, page: page}
-        },
-        dataType: 'text'
-    }, function (ret, err) {
-        $(".groupChat_qty").empty();
-        $(".groupChat_qty").append(ret)
-    });
-}
+    function chat_list_yyt() {
+        api.ajax({
+            url: ' http://appapi.duyiwang.cn/index.php?action=xiaoxi&dir=xiaoxi&do=xiaoxi',
+            method: 'post',
+            data: {
+                values: {uid: uid, page: page}
+            },
+            dataType: 'text'
+        }, function (ret, err) {
+            $(".groupChat_qty").empty();
+            $(".groupChat_qty").append(ret);
+        });
+    }
+
+
+
+    $(document).on("touchstart",".groupChat_qty li",function () {
+        $(this).css("background","#eee")
+        $(this).on("touchend",function () {
+            $(this).css("background","#fff")
+            $(this).off("touchend")
+        })
+    })
+
+
+    function reload_zn(){
+        location.reload();
+    }
 </script>
 </html>

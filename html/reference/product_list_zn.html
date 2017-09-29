@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f5f5f5;
+        }
+        .stock_box_zn{
+            background: #2493F7;
+            height:.88rem;
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            overflow: hidden;
+        }
+        .stock_zn{
+            color:#fff;
+            font-size: .3rem;
+            height:100%;
+            line-height: .88rem;
+            text-align: center;
+        }
+        .icon_zn{
+            width: 0.29rem;
+            height: 0.43rem;
+            position: absolute;
+            left: 0.15rem;
+            top: 0.25rem;
+            background: url("../../image/image_zn/icon_lefta_zn.png") no-repeat;
+            background-size: cover;
+        }
+        .product_list_box{
+            width:6rem;
+            height:auto;
+            background: #fff;
+            overflow: hidden;
+            margin:0 auto;
+            margin-top:1.2rem;
+            border-radius: 0.1rem;
+        }
+        .product_list_zn{
+            width:5.4rem;
+           height:0.86rem;
+            margin:0 auto;
+            overflow: hidden;
+            padding:0.15rem 0.3rem;
+        }
+        .product_list_zn img{
+            display: block;
+            width:1.34rem;
+            height:0.86rem;
+            box-sizing: border-box;
+            float:left;
+        }
+        .product_name{
+            width:3.35rem;
+            height:0.86rem;
+            box-sizing: border-box;
+            float:left;
+            margin-left:0.2rem;
+        }
+        .product_name_zn{
+            width:100%;
+            font-size:0.22rem;
+            color:#4f4f4f;
+            line-height:0.5rem;
+            height:0.5rem;
+        }
+        .product_time_zn{
+            width:100%;
+            height:0.2rem;
+            line-height:0.2rem;
+            font-size:0.2rem;
+            color:#999;
+        }
+        .look_zn{
+            font-size:0.24rem;
+            height:0.86rem;
+            line-height:0.86rem;
+            color:#2493f7;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<div class="stock_box_zn">
+    <div class="stock_zn">产品列表</div>
+    <div class="icon_zn" onclick="api.closeWin()"></div>
+</div>
+<ul class="product_list_box">
+    <!--<li class="product_list_zn">-->
+        <!--<img src="../../image/image_zn/product_shifan_zn.png" alt=""/>-->
+        <!--<div class="product_name">-->
+            <!--<p class="product_name_zn">独一张·炙骨宁</p>-->
+            <!--<p class="product_time_zn">上传时间：2017-08-04</p>-->
+        <!--</div>-->
+        <!--<p class="look_zn">查看</p>-->
+    <!--</li>-->
+    <!--<li class="product_list_zn">-->
+        <!--<img src="../../image/image_zn/product_shifan_zn.png" alt=""/>-->
+        <!--<div class="product_name">-->
+            <!--<p class="product_name_zn">独一张·温泉</p>-->
+            <!--<p class="product_time_zn">上传时间：2017-08-04</p>-->
+        <!--</div>-->
+        <!--<p class="look_zn">查看</p>-->
+    <!--</li>-->
+    <!--<li class="product_list_zn">-->
+        <!--<img src="../../image/image_zn/product_shifan_zn.png" alt=""/>-->
+        <!--<div class="product_name">-->
+            <!--<p class="product_name_zn">独一张·老膏药</p>-->
+            <!--<p class="product_time_zn">上传时间：2017-08-04</p>-->
+        <!--</div>-->
+        <!--<p class="look_zn">查看</p>-->
+    <!--</li>-->
+    <!--<li class="product_list_zn">-->
+        <!--<img src="../../image/image_zn/product_shifan_zn.png" alt=""/>-->
+        <!--<div class="product_name">-->
+            <!--<p class="product_name_zn">独一张·仪年堂</p>-->
+            <!--<p class="product_time_zn">上传时间：2017-08-04</p>-->
+        <!--</div>-->
+        <!--<p class="look_zn">查看</p>-->
+    <!--</li>-->
+</ul>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+
+    setTimeout(function () {
+        api.ajax({
+            url: 'http://appapi.duyiwang.cn/index.php?action=product&dir=ziliao&do=glist',
+            method: 'post',
+            dataType: 'txt'
+        }, function (ret, err) {
+            $(".product_list_box").append(ret);
+        });
+    },200)
+    $(document).on('click','.product_list_zn',function(){
+        $(this).css('background','#eee');
+        gid=$(this).attr('gid');
+        api.openWin({
+            name: 'product_detail_zn',
+            pageParam: {
+                gid: gid
+            },
+            url: 'widget://html/reference/product_detail_zn.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    function reload_zn(){
+        location.reload();
+    }
+</script>
+</body>
+</html>

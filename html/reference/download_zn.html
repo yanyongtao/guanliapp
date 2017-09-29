@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f5f5f5;
+        }
+        .stock_box_zn{
+            background: #2493F7;
+            height:.88rem;
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            overflow: hidden;
+        }
+        .stock_zn{
+            color:#fff;
+            font-size: .3rem;
+            height:100%;
+            line-height: .88rem;
+            text-align: center;
+        }
+        .icon_zn{
+            width: 0.29rem;
+            height: 0.43rem;
+            position: absolute;
+            left: 0.15rem;
+            top: 0.25rem;
+            background: url("../../image/image_zn/icon_lefta_zn.png") no-repeat;
+            background-size: cover;
+        }
+        .edit_zn{
+            width: 0.8rem;
+            height: 0.88rem;
+            line-height:0.88rem;
+            color:#fff;
+            font-size: .3rem;
+            position: absolute;
+            right: 0.1rem;
+            top: 0;
+        }
+        .prompt_zn{
+            display: block;
+            width:6rem;
+            height:1.68rem;
+            margin:0 auto;
+            margin-top:1.08rem;
+            border-radius: 0.1rem;
+        }
+        .download_zn_box{
+            width:6rem;
+            height:auto;
+            margin:0 auto;
+            margin-top:0.3rem;
+            background: #fff;
+            border-radius: 0.03rem;
+            padding-top:0.3rem;
+            overflow: hidden;
+        }
+        .download_zn_list{
+            width:5.6rem;
+            height:0.86rem;
+            margin:0 auto;
+            margin-bottom:0.3rem;
+            overflow: hidden;
+        }
+        .download_zn_list img{
+            width:1.34rem;
+            height:0.86rem;
+            display: block;
+            float:left;
+        }
+        .skill_zn_box{
+            margin-left:0.2rem;
+            width:3.4rem;
+            height:0.86rem;
+            float:left;
+            overflow: hidden;
+        }
+        .skill_title{
+            width:100%;
+            height:0.5rem;
+            line-height:0.5rem;
+            font-size:0.22rem;
+            color:#333;
+        }
+        .skill_time_zn{
+            width:100%;
+            height:0.4rem;
+            line-height:0.4rem;
+            font-size:0.2rem;
+            color:#999;
+        }
+        .click_download_zn {
+            width:0.6rem;
+            height:0.6rem;
+            float:left;
+            margin-top:0.22rem;
+        }
+        .click_download_zn img{
+            width:0.6rem;
+            height:0.6rem;
+            display: block;
+        }
+        .progress_zn{
+            width:3.4rem;
+            height:0.86rem;
+            float:left;
+            overflow: hidden;
+            display: none;
+        }
+        .progress_zn_zn{
+            width:3.4rem;
+            height:0.86rem;
+            float:left;
+            overflow: hidden;
+            display: none;
+        }
+        .progress_zn_zn .progress_tiao{
+            width:1.9rem;
+            height:0.16rem;
+            margin-top:0.1rem;
+            border-radius: 0.08rem;
+            display: block;
+            float:left;
+            background: #2493f7;
+        }
+        .progress_tiao{
+            width:1.9rem;
+            height:0.16rem;
+            margin-top:0.1rem;
+            border-radius: 0.08rem;
+            display: block;
+            float:left;
+            background: #e7e7e7;
+        }
+        .download_prompt{
+            display: block;
+            float:left;
+            font-size:0.2rem;
+            color:#999;
+            margin-left:0.1rem;
+            height:0.32rem;
+            line-height:0.32rem;
+        }
+        .click_delete_zn{
+            width:100%;
+            height:0.8rem;
+            background: #fff;
+            line-height:0.8rem;
+            font-size:0.3rem;
+            color:#999;
+            text-align: center;
+            outline:none;
+            position:fixed;
+            bottom:0;
+            left:0;
+            display: none;
+        }
+        .click_delete{
+            width:0.6rem;
+            height:0.6rem;
+            float:left;
+            margin-top:0.22rem;
+            display: none;
+            margin-left:0.05rem;
+        }
+        .click_delete img{
+            width:0.5rem;
+            height:0.5rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="stock_box_zn">
+    <div class="stock_zn">下载列表</div>
+    <div class="icon_zn" onclick="api.closeWin()"></div>
+    <!--<div class="edit_zn">编辑</div>-->
+</div>
+<img src="../../image/image_zn/prompt_zn.jpg" alt="" class="prompt_zn"/>
+<ul class="download_zn_box">
+    <!--<li class="download_zn_list">-->
+        <!--<img src="../../image/image_zn/product_shifan_zn.png" alt=""/>-->
+        <!--<div class="skill_zn_box">-->
+            <!--<p class="skill_title">销售技巧.xlsx</p>-->
+            <!--<p class="skill_time_zn">-->
+                <!--<span class="skill_time">上传时间：2017-08-04</span>-->
+                <!--<span class="skill_size">大小：15M</span>-->
+            <!--</p>-->
+            <!--<div class="progress_zn">-->
+                <!--<span class="progress_tiao"></span>-->
+                <!--<span class="download_prompt">下载中...</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="click_download_zn">-->
+            <!--<img src="../../image/image_zn/download_zn.png" alt=""/>-->
+        <!--</div>-->
+        <!--<div class="click_delete">-->
+            <!--<img src="../../image/image_zn/delete_icon_zn.png" alt=""/>-->
+        <!--</div>-->
+    <!--</li>-->
+    <!--<li class="download_zn_list">-->
+        <!--<img src="../../image/image_zn/product_shifan_zn.png" alt=""/>-->
+        <!--<div class="skill_zn_box">-->
+            <!--<p class="skill_title">销售技巧.xlsx</p>-->
+            <!--<p class="skill_time_zn">-->
+                <!--<span class="skill_time">上传时间：2017-08-04</span>-->
+                <!--<span class="skill_size">大小：15M</span>-->
+            <!--</p>-->
+            <!--<div class="progress_zn">-->
+                <!--<span class="progress_tiao"></span>-->
+                <!--<span class="download_prompt">下载中...</span>-->
+            <!--</div>-->
+            <!--<div class="progress_zn_zn">-->
+                <!--<span class="progress_tiao"></span>-->
+                <!--<span class="download_prompt">下载完成</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="click_download_zn">-->
+            <!--<img src="../../image/image_zn/download_zn.png" alt=""/>-->
+        <!--</div>-->
+        <!--<div class="click_delete">-->
+            <!--<img src="../../image/image_zn/delete_icon_zn.png" alt=""/>-->
+        <!--</div>-->
+    <!--</li>-->
+</ul>
+<button class="click_delete_zn">删除</button>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+    $(document).on('click','.click_download_zn',function(){
+        if($(this).children('img').attr('src')=='../../image/image_zn/download_zn.png'){
+            $(this).children('img').attr('src','../../image/image_zn/download_start_zn.png');
+            $(this).prev().children('.skill_time_zn').css('display','none');
+            $(this).prev().children('.progress_zn').css('display','block');
+        }
+    })
+//    $(document).on('click','.edit_zn',function(){
+//        if($('.edit_zn').html()=='编辑'){
+//            $('.edit_zn').html('取消');
+//            $('.click_download_zn').css('display','none');
+//            $('.click_delete').css('display','block');
+//            $('.click_delete_zn').css('display','block');
+//        }else{
+//            $('.click_download_zn').css('display','block');
+//            $('.click_delete').css('display','none');
+//            $('.edit_zn').html('编辑');
+//            $('.click_delete_zn').css('display','none');
+//        }
+//    });
+//    $(document).on('click','.click_delete',function(){
+//        $(this).children('img').attr('src','../../image/image_zn/click_delete_sure_zn.png');
+//        $('.click_delete_zn').css('background','#2493f7');
+//        $('.click_delete_zn').css('color','#fff');
+//        $(this).parent().remove();
+//    })
+    var uid;
+    function get_data() {
+        apiready=function(){
+            var fs = api.require('fs');
+            uid = api.getPrefs({sync: true, key: 'uid'});
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=file&dir=ziliao&do=index',
+                method: 'post',
+                data: {
+                    values: {uid:uid}
+                },
+                dataType: 'txt'
+            }, function (ret, err) {
+                $('.download_zn_box').append(ret);
+            });
+                $(document).on('click', '.click_download_zn', function () {
+                    api.download({
+                        url: 'http://192.168.1.138/dyz_manage_admin/file/2017-08/test.doc',
+                        savePath: 'fs://test.rar',
+                        report: true,
+                        cache: true,
+                        allowResume: true
+                    }, function (ret, err) {
+                        if (ret.state == 1) {
+                            api.toast({
+                                msg: '下载成功,请在文件管理中查看',
+                                duration: 3000,
+                                location: 'bottom'
+                            });
+                        } else {
+                        }
+                    });
+                    $(this).prop('disabled',true);
+//                    var downloadManager = api.require('downloadManager');
+//                    downloadManager.openManagerView({
+//                        title: '下载管理'
+//                    }, function(ret, err) {
+//                        if (ret) {
+//                            alert(JSON.stringify(ret));
+//                        } else {
+//                            alert(JSON.stringify(err));
+//                        }
+//                    });
+                    $(this).prev().children('.progress_zn_zn').css('display', 'block');
+                    $(this).prev().children('.skill_time_zn').css('display', 'none');
+                    $(this).prev().children('.progress_zn').css('display', 'none');
+                })
+        }
+    }
+    get_data();
+//    var path_zn;
+//    $(document).on('click','.download_zn_list',function(){
+//        var fs = api.require('fs');
+//        fs.open({
+//            path: 'fs://test.rar',
+//            flags: 'read_write'
+//        }, function(ret, err) {
+//            if (ret.status) {
+//                path_zn=ret.fd;
+//            } else {
+////                alert(JSON.stringify(err));
+//            }
+//        });
+//        fs.read({
+//            fd: path_zn,
+//            offset: 0,
+//            length: 0
+//        }, function(ret, err) {
+//            if (ret.status) {
+////                alert(JSON.stringify(ret));
+//            } else {
+////                alert(JSON.stringify(err));
+//            }
+//        });
+//    })
+
+</script>
+</body>
+</html>

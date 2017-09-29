@@ -16,7 +16,9 @@
             background: #2493F7;
             height:.88rem;
             width:100%;
-            position:relative;
+            position:fixed;
+            top:0;
+            left:0;
         }
         .stock_zn{
             color:#fff;
@@ -53,7 +55,7 @@
             border-radius: 0.1rem;
             background: #fff;
             margin:0 auto;
-            margin-top:0.28rem;
+            margin-top:1.16rem;
             overflow: hidden;
         }
         .man_information_zn img{
@@ -87,8 +89,8 @@
         }
         .department{
             width:5.6rem;
-            height:0.95rem;
-            line-height:0.95rem;
+            /*height:0.95rem;*/
+            /*line-height:0.95rem;*/
             background: #fff;
             border-radius: 0.1rem;
             margin:0 auto;
@@ -109,8 +111,9 @@
             margin-left:0.2rem;
             float:left;
             font-size:0.28rem;
-            height:0.95rem;
-            line-height:0.95rem;
+            /*height:0.95rem;*/
+            line-height:0.5rem;
+            margin-top:0.22rem;
             width:3.7rem;
             color:#8a8a8a;
         }
@@ -216,13 +219,16 @@
     <p class="company_name">山西太常生物科技有限公司</p>
 </div>
 <div class="department">
-    <span class="span_left">所属门店</span>
-    <span class="span_right">待完善</span>
+    <span class="span_left">所属门店
+    </span>
+    <span class="span_right span_right_zn">待完善
+    </span>
 </div>
 <div class="department">
     <span class="left_zn">职</span>
     <span class="left_zn left_zn_zn">位</span>
-    <span class="span_right span_right_yyt">店员</span>
+    <span class="span_right span_right_yyt">店员
+    </span>
 </div>
 <div class="jindu_yyt">
     <div class="jindu_name_yyt">审核进度</div>
@@ -231,7 +237,7 @@
         <span class="num_yyt num_b_yyt">50%</span>
         <span class="num_yyt num_c_yyt">100%</span>
     </div>
-    <img class="img_yyt" src="../../image/image_zn/half_yyt.png" alt="">
+    <img class="img_yyt" src="../../image/image_zn/none_yyt.png" alt="">
     <div class="result_zn">
         <span class="result_zn_ result_a_zn">申请</span>
         <span class="result_zn_ result_b_zn">审核</span>
@@ -253,26 +259,44 @@
                 dataType:'json'
             },function(ret,err){
                 if(ret.code == 200){
-                   $(".name_man").html(ret.info[0].name);
-                    if (ret.info[0].sex == 1 || ret.info[0].sex == 0){
+                    if (ret.info.head_img) {
+                        $(".man_information_zn img").attr("src", "../../image/header_picture/" + ret.info.head_img + "");
+                    }
+                    $(".name_man").html(ret.info.name);
+                    if (ret.info.sex == 1 || ret.info.sex == 0){
                         $(".sex_man").html("男");
-                    }else if (ret.info[0].sex == 2){
+                    }else if (ret.info.sex == 2){
                         $(".sex_man").html("女");
                     }else {
                         $(".sex_man").html("性别");
                     }
-                    $(".span_right").html(ret.info[0].mdname);
-                    if (ret.info[0].roleid == 5){
+                    $(".span_right").html(ret.info.mdname);
+                    if (ret.info.roleid == 5){
                         $(".span_right_yyt").html("店员")
-                    }else if (ret.info[0].roleid == 3){
+                    }else if (ret.info.roleid == 3){
                         $(".span_right_yyt").html("店长")
+                    }else if(ret.info.roleid == 2){
+                        $(".span_right_yyt").html("经销商")
+                    }else if(ret.info.roleid == 4){
+                        $(".span_right_yyt").html("加盟商")
+                    }else if(ret.info.roleid == 1){
+                        $(".span_right_yyt").html("总部人员")
+                    }else if(ret.info.roleid == 6){
+                        $(".span_right_yyt").html("董事长");
+                        $(".span_right_zn").html('太常集团');
+                        $(".jindu_yyt").css('display','none');
+                    }else if(ret.info.roleid == 7){
+                        $(".span_right_yyt").html("总经理")
+                        $(".span_right_zn").html('太常集团');
+                        $(".jindu_yyt").css('display','none');
                     }
                     if (ret.status.status == 0){
                         $(".img_yyt").attr("src",'../../image/image_zn/half_yyt.png');
                     }else if (ret.status.status == 1){
                         $(".img_yyt").attr("src",'../../image/image_zn/all_yyt.png');
                     }else if (ret.status.status == 2){
-                        $(".img_yyt").attr("src",'../../image/image_zn/none_yyt.png');
+                        $(".img_yyt").attr("src",'../../image/image_zn/all_yyt.png');
+                        $('.result_c_zn').html('拒绝');
                     }
                 }else if(ret.code == 500){
 
@@ -294,19 +318,40 @@
             dataType:'json'
         },function(ret,err){
             if(ret.code == 200){
-                $(".name_man").html(ret.info[0].name);
-                if (ret.info[0].sex == 1 || ret.info[0].sex == 0){
+                if (ret.info.head_img) {
+                    $(".man_information_zn img").attr("src", "../../image/header_picture/" + ret.info.head_img + "");
+                }
+                $(".name_man").html(ret.info.name);
+                if (ret.info.sex == 1 || ret.info.sex == 0){
                     $(".sex_man").html("男");
-                }else if (ret.info[0].sex == 2){
+                }else if (ret.info.sex == 2){
                     $(".sex_man").html("女");
                 }else {
                     $(".sex_man").html("性别");
                 }
-                $(".span_right").html(ret.info[0].mdname);
-                if (ret.info[0].roleid == 5){
+                $(".span_right").html(ret.info.mdname);
+                if (ret.info.roleid == 5){
                     $(".span_right_yyt").html("店员")
-                }else if (ret.info[0].roleid == 3){
+                }else if (ret.info.roleid == 3){
                     $(".span_right_yyt").html("店长")
+                }else if(ret.info.roleid == 2){
+                    $(".span_right_yyt").html("经销商")
+                }else if(ret.info.roleid == 4){
+                    $(".span_right_yyt").html("加盟商")
+                }else if(ret.info.roleid == 1){
+                    $(".span_right_yyt").html("总部人员")
+                }else if(ret.info.roleid == 6){
+                    $(".span_right_yyt").html("董事长")
+                }else{
+                    $(".span_right_yyt").html("总经理")
+                }
+                if (ret.status.status == 0){
+                    $(".img_yyt").attr("src",'../../image/image_zn/half_yyt.png');
+                }else if (ret.status.status == 1){
+                    $(".img_yyt").attr("src",'../../image/image_zn/all_yyt.png');
+                }else if (ret.status.status == 2){
+                    $(".img_yyt").attr("src",'../../image/image_zn/all_yyt.png');
+                    $('.result_c_zn').html('拒绝');
                 }
             }else if(ret.code == 500){
 
@@ -321,7 +366,21 @@
             reload:true,
             rect: {x: 0,y: 0,w: 'auto',h: "auto"}
         });
+    }
 
+    $(".edit_zn").on("touchstart",function () {
+        $(this).css("color","#ccc")
+        $(this).on("touchend",function () {
+            $(this).css("color","#fff")
+            $(this).off("touchend")
+        })
+    })
+    function tishi_zn() {
+        api.toast({
+            msg: "修改成功",
+            duration: 3000,
+            location: 'bottom'
+        })
     }
 </script>
 </body>

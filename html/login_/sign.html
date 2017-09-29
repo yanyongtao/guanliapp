@@ -297,6 +297,10 @@
                 dataType:'json'
             },function(ret,err){
                 if(ret.code == 200){
+                    api.execScript({
+                        frameName: 'login',
+                        script: 'sign_notice()'
+                    });
                     open_login()
                 }else if(ret.code == 500){
 //                    alert(ret.msg)
@@ -307,8 +311,6 @@
                     });
                 }
             });
-
-
         }
         if (!password_a||!password_b){
 //            alert("请输入密码")

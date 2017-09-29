@@ -167,6 +167,7 @@
             min-height:1rem;
             width:100%;
             float: left;
+            position: relative;
         }
         .secret_chat_left{
             margin-bottom:0.2rem;
@@ -190,6 +191,7 @@
             font-size: 0.2rem;
             color:#999;
             margin-top:0.08rem;
+            text-align: center;
         }
         .icon_chat{
             min-height: 0.7rem;
@@ -219,11 +221,12 @@
             font-size: 0.2rem;
             color:#999;
             margin-top:0.08rem;
+            text-align: center;
         }
         .icon_chat_right{
             min-height: 0.7rem;
             max-width:4.2rem;
-            background: #2493f7;
+            background: #0099FF;
             float:right;
             font-size:0.24rem;
             padding:0.24rem;
@@ -232,29 +235,33 @@
             /*border-top-right-radius: 0;*/
         }
         .icon_chat_left_img{
-            border: 0.01rem solid #333;
-            width:1.5rem;
-            height:2rem;
+            border: 0.01rem solid #ccc;
+            width:auto;
+            height:auto;
             float:left;
             box-sizing: border-box;
             overflow: hidden;
             border-radius: 0.1rem;
             margin-left: 0.2rem;
+            overflow: hidden;
         }
         .icon_chat_right_img{
-            border: 0.01rem solid #333;
-            width:1.5rem;
-            height:2rem;
+            border: 0.01rem solid #ccc;
+            width:auto;
+            height:auto;
             float:right;
             box-sizing: border-box;
             overflow: hidden;
             border-radius: 0.1rem;
             margin-left: 0.2rem;
+            margin-bottom:0.2rem;
+            overflow: hidden;
         }
         .icon_chat_right_img img,.icon_chat_left_img img{
-            width:100%;
-            height:100%;
+            max-height: 2.2rem;
+            max-width: 3rem;
             display: block;
+            margin: 0 auto;
         }
         .secret_chat_left_mc,.secret_chat_right_mc{
             width: 100%;
@@ -302,6 +309,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
+            transition:all 0.5s ease;
         }
         .yuyin_icon{
             width: 1rem;
@@ -343,19 +351,33 @@
             width: 0.3rem;
             height: 0.3rem;
             float: left;
-            background: url("../../image/img_yyt/yuyin_left_yyt.png") no-repeat;
-            background-size: 100% 100%;
+            /*background: url("../../image/img_yyt/yuyin_left_yyt.png") no-repeat;*/
+            /*background-size: 100% 100%;*/
             margin-top: 0.15rem;
             margin-left: 0.15rem;
+            overflow: hidden;
         }
         .yuyin_yyt_r{
             width: 0.3rem;
             height: 0.3rem;
             float: right;
-            background: url("../../image/img_yyt/yuyin_right_yyt.png") no-repeat;
-            background-size: 100% 100%;
+            /*background: url("../../image/img_yyt/yuyin_right_yyt.png") no-repeat;*/
+            /*background-size: 100% 100%;*/
             margin-top: 0.15rem;
             margin-right: 0.15rem;
+            overflow: hidden;
+        }
+        .yuyin_yyt_l img{
+            width: 0.3rem;
+            height: 0.3rem;
+            display: block;
+            float: left;
+        }
+        .yuyin_yyt_r img{
+            width: 0.3rem;
+            height: 0.3rem;
+            display: block;
+            float: right;
         }
         .yuyin_time_left{
             width: auto;
@@ -364,7 +386,7 @@
             line-height: 0.6rem;
             overflow: hidden;
             font-size: 0.26rem;
-            color: #333;
+            color: #999;
             margin-top: 0.06rem;
             margin-left: 0.1rem;
         }
@@ -375,7 +397,7 @@
             line-height: 0.6rem;
             overflow: hidden;
             font-size: 0.26rem;
-            color: #333;
+            color: #999;
             margin-top: 0.06rem;
             margin-right: 0.1rem;
         }
@@ -434,6 +456,76 @@
             border-radius: 0.1rem;
             outline:none;
         }
+        .copy_zhezhao_yyt{
+            display: block;
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        .copy_word_yyt{
+            width: auto;
+            height: auto;
+            font-size: 0.24rem;
+            line-height: 0.3rem;
+            color: #333;
+            padding: 0.2rem;
+            background: #fff;
+            text-align: center;
+            position: absolute;
+            top: -0.45rem;
+            left: 3rem;
+            z-index: 999;
+            display: none;
+            border-radius: 0.1rem;
+        }
+        .delete_word_zn{
+            width: auto;
+            height: auto;
+            font-size: 0.24rem;
+            line-height: 0.3rem;
+            color: #333;
+            padding: 0.2rem;
+            background: #fff;
+            text-align: center;
+            position: absolute;
+            top: -0.45rem;
+            left: 3.5rem;
+            z-index: 999;
+            display: none;
+            border-radius: 0.1rem;
+        }
+        .wait_effect_zn{
+            display: none;
+            margin-top:0.88rem;
+            height:0.31rem;
+            line-height:0.31rem;
+            text-align: center;
+            font-size:0.24rem;
+            color:#333;
+        }
+        .wait_effect_zn img{
+            display: block;
+            width:0.3rem;
+            height:0.3rem;
+            margin:0 auto;
+            animation: mymove 1s linear infinite;
+        }
+        @keyframes mymove{
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+        @-webkit-keyframes mymove{
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+        @-moz-keyframes mymove{
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+        @-ms-keyframes mymove{
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
     </style>
 </head>
 <body>
@@ -446,154 +538,136 @@
     <div class="person_qty" onclick="open_personList()"></div>
     <div class="gg_qty"></div>
     <div class="secret_chat_zn">
+        <div class="wait_effect_zn">
+            <img src="../../image/image_zn/wait_effect_zn.png" alt=""/>
+        </div>
         <div class="secret_chat_con_zn">
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!--<div class="secret_chat_box">-->
-            <!--<div class="time_zn">-->
-            <!--<span>7月7日14:20</span>-->
-            <!--</div>-->
+                <!--<div class="time_zn">-->
+                    <!--<span>7月7日14:20</span>-->
+                <!--</div>-->
             <!--</div>-->
             <!--<div class="secret_chat_con">-->
-            <!--<div class="secret_chat_left">-->
-            <!--<div class="icon_img">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="" class="press_on_zn">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_right">-->
+                    <!--<div class="icon_img_right">-->
+                        <!--<img src="../../image/img_qty/leftper.png" alt="">-->
+                        <!--<p>王小仪</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_right">-->
+                        <!--大家好，我是王小二-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat">-->
+                        <!--大家好,我是小夏，我最近遇到了一些问题， 请大家帮个忙。-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_right">-->
+                    <!--<div class="icon_img_right">-->
+                        <!--<img src="../../image/img_qty/leftper.png" alt="">-->
+                        <!--<p>王小仪</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_right">-->
+                        <!--大家好,我是小夏，我最近遇到了一些问题， 请大家帮个忙。-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left_mc">-->
+                    <!--<div class="icon_img">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_mc">-->
+                        <!--<img src="../../image/img_qty/con_right.png" alt="">-->
+                        <!--<span>2"</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_right_mc">-->
+                    <!--<div class="icon_img_right">-->
+                        <!--<img src="../../image/img_qty/leftper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_mc_right">-->
+                        <!--<img src="../../image/img_qty/con_left.png" alt="">-->
+                        <!--<span>2"</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_left_mc">-->
+                    <!--<div class="icon_img_left">-->
+                        <!--<img src="../../image/img_qty/rightper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_left_img">-->
+                        <!--<img src="../../image/img_qty/person.png" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="secret_chat_right_mc">-->
+                    <!--<div class="icon_img_right">-->
+                        <!--<img src="../../image/img_qty/leftper.png" alt="">-->
+                        <!--<p>王小二</p>-->
+                    <!--</div>-->
+                    <!--<div class="icon_chat_right_img">-->
+                        <!--<img src="../../image/img_qty/person.png" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
             <!--</div>-->
-            <!--<div class="icon_chat">-->
-            <!--大家好-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_left">-->
-            <!--<div class="icon_img">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat">-->
-            <!--大家好-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_left">-->
-            <!--<div class="icon_img">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat">-->
-            <!--大家好-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_left">-->
-            <!--<div class="icon_img">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat">-->
-            <!--大家好-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_left">-->
-            <!--<div class="icon_img">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat">-->
-            <!--大家好-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_left">-->
-            <!--<div class="icon_img">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat">-->
-            <!--大家好-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_right">-->
-            <!--<div class="icon_img_right">-->
-            <!--<img src="../../image/img_qty/leftper.png" alt="">-->
-            <!--<p>王小仪</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat_right">-->
-            <!--大家好，我是王小二-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_left">-->
-            <!--<div class="icon_img">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat">-->
-            <!--大家好,我是小夏，我最近遇到了一些问题， 请大家帮个忙。-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_right">-->
-            <!--<div class="icon_img_right">-->
-            <!--<img src="../../image/img_qty/leftper.png" alt="">-->
-            <!--<p>王小仪</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat_right">-->
-            <!--大家好,我是小夏，我最近遇到了一些问题， 请大家帮个忙。-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_left_mc">-->
-            <!--<div class="icon_img">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat_mc">-->
-            <!--<img src="../../image/img_qty/con_right.png" alt="">-->
-            <!--<span>2"</span>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_right_mc">-->
-            <!--<div class="icon_img_right">-->
-            <!--<img src="../../image/img_qty/leftper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat_mc_right">-->
-            <!--<img src="../../image/img_qty/con_left.png" alt="">-->
-            <!--<span>2"</span>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_left_mc">-->
-            <!--<div class="icon_img_left">-->
-            <!--<img src="../../image/img_qty/rightper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat_left_img">-->
-            <!--<img src="../../image/img_qty/person.png" alt="">-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="secret_chat_right_mc">-->
-            <!--<div class="icon_img_right">-->
-            <!--<img src="../../image/img_qty/leftper.png" alt="">-->
-            <!--<p>王小二</p>-->
-            <!--</div>-->
-            <!--<div class="icon_chat_right_img">-->
-            <!--<img src="../../image/img_qty/person.png" alt="">-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-
-
-
-
-
-
-
-
 
 
 
@@ -602,18 +676,18 @@
     </div>
     <div class="chat_input_zn">
         <!--<div class="chat_input_box">-->
-            <!--<div class="chat_icon_box">-->
-                <!--<div class="chat_icon">-->
-                    <!--&lt;!&ndash;<div class="voice_qty"></div>&ndash;&gt;-->
-                    <!--<div class="picture_qty" onclick="open_picture()"></div>-->
-                    <!--&lt;!&ndash;<div class="emo_qty"></div>&ndash;&gt;-->
-                <!--</div>-->
-                <!--<div class="yuyin_icon">语音</div>-->
-                <!--<div class="chat_send" onclick="send_data()">发送</div>-->
-            <!--</div>-->
-            <!--<div class="in_con">-->
-                <!--<input type="text" class="send_text_yyt">-->
-            <!--</div>-->
+        <!--<div class="chat_icon_box">-->
+        <!--<div class="chat_icon">-->
+        <!--&lt;!&ndash;<div class="voice_qty"></div>&ndash;&gt;-->
+        <!--<div class="picture_qty" onclick="open_picture()"></div>-->
+        <!--&lt;!&ndash;<div class="emo_qty"></div>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="yuyin_icon">语音</div>-->
+        <!--<div class="chat_send" onclick="send_data()">发送</div>-->
+        <!--</div>-->
+        <!--<div class="in_con">-->
+        <!--<input type="text" class="send_text_yyt">-->
+        <!--</div>-->
         <!--</div>-->
         <img src="../../image/image_zn/make_zn.png" alt="" class="yuyin_con_zn">
         <span class="pic_zn" onclick="open_picture()"></span>
@@ -623,9 +697,488 @@
     </div>
 </div>
 <video controls='controls' autoplay='autoplay' class='video_yyt' style='visibility: hidden' src=''></video>
+<div class="copy_zhezhao_yyt">
+    <div class="copy_word_yyt">复制</div>
+    <div class="delete_word_zn">撤回</div>
+</div>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script>
+
+    //获取光标位置
+    $.fn.getCursorPosition = function () {
+        var el = $(this).get(0);
+        var pos = 0;
+        if ('selectionStart' in el) {
+            pos = el.selectionStart;
+        } else if ('selection' in document) {
+            el.focus();
+            var Sel = document.selection.createRange();
+            var SelLength = document.selection.createRange().text.length;
+            Sel.moveStart('character', -el.value.length);
+            pos = Sel.text.length - SelLength;
+        }
+        return pos;
+    }
+    //@功能
+    var a ="";
+//    手动输入@可以跳转页面@人
+    $('.click_import_zn').bind('input propertychange', function() {
+        var b = $('.click_import_zn').val();
+        var aa=a.split("");
+        var bb=b.split("");
+        if (b.length>=a.length) {
+            var value_zn=bb[bb.length-1];
+            if (value_zn == "@") {
+                api.openWin({
+                    name: 'remind_zn',
+                    url: 'widget://html/message/remind_zn.html',
+                    pageParam: {
+                        gid: gid
+                    },
+                    rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+                });
+            }
+            a = $(this).val();
+        }else {
+            if($(this).getCursorPosition()==bb.length){
+                if (a.split(/^.*\s$/)){
+                    var blank_ago=a.lastIndexOf(' ');
+                    var index=$(this).val().lastIndexOf('@');
+                    if(blank_ago==bb.length){
+                        var now_val=$(this).val().slice(0,index);
+                        $(this).val(now_val);
+                        user_list.length--;
+                    }else{
+                        return
+                    }
+                }
+            }else{
+                var blank_prev=parseInt($(this).getCursorPosition());
+                //得到前后输入两次不一样的地方
+                function getUniqueSet( setA, setB ){
+                    var temp = {};
+                    for( var i = 0, len = setA.length; i < len ; i++ ){
+                        temp[ setA[i] ] = 0;
+                    }
+                    for( var j = 0, len = setB.length; j < len ; j++ ){
+                        if( typeof temp[ setB[j] ] === 'undefined' ){
+                            temp[ setB[j] ] = 0;
+                        }else{
+                            temp[ setB[j] ]++;
+                        }
+                    }
+                    var ret = [];
+                    for( var item in temp ){
+                        !temp[item] && ret.push( item );
+                    }
+                    return ret;
+                }
+                var value_yyt = getUniqueSet(aa,bb);
+                if (value_yyt == ""){
+                    var num_a = $(this).val().split("");
+                    var arr_i = [];
+                    for (var i=0;i<num_a.length;i++){
+                        if (num_a[i]=="@"){
+                           arr_i.push(i)
+                        }
+                    }
+                    for (var i=0;i<arr_i.length;i++){
+                        if (arr_i[i]>=blank_prev){
+                            arr_i.splice(i,1)
+                        }
+                    }
+                    var max = arr_i[0];
+                    for (var i=0;i<arr_i.length;i++){
+                        if (arr_i[i]>max){
+                            max=arr_i[i]
+                        }
+                    }
+                    var value_a_zn = $(this).val().slice(max,blank_prev);
+                    var last_arr = value_a_zn.split("");
+                    if (last_arr) {
+                        for (var i = 0; i < last_arr.length; i++) {
+                            if (last_arr[i] == "") {
+
+                            } else {
+                                user_list = [];
+                            }
+                        }
+                    }
+                }
+            }
+            a = $(this).val();
+        }
+    });
+//    长按头像@人
+    $(document).on('touchstart','.press_on_zn',function(){
+        var ago_val=$('.click_import_zn').val();
+        var user_id=parseInt($(this).attr('uid'));
+        var user_name=$(this).next().html();
+        var aa = setInterval(bb, 1000);
+        var copy_word_time = 1;
+        function bb() {
+            copy_word_time -= 1;
+            if (copy_word_time <= 0) {
+                clearInterval(aa)
+                copy_word_time = 1;
+                $('.click_import_zn').val(ago_val+'@'+user_name+"  ");
+            }
+        }
+        $(this).on("touchend", function () {
+            clearInterval(aa);
+            copy_word_time = 1;
+            user_list.push(user_id);
+            $('.click_import_zn').focus();
+            $(this).off("touchend")
+        })
+    })
+    //    添加@的人
+    function updata_val(){
+        var html_zn=$(".click_import_zn").val();
+        var userName = api.getPrefs({
+            sync: true,
+            key: 'name'
+        });
+        $(".click_import_zn").val('').focus().val(html_zn+userName+" ").blur();
+        $(".click_import_zn").focus();
+        a = $(".click_import_zn").val();
+    }
+    var user_list=[];
+    function updata_id(){
+        var at_user_ids = api.getPrefs({
+            sync: true,
+            key: 'at_user_ids'
+        });
+        user_list.push(parseInt(at_user_ids));
+    }
+
+
+    var that;
+    var xid;
+    //复制文字
+    function copy_word_yyt() {
+        var copy_word_time = 1;
+        var w_yyt = $(window).width();
+        var h_yyt = $(window).height();
+        var word_con;
+        $(document).on("touchstart", ".icon_chat", function (e) {
+            word_con = $(this).html().replace(/(^\s*)|(\s*$)/g, "");
+            $(this).css("background", "#ccc");
+            var left_yyt = e.originalEvent.targetTouches[0].pageX;
+            var top_yyt = e.originalEvent.targetTouches[0].pageY;
+            var aa = setInterval(bb, 1000);
+
+
+            function bb() {
+                copy_word_time -= 1;
+                if (copy_word_time <= 0) {
+                    clearInterval(aa)
+                    copy_word_time = 1;
+                    $(".copy_word_yyt").css("background", "#fff")
+                    $(".copy_zhezhao_yyt").css({"display": "block", "width": w_yyt, "height": h_yyt, "zIndex": 99});
+                    $(".copy_word_yyt").css({"display": "block", "left": left_yyt-40, "top": top_yyt-70, "zIndex": 999});
+                    $(".delete_word_zn").css('display','none');
+                    $(this).off("touchmove");
+                }
+            }
+
+            $(this).on("touchend", function () {
+                if ($(".copy_word_yyt").css("display") == "block") {
+                    $(this).css("background", "#ccc");
+                } else {
+                    $(this).css("background", "#fff");
+                }
+                clearInterval(aa)
+                copy_word_time = 1;
+                $(this).off("touchend")
+            })
+        })
+//复制
+        $(document).on("touchstart", ".icon_chat_right", function (e) {
+            word_con = $(this).html().replace(/(^\s*)|(\s*$)/g, "");
+            $(this).css("background", "#0066CC")
+            var left_yyt = e.originalEvent.targetTouches[0].pageX;
+            var top_yyt = e.originalEvent.targetTouches[0].pageY;
+            var aa = setInterval(bb, 1000);
+
+            xid=$(this).parent().attr('xid');
+            that=$(this);
+            function bb() {
+                copy_word_time -= 1;
+                if (copy_word_time <= 0) {
+                    clearInterval(aa)
+                    copy_word_time = 1;
+                    $(".copy_word_yyt").css("background", "#fff");
+                    $(".copy_zhezhao_yyt").css({"display": "block", "width": w_yyt, "height": h_yyt, "zIndex": 99});
+                    $(".copy_word_yyt").css({"display": "block", "left": left_yyt, "top": top_yyt-70, "zIndex": 999});
+                    $(".delete_word_zn").css({"display": "block", "left": left_yyt-50, "top":top_yyt-70 , "zIndex": 999});
+                    $(this).off("touchmove")
+                }
+
+            }
+
+            $(this).on("touchend", function () {
+                if ($(".copy_word_yyt").css("display") == "block") {
+                    $(this).css("background", "#0066CC")
+                } else {
+                    $(this).css("background", "#0099FF")
+                }
+                clearInterval(aa)
+                copy_word_time = 1;
+                $(this).off("touchend");
+            })
+
+        })
+
+
+
+        $(".copy_zhezhao_yyt").on("touchstart", function () {
+            $(this).css({"display": "none"})
+            $(".copy_word_yyt").css({"display": "none"})
+            $(".icon_chat").css("background", "#fff")
+            $(".icon_chat_right").css("background", "#0099FF")
+            $(this).on("touchend", function () {
+                $(this).off("touchend")
+            })
+        });
+//复制功能
+        $(".copy_word_yyt").on("touchstart", function (event) {
+            event.stopPropagation();
+            $(this).css({"display": "none"})
+            $(".copy_word_yyt").css({"display": "none"})
+            var clipBoard = api.require('clipBoard');
+            clipBoard.set({
+                value: word_con
+            }, function(ret, err) {
+
+            });
+            $(this).on("touchend", function () {
+                $(this).off("touchend");
+                $(this).parent().css('display','none');
+                $(".icon_chat_right").css("background", "#0099FF");
+                $(".icon_chat").css("background", "#fff");
+            })
+        })
+        $(".delete_word_zn").on("touchstart",function(event){
+            $(".icon_chat_right_img img").css("pointer-events","none");
+            $(".icon_chat_right_img").prop("disabled",true);
+            event.stopPropagation();
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=del_groups_xiaoxi',
+                method: 'post',
+                data: {
+                    values: {xid: xid, uid: uid,gid:gid,groups_room:"groups_"+gid}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if(ret.code==200){
+                    api.toast({
+                        msg: ret.msg,
+                        duration: 2000,
+                        location: 'bottom'
+                    });
+                }
+                api.execScript({
+                    name: 'info_qty',
+                    script: 'reload_zn()'
+                });
+            });
+            that.parent().remove();
+            $(this).parent().css('display','none');
+            $(this).on("touchend", function () {
+                $(this).off("touchend");
+            })
+        })
+
+    }
+    copy_word_yyt();
+
+
+
+
+
+    //语音撤回功能
+    function recall_voice_zn(){
+        var xid;
+        var copy_word_time = 1;
+        var path;
+        var w_yyt = $(window).width();
+        var h_yyt = $(window).height();
+        $(document).on("touchstart", ".icon_chat_right_yuyin", function (e) {
+            $(this).css("background", "#ccc");
+            var left_yyt = e.originalEvent.targetTouches[0].pageX;
+            var top_yyt = e.originalEvent.targetTouches[0].pageY;
+            var aa = setInterval(bb, 1000);
+            path=$(this).attr('path');
+            xid=$(this).parent().attr('xid');
+            that=$(this);
+            function bb() {
+                copy_word_time -= 1;
+                if (copy_word_time <= 0) {
+                    clearInterval(aa);
+                    copy_word_time = 1;
+                    $(".copy_word_yyt").css("background", "#fff");
+                    $(".copy_zhezhao_yyt").css({"display": "block", "width": w_yyt, "height": h_yyt, "zIndex": 99});
+                    $(".copy_word_yyt").css({"display": "none", "left": left_yyt, "top": top_yyt-70, "zIndex": 999});
+                    $(".delete_word_zn").css({"display": "block", "left": left_yyt-40, "top":top_yyt-70 , "zIndex": 999});
+                    $(this).off("touchmove")
+                }
+
+            }
+
+            $(this).on("touchend", function () {
+                if ($(".delete_word_zn").css("display") == "block") {
+                    $(this).css("background", "#ccc")
+                } else {
+                    $(this).css("background", "#fff")
+                }
+                clearInterval(aa);
+                copy_word_time = 1;
+                $(this).off("touchend")
+            })
+
+        })
+
+
+        $(".copy_zhezhao_yyt").on("touchstart", function () {
+            $(this).css({"display": "none"});
+            $(".copy_word_yyt").css({"display": "none"})
+            $(".icon_chat").css("background", "#fff")
+            $(".icon_chat_right").css("background", "#0099FF")
+            $(this).on("touchend", function () {
+                $(this).off("touchend");
+                $('.icon_chat_right_yuyin').css("background", "#fff");
+            })
+        });
+
+        //撤回
+        $(".delete_word_zn").on("touchstart",function(event){
+
+            $(".icon_chat_right_img img").css("pointer-events","none");
+            $(".icon_chat_right_img").prop("disabled",true);
+            event.stopPropagation();
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=upload_amr&dir=index&do=del_groups_amr',
+                method: 'post',
+                data: {
+                    values: {xid: xid, uid: uid,gid:gid,groups_room:"groups_"+gid}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if(ret.code==200){
+                    api.toast({
+                        msg: ret.msg,
+                        duration: 2000,
+                        location: 'bottom'
+                    });
+                }
+                api.execScript({
+                    name: 'info_qty',
+                    script: 'reload_zn()'
+                });
+            });
+            that.parent().remove();
+            $(this).parent().css('display','none');
+            $(this).on("touchend", function () {
+                $(this).off("touchend");
+            })
+        })
+
+    }
+    recall_voice_zn();
+
+
+    //图片撤回
+    //    function recall_pic_zn(){
+    //        var xid;
+    //        var copy_word_time = 1;
+    //        var path;
+    //        var w_yyt = $(window).width();
+    //        var h_yyt = $(window).height();
+    //        $(document).on("touchstart", ".icon_chat_right_img", function (e) {
+    //            $(this).css('opacity','0.8');
+    //            var left_yyt = e.originalEvent.targetTouches[0].pageX;
+    //            var top_yyt = e.originalEvent.targetTouches[0].pageY;
+    //            var aa = setInterval(bb, 1000);
+    //            xid=$(this).parent().attr('xid');
+    //            that=$(this);
+    //            function bb() {
+    //                copy_word_time -= 1;
+    //                if (copy_word_time <= 0) {
+    //                    clearInterval(aa)
+    //                    copy_word_time = 1;
+    //                    $(".copy_word_yyt").css("background", "#fff");
+    //                    $(".copy_zhezhao_yyt").css({"display": "block", "width": w_yyt, "height": h_yyt, "zIndex": 99});
+    //                    $(".copy_word_yyt").css({"display": "none", "left": left_yyt, "top": top_yyt-70, "zIndex": 999});
+    //                    $(".delete_word_zn").css({"display": "block", "left": left_yyt-40, "top":top_yyt-100 , "zIndex": 999});
+    //                    $(this).off("touchmove")
+    //                }
+    //
+    //            }
+    //
+    //            $(this).on("touchend", function () {
+    //                if ($(".delete_word_zn").css("display") == "block") {
+    //                    $(this).css("opacity", "0.8")
+    //                } else {
+    //                    $(this).css("opacity", "1")
+    //                }
+    //
+    //                clearInterval(aa)
+    //                copy_word_time = 1;
+    //                $(this).off("touchend")
+    //            })
+    //
+    //        })
+
+
+    //        $(".copy_zhezhao_yyt").on("touchstart", function () {
+    //            $(this).css({"display": "none"})
+    //            $(".copy_word_yyt").css({"display": "none"})
+    //            $(".icon_chat").css("background", "#fff")
+    //            $(".icon_chat_right").css("background", "#0099FF")
+    //            $(this).on("touchend", function () {
+    //                $(this).off("touchend")
+    //                $('.icon_chat_right_img').css('opacity','1');
+    //            })
+    //        });
+    //
+    //        //撤回
+    //        $(".delete_word_zn").on("touchstart",function(event){
+    //            event.stopPropagation();
+    //            api.ajax({
+    //                url: 'http://192.168.1.138/dyz_manage/index.php?action=upload&dir=index&do=del_groups_img',
+    //                method: 'post',
+    //                data: {
+    //                    values: {xid: xid, uid: uid,gid:gid}
+    //                },
+    //                dataType: 'text'
+    //            }, function (ret, err) {
+    //                var response=JSON.parse(ret);
+    //                if(response.code==200){
+    //                    api.toast({
+    //                        msg: response.msg,
+    //                        duration: 2000,
+    //                        location: 'bottom'
+    //                    });
+    //                }
+    //                api.execScript({
+    //                    name: 'info_qty',
+    //                    script: 'reload_zn()'
+    //                });
+    //            });
+    //            that.parent().remove();
+    //            $(this).parent().css('display','none');
+    //            $(this).on("touchend", function () {
+    //                $(this).off("touchend");
+    //            })
+    //        })
+    //
+    //    }
+    //    recall_pic_zn();
+
+
+
     $('.yuyin_con_zn').click(function(){
         if($(this).attr('src')=='../../image/image_zn/make_zn.png'){
             $(this).attr('src','../../image/image_zn/click_input_zn.png');
@@ -663,9 +1216,19 @@
     window_zishiying();
 
 
-
+    var page=1;
+    var head_img;
+    var total;
+    var height_zn;
+    var height_zn_zn;
+    var height_zn_sure;
+    var chat_img=0;
     function getdata() {
         apiready=function () {
+            head_img = api.getPrefs({
+                sync: true,
+                key: 'head_img'
+            });
             uid = api.getPrefs({sync: true, key: 'uid'});
             gid = api.pageParam.gid;
             api.ajax({
@@ -676,6 +1239,7 @@
                 },
                 dataType: 'json'
             }, function (ret, err) {
+                total=parseInt(ret.total)+1;
                 if (ret.groups_info.ug_name == "未命名"){
                     ret.groups_info.ug_name = "群聊"
                 }
@@ -683,31 +1247,97 @@
                 if (ret.groups_info.ug_notice){
                     $(".gg_qty").html("公告："+ret.groups_info.ug_notice)
                 }
+                api.ajax({
+                    url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhk',
+                    method: 'post',
+                    data: {
+                        values: {uid: uid, gid: gid,page:page}
+                    },
+                    dataType: 'text'
+                }, function (ret, err) {
+                    $(".secret_chat_con_zn").append(ret);
+//                    setTimeout(function(){
+//                        $('.secret_chat_con_zn').animate({scrollTop:($('.secret_chat_con_zn')[0].scrollHeight)},300);
+//                    },300);
+
+                    var imgNum=$('.secret_chat_con_zn img').length;
+                    chat_img=imgNum;
+                    $('.secret_chat_con_zn img').load(function(){
+                        if(!--imgNum){
+                            $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                        }
+                    });
+                    $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    page++;
+                });
             });
-            api.ajax({
-                url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhk',
-                method: 'post',
-                data: {
-                    values: {uid: uid, gid: gid}
-                },
-                dataType: 'text'
-            }, function (ret, err) {
-                $(".secret_chat_con_zn").append(ret);
-                $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight);
-            });
+
+
+
+            $(".secret_chat_con_zn").on('scroll',function(){
+                height_zn=parseInt($('.secret_chat_con_zn')[0].scrollHeight);
+                if ($(this).scrollTop() == 0) {
+                    if (total == page) {
+                        $(".secret_chat_con_zn").prop('disabled', true);
+                    } else {
+                        $('.wait_effect_zn').css('display', 'block');
+                        api.ajax({
+                            url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhk',
+                            method: 'post',
+                            data: {
+                                values: {uid: uid, gid: gid, page: page}
+                            },
+                            dataType: 'text'
+                        }, function (ret, err) {
+                            $(".secret_chat_con_zn").prepend(ret);
+                            page++;
+                            $('.wait_effect_zn').css('display', 'none');
+//                            setTimeout(function(){
+//                                $('.secret_chat_con_zn').animate({scrollTop:height_zn_sure},300);
+//                            },300);
+                            var imgNum=$('.secret_chat_con_zn img').length-chat_img;
+                            chat_img=$('.secret_chat_con_zn img').length;
+                            $('.secret_chat_con_zn img').load(function(){
+                                if(!--imgNum){
+                                    height_zn_zn=parseInt($('.secret_chat_con_zn')[0].scrollHeight);
+                                    height_zn_sure=height_zn_zn-height_zn;
+                                    $('.secret_chat_con_zn').scrollTop(height_zn_sure);
+                                }
+                            });
+                        });
+                    }
+                }
+
+            })
+
+
+
+
 
 
 
             api.addEventListener({
                 name: 'keyback'
-            }, function(ret, err) {
-                closeW_yyt()
+            }, function (ret, err) {
+                if (photoBrowser_flag == true){
+                    photoBrowser_flag = false;
+                    var photoBrowser = api.require('photoBrowser');
+                    photoBrowser.close();
+                }else if (photoBrowser_flag == false){
+                    closeW_yyt()
+                    photoBrowser_flag = true;
+                }
             });
         }
     }
-    getdata()
+    getdata();
 
 
+
+
+
+
+    var photoBrowser_flag = false;
     function get_name() {
         api.ajax({
             url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhxx',
@@ -744,48 +1374,125 @@
             }
         });
     }
-
     function send_data() {
         $(".click_import_zn").focus();
-        text = $(".click_import_zn").val()
+        text = $(".click_import_zn").val();
         if (text == ""){
             return
         }
-        api.ajax({
-            url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=fasixin',
-            method: 'post',
-            data: {
-                values: {uid: uid, gid: gid,groups_room:"groups_"+gid,txt:text}
-            },
-            dataType: 'json'
-        }, function (ret, err) {
-            if (ret.code = 200){
-                $(".click_import_zn").val("");
-                var aa = "<div class='secret_chat_right'><div class='icon_img_right'><img src='../../image/img_qty/leftper.png' alt=''><p>"+ret.send_name+"</p></div><div class='icon_chat_right'>"+text+"</div></div>"
-                $(".secret_chat_con_zn").append(aa);
-                $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
+        function unique(arr){
+            // 遍历arr，把元素分别放入tmp数组(不存在才放)
+            var tmp = new Array();
+            for(var i in arr){
+                //该元素在tmp内部不存在才允许追加
+                if(tmp.indexOf(arr[i])==-1){
+                    tmp.push(arr[i]);
+                }
             }
-        });
-    }
+            return tmp;
+        }
+        user_list= unique(user_list);
+        if(user_list=='') {
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=fasixin',
+                method: 'post',
+                data: {
+                    values: {uid: uid, gid: gid, groups_room: "groups_" + gid, txt: text}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if (ret.code = 200) {
+                    $(".click_import_zn").val("");
+                    if($('.click_import_zn').getCursorPosition()==0){
+                        a='';
+                    }
+                    if ((ret.head_img == '') || (ret.head_img == null)) {
+//                    head_img = "tc_log.png";
+                        var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src='../../image/header_picture/tc_log.png' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
+                        $(".secret_chat_con_zn").append(aa);
+                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    } else {
+                        var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src='../../image/header_picture/" + ret.head_img + "' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
+                        $(".secret_chat_con_zn").append(aa);
+                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    }
+                }
 
+
+            });
+        }else{
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=fasixin',
+                method: 'post',
+                data: {
+                    values: {uid: uid, gid: gid, groups_room: "groups_" + gid, txt: text,at_user_ids:user_list}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if (ret.code = 200) {
+                    $(".click_import_zn").val("");
+                    $(".click_import_zn").focus();
+                    user_list=[];
+                    if($('.click_import_zn').getCursorPosition()==0){
+                        a='';
+                    }
+                    if ((ret.head_img == '') || (ret.head_img == null)) {
+//                    head_img = "tc_log.png";
+                        var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src='../../image/header_picture/tc_log.png' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
+                        $(".secret_chat_con_zn").append(aa);
+                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    } else {
+                        var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src='../../image/header_picture/" + ret.head_img + "' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
+                        $(".secret_chat_con_zn").append(aa);
+                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    }
+                }
+            });
+        }
+
+
+
+    }
+    function delete_zn(xid){
+        var msga = eval('('+xid+')');
+        var xid_zn=String(msga.xid);
+        $("[xid="+xid_zn+"]").remove();
+    }
 
     function jieshou(msg) {
         var msga = eval('('+msg+')');
-        if(msga.from_id !=uid) {
-            if (msga.lx == 0) {
-                var bb = "<div class='secret_chat_left'><div class='icon_img'><img src='../../image/img_qty/rightper.png' alt=''><p>" + msga.send_name + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
-            } else if (msga.lx == 1) {
-                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>" + msga.send_name + "</p></div><div class='icon_chat_left_img'><img src="+msga.nr+" alt=''></div></div>"
+        if(msga.groups_room=="groups_"+gid) {
+            if (msga.from_id != uid) {
+                if ((msga.head_img == '') || (msga.head_img == null)) {
+                    if (msga.lx == 0) {
+                        var bb = "<div class='secret_chat_left' xid=" + msga.xid + "><div class='icon_img'><img src='../../image/header_picture/tc_log.png' alt=''><p>" + msga.send_name + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
+                    } else if (msga.lx == 1) {
+                        if (msga.thumb_pic) {
+                            var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/header_picture/tc_log.png' alt=''><p>" + msga.send_name + "</p></div><div class='icon_chat_left_img'><img path=" + msga.thumb_pic + " src=" + msga.nr + " alt=''></div></div>"
+                        }
+                    }
+                    else if (msga.lx == 2) {
+                        var bb = "<div class='secret_chat_left_mc' xid=" + msga.xid + "><div class='icon_img_left'><img src='../../image/header_picture/tc_log.png' alt=''><p>" + msga.send_name + "</p></div><div class='icon_chat_left_yuyin'  style='width: " + msga.send_length + "' path=" + msga.nr + "><span class='yuyin_yyt_l'><img src='../../image/img_yyt/yuyin_left_yyt.png'/></span></div><span class='yuyin_time_left'>" + msga.time_length + "</span></div>"
+                    }
+                    $(".secret_chat_con_zn").append(bb);
+                    $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                } else {
+                    if (msga.lx == 0) {
+                        var bb = "<div class='secret_chat_left' xid=" + msga.xid + "><div class='icon_img'><img src='../../image/header_picture/" + msga.head_img + "' alt=''><p>" + msga.send_name + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
+                    } else if (msga.lx == 1) {
+                        if (msga.thumb_pic) {
+                            var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/header_picture/" + msga.head_img + "' alt=''><p>" + msga.send_name + "</p></div><div class='icon_chat_left_img'><img path=" + msga.thumb_pic + " src=" + msga.nr + " alt=''></div></div>"
+                        }
+                    }
+                    else if (msga.lx == 2) {
+                        var bb = "<div class='secret_chat_left_mc' xid=" + msga.xid + "><div class='icon_img_left'><img src='../../image/header_picture/" + msga.head_img + "' alt=''><p>" + msga.send_name + "</p></div><div class='icon_chat_left_yuyin'  style='width: " + msga.send_length + "' path=" + msga.nr + "><span class='yuyin_yyt_l'><img src='../../image/img_yyt/yuyin_left_yyt.png'/></span></div><span class='yuyin_time_left'>" + msga.time_length + "</span></div>"
+                    }
+                    $(".secret_chat_con_zn").append(bb);
+                    $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                }
             }
-            else if (msga.lx == 2){
-                var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src='../../image/img_qty/rightper.png' alt=''><p>"+msga.send_name+"</p></div><div class='icon_chat_left_yuyin'  style='width: "+msga.send_length+"' path="+msga.nr+"><span class='yuyin_yyt_l'></span></div><span class='yuyin_time_left'>"+msga.time_length+"</span></div>"
-            }
-            $(".secret_chat_con_zn").append(bb);
-            $('.secret_chat_con_zn').scrollTop( $('.secret_chat_con_zn')[0].scrollHeight );
         }
     }
-
-
 
     function closeW_yyt() {
         api.execScript({
@@ -808,8 +1515,6 @@
     }
 
 
-
-
     function open_personList() {
         api.openWin({
             name:'groupChartPer_qty',
@@ -822,47 +1527,10 @@
 
 
 
-//    var add;
-//    function open_picture() {
-//        api.getPicture({
-//            sourceType: 'album',
-//            encodingType: 'jpg',
-//            mediaValue: 'pic',
-//            destinationType: 'base64',
-//            allowEdit: true,
-//            quality: 50,
-//            targetWidth: 100,
-//            targetHeight: 100,
-//            saveToPhotoAlbum: false
-//        }, function(ret, err) {
-//            if (ret.base64Data != '') {
-//                var photo = ret.base64Data.substr(ret.base64Data.indexOf(',') + 1);
-//                api.ajax({
-//                    url: 'http://appapi.duyiwang.cn/index.php?action=upload&do=fasixin_img_ql',
-//                    method: 'post',
-//                    data: {
-//                        values: {uid: uid, gid: gid, groups_room: "groups_" + gid, formFile: photo}
-//                    },
-//                    dataType: 'json'
-//                }, function (ret, err) {
-//                    add = ret.url;
-//                    if (ret.code == 200) {
-//                        var asd = "<div class='secret_chat_right_mc'><div class='icon_img_right'><img src='../../image/img_qty/leftper.png' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right_img'><img src=" + ret.url + " alt=''></div></div>";
-//                        $(".secret_chat_con_zn").append(asd);
-//                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
-//                    }
-//                });
-//            } else {
-//
-//            }
-//        });
-//    }
-
-
-
 
 
     var path_yyt;
+    var path;
     function open_picture() {
         var UIMediaScanner = api.require('UIMediaScanner');
         UIMediaScanner.open({
@@ -898,44 +1566,60 @@
                     finishSize: 18
                 }
             },
-            scrollToBottom: {
-                intervalTime: 3,
-                anim: true
-            },
+//            scrollToBottom: {
+//                intervalTime: 3,
+//                anim: false
+//            },
             exchange: true,
             rotation: true
         }, function(ret) {
             if (ret) {
-                var path = ret.list[0].path;
+                path = ret.list[0].path;
                 path_yyt = ret.list[0].thumbPath;
                 var trans = api.require('trans');
                 trans.decodeImgToBase64({
-                    imgPath: ret.list[0].path
+                    imgPath: path_yyt
                 }, function(ret, err) {
                     if (ret.status) {
-                        api.ajax({
-                            url: 'http://appapi.duyiwang.cn/index.php?action=upload&do=fasixin_img_ql',
-                            method: 'post',
-                            data: {
-                                values: {uid: uid, gid: gid, groups_room: "groups_" + gid,path:ret.base64Str}
-                            },
-                            dataType: 'json'
-                        }, function (ret, err) {
-                            if (ret.code == 200) {
-                                var asd = "<div class='secret_chat_right_mc'><div class='icon_img_right'><img src='../../image/img_qty/leftper.png' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right_img'><img src=" + path + " alt=''></div></div>";
-                                $(".secret_chat_con_zn").append(asd);
-                                $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                        trans.decodeImgToBase64({
+                            imgPath: path
+                        }, function(rat, err) {
+                            if (rat.status) {
+                                api.ajax({
+                                    url: 'http://appapi.duyiwang.cn/index.php?action=upload&do=fasixin_img_ql',
+                                    method: 'post',
+                                    data: {
+                                        values: {uid: uid, gid: gid, groups_room: "groups_" + gid,path_s:ret.base64Str}
+                                    },
+                                    dataType: 'json'
+                                }, function (ret, err) {
+                                    if (ret.code == 200) {
+                                        if((ret.head_img=='')||(ret.head_img==null)){
+                                            var asd = "<div class='secret_chat_right_mc' xid="+ret.xid+"><div class='icon_img_right'><img src='../../image/header_picture/tc_log.png' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right_img'><img path="+path+" src=" + path_yyt + " alt=''></div></div>";
+                                            $(".secret_chat_con_zn").append(asd);
+                                            $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
 
-//                                var asd = "<div class='secret_chat_right_mc'><div class='icon_img_right'><img src='../../image/img_qty/leftper.png' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right_img'><img src=" + ret.url + " alt=''></div></div>";
-//                                $(".secret_chat_con_zn").append(asd);
-//                                $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                                        }else{
+                                            var asd = "<div class='secret_chat_right_mc' xid="+ret.xid+"><div class='icon_img_right'><img src='../../image/header_picture/"+ret.head_img+"' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right_img'><img path="+path+" src=" + path_yyt + " alt=''></div></div>";
+                                            $(".secret_chat_con_zn").append(asd);
+                                            $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                                        }
+                                        api.ajax({
+                                            url: 'http://appapi.duyiwang.cn/index.php?action=upload&do=fasixin_img_ql',
+                                            method: 'post',
+                                            data: {
+                                                values: {uid: uid, gid: gid, groups_room: "groups_" + gid,path:rat.base64Str,pic_path:ret.url}
+                                            },
+                                            dataType: 'json'
+                                        }, function (ret, err) {
+
+                                        });
+                                    }
 
 
+                                });
                             }
                         });
-
-                    } else {
-
                     }
                 });
 
@@ -946,8 +1630,9 @@
 
 
     $(document).on("click",".icon_chat_left_img img",function () {
+        photoBrowser_flag = true;
         var path_img;
-        path_img = $(this).attr("src");
+        path_img = $(this).attr("path");
         var photoBrowser = api.require('photoBrowser');
         photoBrowser.open({
             images: [
@@ -957,20 +1642,37 @@
             bgColor: '#000'
         }, function(ret, err) {
             if (ret) {
-                api.addEventListener({
-                    name: 'keyback'
-                }, function(ret, err) {
+//                api.addEventListener({
+//                    name: 'click'
+//                }, function(ret, err) {
+//                    photoBrowser.close();
+//                });
+
+
+                if (ret.eventType == 'click') {
+                    //点击图片的操作
                     photoBrowser.close();
-                });
+                    photoBrowser_flag = false;
+                }
+
+
+
             } else {
 
             }
         });
     })
 
-    $(document).on("click",".icon_chat_right_img img",function () {
+    $(document).on("click",".icon_chat_right_img img",function (event) {
+
+        var evt = event || window.event;
+        evt.stopPropagation ? evt.stopPropagation() : (evt.cancelBubble=true);
+
+
+
+        photoBrowser_flag = true;
 //        if (!path_yyt){
-            path_yyt = $(this).attr("src");
+        path_yyt = $(this).attr("path");
 //        }
         var photoBrowser = api.require('photoBrowser');
         photoBrowser.open({
@@ -981,11 +1683,20 @@
             bgColor: '#000'
         }, function(ret, err) {
             if (ret) {
-                api.addEventListener({
-                    name: 'keyback'
-                }, function(ret, err) {
+//                api.addEventListener({
+//                    name: 'click'
+//                }, function(ret, err) {
+//                    photoBrowser.close();
+//                });
+
+                if (ret.eventType == 'click') {
+                    //点击图片的操作
+
                     photoBrowser.close();
-                });
+                    photoBrowser_flag = false;
+                }
+
+
             } else {
 
             }
@@ -993,18 +1704,17 @@
     })
 
 
-
-
-
+    //语音显示
     $(".yuyin_icon").on("touchstart",function (event) {
+        var fs = api.require('fs');
+        var ret = fs.rmdirSync({ path: 'fs://tc_manager' });
         $(this).css('background','#e2e2e2');
-        num_voice++
+        num_voice++;
         api.startRecord({
-            path: 'fs://tc_a_'+num_voice+'.amr'
+            path: 'fs://tc_manager/tc_a_'+num_voice+'.amr'
         });
         $(this).on("touchend",function (event) {
             $(this).css('background','#fff');
-//            console.log(2)
             api.stopRecord(function(ret, err) {
                 if (ret) {
                     var path = ret.path;
@@ -1019,7 +1729,7 @@
                                 gid: gid,
                                 groups_room: "groups_" + gid,
                                 local_url: path,
-                                time_length:duration+"s",
+                                time_length:duration+'&quot;',
                                 send_length:width_voice+"rem"
                             },
                             files: {
@@ -1028,10 +1738,19 @@
                         },
                         dataType:"json"
                     }, function(ret, err) {
-                        var voice_ = "<div class='secret_chat_right_mc'><div class='icon_img_right'><img src='../../image/img_qty/leftper.png' alt=''><p>"+ret.send_name+"</p> </div><div class='icon_chat_right_yuyin' style='width: "+width_voice+"rem' path="+path+"><span class='yuyin_yyt_r'></span></div><span class='yuyin_time_right'>"+duration+"s</span></div>"
-                        $(".secret_chat_con_zn").append(voice_);
-                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
-                        my_path = ret.url
+                        if ((ret.head_img=='')||(ret.head_img==null)){
+//                            head_img = "tc_log.png"
+                            var voice_ = "<div class='secret_chat_right_mc' xid="+ret.xid+"><div class='icon_img_right'><img src='../../image/header_picture/tc_log.png' alt=''><p>"+ret.send_name+"</p> </div><div class='icon_chat_right_yuyin' style='width: "+width_voice+"rem' path="+path+"><span class='yuyin_yyt_r'><img src='../../image/img_yyt/yuyin_right_yyt.png' /></span></div><span class='yuyin_time_right'>"+duration+"&quot;</span></div>"
+                            $(".secret_chat_con_zn").append(voice_);
+                            $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                            my_path = ret.url;
+                        }else{
+                            var voice_ = "<div class='secret_chat_right_mc' xid="+ret.xid+"><div class='icon_img_right'><img src='../../image/header_picture/"+ret.head_img+"' alt=''><p>"+ret.send_name+"</p> </div><div class='icon_chat_right_yuyin' style='width: "+width_voice+"rem' path="+path+"><span class='yuyin_yyt_r'><img src='../../image/img_yyt/yuyin_right_yyt.png'></span></div><span class='yuyin_time_right'>"+duration+"&quot;</span></div>"
+                            $(".secret_chat_con_zn").append(voice_);
+                            $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                            my_path = ret.url;
+                        }
+
                     })
                 }
             });
@@ -1040,27 +1759,133 @@
     })
 
 
-
+    //右边语音播放
+    var yuyin_img_flag = true;
+    //    var yuyin_play;
+    //防止周期性定时器一直播放
+    var yuyin_play_zn_flag=true;
     $(document).on("click",".icon_chat_right_yuyin",function () {
-        var path = $(this).attr("path");
-        var fs = api.require('fs');
-        var ret = fs.removeSync({
-            path: "fs://tc_app.rar"
-        });
-        if (path.substring(0,4) == "http"){
+        if(yuyin_play_zn_flag == false){
+            return;
+        }else if(yuyin_play_zn_flag == true) {
+            yuyin_play_zn_flag = false;
+            if (yuyin_img_flag == false) {
+//            clearInterval(yuyin_play);
+                $(".yuyin_yyt_r").css("width", 0.3 + "rem");
+            }
+            var yuyin_play;
+            yuyin_img_flag = false;
+            var yuyin_img = $(this).children(".yuyin_yyt_r")[0];
+            var path = $(this).attr("path");
+            var fs = api.require('fs');
+            var ret = fs.removeSync({
+                path: "fs://tc_manager/tc_app.rar"
+            });
+            var yuyin_w = 0.1;
+            yuyin_play = setInterval(function () {
+                yuyin_img.style.width = yuyin_w + "rem";
+                yuyin_w += 0.1;
+                if (yuyin_w > 0.4) {
+                    yuyin_w = 0.1
+                }
+            }, 420);
+            if (path.substring(0, 4) == "http") {
+                var fs = api.require('fs');
+                var ret = fs.rmdirSync({ path: 'fs://tc_manager' });
+                api.download({
+                    url: path,
+                    savePath: "fs://tc_manager/tc_app.rar",
+                    report: true,
+                    cache: true,
+                    allowResume: false
+                }, function (ret, err) {
+                    if (ret.state == 1) {
+                        api.startPlay({
+                            path: "fs://tc_manager/tc_app.rar"
+                        }, function (ret, err) {
+                            if (ret) {
+                                clearInterval(yuyin_play);
+                                $(".yuyin_yyt_r").css("width", 0.3 + "rem");
+                                yuyin_img_flag = false;
+                                yuyin_play_zn_flag =true;
+                            } else {
+
+                            }
+                        });
+                    } else {
+
+                    }
+                });
+            } else {
+                api.startPlay({
+                    path: path
+                }, function(ret, err) {
+                    if (ret) {
+                        clearInterval(yuyin_play);
+                        $(".yuyin_yyt_l").css("width",0.3+"rem");
+                        yuyin_img_flag = false;
+                        yuyin_play_zn_flag =true;
+                    } else {
+
+                    }
+                });
+            }
+        }
+    })
+
+
+
+    //    语音反馈
+    $(document).on("touchstart", ".icon_chat_left_yuyin", function (e) {
+        $(this).css("background", "#ccc");
+        $(this).on("touchend", function () {
+            $(this).css("background", "#fff");
+            $(this).off("touchend")
+        })
+    })
+
+    //左边语音播放
+    $(document).on("click",".icon_chat_left_yuyin",function () {
+        if(yuyin_play_zn_flag == false){
+            return;
+        }else if(yuyin_play_zn_flag == true) {
+            yuyin_play_zn_flag = false;
+            if (yuyin_img_flag == false) {
+                clearInterval(yuyin_play);
+                $(".yuyin_yyt_l").css("width", 0.3 + "rem");
+            }
+            yuyin_img_flag = false;
+            var yuyin_img = $(this).children(".yuyin_yyt_l")[0];
+            var path = $(this).attr("path");
+            var fs = api.require('fs');
+            var ret = fs.removeSync({
+                path: "fs://tc_manager/tc_app.rar"
+            });
+            var yuyin_w = 0.1;
+            var yuyin_play = setInterval(function () {
+                yuyin_img.style.width = yuyin_w + "rem";
+                yuyin_w += 0.1;
+                if (yuyin_w > 0.4) {
+                    yuyin_w = 0.1
+                }
+            }, 420)
+            var ret = fs.rmdirSync({path: 'fs://tc_manager'});
             api.download({
                 url: path,
-                savePath: "fs://tc_app.rar",
+                savePath: "fs://tc_manager/tc_app.rar",
                 report: true,
                 cache: true,
                 allowResume: false
-            }, function(ret, err) {
+            }, function (ret, err) {
                 if (ret.state == 1) {
                     api.startPlay({
-                        path: "fs://tc_app.rar"
-                    }, function(ret, err) {
+                        path: "fs://tc_manager/tc_app.rar"
+                    }, function (ret, err) {
                         if (ret) {
-
+                            clearInterval(yuyin_play);
+                            $(".yuyin_yyt_l").css("width", 0.3 + "rem");
+                            yuyin_img_flag = true;
+                            yuyin_play_zn_flag = true;
                         } else {
 
                         }
@@ -1069,53 +1894,15 @@
 
                 }
             });
-        }else {
-            api.startPlay({
-                path: path
-            }, function(ret, err) {
-                if (ret) {
-
-                } else {
-
-                }
-            });
         }
-
     })
-
-    $(document).on("click",".icon_chat_left_yuyin",function () {
-        var path = $(this).attr("path");
-        var fs = api.require('fs');
-        var ret = fs.removeSync({
-            path: "fs://tc_app.rar"
-        });
-        api.download({
-            url: path,
-            savePath: "fs://tc_app.rar",
-            report: true,
-            cache: true,
-            allowResume: false
-        }, function(ret, err) {
-            if (ret.state == 1) {
-                api.startPlay({
-                    path: "fs://tc_app.rar"
-                }, function(ret, err) {
-                    if (ret) {
-
-                    } else {
-
-                    }
-                });
-            } else {
-
-            }
-        });
-    })
-
-
     $(".secret_chat_con_zn").on("touchstart",function () {
         $(".click_import_zn").blur();
     })
+
+
+
+
 
 </script>
 </html>

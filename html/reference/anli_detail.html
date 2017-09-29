@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        .header_yyt{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        .anli_bac_yyt{
+            width: 0.3rem;
+            height: 0.42rem;
+            float: left;
+            background: url("../../image/img_yyt/anli_bac_yyt.jpg") no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 0.2rem;
+            top: 0.23rem;
+        }
+        .header_con_yyt{
+            width: 2rem;
+            height: 0.88rem;
+            font-size: 0.32rem;
+            line-height: 0.88rem;
+            text-align: center;
+            margin: 0 auto;
+            color: #fff;
+        }
+        html,body{
+            background: #f5f5f5;
+        }
+        .detail_one_yyt{
+            width: 6rem;
+            height: 3.32rem;
+            margin: 0 auto;
+            background: #fff;
+        }
+        .detail_one_con_yyt{
+            width: 5.4rem;
+            height: 100%;
+            margin: 0 auto;
+            margin-top: 1.18rem;
+        }
+        .detail_one_title{
+            width: 100%;
+            height: auto;
+            font-size: 0.26rem;
+            line-height: 0.8rem;
+            color: #000;
+        }
+        .detail_img_yyt{
+            width: 1.84rem;
+            height: 2.16rem;
+            float: left;
+        }
+        .detail_one_right_yyt{
+            width: 3.35rem;
+            height: 2.16rem;
+            float: right;
+        }
+        .detail_oneName_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            line-height: 0.36rem;
+        }
+        .detail_oneAge_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            line-height: 0.36rem;
+        }
+        .detail_oneUser_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            line-height: 0.36rem;
+        }
+        .detail_oneTime_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            line-height: 0.36rem;
+        }
+        .detail_oneWay_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            line-height: 0.36rem;
+        }
+        .story_yyt{
+            width: 6rem;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 0.3rem;
+            background: #fff;
+        }
+        .story_con_yyt{
+            width: 5.4rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .story_title_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.26rem;
+            line-height: 0.8rem;
+            color: #000;
+        }
+        .story_word_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            line-height: 0.38rem;
+            color: #828080;
+            margin-bottom: 0.25rem;
+        }
+        .theWay_yyt{
+            width: 6rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+            background: #fff;
+            margin-top: 0.3rem;
+        }
+        .theWay_con_yyt{
+            width: 5.4rem;
+            height: auto;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .theWay_title_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.26rem;
+            line-height: 0.8rem;
+            text-align: left;
+            color: #000;
+        }
+        .theWay_list_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        .theWay_one_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin-bottom: 0.25rem;
+        }
+        .theWayOne_title_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            line-height: 0.38rem;
+            text-align: left;
+            color: #525252;
+        }
+        .theWayOne_con_yyt{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            font-size: 0.24rem;
+            line-height: 0.38rem;
+            color: #828080;
+        }
+    </style>
+</head>
+<body>
+<div class="header_yyt">
+    <div class="anli_bac_yyt" onclick="api.closeWin()"></div>
+    <div class="header_con_yyt">案例详情</div>
+</div>
+<!--<div class="detail_one_yyt">-->
+    <!--<div class="detail_one_con_yyt">-->
+        <!--<div class="detail_one_title">来自太常门店的分享</div>-->
+        <!--<img src="" alt="" class="detail_img_yyt">-->
+        <!--<div class="detail_one_right_yyt">-->
+            <!--<div class="detail_oneName_yyt">患者：吕女士</div>-->
+            <!--<div class="detail_oneAge_yyt">年龄：78</div>-->
+            <!--<div class="detail_oneUser_yyt">用药：老膏药+温泉+炙骨宁+仪年堂</div>-->
+            <!--<div class="detail_oneTime_yyt">周期：4个月</div>-->
+            <!--<div class="detail_oneWay_yyt">如何知道独一张：报纸</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="story_yyt">-->
+    <!--<div class="story_con_yyt">-->
+        <!--<div class="story_title_yyt">康复故事</div>-->
+        <!--<div class="story_word_yyt">患者吕女士，72岁，女，腰椎间盘突出，压迫双腿走路没劲，到处治疗不见好转，今年3月份，老伴接到报纸拿回家认真看了过几天就带着阿姨来店试药，下午开了新药，配合我们调理，4个多月后阿姨好了，今天两位老人送来锦旗，谢谢阿姨的信任祝愿老人永远健康。</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="theWay_yyt">-->
+    <!--<div class="theWay_con_yyt">-->
+        <!--<div class="theWay_title_yyt">调理过程</div>-->
+        <!--<ul class="theWay_list_yyt">-->
+            <!--<li class="theWay_one_yyt">-->
+                <!--<div class="theWayOne_title_yyt">老膏药调理</div>-->
+                <!--<div class="theWayOne_con_yyt">腰椎2个，双环跳，双委中，双承山，双足三里。每次用药3个小时，一天一次。</div>-->
+            <!--</li>-->
+            <!--<li class="theWay_one_yyt">-->
+                <!--<div class="theWayOne_title_yyt">老膏药调理</div>-->
+                <!--<div class="theWayOne_con_yyt">腰椎2个，双环跳，双委中，双承山，双足三里。每次用药3个小时，一天一次。</div>-->
+            <!--</li>-->
+            <!--<li class="theWay_one_yyt">-->
+                <!--<div class="theWayOne_title_yyt">老膏药调理</div>-->
+                <!--<div class="theWayOne_con_yyt">腰椎2个，双环跳，双委中，双承山，双足三里。每次用药3个小时，一天一次。</div>-->
+            <!--</li>-->
+            <!--<li class="theWay_one_yyt">-->
+                <!--<div class="theWayOne_title_yyt">老膏药调理</div>-->
+                <!--<div class="theWayOne_con_yyt">腰椎2个，双环跳，双委中，双承山，双足三里。每次用药3个小时，一天一次。</div>-->
+            <!--</li>-->
+
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+    var cid;
+    function get_data() {
+        apiready=function(){
+//            api.execScript({
+//                name: 'reference_index_zn',
+//                script: 'reload_zn()'
+//            });
+            api.execScript({
+                name: 'anli_list',
+                script: 'reload_zn()'
+            });
+            cid=api.pageParam.cid;
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=case&dir=ziliao&do=cdetail',
+                method: 'post',
+                data: {
+                    values: {cid:cid}
+                },
+                dataType: 'txt'
+            }, function (ret, err) {
+                $("body").append(ret);
+            });
+        }
+    }
+    get_data();
+</script>
+</body>
+</html>

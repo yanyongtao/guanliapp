@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        .stock_box_zn{
+            background: #2493F7;
+            height:.88rem;
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            overflow: hidden;
+        }
+        .stock_zn{
+            color:#fff;
+            font-size: .3rem;
+            height:100%;
+            line-height: .88rem;
+            text-align: center;
+        }
+        .icon_zn{
+            width: 0.29rem;
+            height: 0.43rem;
+            position: absolute;
+            left: 0.15rem;
+            top: 0.25rem;
+            background: url("../../image/image_zn/icon_lefta_zn.png") no-repeat;
+            background-size: cover;
+        }
+        .reply_box_zn{
+            height:auto;
+            margin-top:0.9rem;
+            margin-bottom:1rem;
+        }
+        .reply_list_zn{
+            width:6rem;
+            height:auto;
+            margin:0 auto;
+            padding-top:0.3rem;
+            padding-bottom:0.3rem;
+            border-bottom: 0.01rem solid #e2e2e2;
+        }
+        .reply_title_zn{
+            height:0.4rem;
+            line-height:0.4rem;
+            width:100%;
+            overflow: hidden;
+        }
+        .reply_title_zn img{
+            float: left;
+            display: block;
+            width:0.4rem;
+            height:0.4rem;
+        }
+        .reply_name_zn{
+            margin-left:0.2rem;
+            display: block;
+            float: left;
+            font-size:0.22rem;
+            color:#999;
+        }
+        .reply_time_zn{
+            display: block;
+            font-size:0.22rem;
+            color:#999;
+            float:right;
+        }
+        .reply_con_zn{
+            font-size:0.22rem;
+            color:#727272;
+            width:5.4rem;
+            height:auto;
+            margin-left:0.6rem;
+            margin-top:0.2rem;
+            letter-spacing: 0.02rem;
+            line-height:0.35rem;
+        }
+        .me_reply_zn{
+            width:100%;
+            height:0.9rem;
+            background: #fff;
+            box-sizing: border-box;
+            position: fixed;
+            bottom:0;
+            left:0;
+        }
+        .gradient_zn{
+            width:100%;
+            height:0.1rem;
+            background: linear-gradient(to top, #f9fafa, #fff);
+        }
+        .reply_box{
+            width:6rem;
+            height:0.6rem;
+            margin:0 auto;
+            border:0.01rem solid #eee;
+            border-radius: 0.1rem;
+            margin-top:0.1rem;
+        }
+        .reply_box span:first-child{
+            display: block;
+            width:0.25rem;
+            height:0.25rem;
+            background: url('../../image/image_zn/click_zn.png');
+            background-size:cover;
+            position: absolute;
+            top:0.38rem;
+            left:37.5%;
+        }
+        .reply_box span:last-child{
+            display: block;
+            width:1.25rem;
+            height:0.6rem;
+            line-height:0.6rem;
+            font-size:0.3rem;
+            color:#787878;
+            position: absolute;
+            right:37.5%;
+        }
+        .click_shuru_zn{
+            display:none;
+            width:100%;
+            height:0.8rem;
+            background: #fbfbfb;
+            overflow: hidden;
+            position: fixed;
+            bottom:0;
+            left:0;
+            box-sizing: border-box;
+        }
+        .value_zn{
+            width:5rem;
+            height:0.6rem;
+            line-height:0.6rem;
+            margin-left:0.2rem;
+            margin-top:0.1rem;
+            padding-left:0.2rem;
+            display: block;
+            outline: none;
+            background: #fff;
+            font-size:0.24rem;
+            float:left;
+        }
+        .click_send_zn{
+            font-size:0.28rem;
+            color:#515050;
+            display: block;
+            float:left;
+            width:1rem;
+            height:0.8rem;
+            line-height:0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="stock_box_zn">
+    <div class="stock_zn">回复</div>
+    <div class="icon_zn" onclick="open_detail_zn()"></div>
+</div>
+<ul class="reply_box_zn">
+    <!--<li class="reply_list_zn">-->
+        <!--<div class="reply_title_zn">-->
+            <!--<img src="../../image/image_zn/reply_img_zn.png" alt="">-->
+            <!--<span class="reply_name_zn">BigDcheng</span>-->
+            <!--<span class="reply_time_zn">2017-07-21</span>-->
+        <!--</div>-->
+        <!--<p class="reply_con_zn">-->
+        <!--进入到销售录入产品选择页面，点击右上角选择按钮然后选择您要录入的所有产品，等下方灰色的“添加到”按钮变亮，则进入销售录入提交单，完善资料之后则可以提交销售录入-->
+        <!--</p>-->
+    <!--</li>-->
+</ul>
+<div class="me_reply_zn">
+    <div class="gradient_zn"></div>
+    <div class="reply_box">
+        <span></span>
+        <span>我要回复</span>
+    </div>
+</div>
+<div class="click_shuru_zn">
+    <input type="text" class="value_zn" placeholder="请输入您的回复">
+    <span class="click_send_zn">发送</span>
+</div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+//    退回按钮，关闭页面，并且刷新上一个页面
+    function open_detail_zn() {
+        api.closeWin();
+    }
+
+
+    //拿到数据。显示回复详情页
+    function get_data() {
+        apiready=function() {
+            aid = api.pageParam.aid;
+            //    退回按钮，关闭页面，并且刷新上一个页面
+            api.addEventListener({
+                name: 'keyback'
+            }, function(ret, err) {
+                api.closeWin();
+            });
+            api.execScript({
+                name: 'questionDetail_qty',
+                script: 'close_zn_detail()'
+            });
+
+
+            uid = api.getPrefs({sync: true, key: 'uid'});
+            var type=api.getPrefs({sync:true,key:'type'});
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=feedback&dir=work&do=rlist',
+                method: 'post',
+                data: {
+                    values: {uid: uid,aid:aid }
+                },
+                dataType: 'txt'
+            }, function (ret, err) {
+                $('.reply_box_zn').append(ret);
+            });
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=userinfo',
+                method: 'post',
+                data: {
+                    values:{uid:uid,type:type}
+                },
+                dataType:'json'
+            },function(ret,err){
+                name= ret.userinfo.name;
+//				api.closeWin({
+//					name: 'edit_question_zn'
+//				});
+            });
+        }
+    }
+    get_data();
+    var name;
+//    回复详情页
+    var aid;
+    var uid;
+    var content;
+    $(document).on('click','.me_reply_zn',function(){
+        $(this).css('display','none');
+        $('.click_shuru_zn').css('display','block');
+        $('.value_zn').focus();
+    })
+    $(document).on('touchstart','.reply_box_zn',function(){
+        $('.click_shuru_zn').css('display','none');
+    });
+//    回复功能
+    $(document).on('click','.click_send_zn',function(event){
+        event.stopPropagation();
+        function p(s) {
+            return s < 10 ? '0' + s: s;
+        }
+        var myDate = new Date();
+        //获取当前年
+        var year=myDate.getFullYear();
+        //获取当前月
+        var month=myDate.getMonth()+1;
+        //获取当前日
+        var date=myDate.getDate();
+        var h=myDate.getHours();       //获取当前小时数(0-23)
+        var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+        var s=myDate.getSeconds();
+        var now=year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m)+":"+p(s);
+        content=$('.value_zn').val();
+        if(content==''){
+            $('.value_zn').focus();
+            api.toast({
+                msg: '回复内容不能为空',
+                duration: 3000,
+                location: 'bottom'
+            });
+        }else {
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=feedback&dir=work&do=review',
+                method: 'post',
+                data: {
+                    values: {uid: uid, aid: aid, content: content}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                if (ret.code = 200) {
+                    api.toast({
+                        msg: ret.msg,
+                        duration: 1000,
+                        location: 'bottom'
+                    });
+                    var con="<li class='reply_list_zn'><div class='reply_title_zn'><img src='../../image/image_zn/reply_img_zn.png' ><span class='reply_name_zn'>"+name+"</span><span class='reply_time_zn'>"+now+"</span></div><p class='reply_con_zn'>"+content+"</p></li>";
+                    $('.reply_box_zn').append(con);
+                    $('.value_zn').attr('value','');
+                    $('.click_shuru_zn').css('display','none');
+                    $('.me_reply_zn').css('display','block');
+                }
+            });
+        }
+    })
+</script>
+</body>
+</html>

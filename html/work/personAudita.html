@@ -43,7 +43,7 @@
         }
         .auditBox_qty{
             width: 5.62rem;
-            height: 1.8rem;
+            height: 1.2rem;
             float: left;
             background: #fff;
             margin-left: 0.39rem;
@@ -64,26 +64,30 @@
         }
         .clearTopBox_qty{
             width: 3rem;
-            height: 0.45rem;
+            height: 0.35rem;
             float: left;
+            margin-top:0.1rem;
         }
         .clearName_qty{
-            font-size: 0.3rem;
-            letter-spacing: 0.2rem;
+            font-size: 0.28rem;
+            height:0.28rem;
+            line-height:0.28rem;
+            /*letter-spacing: 0.2rem;*/
             color: #333333;
             float: left;
         }
         .clearNamebox_qty{
-            width: 1.08rem;
+            width: 0.7rem;
             height: 0.28rem;
             float: left;
             background: #2493f7;
+            margin-left:0.2rem;
+            box-sizing: border-box;
             font-size: 0.22rem;
             color: #fff;
             border-radius: 0.2rem;
             line-height: 0.28rem;
             text-align: center;
-            margin-top: 0.085rem;
         }
         .clearBottomBox_qty{
             width: 3rem;
@@ -92,10 +96,10 @@
         }
         .tele_qty{
             width: 3rem;
-            height: 0.4rem;
+            height: 0.5rem;
             float: left;
             font-size: 0.24rem;
-            line-height: 0.4rem;
+            line-height: 0.5rem;
             color: #999999;
         }
         .clearImgBox_qty{
@@ -240,7 +244,7 @@
         <div class="clearNameBox_qty">
             <div class="clearTopBox_qty">
                 <div class="clearName_qty">姓名</div>
-                <div class="clearNamebox_qty">实习员工</div>
+                <div class="clearNamebox_qty">实习</div>
             </div>
             <div class="clearBottomBox_qty">
                 <div class="tele_qty">13256418956</div>
@@ -249,9 +253,6 @@
         <div class="clearImgBox_qty">
             <img src="../../image/img_qty/auditBg_03.png">
         </div>
-    </div>
-    <div class="clerkBottom_qty">
-        <div class="clerkFontTop_qty">等待店长审批</div>
     </div>
 </div>
 </body>
@@ -270,6 +271,28 @@
                 dataType: 'text'
             }, function (ret, err) {
                 $("body").append(ret)
+            });
+            uid = api.getPrefs({sync: true, key: 'uid'});
+            type = api.getPrefs({sync: true, key: 'type'});
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=userinfo',
+                method: 'post',
+                data: {
+                    values: {uid: uid, type: type}
+                },
+                dataType: 'json'
+            }, function (ret, err) {
+                var name=ret.userinfo.name;
+                var phone=ret.userinfo.mobile;
+                var roleid=ret.userinfo.roleid;
+                if(roleid==5){
+                    $('.clearNamebox_qty').html('店员');
+                }
+                if(roleid==3){
+                    $('.clearNamebox_qty').html('店长');
+                }
+                $(".clearName_qty").html(name);
+                $(".tele_qty").html(phone);
             });
         }
     }

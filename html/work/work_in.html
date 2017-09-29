@@ -8,7 +8,25 @@
     <link rel="stylesheet" href="../../css/api.css">
     <script src="../../script/jquery.min.js"></script>
     <script src="../../script/rem.js"></script>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../modules/font_zn/iconfont.css"/>
     <style>
+        @font-face {
+            font-family: 'iconfont';
+            src: url('../../modules/iconfont/iconfont.eot');
+            src: url('../../modules/iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+            url('../../modules/iconfont/iconfont.woff') format('woff'),
+            url('../../modules/iconfont/iconfont.ttf') format('truetype'),
+            url('../../modules/iconfont/iconfont.svg#iconfont') format('svg');
+        }
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:0.48rem;font-style:normal;
+            color: #1b8bef;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
         html,body{
             background: #f6f6f6;
         }
@@ -23,12 +41,19 @@
             line-height: 0.88rem;
             text-align: center;
             color: #fff;
+            z-index: 999;
+            position: fixed;
+            top:0;
+            left:0;
         }
         .work_msg{
             width: 100%;
             height: 3.2rem;
-            background: url("../../image/img_yyt/work_in_yyt.png") no-repeat;
-            background-size: 100% 100%;
+            margin-top:0.88rem;
+        }
+        .work_msg img{
+            width: 100%;
+            height: 3.2rem;
         }
         .work_msg_con{
             width: 4.5rem;
@@ -89,18 +114,20 @@
             width: 6rem;
             height: auto;
             margin: 0 auto;
-            background: #ffffff;
+            /*background: #ffffff;*/
             margin-top: 0.2rem;
             border-top: 0.01rem solid #eeeeee;
             border-left: 0.01rem solid #eeeeee;
             overflow: hidden;
             display: block;
+            /*margin-bottom:1rem;*/
         }
         .work_one{
             width: 2rem;
             position: relative;
             height: 2rem;
             float: left;
+            background: #fff;
             border-right: 0.01rem solid #eeeeee;
             border-bottom: 0.01rem solid #eeeeee;
             box-sizing: border-box;
@@ -110,29 +137,29 @@
             height: 0.48rem;
             margin: 0 auto;
             margin-top: 0.6rem;
-            background: url("../../image/img_yyt/trade_in.png") no-repeat;
+            /*background: url("../../image/img_yyt/trade_in.png") no-repeat;*/
             background-size: 100% 100%;
         }
-        .work_one:nth-child(2) .work_one_icon{
-            background: url("../../image/img_yyt/trade_record.png");
-            background-size: 100% 100%;
-        }
-        .work_one:nth-child(3) .work_one_icon{
-            background: url("../../image/img_yyt/my_sh.png");
-            background-size: 100% 100%;
-        }
-        .work_one:nth-child(4) .work_one_icon{
-            background: url("../../image/img_yyt/store_manager.png");
-            background-size: 100% 100%;
-        }
-        .work_one:nth-child(5) .work_one_icon{
-            background: url("../../image/img_yyt/goods_num.png");
-            background-size: 100% 100%;
-        }
-        .work_one:nth-child(6) .work_one_icon{
-            background: url("../../image/img_yyt/my_q.png");
-            background-size: 100% 100%;
-        }
+        /*.work_one:nth-child(2) .work_one_icon{*/
+        /*background: url("../../image/img_yyt/trade_record.png");*/
+        /*background-size: 100% 100%;*/
+        /*}*/
+        /*.work_one:nth-child(3) .work_one_icon{*/
+        /*background: url("../../image/img_yyt/my_sh.png");*/
+        /*background-size: 100% 100%;*/
+        /*}*/
+        /*.work_one:nth-child(4) .work_one_icon{*/
+        /*background: url("../../image/img_yyt/store_manager.png");*/
+        /*background-size: 100% 100%;*/
+        /*}*/
+        /*.work_one:nth-child(5) .work_one_icon{*/
+        /*background: url("../../image/img_yyt/goods_num.png");*/
+        /*background-size: 100% 100%;*/
+        /*}*/
+        /*.work_one:nth-child(6) .work_one_icon{*/
+        /*background: url("../../image/img_yyt/my_q.png");*/
+        /*background-size: 100% 100%;*/
+        /*}*/
 
         .work_one_w{
             width: 100%;
@@ -152,11 +179,53 @@
             background: red;
             border-radius: 50%;
         }
+        /*轮播图*/
+        .swiper-container{
+            width:100%;
+            height:3.2rem;
+            position: relative;
+        }
+        .swiper-slide{
+            background: #fff;
+        }
+        .swiper-slide img{
+            width:100%;
+            height:100%;
+        }
+        .swiper-pagination{
+            position:absolute;
+            bottom:0 !important;
+        }
+        .swiper-pagination span{
+            width:0.2rem;
+            height:0.2rem;
+            border-radius: 0.1rem;
+            box-sizing: border-box;
+            background: #ccc;
+            opacity: 1 !important;
+        }
+        .swiper-pagination-bullet-active{
+            background: transparent !important;
+            border:0.02rem solid #2348a4 !important;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
 <div class="work_title">工作</div>
 <div class="work_msg">
+    <img src="../../image/image_zn/banner_zn_03.jpg" alt="">
+    <!--<div class="swiper-container">-->
+        <!--<div class="swiper-wrapper">-->
+            <!--&lt;!&ndash;<div class="swiper-slide">&ndash;&gt;-->
+            <!--&lt;!&ndash;<img src="../../image/img_qty/work_in_banner1.jpg" alt="">&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="swiper-slide">&ndash;&gt;-->
+            <!--&lt;!&ndash;<img src="../../image/img_yyt/work_in_yyt.png" alt="">&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="swiper-pagination"></div>-->
+    <!--</div>-->
     <!--<div class="work_msg_con">-->
     <!--<div class="goods_name">商品名称</div>-->
     <!--<div class="study_today_e">Activity today</div>-->
@@ -167,45 +236,58 @@
 </div>
 <ul class="work_con">
     <li class="work_one" onclick="open_trade_in()">
-        <div class="work_one_icon"></div>
+        <div class="work_one_icon iconfont">&#xe61a;</div>
         <div class="work_one_w">销售录入</div>
     </li>
     <li class="work_one" onclick="open_saleRecord()">
-        <div class="work_one_icon"></div>
+        <div class="work_one_icon iconfont">&#xe600;</div>
         <div class="work_one_w">销售记录</div>
     </li>
     <li class="work_one" onclick="open_shenhe()">
-        <div class="work_one_icon"></div>
+        <div class="work_one_icon iconfont">&#xe726;</div>
         <div class="work_one_w">我的审核</div>
         <div class="biaoji_yyt"></div>
     </li>
     <li class="work_one" onclick="open_shopM()">
-        <div class="work_one_icon"></div>
+        <div class="work_one_icon iconfont">&#xe604;</div>
         <div class="work_one_w">店员管理</div>
     </li>
     <li class="work_one" onclick="open_check()">
-        <div class="work_one_icon"></div>
+        <div class="work_one_icon iconfont">&#xe66a;</div>
         <div class="work_one_w">查看库存</div>
     </li>
     <li class="work_one" onclick="open_feed()">
-        <div class="work_one_icon"></div>
-        <div class="work_one_w">我的反馈</div>
+        <div class="work_one_icon iconfont">&#xe637;</div>
+        <div class="work_one_w">问答专区</div>
+    </li>
+    <li class="work_one" onclick="open_sale()">
+        <div class="work_one_icon iconfont icon-icon018"></div>
+        <div class="work_one_w">销售排行</div>
     </li>
 
 </ul>
 </body>
+<script src="../../script/swiper.min.js"></script>
 <script>
-
+    //    轮播图
+    //    var swiper=new Swiper('.swiper-container',{
+    //        pagination:'.swiper-pagination',
+    //        slidersPerView:1,
+    //        paginationClickable:true,
+    //        loop:true,
+    //        autoplay:3000,
+    //        autoplayDisableOnInteraction:false
+    //    })
 
 
 
 
     var store_id;
     var uid;
+    var roleid;
     function biaoji() {
         apiready=function () {
             store_id=api.getPrefs({sync:true,key:'store_id'});
-//            uid=api.getPrefs({sync:true,key:'uid'});
             api.ajax({
                 url: 'http://appapi.duyiwang.cn/index.php?action=verify&dir=work&do=wdstatus',
                 method: 'post',
@@ -218,6 +300,55 @@
                     $(".biaoji_yyt").css("display","block");
                 }
             });
+
+
+            //banner图片动态添加
+//            function get_image_zn(){
+//                var type=1;
+//                api.ajax({
+//                    url: 'http://appapi.duyiwang.cn/index.php?action=banner&dir=work&do=banner',
+//                    method: 'post',
+//                    data: {
+//                        values: {type:type}
+//                    },
+//                    dataType: 'json'
+//                }, function (ret, err) {
+//                    for(var i=0;i<ret.banner.img.length;i++){
+//                        var img=" <div class='swiper-slide'><img src='http://app.duyiwang.cn/img/"+ret.banner.img[i]+"' alt=''></div>";
+//                        $('.swiper-wrapper').append(img);
+//                    }
+//                    var swiper=new Swiper('.swiper-container',{
+//                        pagination:'.swiper-pagination',
+//                        slidersPerView:1,
+//                        paginationClickable:true,
+//                        loop:true,
+//                        autoplay:3000,
+//                        autoplayDisableOnInteraction:false
+//                    })
+//                });
+//            }
+//            get_image_zn();
+
+
+            //拿到roleid
+            function get_data() {
+                uid=api.getPrefs({sync:true,key:'uid'});
+                api.ajax({
+                    url: 'http://appapi.duyiwang.cn/index.php?action=member&dir=member&do=info',
+                    method: 'post',
+                    data: {
+                        values:{uid:uid}
+                    },
+                    dataType:'json'
+                },function(ret,err){
+                    if(ret.code == 200){
+                        roleid=ret.info.roleid;
+                    }else if(ret.code == 500){
+
+                    }
+                });
+            }
+            get_data()
         }
     }
     biaoji()
@@ -253,8 +384,8 @@
     function open_feed() {
 //        if (store_id) {
         api.openWin({
-            name: 'feed_qty',
-            url: 'widget://html/work/feed_qty.html',
+            name: 'feedback_message_zn',
+            url: 'widget://html/feedback/feedback_message_zn.html',
             bounces: false,
             rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
         });
@@ -274,10 +405,61 @@
 //        }
     }
     function open_saleRecord() {
-        if (parseInt(store_id)) {
+        if((roleid==3)||(roleid==5)){
             api.openWin({
-                name: 'saleRecord',
-                url: 'widget://html/work/saleRecord.html',
+                name: 'saleRecord_store_qty',
+                url: 'widget://html/work/saleRecord_store_qty.html',
+                bounces: false,
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }else if((roleid==2)||(roleid==4)){
+            api.openWin({
+                name: 'saleRecord_agency_qty',
+                url: 'widget://html/work/saleRecord_agency_qty.html',
+                bounces: false,
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }else if((roleid==1)||(roleid==6)||(roleid==7)){
+            api.openWin({
+                name: 'saleRecord_manager_zn',
+                url: 'widget://html/work/saleRecord_manager_zn.html',
+                bounces: false,
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        } else {
+            api.toast({
+                msg: '请选择您所属门店',
+                duration: 4000,
+                location: 'bottom'
+            });
+            api.openWin({
+                name: 'personInfo_qty',
+                url: 'widget://html/me/personInfo_qty.html',
+                bounces: false,
+                pageParam: {type: 1},
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }
+    }
+    function open_sale() {
+        if((roleid==3)||(roleid==5)){
+            api.openWin({
+                name: 'saleRank_entry_qty',
+                url: 'widget://html/saleBank/saleRank_entry_qty.html',
+                bounces: false,
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }else if((roleid==2)||(roleid==4)){
+            api.openWin({
+                name: 'saleRank_entry_agency_zn',
+                url: 'widget://html/saleBank/saleRank_entry_agency_zn.html',
+                bounces: false,
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }else if((roleid==1)||(roleid==6)||(roleid==7)){
+            api.openWin({
+                name: 'saleRank_country_qty',
+                url: 'widget://html/saleBank/saleRank_country_qty.html',
                 bounces: false,
                 rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
             });
@@ -351,5 +533,18 @@
             rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
         });
     }
+    function store_id_cz() {
+        store_id=api.getPrefs({sync:true,key:'store_id'});
+    }
+
+
+    $(".work_one").on("touchstart",function () {
+        $(this).css("background","#eee")
+        $(this).on("touchend",function () {
+            $(this).css("background","#fff")
+            $(this).off("touchend")
+        })
+    })
+
 </script>
 </html>

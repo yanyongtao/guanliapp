@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        html,body{
+            background: #f5f5f5;
+            position: relative;
+        }
+        .header_qty{
+            width: 100%;
+            height: 0.88rem;
+            background: #2493f7;
+            text-align: center;
+            font-size: 0.34rem;
+            color: #fff;
+            line-height: 0.88rem;
+            float: left;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 99;
+        }
+        .arrow_qty{
+        	width: 1.2rem;
+            height: 0.88rem;
+            position: fixed;
+            left: 0rem;
+            top: 0rem;
+            z-index: 9999;
+        }
+        .arrowLeft_qty{
+        	width: 0.15rem;
+        	height: 0.28rem;
+        	float: left;
+        	background-image: url(../../image/img_qty/arrowLeft_06.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+        }
+        .saleRecordBox_qty{
+        	width: 6rem;
+        	margin: auto;
+        	overflow: hidden;
+        	/*margin-top: 1.18rem;*/
+        	background: #FFFFFF;
+        	padding-bottom: 0.5rem;
+        }
+        .btn_qty{
+			width: 6rem;
+			height: 0.82rem;
+			margin:0 auto;
+			background: #fff;
+			margin-top:1.18rem;
+			border-bottom: 1px solid #EEEEEE;
+        }
+        .btn_qty li{
+        	width: 1.5rem;
+        	height: 0.82rem;
+        	float: left;
+        	font-size: 0.24rem;
+        	text-align: center;
+        	line-height: 0.82rem;
+        	color: #333333;
+        	position: relative;
+        }
+        .btn_qty li:after{
+        	content: "";
+        	width: 1px;
+        	height: 0.4rem;
+        	position: absolute;
+        	right: 0;
+        	top: 0.21rem;
+        	background: #eeeeee;
+        }
+        .btn_qty li:last-child:after{
+        	width: 0rem !important;
+        }
+        .on_qty{
+        	border-bottom: 2px solid #2493f7;
+        	color: #2493F7 !important;
+        }
+        .dyz_qty{
+        	width: 100%;
+        	font-size: 0.24rem;
+        	text-align: center;
+        	color: #1d1d1d;
+        	float: left;
+        	margin-top: 0.2rem;
+        	letter-spacing: 0.01rem;
+        }
+        .time_qty{
+        	font-size: 0.22rem;
+        	color: #696969;
+        }
+        .tc_qty{
+        	font-weight: bold;
+        	color: #2493F7;
+        }
+        .sxpmBox_qty{
+        	float: left;
+        	font-size: 0.24rem;
+        	line-height: 0.6rem;
+        	margin-left: 0.2rem;
+        	color: #575757;
+        }
+        .pmBox_qty{
+        	width: 100%;
+        	height: 0.7rem;
+        	float: left;
+        	margin-top: 0.36rem;
+        	font-size: 0.24rem;
+        	color: #2493F7;
+        	line-height: 0.7rem;
+        	text-align: left;
+        }
+        .pmfontt_qty{
+        	width: 1.86rem;
+        	float: left;
+        }
+        .pmFont_qty{
+        	float: left;
+        }
+        .pmImg_qty{
+        	width: 0.14rem;
+        	height: 0.18rem;
+        	float: left;
+        	margin-top: 0.26rem;
+        	margin-left: 0.1rem;
+        }
+        .pmImg_qty img{
+        	width: 0.14rem;
+        	height: 0.07rem;
+        	float: left;
+        	margin-bottom: 0.04rem;
+        }
+        .hide1_qty,.hide2_qty{
+        	display: none;
+        }
+        .show1_qty,.show2_qty{
+        	display: block;
+        }
+        .productName_qty{
+        	width: 2.6rem;
+        	float: left;
+        }
+        .saleMath_qty{
+        	width: 1.14rem;
+        	float: left;
+        }
+        .pmSmallBox_qty{
+        	width: 5.6rem;
+        	height: 0.7rem;
+        	margin: auto;
+        	overflow: hidden;
+        	border-bottom: 1px solid #DCDCDC;
+        	border-top: 1px solid #DCDCDC;
+        }
+        .mdBox_qty{
+        	width: 100%;
+        	float: left;
+        }
+        .mdBox_qty li{
+        	width: 5.6rem;
+        	height: 0.7rem;
+        	margin: auto;
+        	overflow: hidden;
+        	border-bottom: 1px solid #DCDCDC;
+        	font-size: 0.22rem;
+        	line-height: 0.7rem;
+        	text-align: left;
+        	color: #575757;
+        }
+        .pmcc_qty{
+        	width: 1.86rem;
+        	float: left;
+        	text-align: left;
+        }
+        .productNamecc_qty{
+        	width: 2.6rem;
+        	float: left;
+        }
+        .saleMathcc_qty{
+        	width: 1.14rem;
+        	float: left;
+        }
+		.sale_list_zn:nth-child(2){
+			display: none;
+		}
+		.sale_list_zn:nth-child(3){
+			display: none;
+		}
+		.sale_list_zn:nth-child(4){
+			display: none;
+		}
+        .sale_box_zn_zn{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_qty">销售记录</div>
+    <div class="arrow_qty" onclick="api.closeWin()">
+        <div class="arrowLeft_qty"></div>
+    </div>
+	<ul class="btn_qty">
+		<li class="on_qty">今天</li>
+		<li>本周</li>
+		<li>本月</li>
+		<li>今年</li>
+	</ul>
+    <div class="saleRecordBox_qty">
+
+		<!--<ul class="sale_box_zn">-->
+			<!--<li class="sale_list_zn">-->
+				<!--<div class="dyz_qty">-->
+					<!--<span class="time_qty">08.28-09.05</span>-->
+					<!--<span class="tc_qty">太常门店销售记录</span>-->
+				<!--</div>-->
+				<!--<div class="pmBox_qty">-->
+					<!--<div class="pmSmallBox_qty">-->
+						<!--<div class="pmfontt_qty">-->
+							<!--<div class="pmFont_qty">排名</div>-->
+							<!--<div class="pmImg_qty">-->
+								<!--<img src="../../image/img_qty/tcc_qty.png" class="hide1_qty"/>-->
+								<!--<img src="../../image/img_qty/tco_qty.png" class="show1_qty"/>-->
+								<!--<img src="../../image/img_qty/xcc_qty.png" class="show2_qty"/>-->
+								<!--<img src="../../image/img_qty/xco_qty.png" class="hide2_qty"/>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="productName_qty">产品名称</div>-->
+						<!--<div class="saleMath_qty">总销售额</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<ul class="mdBox_qty">-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">01</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">02</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">03</div>-->
+						<!--<div class="productNamecc_qty">温泉</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">04</div>-->
+						<!--<div class="productNamecc_qty">炙骨宁</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">05</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">06</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">07</div>-->
+						<!--<div class="productNamecc_qty">温泉</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">08</div>-->
+						<!--<div class="productNamecc_qty">炙骨宁</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">09</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">10</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+				<!--</ul>-->
+			<!--</li>-->
+			<!--<li class="sale_list_zn">-->
+				<!--<div class="dyz_qty">-->
+					<!--<span class="time_qty">08.28-09.05</span>-->
+					<!--<span class="tc_qty">太常门店销售记录</span>-->
+				<!--</div>-->
+				<!--<div class="pmBox_qty">-->
+					<!--<div class="pmSmallBox_qty">-->
+						<!--<div class="pmfontt_qty">-->
+							<!--<div class="pmFont_qty">排名</div>-->
+							<!--<div class="pmImg_qty">-->
+								<!--<img src="../../image/img_qty/tcc_qty.png" class="hide1_qty"/>-->
+								<!--<img src="../../image/img_qty/tco_qty.png" class="show1_qty"/>-->
+								<!--<img src="../../image/img_qty/xcc_qty.png" class="show2_qty"/>-->
+								<!--<img src="../../image/img_qty/xco_qty.png" class="hide2_qty"/>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="productName_qty">产品名称</div>-->
+						<!--<div class="saleMath_qty">总销售额</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<ul class="mdBox_qty">-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">01</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">02</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">03</div>-->
+						<!--<div class="productNamecc_qty">温泉</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">04</div>-->
+						<!--<div class="productNamecc_qty">炙骨宁</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">05</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">06</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">07</div>-->
+						<!--<div class="productNamecc_qty">温泉</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">08</div>-->
+						<!--<div class="productNamecc_qty">炙骨宁</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">09</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">10</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+				<!--</ul>-->
+			<!--</li>-->
+			<!--<li class="sale_list_zn">-->
+				<!--<div class="dyz_qty">-->
+					<!--<span class="time_qty">08.28-09.05</span>-->
+					<!--<span class="tc_qty">太常门店销售记录</span>-->
+				<!--</div>-->
+				<!--<div class="pmBox_qty">-->
+					<!--<div class="pmSmallBox_qty">-->
+						<!--<div class="pmfontt_qty">-->
+							<!--<div class="pmFont_qty">排名</div>-->
+							<!--<div class="pmImg_qty">-->
+								<!--<img src="../../image/img_qty/tcc_qty.png" class="hide1_qty"/>-->
+								<!--<img src="../../image/img_qty/tco_qty.png" class="show1_qty"/>-->
+								<!--<img src="../../image/img_qty/xcc_qty.png" class="show2_qty"/>-->
+								<!--<img src="../../image/img_qty/xco_qty.png" class="hide2_qty"/>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="productName_qty">产品名称</div>-->
+						<!--<div class="saleMath_qty">总销售额</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<ul class="mdBox_qty">-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">01</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">02</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">03</div>-->
+						<!--<div class="productNamecc_qty">温泉</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">04</div>-->
+						<!--<div class="productNamecc_qty">炙骨宁</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">05</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">06</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">07</div>-->
+						<!--<div class="productNamecc_qty">温泉</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">08</div>-->
+						<!--<div class="productNamecc_qty">炙骨宁</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">09</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">10</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+				<!--</ul>-->
+			<!--</li>-->
+			<!--<li class="sale_list_zn">-->
+				<!--<div class="dyz_qty">-->
+					<!--<span class="time_qty">08.28-09.05</span>-->
+					<!--<span class="tc_qty">太常门店销售记录</span>-->
+				<!--</div>-->
+				<!--<div class="pmBox_qty">-->
+					<!--<div class="pmSmallBox_qty">-->
+						<!--<div class="pmfontt_qty">-->
+							<!--<div class="pmFont_qty">排名</div>-->
+							<!--<div class="pmImg_qty">-->
+								<!--<img src="../../image/img_qty/tcc_qty.png" class="hide1_qty"/>-->
+								<!--<img src="../../image/img_qty/tco_qty.png" class="show1_qty"/>-->
+								<!--<img src="../../image/img_qty/xcc_qty.png" class="show2_qty"/>-->
+								<!--<img src="../../image/img_qty/xco_qty.png" class="hide2_qty"/>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="productName_qty">产品名称</div>-->
+						<!--<div class="saleMath_qty">总销售额</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<ul class="mdBox_qty">-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">01</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">02</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">03</div>-->
+						<!--<div class="productNamecc_qty">温泉</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">04</div>-->
+						<!--<div class="productNamecc_qty">炙骨宁</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">05</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">06</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">07</div>-->
+						<!--<div class="productNamecc_qty">温泉</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">08</div>-->
+						<!--<div class="productNamecc_qty">炙骨宁</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">09</div>-->
+						<!--<div class="productNamecc_qty">仪年堂</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="pmcc_qty">10</div>-->
+						<!--<div class="productNamecc_qty">老膏药</div>-->
+						<!--<div class="saleMathcc_qty">10000</div>-->
+					<!--</li>-->
+				<!--</ul>-->
+			<!--</li>-->
+		<!--</ul>-->
+    </div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+</script>
+<script type="text/javascript">
+    $(function(){
+    	//判断高亮选中状态
+		$(document).on("click",".btn_qty li",function(){
+			var index=$(this).index(); //获取被按下按钮的索引值，需要注意index是从0开始的
+			$(".sale_box_zn .sale_list_zn").eq(index).show().siblings().hide(); //在按钮选中时在下面显示相应的内容，同时隐藏不需要的框架内容
+		    $(this).addClass("on_qty").siblings().removeClass("on_qty"); //切换选中的按钮高亮状态
+            $(".sale_box_zn_zn .sale_list_zn").eq(index).show().siblings().hide(); //在按钮选中时在下面显示相应的内容，同时隐藏不需要的框架内容
+ 		});
+	});
+	function get_data() {
+		apiready=function () {
+			store_id=api.getPrefs({sync:true,key:'store_id'});
+			api.ajax({
+				url: 'http://appapi.duyiwang.cn/index.php?action=sales&dir=work&do=sales_history2',
+				method: 'post',
+				data: {
+					values: {store_id:store_id}
+				},
+				dataType: 'text'
+			}, function (ret, err) {
+				$('.saleRecordBox_qty').append(ret);
+			});
+
+		}
+	}
+	get_data()
+    //排行顺序切换
+    var ranking_flag=true;
+    $(document).on("click",".pmfontt_qty",function(){
+        if(ranking_flag==true){
+            ranking_flag=false;
+            $('.sale_box_zn').hide();
+            $('.sale_box_zn_zn').show();
+            var index = $('.on_qty').index();
+            $(".sale_box_zn_zn .sale_list_zn").eq(index).show().siblings().hide(); //在按钮选中时在下面显示相应的内容，同时隐藏不需要的框架内容
+            $('.pmfontt_qty').children('.pmImg_qty').children('.hide1_qty').show();
+            $('.pmfontt_qty').children('.pmImg_qty').children('.show1_qty').hide();
+            $('.pmfontt_qty').children('.pmImg_qty').children('.hide2_qty').show();
+            $('.pmfontt_qty').children('.pmImg_qty').children('.show2_qty').hide();
+
+        }else{
+            $('.sale_box_zn').show();
+            $('.sale_box_zn_zn').hide();
+            var index = $('.on_qty').index();
+            $(".sale_box_zn_zn .sale_list_zn").eq(index).show().siblings().hide(); //在按钮选中时在下面显示相应的内容，同时隐藏不需要的框架内容
+            ranking_flag=true;
+            $('.pmfontt_qty').children('.pmImg_qty').children('.hide1_qty').hide();
+            $('.pmfontt_qty').children('.pmImg_qty').children('.show1_qty').show();
+            $('.pmfontt_qty').children('.pmImg_qty').children('.hide2_qty').hide();
+            $('.pmfontt_qty').children('.pmImg_qty').children('.show2_qty').show();
+        }
+    })
+</script>
+</html>

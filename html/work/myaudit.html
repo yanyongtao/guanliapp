@@ -598,23 +598,6 @@
 		<!--<div class="agree_a_yyt">同意</div>-->
 		<!--<div class="refuse_a_yyt">拒绝</div>-->
 	<!--</div>-->
-<!--</div>-->
-<!--<div class="shBox_yyt">-->
-	<!--<div class="person_sq_yyt">-->
-		<!--<div class="person_sq_name">申请人</div>-->
-		<!--<div class="person_sq_con">闫永涛</div>-->
-	<!--</div>-->
-	<!--<div class="shWatch_yyt">查看</div>-->
-	<!--<div class="shXiang_yyt">-->
-		<!--<div class="shXiang_yyt_name">录入详情</div>-->
-		<!--<div class="shXiang_con_yyt">张建设与2017年06月01日录入产品1，产品数量为2件，共计140元，请您及时查收并审批</div>-->
-	<!--</div>-->
-	<!--<div class="shTime_yyt">2017.01.02</div>-->
-	<!--<div class="wait_sh_yyt">待审批</div>-->
-	<!--<div class="alert_yyt">-->
-		<!--<div class="agree_a_yyt">同意</div>-->
-		<!--<div class="refuse_a_yyt">拒绝</div>-->
-	<!--</div>-->
 <!--</div><div class="shBox_yyt">-->
 	<!--<div class="person_sq_yyt">-->
 		<!--<div class="person_sq_name">申请人</div>-->
@@ -657,6 +640,13 @@
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
 
+	$(".shWatch_yyt").on("touchstart",function () {
+		$(this).css("color","#0066CC")
+		$(this).on("touchend",function () {
+			$(this).css("color","#2493f7")
+			$(this).off("touchend")
+		})
+	})
 
 
 
@@ -713,9 +703,6 @@
 	}
 	function name_mobile() {
 		var aa=setInterval(function () {
-			alert(roleid)
-			alert(mobile)
-			alert(name)
 			if (name){
 				if ($(".me_name_").html()!=name||$(".me_phone").html()!=mobile){
 					$(".me_name_").html(name)

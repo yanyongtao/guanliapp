@@ -264,7 +264,7 @@
 			if ($(this).is(':checked')){
 				$(this).attr("num",th)
 				person_id = $(this).attr("value");
-				personName = $(this).parent().text();
+				personName = $(this).parent().children('span').html();
 				shuju_yyt[th] = new Array();
 				shuju_yyt[th][0] = person_id;
 				shuju_yyt[th][1] = personName;
@@ -289,7 +289,7 @@
 				},
 				dataType: 'text'
 			}, function (ret, err) {
-				$(".groupBigBox_qty").append(ret)
+				$(".groupBigBox_qty").append(ret);
 			});
 		}
 	}

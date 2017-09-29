@@ -156,5 +156,13 @@
             }
         });
     }
+
+    $(".button").on("touchstart",function () {
+        $(this).css("background","#0066CC")
+        $(this).on("touchend",function () {
+            $(this).css("background","#2493f7")
+            $(this).off("touchend")
+        })
+    })
 </script>
 </html>

@@ -147,6 +147,64 @@
 			padding-top: 0.15rem;
 			margin-bottom: -0.1rem;
 		}
+		.qunliao_pic_yyt{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			background: #fff;
+			border-bottom: 0.01rem solid #f6f6f6;
+		}
+		.picture_con_yyt{
+			width: 6rem;
+			height: auto;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+		.picWord_yyt{
+			width: auto;
+			height: auto;
+			overflow: hidden;
+			font-size: 0.24rem;
+			line-height: 0.8rem;
+			color: #333;
+			float: left;
+		}
+		.pic_con_yyt{
+			width: 0.6rem;
+			height: 0.6rem;
+			float: right;
+			margin: 0.1rem;
+		}
+		.select_qunPic_yyt{
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			margin: 0.2rem 0;
+			background: #fff;
+			display: none;
+		}
+		.select_QPCon_yyt{
+			width: 6rem;
+			height: auto;
+			margin: 0 auto;
+		}
+		.picture_q_yyt{
+			width: 0.8rem;
+			height: 0.8rem;
+			margin: 0.2rem;
+			float: left;
+		}
+		.wait_name_zn{
+			float: left;
+			color: #999999;
+			font-size: 0.24rem;
+			text-align: center;
+			margin-right: 0.05rem;
+			margin-top: 0.2rem;
+			line-height: 0.2rem;
+			padding: 0 0.06rem;
+			display: none;
+		}
     </style>
 </head>
 <body>
@@ -156,6 +214,7 @@
     </div>
     <div class="addGroupChart_qty">
     	<div class="addChartFont_qty">
+			<span class="wait_name_zn">请稍后</span>
     		<!--<span class="addName_qty">王小二、</span>-->
     		<!--<span class="addName_qty">张三、</span>-->
     		<!--<span class="addName_qty">李四、</span>-->
@@ -170,6 +229,19 @@
     	</div>
     </div>
     <ul class="addChartName_qty">
+		<div class="qunliao_pic_yyt">
+			<div class="picture_con_yyt">
+				<div class="picWord_yyt">群头像</div>
+				<img src="../../image/tc_log.png" alt="" class="pic_con_yyt">
+			</div>
+		</div>
+		<div class="select_qunPic_yyt">
+			<div class="select_QPCon_yyt">
+				<img src="../../image/header_picture/picture_q_1.jpg" alt="" class="picture_q_yyt" picture="picture_q_1.jpg">
+				<img src="../../image/header_picture/picture_q_2.jpg" alt="" class="picture_q_yyt" picture="picture_q_2.jpg">
+				<img src="../../image/header_picture/picture_q_3.jpg" alt="" class="picture_q_yyt" picture="picture_q_3.jpg">
+			</div>
+		</div>
     	<li>
     		<div class="addChart_qty" onclick="open_chatName_yyt()">
     			<span class="groupChartName_qty ">群聊名称</span>
@@ -207,6 +279,20 @@
 		apiready = function () {
 			gid = api.pageParam.gid;
 			api.ajax({
+				url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhxx',
+				method: 'post',
+				data: {
+					values: {uid: uid, gid: gid}
+				},
+				dataType: 'json'
+			}, function (ret, err) {
+				if (ret.groups_info.ug_img){
+					$(".pic_con_yyt").attr("src","../../image/header_picture/"+ret.groups_info.ug_img+"")
+				}
+
+			});
+			$('.wait_name_zn').css('display','block');
+			api.ajax({
 				url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qlxx',
 				method: 'post',
 				data: {
@@ -214,11 +300,12 @@
 				},
 				dataType: 'json'
 			}, function (ret, err) {
+				$('.wait_name_zn').css('display','none');
 				$(".groupCard_qty").html(ret.groups_info.ug_name);
 				$(".groupChartName_yyt").html("群公告："+ret.groups_info.ug_notice);
 				for (var i=0;i<ret.groups_users_list.length;i++){
 					var aa = "<span class='addName_qty'>"+ret.groups_users_list[i].gu_group_nick+"、</span>";
-					$(".addChartFont_qty").append(aa)
+					$(".addChartFont_qty").append(aa);
 				}
 			});
 		}
@@ -346,5 +433,41 @@
 			}
 		});
 	}
+
+	var ug_img;
+	function select_qPic() {
+		$(".picture_con_yyt").on("click",function () {
+			if ($(".select_qunPic_yyt").css("display") == "none"){
+				$(".select_qunPic_yyt").css("display","block");
+			}else {
+				$(".select_qunPic_yyt").css("display","none");
+			}
+		})
+		$(".picture_q_yyt").on("click",function () {
+			ug_img = $(this).attr("picture");
+			$(".select_qunPic_yyt").css("display","none");
+			$(".pic_con_yyt").attr("src","../../image/header_picture/"+ug_img+"");
+			api.ajax({
+				url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=edit',
+				method: 'post',
+				data: {
+					values: {gid:gid,flag:"groups_pic",ug_img:ug_img}
+				},
+				dataType: 'json'
+			}, function (ret, err) {
+				api.execScript({
+					name: 'info_qty',
+					script: 'chat_list_yyt()'
+				});
+				api.toast({
+					msg: ret.msg,
+					duration: 3000,
+					location: 'bottom'
+				});
+			});
+		})
+	}
+	select_qPic()
+
 </script>
 </html>

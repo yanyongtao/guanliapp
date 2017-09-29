@@ -584,6 +584,15 @@
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script>
+
+    $(".shWatch_yyt").on("touchstart",function () {
+        $(this).css("color","#0066CC")
+        $(this).on("touchend",function () {
+            $(this).css("color","#2493f7")
+            $(this).off("touchend")
+        })
+    })
+
     function close_() {
         var wait_sh_yyt = $(".wait_sh_yyt");
         for (var i=wait_sh_yyt.length-1;i>0;i--){

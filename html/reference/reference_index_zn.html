@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f5f5f5;
+        }
+        .stock_box_zn{
+            background: #2493F7;
+            height:.88rem;
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            overflow: hidden;
+            z-index:10;
+        }
+        .stock_zn{
+            color:#fff;
+            font-size: .32rem;
+            height:100%;
+            line-height: .88rem;
+            text-align: center;
+        }
+        .slider_box{
+            height:2.8rem;
+            margin-top:0.88rem;
+        }
+        .swiper-container{
+            width:100%;
+            height:2.8rem;
+            position: relative;
+        }
+        .swiper-slide{
+            background: #fff;
+        }
+        .swiper-slide img{
+            width:100%;
+            height:100%;
+        }
+        .swiper-pagination{
+            position:absolute;
+            bottom:0 !important;
+        }
+        .swiper-pagination span{
+            width:0.2rem;
+            height:0.2rem;
+            border-radius: 0.1rem;
+            box-sizing: border-box;
+            background: #ccc;
+            opacity: 1 !important;
+        }
+        .swiper-pagination-bullet-active{
+            background: transparent !important;
+            border:0.02rem solid #2348a4 !important;
+            box-sizing: border-box;
+        }
+        .main_box_zn{
+            margin-top:0.3rem;
+            height:1.6rem;
+            width:100%;
+            box-sizing: border-box;
+        }
+        .main_list_zn{
+            width:0.8rem;
+            height:1.6rem;
+            float: left;
+            margin-left:0.4rem;
+            margin-right:0.4rem;
+        }
+        .main_list_zn img{
+            width:0.8rem;
+            height:0.8rem;
+            display: block;
+        }
+        .main_list_zn p{
+            height:0.7rem;
+            width:0.8rem;
+            box-sizing: border-box;
+            text-align: center;
+            line-height:0.7rem;
+            color:#333;
+            font-size:0.28rem;
+        }
+        .product_reference_zn{
+            width:100%;
+            height:5.4rem;
+            background: #fff;
+            overflow: hidden;
+        }
+        .product_title{
+            height:0.9rem;
+            line-height:0.9rem;
+            width:100%;
+            text-align: center;
+            position: relative;
+        }
+        .product_title span:first-child{
+            width:0.22rem;
+            height:0.27rem;
+            display: block;
+            background: url('../../image/image_zn/product_icon_title_zn.png');
+            background-size:cover;
+            position:absolute;
+            top:0.31rem;
+            left:40%;
+        }
+        .product_title span:last-child{
+            font-size:0.28rem;
+            color:#999;
+            height:0.9rem;
+            line-height:0.9rem;
+            position:absolute;
+            left:45%;
+        }
+        .product_box_zn{
+            width:100%;
+            height:4.5rem;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .product_list_zn{
+            width:2.9rem;
+            height:2.25rem;
+            margin-left:0.15rem;
+            margin-right:0.15rem;
+            float:left;
+            /*padding:0.1rem;*/
+            box-sizing: border-box;
+        }
+        .product_list_zn img{
+            width:2.9rem;
+            height:1.6rem;
+            display: block;
+            background: #fff;
+        }
+        .product_list_zn p{
+            height:0.65rem;
+            line-height:0.65rem;
+            font-size:0.22rem;
+            color:#535353;
+            text-align: center;
+            width:100%;
+        }
+        .secrete_shop_zn{
+            width:100%;
+            height:auto;
+            background: #fff;
+            overflow: hidden;
+            margin-top:0.3rem;
+        }
+        .product_title_secrete{
+            height:0.9rem;
+            line-height:0.9rem;
+            width:100%;
+            text-align: center;
+            position: relative;
+        }
+        .product_title_secrete span:first-child{
+            width:0.24rem;
+            height:0.27rem;
+            display: block;
+            background: url('../../image/image_zn/secreate_titlte_zn.png');
+            background-size:cover;
+            position:absolute;
+            top:0.31rem;
+            left:40%;
+        }
+        .product_title_secrete span:last-child{
+            font-size:0.28rem;
+            color:#999;
+            height:0.9rem;
+            line-height:0.9rem;
+            position:absolute;
+            left:45%;
+        }
+        .marketing_cheats_box{
+            width:100%;
+            height:auto;
+            background: #fff;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .marketing_list_zn{
+            width:6rem;
+            height:1.27rem;
+            padding:0.1rem;
+            margin: 0 auto;
+            /*box-sizing: border-box;*/
+            margin-bottom:0.3rem;
+            overflow: hidden;
+        }
+        .marketing_img_zn{
+            float:left;
+            width:1.93rem;
+            height:1.27rem;
+            box-sizing: border-box;
+        }
+        .marketing_img_zn img{
+            width:1.93rem;
+            height:1.27rem;
+            box-sizing: border-box;
+        }
+        .skill_box{
+            float:left;
+            margin-left:0.27rem;
+            width:3.5rem;
+            height:1.27rem;
+            /*box-sizing: border-box;*/
+        }
+        .skill_title{
+            height:0.24rem;
+            line-height:0.26rem;
+            font-size:0.24rem;
+            width:100%;
+            color:#525252;
+            letter-spacing: 0.02rem;
+        }
+        .skill_con{
+            width:100%;
+            height:0.6rem;
+            line-height:0.3rem;
+            font-size:0.2rem;
+            letter-spacing: 0.01rem;
+            color:#999;
+            margin-top:0.15rem;
+        }
+        .study_zn{
+            width:100%;
+            height:0.2rem;
+            line-height:0.2rem;
+            font-size:0.18rem;
+            color:#b8b8b8;
+            overflow: hidden;
+            margin-top:0.07rem;
+        }
+        .health_example_zn{
+            width:100%;
+            height:auto;
+            background: #fff;
+            box-sizing: border-box;
+            overflow: hidden;
+            margin-top:0.3rem;
+            margin-bottom:0.3rem;
+        }
+        .product_title_health{
+            height:0.9rem;
+            line-height:0.9rem;
+            width:100%;
+            text-align: center;
+            position: relative;
+        }
+        .product_title_health span:first-child{
+            width:0.27rem;
+            height:0.27rem;
+            display: block;
+            background: url('../../image/image_zn/example_title_zn.png');
+            background-size:cover;
+            position:absolute;
+            top:0.31rem;
+            left:40%;
+        }
+        .product_title_health span:last-child{
+            font-size:0.28rem;
+            color:#999;
+            height:0.9rem;
+            line-height:0.9rem;
+            position:absolute;
+            left:45%;
+        }
+        .study_zn span:last-child{
+            float:right;
+        }
+        .mask{
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+<div class="stock_box_zn">
+    <div class="stock_zn">资料</div>
+</div>
+<div class="slider_box">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--<div class="swiper-slide">-->
+                <!--<img src="../../image/image_zn/background_banner_01_zn.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="swiper-slide">-->
+                <!--<img src="../../image/image_zn/background_banner_02_zn.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="swiper-slide">-->
+                <!--<img src="../../image/image_zn/background_banner_03_zn.jpg" alt="">-->
+            <!--</div>-->
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<ul class="main_box_zn">
+    <li class="main_list_zn" onclick="open_product()">
+        <img src="../../image/image_zn/main_list_01zn.png" alt=""/>
+        <p>产品</p>
+    </li>
+    <li class="main_list_zn" onclick="open_cheats()">
+        <img src="../../image/image_zn/main_list_02zn.png" alt=""/>
+        <p>秘籍</p>
+    </li>
+    <li class="main_list_zn" onclick="open_health()">
+        <img src="../../image/image_zn/main_list_03zn.png" alt=""/>
+        <p>案例</p>
+    </li>
+    <li class="main_list_zn" onclick="open_download()">
+        <img src="../../image/image_zn/main_list_04zn.png" alt=""/>
+        <p>下载</p>
+    </li>
+</ul>
+<!--<div class="product_reference_zn">-->
+    <!--<p class="product_title">-->
+        <!--<span></span>-->
+        <!--<span>产品资料</span>-->
+    <!--</p>-->
+    <!--<ul class="product_box_zn">-->
+        <!--<li class="product_list_zn">-->
+            <!--<img src="" alt=""/>-->
+            <!--<p>独一张·仪年堂</p>-->
+        <!--</li>-->
+        <!--<li class="product_list_zn">-->
+            <!--<img src="" alt=""/>-->
+            <!--<p>独一张·老膏药</p>-->
+        <!--</li>-->
+        <!--<li class="product_list_zn">-->
+            <!--<img src="" alt=""/>-->
+            <!--<p>独一张·温泉</p>-->
+        <!--</li>-->
+        <!--<li class="product_list_zn">-->
+            <!--<img src="" alt=""/>-->
+            <!--<p>独一张·炙骨宁</p>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--<div class="secrete_shop_zn">-->
+    <!--<p class="product_title_secrete">-->
+        <!--<span></span>-->
+        <!--<span>营销秘籍</span>-->
+    <!--</p>-->
+    <!--<ul class="marketing_cheats_box">-->
+        <!--<li class="marketing_list_zn">-->
+            <!--<p class="marketing_img_zn">-->
+                <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+            <!--</p>-->
+            <!--<div class="skill_box">-->
+                <!--<p class="skill_title">门店运营的精炼技巧</p>-->
+                <!--<p class="skill_con">-->
+                    <!--如何快速的学习到门店运营的技巧，将直接影响您的门店收入。-->
+                <!--</p>-->
+                <!--<p class="study_zn">-->
+                    <!--<span>24门课/134人学习</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="marketing_list_zn">-->
+            <!--<p class="marketing_img_zn">-->
+                <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+            <!--</p>-->
+            <!--<div class="skill_box">-->
+                <!--<p class="skill_title">门店运营的精炼技巧</p>-->
+                <!--<p class="skill_con">-->
+                    <!--如何快速的学习到门店运营的技巧，将直接影响您的门店收入。-->
+                <!--</p>-->
+                <!--<p class="study_zn">-->
+                    <!--<span>24门课/134人学习</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="marketing_list_zn">-->
+            <!--<p class="marketing_img_zn">-->
+                <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+            <!--</p>-->
+            <!--<div class="skill_box">-->
+                <!--<p class="skill_title">门店运营的精炼技巧</p>-->
+                <!--<p class="skill_con">-->
+                    <!--如何快速的学习到门店运营的技巧，将直接影响您的门店收入。-->
+                <!--</p>-->
+                <!--<p class="study_zn">-->
+                    <!--<span>24门课/134人学习</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--<div class="health_example_zn">-->
+    <!--<p class="product_title_health">-->
+        <!--<span></span>-->
+        <!--<span>康复案例</span>-->
+    <!--</p>-->
+    <!--<ul class="marketing_cheats_box">-->
+        <!--<li class="marketing_list_zn">-->
+            <!--<p class="marketing_img_zn">-->
+                <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+            <!--</p>-->
+            <!--<div class="skill_box">-->
+                <!--<p class="skill_title">来自：独一张太矿店</p>-->
+                <!--<p class="skill_con">-->
+                   <!--康复案例的一些文字简介，康复案例的一些文字简介...-->
+                <!--</p>-->
+                <!--<p class="study_zn">-->
+                    <!--<span>产品：独一张·老膏药</span>-->
+                    <!--<span>2017-08-04</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="marketing_list_zn">-->
+            <!--<p class="marketing_img_zn">-->
+                <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+            <!--</p>-->
+            <!--<div class="skill_box">-->
+                <!--<p class="skill_title">来自：独一张太矿店</p>-->
+                <!--<p class="skill_con">-->
+                    <!--康复案例的一些文字简介，康复案例的一些文字简介...-->
+                <!--</p>-->
+                <!--<p class="study_zn">-->
+                    <!--<span>产品：独一张·老膏药</span>-->
+                    <!--<span>2017-08-04</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="marketing_list_zn">-->
+            <!--<p class="marketing_img_zn">-->
+                <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+            <!--</p>-->
+            <!--<div class="skill_box">-->
+                <!--<p class="skill_title">来自：独一张太矿店</p>-->
+                <!--<p class="skill_con">-->
+                    <!--康复案例的一些文字简介，康复案例的一些文字简介...-->
+                <!--</p>-->
+                <!--<p class="study_zn">-->
+                    <!--<span>产品：独一张·老膏药</span>-->
+                    <!--<span>2017-08-04</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="marketing_list_zn">-->
+            <!--<p class="marketing_img_zn">-->
+                <!--<img src="../../image/image_zn/product_list_video_zn.png" alt=""/>-->
+            <!--</p>-->
+            <!--<div class="skill_box">-->
+                <!--<p class="skill_title">来自：独一张太矿店</p>-->
+                <!--<p class="skill_con">-->
+                    <!--康复案例的一些文字简介，康复案例的一些文字简介...-->
+                <!--</p>-->
+                <!--<p class="study_zn">-->
+                    <!--<span>产品：独一张·老膏药</span>-->
+                    <!--<span>2017-08-04</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<script type="text/javascript" src="../../script/api.js"></script>
+<script src="../../script/swiper.min.js"></script>
+<script>
+//    var swiper=new Swiper('.swiper-container',{
+//        pagination:'.swiper-pagination',
+//        slidersPerView:1,
+//        paginationClickable:true,
+//        loop:true,
+//        autoplay:3000,
+//        autoplayDisableOnInteraction:false
+//    })
+    var videotype;
+    $(document).on('click','.product_title',function(){
+        api.openWin({
+            name: 'product_list_zn',
+            url: 'widget://html/reference/product_list_zn.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    $(document).on('click','.product_title_secrete',function(){
+        api.openWin({
+            name: 'Marketing_cheats_zn',
+            url: 'widget://html/reference/Marketing_cheats_zn.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    $(document).on('click','.product_title_health',function(){
+        api.openWin({
+            name: 'anli_list',
+            url: 'widget://html/reference/anli_list.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    ///跳转
+    function open_product() {
+        api.openWin({
+            name: 'product_list_zn',
+            url: 'widget://html/reference/product_list_zn.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+    function open_health() {
+        api.openWin({
+            name: 'anli_list',
+            url: 'widget://html/reference/anli_list.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+    function open_cheats() {
+        api.openWin({
+            name: 'Marketing_cheats_zn',
+            url: 'widget://html/reference/Marketing_cheats_zn.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+    function open_download() {
+        api.openWin({
+            name: 'download_zn',
+            url: 'widget://html/reference/download_zn.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    }
+    function get_data() {
+        apiready=function(){
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=ziliao&dir=ziliao&do=index',
+                method: 'post',
+                dataType: 'txt'
+            }, function (ret, err) {
+                $("body").append(ret);
+            });
+
+
+
+            function get_image_zn(){
+                var type=2;
+                api.ajax({
+                    url: 'http://appapi.duyiwang.cn/index.php?action=banner&dir=work&do=banner',
+                    method: 'post',
+                    data: {
+                        values: {type:type}
+                    },
+                    dataType: 'json'
+                }, function (ret, err) {
+                    for(var i=0;i<ret.banner.img.length;i++){
+                        var img=" <div class='swiper-slide'><img src='http://app.duyiwang.cn/img/"+ret.banner.img[i]+"' alt=''></div>";
+                        $('.swiper-wrapper').append(img);
+                    }
+                    var swiper=new Swiper('.swiper-container',{
+                        pagination:'.swiper-pagination',
+                        slidersPerView:1,
+                        paginationClickable:true,
+                        loop:true,
+                        autoplay:3000,
+                        autoplayDisableOnInteraction:false
+                    })
+                });
+            }
+            get_image_zn();
+        }
+    }
+    get_data();
+    $(document).on('click','.product_list_zn',function(){
+//        $(this).css('background','#eee');
+        var gid=$(this).attr('gid');
+        api.openWin({
+            name: 'product_detail_zn',
+            pageParam: {
+                gid: gid
+            },
+            url: 'widget://html/reference/product_detail_zn.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+
+
+    $(document).on('click','.secrete_shop_zn .marketing_list_zn',function(){
+//        $(this).css('background','#eee');
+        var vid=$(this).attr('vid');
+        videotype=parseInt($(this).attr('videotype'));
+        if(videotype===0){
+            api.openWin({
+                name: 'manager_training_zn',
+                pageParam: {
+                    vid:vid,
+                    type:videotype
+                },
+                url: 'widget://html/reference/manager_training_zn.html',
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }else{
+            api.openWin({
+                name: 'miji_fenlei_yyt',
+                pageParam: {
+                    vid:vid,
+                    type:videotype
+                },
+                url: 'widget://html/reference/miji_fenlei_yyt.html',
+                rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+            });
+        }
+    })
+    $(document).on('click','.health_example_zn .marketing_list_zn',function(){
+//        $(this).css('background','#eee');
+        var cid=$(this).attr('cid');
+        api.openWin({
+            name: 'anli_detail',
+            pageParam: {
+                cid: cid
+            },
+            url: 'widget://html/reference/anli_detail.html',
+            rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+        });
+    })
+    $(document).on('touchstart','.product_list_zn',function(){
+        $(this).css('background','#eee');
+        $(this).on('touchend',function(){
+            $(this).css('background','#fff');
+        })
+    })
+    $(document).on('touchstart','.secrete_shop_zn .marketing_list_zn',function(){
+        $(this).css('background','#eee');
+        $(this).on('touchend',function(){
+            $(this).css('background','#fff');
+        })
+    })
+    $(document).on('touchstart','.health_example_zn .marketing_list_zn',function(){
+        $(this).css('background','#eee');
+        $(this).on('touchend',function(){
+            $(this).css('background','#fff');
+        })
+    })
+</script>
+</body>
+</html>

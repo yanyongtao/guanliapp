@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f5f5f5;
+        }
+        .stock_box_zn{
+            background: #2493F7;
+            height:.88rem;
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            overflow: hidden;
+        }
+        .stock_zn{
+            color:#fff;
+            font-size: .3rem;
+            height:100%;
+            line-height: .88rem;
+            text-align: center;
+        }
+        .icon_zn{
+            width: 0.29rem;
+            height: 0.43rem;
+            position: absolute;
+            left: 0.15rem;
+            top: 0.25rem;
+            background: url("../../image/image_zn/icon_lefta_zn.png") no-repeat;
+            background-size: cover;
+        }
+        .product_box_zn{
+            margin-top:0.88rem;
+            width:100%;
+            height:auto;
+            overflow: hidden;
+            margin-bottom:0.3rem;
+        }
+        .product_img_zn img{
+            display: block;
+            width:100%;
+            /*height:2.6rem;*/
+            box-sizing: border-box;
+        }
+        .product_title_zn{
+           width:6rem;
+            height:0.8rem;
+            line-height:0.8rem;
+            margin:0 auto;
+            font-size:0.26rem;
+            color:#2493f7;
+            font-weight:bold;
+            letter-spacing: 0.02rem;
+        }
+        .product_detail_box{
+            width:6rem;
+            margin:0 auto;
+            height:auto;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 0.1rem;
+            padding-bottom:0.3rem;
+        }
+        .product_intro_title{
+            height:1rem;
+            line-height:1rem;
+            width:5.4rem;
+            margin:0 auto;
+            color:#333;
+            font-size:0.24rem;
+        }
+        .product_intro_con{
+            width:5.4rem;
+            height:auto;
+            margin:0 auto;
+            text-indent: 0.5rem;
+            line-height:0.36rem;
+            font-size:0.24rem;
+            color:#999;
+            letter-spacing: 0.02rem;
+        }
+        .product_good_title{
+            height:1rem;
+            line-height:1rem;
+            width:5.4rem;
+            margin:0 auto;
+            color:#333;
+            font-size:0.24rem;
+        }
+        .product_good_con{
+            width:5.4rem;
+            height:auto;
+            margin:0 auto;
+            line-height:0.36rem;
+            font-size:0.24rem;
+            color:#999;
+            letter-spacing: 0.02rem;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="stock_box_zn">-->
+    <!--<div class="stock_zn">仪年堂详情</div>-->
+    <!--<div class="icon_zn" onclick="api.closeWin()"></div>-->
+<!--</div>-->
+<!--<div class="product_box_zn">-->
+    <!--<p class="product_img_zn">-->
+        <!--<img src="" alt=""/>-->
+    <!--</p>-->
+    <!--<p class="product_title_zn">独一张·仪年堂</p>-->
+    <!--<div class="product_detail_box">-->
+        <!--<p class="product_intro_title">气血助跑器-仪年堂气血能量养生仪</p>-->
+        <!--<div class="product_intro_con">-->
+            <!--美国著名声音治疗师詹姆斯.丹吉洛突破性的发现安徽省科学技术研究所于1997年立项，组织中国科技大学、安徽中医学院、安徽省立医院、安徽医科大学、安徽医科大学附属医院等单位专家、教授学者展开历经10余年的研究工作，研究中发现语言中元音以及辅音的音频可以在一定程度上刺激身体的神经节点打开从而达到人体气血可以顺利接受声音能量。-->
+            <!--科研专家利用元音和辅音相配合产生的复合音频反复采用各种尖端技术融入，终于成功研发出人体气血助跑器-仪年堂气血能量养生仪，开启了从肌体运动到血液运动的新健康时代!-->
+            <!--仪年堂气血能量养生仪对人体气血强大的推动作用30秒就可使全身血流速度快速提升，30分钟推动人体的血液循环速度相当于人跑步5公里后的血液运行总量。仪年堂气血能量养生仪经数家三甲医院千余例患者临床数据的统计，证实了《黄帝内经》气血旺百病不生，气血通百病全消的伟大理论，打破了中医药只能局部活血，不能让全身气血畅通运行的弊端，突破了火、光、电、磁、热产品局部活血暂时缓解。长期无效的不足、仪年堂气血能量养生仪用强大的效果来证实气血主百病的神奇之：气血顺畅、百病不生、气血畅通、百病向愈。仪年堂气血能量养生仪为气血助跑，实现完美的健康。-->
+        <!--</div>-->
+        <!--<p class="product_good_title">仪年堂五大突破实现全民血运动</p>-->
+        <!--<div class="product_good_con">-->
+            <!--突破二、独：独家研发复合音频导入推动气血运行;-->
+            <!--突破二、快：30秒快速提升血流速度；-->
+            <!--突破三、全：实现对全身细胞整体滋养修复；-->
+            <!--突破四、大:实现推送人体10万公里的血液大循环-->
+            <!--突破五、通：打通瘀滞，让血液畅行。-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script>
+    var gid;
+    function get_data() {
+        apiready=function(){
+            api.execScript({
+                name: 'product_list_zn',
+                script: 'reload_zn()'
+            });
+            gid=api.pageParam.gid;
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=product&dir=ziliao&do=gdetail',
+                method: 'post',
+                data: {
+                    values: {gid:gid}
+                },
+                dataType: 'txt'
+            }, function (ret, err) {
+                $("body").append(ret);
+            });
+        }
+    }
+    get_data();
+</script>
+</body>
+</html>

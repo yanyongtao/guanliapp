@@ -331,10 +331,12 @@
 	var goods_list = new Array();
 	var th = 0;
 	var num;
+	var select_flag = 0;
 	$(document).on("click",".productList_qty li",function(e){
 		$(this).find('.maskEntry_qty').fadeToggle("fast");
 		$('.addEntry_qty').css({"background":"#2493f7","color":"#fff"})
 		if($(this).find('.maskEntry_qty').hasClass("slide")){
+			select_flag -=1;
 			$(this).find('.maskEntry_qty').removeClass("slide")
 			$(this).find('.maskEntry_qty').removeAttr("disabled");
 //					取消
@@ -348,6 +350,7 @@
 				}
 			}
 		}else{
+			select_flag +=1;
 			$(this).find('.maskEntry_qty').addClass("slide");
 			$(this).find('.maskEntry_qty').attr("disabled",true);
 //					选中
@@ -393,13 +396,15 @@
 
 
 	function open_entrySheet() {
-		api.openWin({
-			name: 'entrySheet',
-			url: 'widget://html/work/entrySheet.html',
-			bounces: false,
-			pageParam: {type:type,goods_list:goods_list,store_id: store_id},
-			rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
-		});
+		if (select_flag>0) {
+			api.openWin({
+				name: 'entrySheet',
+				url: 'widget://html/work/entrySheet.html',
+				bounces: false,
+				pageParam: {type: type, goods_list: goods_list, store_id: store_id},
+				rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+			});
+		}
 	}
 
 
@@ -408,8 +413,17 @@
 			msg: "录入成功,请在审核中查看",
 			duration: 3000,
 			location: 'bottom'
-
 		})
 	}
+
+	$(".addEntry_qty").on("touchstart",function () {
+		if(select_flag>0) {
+			$(this).css({"background":"#0066CC"})
+			$(this).on("touchend", function () {
+				$(this).css({"background":"#2493f7"})
+				$(this).off("touchend")
+			})
+		}
+	})
 </script>
 </html>

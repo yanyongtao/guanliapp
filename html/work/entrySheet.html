@@ -481,6 +481,18 @@
 			outline: none;
 			font-size: 0.24rem;
 		}
+		.zp_second_yyt{
+			display: none;
+			width: 100%;
+			height: 0.6rem;
+			margin: 0.05rem 0;
+		}
+		.zp_third_yyt{
+			display: none;
+			width: 100%;
+			height: 0.6rem;
+			margin: 0.05rem 0;
+		}
 	</style>
 </head>
 <body>
@@ -489,7 +501,7 @@
 	<div class="arrowLeft_qty"></div>
 </div>
 <div class="selectBox_qty">
-	<div class="selectFont_qty">帮助</div>
+	<div class="selectFont_qty" onclick="open_man_help()">帮助</div>
 </div>
 <!-- 合计 -->
 <div class="entrySheetBox_qty">
@@ -575,6 +587,18 @@
 			<div class="zp_left_yyt">赠 添加</div>
 			<div class="zp_right_yyt">
 				<div class="zp_first_yyt">
+					<select name="" id="" class="zp_list_yyt">
+						<option value="">请选择您的赠品</option>
+					</select>
+					<input type="text" value="" class="zp_num_yyt" placeholder="填写数量">
+				</div>
+				<div class="zp_second_yyt">
+					<select name="" id="" class="zp_list_yyt">
+						<option value="">请选择您的赠品</option>
+					</select>
+					<input type="text" value="" class="zp_num_yyt" placeholder="填写数量">
+				</div>
+				<div class="zp_third_yyt">
 					<select name="" id="" class="zp_list_yyt">
 						<option value="">请选择您的赠品</option>
 					</select>
@@ -688,15 +712,22 @@
 			}, function (ret, err) {
 				goodslist = ret.goodslist;
 				store_goods = ret.store_goods;
-//				alert(JSON.stringify(store_goods));
 				for (var i=0;i<store_goods.length;i++){
 					var aa = "<option value="+store_goods[i].gid+">"+store_goods[i].name+"</option>"
 					$($(".zp_first_yyt")[0]).children(".zp_list_yyt").append(aa);
 				}
+				for (var i=0;i<store_goods.length;i++){
+					var aa = "<option value="+store_goods[i].gid+">"+store_goods[i].name+"</option>"
+					$($(".zp_second_yyt")[0]).children(".zp_list_yyt").append(aa);
+				}
+				for (var i=0;i<store_goods.length;i++){
+					var aa = "<option value="+store_goods[i].gid+">"+store_goods[i].name+"</option>"
+					$($(".zp_third_yyt")[0]).children(".zp_list_yyt").append(aa);
+				}
 				var money_zn = 0;
 				for (var i=0;i<ret.goodslist.length;i++){
 					th++;
-					var aa = "<li biaoji="+ret.goodslist[i].money+"><div class='productName_qty'>"+ret.goodslist[i].name+"</div><div class='num_qty'><input type='text' value='1' class='num_zn' biaoji_zn="+th+"><div class='math_qty'></div></div><div class='toal_qty'>￥"+ret.goodslist[i].money+"</div><div class='del_qty' znid="+ret.goodslist[i].id+"></div></li>"
+					var aa = "<li biaoji="+ret.goodslist[i].money+"><div class='productName_qty'>"+ret.goodslist[i].name+"</div><div class='num_qty'><input type='text' value='1' class='num_zn' biaoji_zn="+th+"><div class='math_qty'></div></div><div class='toal_qty'>￥"+ret.goodslist[i].money+"</div><div class='del_qty' znid="+ret.goodslist[i].gid+"></div></li>"
 					$(".entrySheetSmall_qty ul").append(aa);
 					money_zn+=parseInt(ret.goodslist[i].money);
 					type=0;
@@ -707,55 +738,77 @@
 					goods_list_zn[th][2]=type;
 				}
 				var bb = "<div class='lastToal_qty'><span class='toalNum_qty'>￥"+money_zn+"</span><span class='toalMath_qty'>合计</span></div>"
-				$(".entrySheetSmall_qty ul").append(bb)
+				$(".entrySheetSmall_qty ul").append(bb);
 				$(".disMath_qty").val(money_zn);
 				total_price=money_zn;
-				sale_price=money_zn;
+				sale_price=total_price;
 			});
 		}
 	}
 	get_data();
 
-
+	//	删除功能
 	$(document).on('click','.del_qty',function(){
 		var money = $(this).prev().html().slice(1);
 		var ago_money = $(".toalNum_qty").html().slice(1);
 		var now_money = parseInt(ago_money)-parseInt(money);
-		$(".toalNum_qty").html("￥"+now_money)
+		$(".toalNum_qty").html("￥"+now_money);
+		sale_price=now_money;
 		$(this).parent().remove();
 		var thisId = $(this).attr("znid");
 		for(var i=0;i<goods_list_zn.length;i++){
-//			alert(JSON.stringify(goodslist[i]))
 			if (goods_list_zn[i][0]== thisId){
 				goods_list_zn.splice(i,1);
 			}
 		}
+		$('.disMath_qty').val(sale_price);
 	});
+
+//	赠品选项发生改变时
+	var a;
 	$(document).on('change','.zp_list_yyt',function(){
-		var a = parseInt($('.zp_list_yyt option:selected').val());
-		type=1;
-		th++;
-		$(document).on("change",".zp_num_yyt",function(){
-			if (!(/^\+?[1-9]\d*$/.test($(this).val()))){
-				$(this).focus();
+		if($(this).children('option:selected').html() != "请选择您的赠品") {
+			a = parseInt($('.zp_list_yyt').val());
+			num_znn = $(this).next().val();
+			if(num_znn==''){
+				$(this).next().focus();
 				api.toast({
-					msg: '请输入合法数字',
+					msg: '请输入赠品数量',
 					duration: 3000,
 					location: 'bottom'
 				});
 			}
-			num_znn=$(this).val();
-			numm=num_znn;
-			goods_list_zn[th] = new Array();
-			goods_list_zn[th][0]=a;
-			goods_list_zn[th][1]=parseInt(numm);
-			goods_list_zn[th][2]=type;
-		})
+		}else{
+			$(this).next().attr('value','');
+			goods_list_zn.pop();
+		}
+//		a = parseInt($('.zp_list_yyt option:selected').val());
 //		goods_list_zn[th] = new Array();
 //		goods_list_zn[th][0]=a;
 //		goods_list_zn[th][1]=parseInt(num);
 //		goods_list_zn[th][2]=type;
 	})
+//		数量发生改变时监听事件
+		$(document).on("change",".zp_num_yyt",function(){
+				if ($('.zp_list_yyt option:selected').html() != "请选择您的赠品") {
+					type = 1;
+					th++;
+	//			if (!(/^\+?[1-9]\d*$/.test($(this).val()))){
+	//				$(this).focus();
+	//				api.toast({
+	//					msg: '请输入合法数字',
+	//					duration: 3000,
+	//					location: 'bottom'
+	//				});
+
+				num_znn = $(this).val();
+				numm = num_znn;
+				goods_list_zn[th] = new Array();
+				goods_list_zn[th][0] = a;
+				goods_list_zn[th][1] = parseInt(numm);
+				goods_list_zn[th][2] = type;
+			}
+		})
 	$(document).on("change",".num_zn",function () {
 		if (!(/^\+?[1-9]\d*$/.test($(this).val()))){
 			$(this).focus();
@@ -780,27 +833,36 @@
 		$(".disMath_qty").val(total);
 		sale_price=total;
 	})
-
 	function add_zp() {
 //		if (num == 1){
 //			$(".addBox_qty").css("display","none")
 //		}
-		num++;
-		if(num==2){
-			$(".addBox_qty").css("display","none");
+		var numcc=$('.zp_num_yyt').val();
+		if(numcc!=='') {
+			num++;
+			if(num==1){
+				$('.zp_second_yyt').css('display','block');
+			}
+			var numcc2=$('.zp_second_yyt .zp_num_yyt').val();
+			if ((num == 2)&&(numcc2!=='')) {
+				$('.zp_third_yyt').css('display','block');
+				$(".addBox_qty").css("display", "none");
+			}
+//			var new_zp = "<div class='zp_first_yyt'><select name='' id='' class='zp_list_yyt'><option value=''>请选择您的赠品</option></select><input type='text' value='' class='zp_num_yyt' placeholder='填写数量'></div>";
+//			$(".zp_right_yyt").append(new_zp);
+//			for (var i = 0; i < store_goods.length; i++) {
+//				var aa = "<option value=" + store_goods[i].id + ">" + store_goods[i].name + "</option>"
+//				$($(".zp_first_yyt")[num]).children(".zp_list_yyt").append(aa);
+//			}
+//			a = parseInt($('.zp_list_yyt').val());
+//			alert(a);
+//			num_znn=$(this).val();
+//			numm=num_znn;
+//			goods_list_zn[th] = new Array();
+//			goods_list_zn[th][0]=a;
+//			goods_list_zn[th][1]=parseInt(numm);
+//			goods_list_zn[th][2]=type;
 		}
-		var new_zp = "<div class='zp_first_yyt'><select name='' id='' class='zp_list_yyt'><option value=''>请选择您的赠品</option></select><input type='text' value='' class='zp_num_yyt' placeholder='填写数量'></div>";
-		$(".zp_right_yyt").append(new_zp);
-		for (var i=0;i<store_goods.length;i++){
-			var aa = "<option value="+store_goods[i].id+">"+store_goods[i].name+"</option>"
-			$($(".zp_first_yyt")[num]).children(".zp_list_yyt").append(aa);
-		}
-		num_znn=$(this).val();
-		numm=num_znn;
-		goods_list_zn[th] = new Array();
-		goods_list_zn[th][0]=a;
-		goods_list_zn[th][1]=parseInt(numm);
-		goods_list_zn[th][2]=type;
 	}
 	var sex;
 	var age;
@@ -808,6 +870,7 @@
 	var mobile;
 	var address;
 	var roleid;
+	//	提交
 	$(document).on("change",".disMath_qty",function () {
 		if(!(/^[1-9]\d*(,\d{3})*(\.\d{2})?$/.test($(this).val()))){
 			$(this).focus();
@@ -822,14 +885,28 @@
 		var total_price=parseInt($('.toalNum_qty').html().slice(1));
 		var bili = (real_total/total_price).toFixed(2);
 		$(".dis_zn").html(bili*100+"%");
-		total_price=real_total;
+		sale_price=real_total;
 	})
+
+	$(".btn_qty").on("touchstart",function () {
+		$(this).css("background","#0066CC")
+		$(this).on("touchend",function () {
+			$(this).css("background","#2493f7")
+			$(this).off("touchend")
+		})
+	})
+
+	$(".selectFont_qty").on("touchstart",function () {
+		$(this).css("color","#ccc")
+		$(this).on("touchend",function () {
+			$(this).css("color","#fff")
+			$(this).off("touchend")
+		})
+	})
+
+
 	var real_total=parseInt($(this).val());
 	function submit_zn(){
-		username=$('.name_zn').val();
-		age=$('.age_zn').val();
-		mobile=$('.phone_zn').val();
-		address=$('.address_zn').val();
 		if($('.name_zn').val()==""){
 			$(this).focus();
 			api.toast({
@@ -837,30 +914,28 @@
 				duration: 3000,
 				location: 'bottom'
 			});
-		}
-		if(!(/^([1-9]\d)|90$/.test($('.age_zn').val()))){
+		}else if(!(/^([1-9]\d)|90$/.test($('.age_zn').val()))){
 			$(this).focus();
 			api.toast({
 				msg: '请输入合法年龄',
 				duration: 3000,
 				location: 'bottom'
 			});
-		}
-		if(!(/^1[3,4,5,7,8]\d{9}$/.test($('.phone_zn').val()))){
+		}else if(!(/^1[3,4,5,7,8]\d{9}$/.test($('.phone_zn').val()))){
 			$(this).focus();
 			api.toast({
 				msg: '请输入合法电话',
 				duration: 3000,
 				location: 'bottom'
 			});
-		}
-		if(!(/^[\u4E00-\u9FA5A-Za-z0-9_]+$/.test($('.address_zn').val()))){
+		}else if($('.address_zn').val()==""){
 			$(this).focus();
 			api.toast({
 				msg: '请输入正确地址',
 				duration: 3000,
 				location: 'bottom'
 			});
+			return;
 		}
 		if($(".man_sex_zn").attr("checked") == "checked"){
 			sex = 0
@@ -868,6 +943,10 @@
 		if($(".woman_sex_zn").attr("checked") == "checked"){
 			sex = 1
 		}
+		username=$('.name_zn').val();
+		age=$('.age_zn').val();
+		mobile=$('.phone_zn').val();
+		address=$('.address_zn').val();
 		roleid=api.getPrefs({sync:true,key:'roleid'});
 		uid=api.getPrefs({sync:true,key:'uid'});
 		api.ajax({
@@ -882,8 +961,22 @@
 				name: 'saleEntry',
 				script: 'tishi_zn()'
 			});
+			if (ret.code == 200){
+				api.closeWin();
+			}
 		});
-		api.closeWin();
 	}
+
+	function open_man_help(){
+		api.openWin({
+			name: 'feed_qty1',
+			url: 'widget://html/work/man_help_zn.html',
+			rect: {x: 0, y: 0, w: 'auto', h: 'auto'}
+		});
+	}
+
+	$(".btn_qty").on("touchstart",function () {
+//		alert(12)
+	})
 </script>
 </html>
