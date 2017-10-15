@@ -82,6 +82,7 @@
             width: 100%;
             height: 100%;
             display: block;
+            border-radius: 50%;
         }
         .belong_to{
             width: 100%;
@@ -171,9 +172,9 @@
     <div class="per_con">个人信息</div>
     <img src="../../image/img_yyt/arrow_right.png" alt="" class="arrow_right">
 </div>
-<div class="per_msg per_msg_two">
+<div class="per_msg per_msg_two" onclick="open_revise_password()">
     <img class="msg_icon" src="../../image/img_yyt/id_safe.png" alt="">
-    <div class="per_con">账号与安全</div>
+    <div class="per_con">修改密码</div>
     <img src="../../image/img_yyt/arrow_right.png" alt="" class="arrow_right">
 </div>
 <div class="per_msg per_msg_three" style="border-bottom: 0" onclick="open_set()">
@@ -194,6 +195,13 @@
 <!--</div>-->
 </body>
 <script>
+    function prompt_zn() {
+        api.toast({
+            msg: '修改密码成功',
+            duration: 3000,
+            location: 'bottom'
+        });
+    }
     var uid;
     var type;
     function get_data() {
@@ -214,7 +222,11 @@
                 },
                 dataType: 'json'
             }, function (ret, err) {
-                if (ret.userinfo.head_img){
+                if((ret.userinfo.head_img==null)||(ret.userinfo.head_img=='null')){
+                    $(".me_photo img").attr("src","../../image/header_picture/tc_log.png");
+                }else if(ret.userinfo.head_img.slice(0,4)=='http'){
+                    $(".me_photo img").attr("src",ret.userinfo.head_img)
+                }else{
                     $(".me_photo img").attr("src","../../image/header_picture/"+ret.userinfo.head_img+"")
                 }
                 $(".me_name_").html(ret.userinfo.name);
@@ -249,7 +261,11 @@
             },
             dataType: 'json'
         }, function (ret, err) {
-            if (ret.userinfo.head_img){
+            if((ret.userinfo.head_img==null)||(ret.userinfo.head_img=='null')){
+                $(".me_photo img").attr("src","../../image/header_picture/tc_log.png");
+            }else if(ret.userinfo.head_img.slice(0,4)=='http'){
+                $(".me_photo img").attr("src",ret.userinfo.head_img)
+            }else{
                 $(".me_photo img").attr("src","../../image/header_picture/"+ret.userinfo.head_img+"")
             }
             $(".me_name_").html(ret.userinfo.name);
@@ -302,6 +318,14 @@
             rect: {x: 0,y: 0,w: 'auto',h: "auto"}
         });
     }
+    function open_revise_password() {
+        api.openWin({
+            name: 'revise_password_zn',
+            url: 'widget://html/me/revise_password_zn.html',
+            bounces: false,
+            rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+        });
+    }
 
     $(".per_msg_one").on("touchstart",function () {
         $(this).css("background","#eee")
@@ -318,6 +342,5 @@
             $(this).off("touchend")
         })
     })
-
 </script>
 </html>

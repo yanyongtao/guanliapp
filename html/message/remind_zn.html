@@ -84,6 +84,7 @@
             display: block;
             width:0.6rem;
             height:0.6rem;
+            border-radius: 50%;
             float:left;
             margin-top:0.15rem;
             margin-right:0.2rem;
@@ -151,8 +152,10 @@
                 for(var i=0;i<=ret.users.length;i++){
                     if(ret.users[i].head_img==null){
                         html="<li class='man_list_zn' at_user_ids="+ret.users[i].id+"><img src='../../image/header_picture/tc_log.png'><div class='name_zn'>"+ret.users[i].name+"</div></li>";
+                    }else if(ret.users[i].head_img.slice(0,4)=='http'){
+                         html="<li class='man_list_zn' at_user_ids="+ret.users[i].id+"><img src="+ret.users[i].head_img+"><div class='name_zn'>"+ret.users[i].name+"</div></li>";
                     }else{
-                         html="<li class='man_list_zn' at_user_ids="+ret.users[i].id+"><img src='../../image/header_picture/"+ret.users[i].head_img+"'><div class='name_zn'>"+ret.users[i].name+"</div></li>";
+                        html="<li class='man_list_zn' at_user_ids="+ret.users[i].id+"><img src='../../image/header_picture/"+ret.users[i].head_img+"'><div class='name_zn'>"+ret.users[i].name+"</div></li>";
                     }
                     $('.man_box_zn').append(html);
                 }
@@ -198,6 +201,8 @@
                 for(var i=0;i<ret.users.length;i++){
                     if(ret.users[i].head_img==null){
                         html="<li class='man_list_zn'><img src='../../image/header_picture/tc_log.png'><div class='name_zn'>"+ret.users[i].name+"</div></li>";
+                    }else if(ret.users[i].head_img.slice(0,4)=='http'){
+                        html="<li class='man_list_zn'><img src="+ret.users[i].head_img+"><div class='name_zn'>"+ret.users[i].name+"</div></li>";
                     }else{
                         html="<li class='man_list_zn'><img src='../../image/header_picture/"+ret.users[i].head_img+"'><div class='name_zn'>"+ret.users[i].name+"</div></li>";
                     }
@@ -217,6 +222,8 @@
                 for (var i = 0; i <= ret.users.length; i++) {
                     if (ret.users[i].head_img == null) {
                         html = "<li class='man_list_zn'><img src='../../image/header_picture/tc_log.png'><div class='name_zn'>" + ret.users[i].name + "</div></li>";
+                    }else if(ret.users[i].head_img.slice(0,4)=='http'){
+                        html="<li class='man_list_zn'><img src="+ret.users[i].head_img+"><div class='name_zn'>"+ret.users[i].name+"</div></li>";
                     } else {
                         html = "<li class='man_list_zn'><img src='../../image/header_picture/" + ret.users[i].head_img + "'><div class='name_zn'>" + ret.users[i].name + "</div></li>";
                     }

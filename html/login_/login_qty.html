@@ -102,16 +102,38 @@
      		overflow: hidden;
      	}
      	.password_qty{
-     		width: 2.41rem;
+     		width: 1.2rem;
      		height: 0.5rem;
      		font-size: 0.26rem;
      		line-height: 0.5rem;
-			margin:0 auto;
+			/*margin:0 auto;*/
+			float:left;
      		text-align: center;
      		display: block;
      		color: #2493F7;
-     		position: relative;
+			margin-left:0.96rem;
+     		/*position: relative;*/
      	}
+		.dark_line_zn{
+			width:0.5rem;
+			text-align: center;
+			height:0.5rem;
+			font-size:0.26rem;
+			line-height:0.5rem;
+			float:left;
+			display: block;
+			color:#eee;
+		}
+		.forget_password_zn{
+			width: 1.2rem;
+			height: 0.5rem;
+			font-size: 0.26rem;
+			line-height: 0.5rem;
+			float:left;
+			text-align: center;
+			display: block;
+			color: #2493F7;
+		}
     </style>
 </head>
 <body>
@@ -134,6 +156,8 @@
 		    	</div>
 		    	<div class="forward_qty">
 		    		<span class="password_qty" onclick="open_sign()">免费注册</span>
+					<span class="dark_line_zn">|</span>
+					<span class="forget_password_zn" onclick="open_forget_password()">忘记密码</span>
 		    	</div>
     		</div>
     	<!--</form>-->
@@ -177,6 +201,22 @@
 			rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
 		});
 	}
+	function prompt_zn() {
+		api.toast({
+			msg: '修改密码成功，请登录',
+			duration: 3000,
+			location: 'bottom'
+		});
+	}
+	function open_forget_password() {
+		api.openFrame({
+			name: 'forgetPassword',
+			url: 'widget://html/login_/forgetPassword.html',
+			bounces: false,
+			pageParam:{type:type},
+			rect: {x: 0,y: 0,w: 'auto',h: 'auto'}
+		});
+	}
 	function phone_password() {
 		api.openFrame({
 			name: 'forgetPassword',
@@ -195,7 +235,6 @@
 	}
 	function login() {
 		if (checkMobile()==0) {
-//            alert("请输入正确的手机号码")
 			api.toast({
 				msg: '请输入正确的手机号码',
 				duration: 4000,
@@ -203,7 +242,6 @@
 			});
 		}
 		if(!$(".login_z").val()){
-//            alert("请输入手机号码")
 			api.toast({
 				msg: '请输入手机号码',
 				duration: 4000,
@@ -212,7 +250,6 @@
 			return false;
 		}
 		if(!$(".login_m").val()){
-//            alert("请输入您的密码")
 			api.toast({
 				msg: '请输入您的密码',
 				duration: 4000,
@@ -232,8 +269,6 @@
 			dataType:'json'
 		},function(ret,err){
 			if(ret.code == 200){
-//                alert(ret.uid)
-//                name = ret.name;
 				api.setPrefs({
 					key: 'name',
 					value: ret.name
@@ -242,27 +277,22 @@
 					key: 'type',
 					value: ret.type
 				});
-//                mobile = ret.mobile;
 				api.setPrefs({
 					key: 'mobile',
 					value: ret.mobile
 				});
-//                store_id = ret.store_id;
 				api.setPrefs({
 					key: 'store_id',
 					value: ret.store_id
 				});
-//                uid = ret.uid;
 				api.setPrefs({
 					key: 'uid',
 					value: ret.uid
 				});
-//                user_role = ret.user_role;
 				api.setPrefs({
 					key: 'user_role',
 					value: ret.user_role
 				});
-//                roleid = ret.roleid;
 				api.setPrefs({
 					key: 'roleid',
 					value: ret.roleid
@@ -270,7 +300,6 @@
 				open_main();
 
 			}else if(ret.code == 500){
-//                alert(ret.msg)
 				api.toast({
 					msg: ret.msg,
 					duration: 4000,

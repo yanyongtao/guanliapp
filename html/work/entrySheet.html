@@ -754,6 +754,7 @@
 		var now_money = parseInt(ago_money)-parseInt(money);
 		$(".toalNum_qty").html("￥"+now_money);
 		sale_price=now_money;
+		total_price=now_money;
 		$(this).parent().remove();
 		var thisId = $(this).attr("znid");
 		for(var i=0;i<goods_list_zn.length;i++){
@@ -788,7 +789,7 @@
 //		goods_list_zn[th][1]=parseInt(num);
 //		goods_list_zn[th][2]=type;
 	})
-//		数量发生改变时监听事件
+//		赠品数量发生改变时监听事件
 		$(document).on("change",".zp_num_yyt",function(){
 				if ($('.zp_list_yyt option:selected').html() != "请选择您的赠品") {
 					type = 1;
@@ -831,6 +832,7 @@
 		$(this).parent().parent().children(".toal_qty").html("￥"+money);
 		$(".toalNum_qty").html("￥"+total);
 		$(".disMath_qty").val(total);
+		total_price=total;
 		sale_price=total;
 	})
 	function add_zp() {

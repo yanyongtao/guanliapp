@@ -83,6 +83,7 @@
 		.personShop_qty img{
 			width: 0.85rem;
 			height: 0.85rem;
+			border-radius: 50%;
 			float: left;
 		}
 		.shopPer_qty{
@@ -262,7 +263,7 @@
 <!--</ul>-->
 <!--</div>-->
 <!--</div>-->
-<!-- 弹框代码 -->
+ <!--弹框代码-->
 <!--<div id="goodcover"></div>-->
 <!--<div id="code">-->
 <!--<div class="applyFont_qty">提示</div>-->
@@ -270,7 +271,7 @@
 <!--<div class="sure_qty">-->
 <!--<div class="sure" id="closebt">确定</div>-->
 <!--<div class="sure cancel">取消</div>-->
-<!--</div>              -->
+<!--</div>-->
 <!--</div>-->
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
@@ -314,7 +315,6 @@
 
 	// 弹框代码
 	$(function() {
-		// alert($(window).height());
 		$('.ClickMe_qty').click(function() {
 			$('#code').center();
 			$('#goodcover').show();

@@ -317,7 +317,6 @@
 	var flag=true;
 	function get_code() {
 		if (checkMobile()==0){
-//            alert("请输入正确的手机号码")
 			api.toast({
 				msg: '请输入正确的手机号码',
 				duration: 4000,
@@ -356,7 +355,6 @@
 					$(".code_yyt").val(ret.verifycode);
 
 				}else if(ret.code == 500){
-//                    alert(ret.msg)
 				}
 			});
 		}
@@ -383,7 +381,6 @@
 				if(ret.code == 200){
 					open_regSuccess();
 				}else if(ret.code == 500){
-//                    alert(ret.msg)
 					api.toast({
 						msg: ret.msg,
 						duration: 4000,
@@ -393,7 +390,6 @@
 			});
 		}
 		if (!password_a||!password_b){
-//            alert("请输入密码")
 			api.toast({
 				msg: '请输入密码',
 				duration: 4000,
@@ -402,7 +398,6 @@
 			return false;
 		}
 		if (password_a != password_b) {
-//            alert("两次输入密码不一致")
 			api.toast({
 				msg: '两次输入密码不一致',
 				duration: 4000,
@@ -411,7 +406,6 @@
 			return false;
 		}
 		if (!codeGet){
-//            alert("请输入验证码")
 			api.toast({
 				msg: '请输入验证码',
 				duration: 4000,
@@ -420,7 +414,6 @@
 			return false;
 		}
 		if (!$('#sign_check').attr('checked')) {
-//            alert("请阅读并同意用户协议")
 			api.toast({
 				msg: '请阅读并同意用户协议',
 				duration: 4000,

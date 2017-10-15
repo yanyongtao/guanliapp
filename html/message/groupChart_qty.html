@@ -187,56 +187,56 @@
 <div class="submit_yyt" onclick="submit_yyt()">确定</div>
 <div class="groupChartBox_qty">
 	<ul class="groupBigBox_qty">
-		<li>
+		<!--<li>-->
 			<!--<div class="englishBox_qty">-->
-			<!--<div class="english_qty">A</div>-->
+				<!--<div class="english_qty">A</div>-->
 			<!--</div>-->
 			<!--<div class="groupChart_qty">-->
-			<!--<ul class="groupChartSmall_qty">-->
-			<!--<li class="groupParent_qty" onclick="test_yyt()">-->
-			<!--<a>-->
-			<!--<span class="grouplist_qty">安徽省黄山县黄山店</span>-->
-			<!--<span class="arrowTop_qty"></span>-->
-			<!--</a>-->
-			<!--<ul class="groupNavBox_qty">-->
-			<!--<li>-->
-			<!--<div class="groupImg_qty">-->
-			<!--<img src="../../image/img_qty/head.jpg" alt="">-->
-			<!--</div>-->
-			<!--<div class="groupLabel_qty">-->
-			<!--<label><input type="checkbox" name="" id="2">张三</label>-->
-			<!--</div>-->
-			<!--</li>-->
-			<!--<li>-->
-			<!--<div class="groupImg_qty">-->
-			<!--<img src="../../image/img_qty/head.jpg" alt="">-->
-			<!--</div>-->
-			<!--<div class="groupLabel_qty">-->
-			<!--<label><input type="checkbox" name="" id="">张三</label>-->
-			<!--</div>-->
-			<!--</li>-->
-			<!--</ul>-->
-			<!--</li>-->
-			<!--<li class="groupParent_qty">-->
-			<!--<a>-->
-			<!--<span class="grouplist_qty">安徽省黄山县黄山店</span>-->
-			<!--<span class="arrowTop_qty"></span>-->
-			<!--</a>-->
-			<!--<ul class="groupNavBox_qty">-->
-			<!--<li>-->
-			<!--<div class="groupImg_qty">-->
-			<!--<img src="../../image/img_qty/head.jpg" alt="">-->
-			<!--</div>-->
-			<!--<div class="groupLabel_qty">-->
-			<!--<label><input type="checkbox" name="" id="">李四</label>-->
-			<!--</div>-->
-			<!--</li>-->
-			<!--</ul>-->
-			<!--</li>-->
-			<!--</ul>-->
+				<!--<ul class="groupChartSmall_qty">-->
+					<!--<li class="groupParent_qty" onclick="test_yyt()">-->
+						<!--<a>-->
+							<!--<span class="grouplist_qty">安徽省黄山县黄山店</span>-->
+							<!--<span class="arrowTop_qty"></span>-->
+						<!--</a>-->
+						<!--<ul class="groupNavBox_qty">-->
+							<!--<li>-->
+								<!--<div class="groupImg_qty">-->
+									<!--<img src="../../image/img_qty/head.jpg" alt="">-->
+								<!--</div>-->
+								<!--<div class="groupLabel_qty">-->
+									<!--<label><input type="checkbox" name="" id="2">张三</label>-->
+								<!--</div>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<div class="groupImg_qty">-->
+									<!--<img src="../../image/img_qty/head.jpg" alt="">-->
+								<!--</div>-->
+								<!--<div class="groupLabel_qty">-->
+									<!--<label><input type="checkbox" name="" id="">张三</label>-->
+								<!--</div>-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</li>-->
+					<!--<li class="groupParent_qty">-->
+						<!--<a>-->
+							<!--<span class="grouplist_qty">安徽省黄山县黄山店</span>-->
+							<!--<span class="arrowTop_qty"></span>-->
+						<!--</a>-->
+						<!--<ul class="groupNavBox_qty">-->
+							<!--<li>-->
+								<!--<div class="groupImg_qty">-->
+									<!--<img src="../../image/img_qty/head.jpg" alt="">-->
+								<!--</div>-->
+								<!--<div class="groupLabel_qty">-->
+									<!--<label><input type="checkbox" name="" id="">李四</label>-->
+								<!--</div>-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</li>-->
+				<!--</ul>-->
 			<!--</div>-->
 
-		</li>
+		<!--</li>-->
 	</ul>
 </div>
 </body>
@@ -262,7 +262,7 @@
 		var num;
 		$(document).on("change","input",function(){
 			if ($(this).is(':checked')){
-				$(this).attr("num",th)
+				$(this).attr("num",th);
 				person_id = $(this).attr("value");
 				personName = $(this).parent().children('span').html();
 				shuju_yyt[th] = new Array();

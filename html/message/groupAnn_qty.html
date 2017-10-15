@@ -85,7 +85,7 @@
         <div class="arrowLeft_qty"></div>
     </div>
     <div class="groupTextarea_qty">
-    	<textarea name="" id="" cols="20" rows="" placeholder="请输入您要发布的公告内容"></textarea>
+    	<textarea name="" id="" cols="20" rows="" placeholder="请输入您要发布的公告内容,最多60字" maxlength="60"></textarea>
     </div>
     <button onclick="submit_gg()">发布</button>
 </body>
@@ -94,27 +94,31 @@
 
     var gid;
     var gg_con;
+    var uid;
     function submit_gg() {
 //        apiready = function () {
             gid = api.pageParam.gid;
-            gg_con = $(".groupTextarea_qty textarea").val();
+            uid = api.getPrefs({sync:true,key:'uid'});
+            gg_con = $(".groupTextarea_qty textarea").val().replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
             api.ajax({
                 url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=edit',
                 method: 'post',
                 data: {
-                    values: {gid:gid,flag:"notice",notice:gg_con}
+                    values: {gid:gid,flag:"notice",notice:gg_con,uid:uid}
                 },
                 dataType: 'json'
             }, function (ret, err) {
+                var con=JSON.stringify(ret.value);
+                var time=JSON.stringify(ret.time);
+                var name=JSON.stringify(ret.name);
                 api.execScript({
                     name: 'groupChartPer_qty',
-                    script: 'get_gg()'
+                    script: "get_gg("+con+")"
                 });
                 api.execScript({
                     name: 'groupChartNumber_qty',
-                    script: 'get_gg()'
+                    script: "get_gg("+con+","+time+","+name+")"
                 });
-
                 api.toast({
                     msg: ret.msg,
                     duration: 3000,

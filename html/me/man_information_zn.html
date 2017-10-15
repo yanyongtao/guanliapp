@@ -63,6 +63,7 @@
             margin:0 auto;
             width:1.6rem;
             height:1.6rem;
+            border-radius: 0.8rem;
             margin-top:0.3rem;
             margin-bottom:0.1rem;
         }
@@ -259,7 +260,11 @@
                 dataType:'json'
             },function(ret,err){
                 if(ret.code == 200){
-                    if (ret.info.head_img) {
+                    if((ret.info.head_img==null)||(ret.info.head_img=='null')){
+                        $(".man_information_zn img").attr("src", "../../image/header_picture/tc_log.png");
+                    }else if(ret.info.head_img.slice(0,4)=='http'){
+                        $(".man_information_zn img").attr("src",ret.info.head_img);
+                    }else{
                         $(".man_information_zn img").attr("src", "../../image/header_picture/" + ret.info.head_img + "");
                     }
                     $(".name_man").html(ret.info.name);
@@ -318,7 +323,11 @@
             dataType:'json'
         },function(ret,err){
             if(ret.code == 200){
-                if (ret.info.head_img) {
+                if((ret.info.head_img==null)||(ret.info.head_img=='null')){
+                    $(".man_information_zn img").attr("src", "../../image/header_picture/tc_log.png");
+                }else if(ret.info.head_img.slice(0,4)=='http'){
+                    $(".man_information_zn img").attr("src",ret.info.head_img);
+                }else{
                     $(".man_information_zn img").attr("src", "../../image/header_picture/" + ret.info.head_img + "");
                 }
                 $(".name_man").html(ret.info.name);

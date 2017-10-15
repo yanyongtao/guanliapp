@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <script src="../../script/jquery.min.js"></script>
+    <script src="../../script/rem.js"></script>
+    <style>
+        body,html{
+            background: #f5f5f5;
+        }
+        .header_box{
+            width:100%;
+            height:3.6rem;
+            position:relative;
+            box-sizing: border-box;
+            /*background: black;*/
+        }
+        .click_play_zn{
+            width:100%;
+            height:3.6rem;
+            background: black;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        .header_title_zn{
+            width:100%;
+            height:0.6rem;
+            position:absolute;
+            top:0.1rem;
+            z-index:999;
+        }
+        .header_title_zn span{
+            display: block;
+            float:left;
+            z-index: 999;
+        }
+        .click_back_box{
+            width:0.6rem;
+            height:0.6rem;
+            box-sizing: border-box;
+            float:left;
+        }
+        .click_back_zn{
+            margin-left:0.2rem;
+            margin-top:0.15rem;
+            width: 0.3rem;
+            height: 0.3rem;
+            float:left;
+            background: url("../../image/image_zn/icon_left_new_zn.png") no-repeat;
+            background-size: cover;
+            z-index:999;
+        }
+        .title_zn{
+            float: left;
+            margin-left:0.3rem;
+            font-size:0.28rem;
+            width:auto;
+            height:0.6rem;
+            line-height:0.6rem;
+            color:#fff;
+        }
+        .video_intro_zn{
+            width:6rem;
+            height:auto;
+            background: #fff;
+            margin:0 auto;
+            margin-top:0.3rem;
+            padding-bottom:0.15rem;
+        }
+        .video_title{
+            width:5.6rem;
+            height:0.8rem;
+            line-height:0.8rem;
+            font-size:0.28rem;
+            color:#333;
+            margin:0 auto;
+        }
+        .video_con_zn{
+            width:5.6rem;
+            height:auto;
+            line-height:0.4rem;
+            font-size:0.24rem;
+            color:#999;
+            margin:0 auto;
+        }
+        .relative_video_zn{
+            width:6rem;
+            height:auto;
+            background: #fff;
+            margin:0 auto;
+            margin-top:0.3rem;
+            margin-bottom:0.3rem;
+            padding-bottom:0.01rem;
+        }
+       .relative_title_zn{
+           width:5.6rem;
+           height:0.8rem;
+           line-height:0.8rem;
+           font-size:0.28rem;
+           color:#333;
+           margin:0 auto;
+       }
+        .relative_list_zn{
+            width:5.6rem;
+            height:0.5rem;
+            margin: 0 auto;
+            margin-bottom:0.35rem;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .relative_list_zn span{
+            display: block;
+            float:left;
+        }
+        .num_zn{
+            font-size:0.2rem;
+            height:0.5rem;
+            line-height:0.5rem;
+            color:#b2b2b2;
+            font-weight:bold;
+        }
+        .relative_title{
+            font-size:0.22rem;
+            height:0.5rem;
+            line-height:0.5rem;
+            color:#999;
+            margin-left:0.15rem;
+            width:4.1rem;
+            letter-spacing: 0.02rem;
+        }
+        .click_video{
+            width:0.5rem;
+            height:0.5rem;
+            background: url('../../image/image_zn/click_video_zn.png');
+            background-size:cover;
+            box-sizing: border-box;
+            margin-right:0.1rem;
+        }
+        .people_num{
+            color:#333;
+            font-size:0.22rem;
+            width:0.48rem;
+            text-align: right;
+            height:0.5rem;
+            line-height:0.5rem;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="header_box">-->
+    <!--<iframe class="click_play_zn" height=498 width=510 src='http://player.youku.com/embed/XMjk1ODI4OTcwMA==' frameborder='0' allowfullscreen='true'></iframe>-->
+    <!--<div class="header_title_zn">-->
+        <!--<div class="click_back_box" onclick="api.closeWin()"><span class="click_back_zn"></span></div>-->
+        <!--<span class="title_zn">第一期店长培训班培训视频第十二集</span>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="video_intro_zn">-->
+    <!--<p class="video_title">简介</p>-->
+    <!--<p class="video_con_zn">-->
+        <!--成为一名合格的店长，要具备这样的技能？这些技能都能帮助你哪些？自习学习这些视频，相信你能收获更多。-->
+    <!--</p>-->
+<!--</div>-->
+<!--<div class="relative_video_zn">-->
+    <!--<p class="relative_title_zn">相关视频</p>-->
+    <!--<ul class="relative_box_zn">-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+        <!--<li class="relative_list_zn">-->
+            <!--<span class="num_zn">01</span>-->
+            <!--<span class="relative_title">第一期店长培训班培训视频第一集</span>-->
+            <!--<span class="click_video"></span>-->
+            <!--<span class="people_num">12</span>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<script type="text/javascript" src="//player.youku.com/jsapi"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script src="../../script/ckplayer.js"></script>
+<script>
+
+
+
+    var vid;
+    function get_data() {
+        apiready=function(){
+            api.execScript({
+                name: 'manager_training_zn',
+                script: 'reload_zn()'
+            });
+            vid=api.pageParam.vid;
+            api.ajax({
+                url: 'http://appapi.duyiwang.cn/index.php?action=video&dir=ziliao&do=videodetail',
+                method: 'post',
+                data: {
+                    values: {vid:vid}
+                },
+                dataType: 'txt'
+            }, function (ret, err) {
+                $("body").append(ret);
+            });
+        }
+    }
+    var videourl;
+    get_data();
+    $(document).on('click','.relative_list_zn',function(){
+        videourl=$(this).attr('videourl');
+        var title_zn=$(this).children('.relative_title').html();
+        $('.title_zn').html(title_zn);
+        $('.click_play_zn').attr('src',videourl);
+    });
+    $(document).on('touchstart','.relative_list_zn',function(){
+        $(this).css('background','#eee');
+        $(this).on('touchend',function(){
+            $(this).css('background','#fff');
+        })
+    })
+</script>
+</body>
+</html>

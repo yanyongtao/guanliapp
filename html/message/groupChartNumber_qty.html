@@ -61,14 +61,15 @@
             overflow: hidden;
             position: fixed;
             top: 0.88rem;
-            background: #DEDEDE;
-            color: #e33636;
+            background: #f6f6f6;
+            color: #f0aa14;
             padding: 0 0.3rem;
             box-sizing: border-box;
             font-size: 0.24rem;
             text-align: center;
             line-height: 0.62rem;
-            z-index: 1
+            z-index: 1;
+            box-shadow: 2px 4px 6px #dfe4e8;
         }
         /*中间聊天部分*/
         .secret_chat_zn{
@@ -85,22 +86,22 @@
             box-sizing: border-box;
         }
         .time_zn{
-            height: 1.1rem;
+            height: 0.6rem;
             width:100%;
             text-align: center;
-            position: relative;
+            /*position: relative;*/
         }
         .time_zn span{
             display: block;
             height:0.3rem;
             width:1.8rem;
             margin: 0 auto;
-            position: absolute;
-            top:0.3rem;
-            left:36%;
+            /*position: absolute;*/
+            /*top:0.3rem;*/
+            /*left:36%;*/
             color:#fff;
             font-size:0.24rem;
-            background: #bebebe;
+            background: #ccc;
             z-index: 0
         }
         /*最底部输入框*/
@@ -186,6 +187,7 @@
             width:0.7rem;
             height: 0.7rem;
             display: block;
+            border-radius: 50%;
         }
         .icon_img p{
             font-size: 0.2rem;
@@ -216,6 +218,7 @@
             width:0.7rem;
             height: 0.7rem;
             display: block;
+            border-radius: 50%;
         }
         .icon_img_right p,.icon_img_left p{
             font-size: 0.2rem;
@@ -526,6 +529,128 @@
             from {transform: rotate(0deg);}
             to {transform: rotate(360deg);}
         }
+        .time_zn_zn{
+            height:0.6rem;
+            line-height:0.6rem;
+            width:100%;
+            margin: 0 auto;
+            float:left;
+        }
+        .time_zn_zn span{
+            display: block;
+            width:2rem;
+            background: #DADADA;
+            font-size: 0.24rem;
+            text-align: center;
+            color:#fff;
+            height:0.3rem;
+            line-height:0.3rem;
+            margin:0 auto;
+        }
+        /*公告框*/
+        .notice_zn{
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: 999;
+        }
+        .notice_box_zn{
+            height:5rem;
+            width:4.1rem;
+            box-sizing: border-box;
+            background: #fff;
+            border-radius: 0.2rem;
+            position: absolute;
+            top:3.3rem;
+            left:17.97%;
+        }
+        .notice_title_zn{
+            width:2rem;
+            height:2rem;
+            border-radius: 1rem;
+            background: #fff;
+            position: absolute;
+            top:-0.8rem;
+            left:1.05rem;
+        }
+        .chat_title_zn{
+            width:1.08rem;
+            height:0.4rem;
+            position: absolute;
+            right:0.75rem;
+            top:-0.4rem;
+            background: #ff6634;
+            border-radius: 0.2rem;
+            font-size:0.2rem;
+            color:#fff;
+            text-align: center;
+            line-height:0.4rem;
+        }
+        .horn_zn{
+            display: block;
+            width:1.31rem;
+            height:1.16rem;
+            position: absolute;
+            top:-0.38rem;
+            left:1.1rem;
+        }
+        .notice_con_box{
+            width:3.3rem;
+            position: absolute;
+            top:0.9rem;
+            left:0.4rem;
+        }
+        .notice_con_name{
+            width:100%;
+            height:0.34rem;
+            line-height:0.34rem;
+            font-size:0.2rem;
+            color:#2493f7;
+            letter-spacing: 0.02rem;
+        }
+        .notice_time_zn{
+            width:100%;
+            height:0.34rem;
+            line-height:0.34rem;
+            font-size:0.18rem;
+            color:#5fb0f9;
+            letter-spacing: 0.01rem;
+        }
+        .part_line_zn{
+            width: 100%;
+            border:0.01rem dotted #ddd;
+            margin-top:0.15rem;
+        }
+        .notice_con_zn{
+            width:100%;
+            height:2rem;
+            line-height:0.34rem;
+            font-size:0.22rem;
+            letter-spacing: 0.04rem;
+            color:#232323;
+            margin-top:0.15rem;
+            text-indent: 0.52rem;
+            overflow: hidden;
+            box-sizing: border-box;
+            margin-bottom:0.2rem;
+        }
+        .i_got_it{
+            width:100%;
+            height:0.6rem;
+            border-radius: 0.3rem;
+            background: #f8a118;
+            display: block;
+            line-height:0.6rem;
+            font-size:0.24rem;
+            color:#fff;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 0.03rem;
+        }
     </style>
 </head>
 <body>
@@ -536,7 +661,7 @@
         <div class="arrowLeft_qty"></div>
     </div>
     <div class="person_qty" onclick="open_personList()"></div>
-    <div class="gg_qty"></div>
+    <div class="gg_qty">群公告</div>
     <div class="secret_chat_zn">
         <div class="wait_effect_zn">
             <img src="../../image/image_zn/wait_effect_zn.png" alt=""/>
@@ -556,6 +681,9 @@
                     <!--<div class="icon_chat">-->
                         <!--大家好-->
                     <!--</div>-->
+                <!--</div>-->
+                <!--<div class="time_zn_zn">-->
+                    <!--<span>7月7日14:20</span>-->
                 <!--</div>-->
                 <!--<div class="secret_chat_left">-->
                     <!--<div class="icon_img">-->
@@ -639,6 +767,9 @@
                         <!--<span>2"</span>-->
                     <!--</div>-->
                 <!--</div>-->
+                <!--<div class="time_zn_zn">-->
+                    <!--<span>7月7日14:20</span>-->
+                <!--</div>-->
                 <!--<div class="secret_chat_right_mc">-->
                     <!--<div class="icon_img_right">-->
                         <!--<img src="../../image/img_qty/leftper.png" alt="">-->
@@ -657,6 +788,9 @@
                     <!--<div class="icon_chat_left_img">-->
                         <!--<img src="../../image/img_qty/person.png" alt="">-->
                     <!--</div>-->
+                <!--</div>-->
+                <!--<div class="time_zn_zn">-->
+                    <!--<span>7月7日14:20</span>-->
                 <!--</div>-->
                 <!--<div class="secret_chat_right_mc">-->
                     <!--<div class="icon_img_right">-->
@@ -701,9 +835,40 @@
     <div class="copy_word_yyt">复制</div>
     <div class="delete_word_zn">撤回</div>
 </div>
+<div class="notice_zn">
+    <div class="notice_box_zn">
+        <div class="notice_title_zn"></div>
+        <p class="chat_title_zn">群公告</p>
+        <img src="../../image/image_zn/horn_zn.png" alt="" class="horn_zn">
+        <div class="notice_con_box">
+            <p class="notice_con_name"></p>
+            <p class="notice_time_zn"></p>
+            <hr class="part_line_zn">
+            <div class="notice_con_zn">
+                <!--亲爱的家人：-->
+                <!--近日天气预报都有雨，但不是我们工作懈慢的理由，给我打电话发微信请假一例无效，人事部请按制度进行处罚。-->
+                <!--亲爱的家人：-->
+                <!--近日天气预报都有雨，但不是我们工作懈慢的理由，给我打电话发微信请假一例无效，人事部请按制度进行处罚。-->
+                <!--亲爱的家人：-->
+                <!--近日天气预报都有雨，但不是我们工作懈慢的理由，给我打电话发微信请假一例无效，人事部请按制度进行处罚。-->
+            </div>
+            <span class="i_got_it">我知道了</span>
+        </div>
+    </div>
+</div>
 </body>
 <script type="text/javascript" src="../../script/api.js"></script>
 <script>
+
+
+    //点击群公告显示模态框
+    $('.gg_qty').click(function(){
+        $('.notice_zn').show();
+    })
+    //点击我知道了隐藏模态框
+    $('.i_got_it').click(function(){
+        $('.notice_zn').hide();
+    })
 
     //获取光标位置
     $.fn.getCursorPosition = function () {
@@ -1244,8 +1409,15 @@
                     ret.groups_info.ug_name = "群聊"
                 }
                 $(".header_qty").html(ret.groups_info.ug_name+"("+ret.groups_users_count+")");
-                if (ret.groups_info.ug_notice){
-                    $(".gg_qty").html("公告："+ret.groups_info.ug_notice)
+                if(ret.groups_info.ug_notice==''){
+                    $('.notice_con_zn').html('暂无公告');
+                    $('.notice_con_name').html('');
+                    $('.notice_time_zn').html('');
+                }else{
+                    $(".gg_qty").html("公告："+ret.groups_info.ug_notice);
+                    $('.notice_con_zn').html(ret.groups_info.ug_notice);
+                    $('.notice_con_name').html(ret.groups_info.ug_notice_username);
+                    $('.notice_time_zn').html(ret.groups_info.ug_notice_time);
                 }
                 api.ajax({
                     url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhk',
@@ -1256,9 +1428,6 @@
                     dataType: 'text'
                 }, function (ret, err) {
                     $(".secret_chat_con_zn").append(ret);
-//                    setTimeout(function(){
-//                        $('.secret_chat_con_zn').animate({scrollTop:($('.secret_chat_con_zn')[0].scrollHeight)},300);
-//                    },300);
 
                     var imgNum=$('.secret_chat_con_zn img').length;
                     chat_img=imgNum;
@@ -1356,23 +1525,12 @@
 //            }
         });
     }
-    function get_gg() {
-        api.ajax({
-            url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qldhxx',
-            method: 'post',
-            data: {
-                values: {uid: uid, gid: gid}
-            },
-            dataType: 'json'
-        }, function (ret, err) {
-//            if (ret.groups_info.ug_name == "未命名"){
-//                ret.groups_info.ug_name = "群聊"
-//            }
-//            $(".header_qty").html(ret.groups_info.ug_name+"("+ret.groups_users_count+")");
-            if (ret.groups_info.ug_notice){
-                $(".gg_qty").html("公告："+ret.groups_info.ug_notice)
-            }
-        });
+    function get_gg(a,b,c) {
+        $(".gg_qty").html("公告："+a);
+        $('.notice_con_zn').html(a);
+        $('.notice_time_zn').html(b);
+        $('.notice_con_name').html(c);
+
     }
     function send_data() {
         $(".click_import_zn").focus();
@@ -1411,7 +1569,11 @@
                         var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src='../../image/header_picture/tc_log.png' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
                         $(".secret_chat_con_zn").append(aa);
                         $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
-                    } else {
+                    } else if(ret.head_img.slice(0,4)=='http'){
+                        var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src="+ret.head_img+" alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
+                        $(".secret_chat_con_zn").append(aa);
+                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    }else{
                         var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src='../../image/header_picture/" + ret.head_img + "' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
                         $(".secret_chat_con_zn").append(aa);
                         $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
@@ -1441,7 +1603,11 @@
                         var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src='../../image/header_picture/tc_log.png' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
                         $(".secret_chat_con_zn").append(aa);
                         $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
-                    } else {
+                    } else if(ret.head_img.slice(0,4)=='http'){
+                        var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src="+ret.head_img+" alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
+                        $(".secret_chat_con_zn").append(aa);
+                        $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                    }else{
                         var aa = "<div class='secret_chat_right' xid=" + ret.xid + "><div class='icon_img_right'><img src='../../image/header_picture/" + ret.head_img + "' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right'>" + text + "</div></div>"
                         $(".secret_chat_con_zn").append(aa);
                         $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
@@ -1476,7 +1642,20 @@
                     }
                     $(".secret_chat_con_zn").append(bb);
                     $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
-                } else {
+                } else if(msga.head_img.slice(0,4) == 'http'){
+                    if (msga.lx == 0) {
+                        var bb = "<div class='secret_chat_left' xid=" + msga.xid + "><div class='icon_img'><img src="+ msga.head_img + "><p>" + msga.send_name + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
+                    } else if (msga.lx == 1) {
+                        if (msga.thumb_pic) {
+                            var bb = "<div class='secret_chat_left_mc'><div class='icon_img_left'><img src=" + msga.head_img + "><p>" + msga.send_name + "</p></div><div class='icon_chat_left_img'><img path=" + msga.thumb_pic + " src=" + msga.nr + " alt=''></div></div>"
+                        }
+                    }
+                    else if (msga.lx == 2) {
+                        var bb = "<div class='secret_chat_left_mc' xid=" + msga.xid + "><div class='icon_img_left'><img src=" + msga.head_img + "><p>" + msga.send_name + "</p></div><div class='icon_chat_left_yuyin'  style='width: " + msga.send_length + "' path=" + msga.nr + "><span class='yuyin_yyt_l'><img src='../../image/img_yyt/yuyin_left_yyt.png'/></span></div><span class='yuyin_time_left'>" + msga.time_length + "</span></div>"
+                    }
+                    $(".secret_chat_con_zn").append(bb);
+                    $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                }else{
                     if (msga.lx == 0) {
                         var bb = "<div class='secret_chat_left' xid=" + msga.xid + "><div class='icon_img'><img src='../../image/header_picture/" + msga.head_img + "' alt=''><p>" + msga.send_name + "</p> </div><div class='icon_chat'>" + msga.nr + "</div>"
                     } else if (msga.lx == 1) {
@@ -1599,6 +1778,10 @@
                                             $(".secret_chat_con_zn").append(asd);
                                             $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
 
+                                        }else if(ret.head_img.slice(0,4)=='http'){
+                                            var asd = "<div class='secret_chat_right_mc' xid="+ret.xid+"><div class='icon_img_right'><img src="+ret.head_img+"><p>" + ret.send_name + "</p></div><div class='icon_chat_right_img'><img path="+path+" src=" + path_yyt + " alt=''></div></div>";
+                                            $(".secret_chat_con_zn").append(asd);
+                                            $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
                                         }else{
                                             var asd = "<div class='secret_chat_right_mc' xid="+ret.xid+"><div class='icon_img_right'><img src='../../image/header_picture/"+ret.head_img+"' alt=''><p>" + ret.send_name + "</p></div><div class='icon_chat_right_img'><img path="+path+" src=" + path_yyt + " alt=''></div></div>";
                                             $(".secret_chat_con_zn").append(asd);
@@ -1741,6 +1924,11 @@
                         if ((ret.head_img=='')||(ret.head_img==null)){
 //                            head_img = "tc_log.png"
                             var voice_ = "<div class='secret_chat_right_mc' xid="+ret.xid+"><div class='icon_img_right'><img src='../../image/header_picture/tc_log.png' alt=''><p>"+ret.send_name+"</p> </div><div class='icon_chat_right_yuyin' style='width: "+width_voice+"rem' path="+path+"><span class='yuyin_yyt_r'><img src='../../image/img_yyt/yuyin_right_yyt.png' /></span></div><span class='yuyin_time_right'>"+duration+"&quot;</span></div>"
+                            $(".secret_chat_con_zn").append(voice_);
+                            $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
+                            my_path = ret.url;
+                        }else if(ret.head_img.slice(0,4)=='http'){
+                            var voice_ = "<div class='secret_chat_right_mc' xid="+ret.xid+"><div class='icon_img_right'><img src="+ret.head_img+"><p>"+ret.send_name+"</p> </div><div class='icon_chat_right_yuyin' style='width: "+width_voice+"rem' path="+path+"><span class='yuyin_yyt_r'><img src='../../image/img_yyt/yuyin_right_yyt.png'></span></div><span class='yuyin_time_right'>"+duration+"&quot;</span></div>"
                             $(".secret_chat_con_zn").append(voice_);
                             $('.secret_chat_con_zn').scrollTop($('.secret_chat_con_zn')[0].scrollHeight);
                             my_path = ret.url;

@@ -259,6 +259,10 @@
 <script type="text/javascript" src="../../script/api.js"></script>
 <script type="text/javascript">
 
+	function get_gg(a) {
+		$(".groupChartName_yyt").html("群公告："+a);
+	}
+
 	var flag = true;
 	function watch_all() {
 		if (flag == true){
@@ -312,23 +316,7 @@
 	}
 	getData()
 
-	function get_gg() {
-		api.ajax({
-			url: 'http://appapi.duyiwang.cn/index.php?action=user_groups&dir=groups&do=qlxx',
-			method: 'post',
-			data: {
-				values: {gid: gid}
-			},
-			dataType: 'json'
-		}, function (ret, err) {
-//			$(".groupCard_qty").html(ret.groups_info.ug_name);
-			$(".groupChartName_yyt").html("群公告："+ret.groups_info.ug_notice);
-//			for (var i=0;i<ret.groups_users_list.length;i++){
-//				var aa = "<span class='addName_qty'>"+ret.groups_users_list[i].gu_group_nick+"、</span>";
-//				$(".addChartFont_qty").append(aa)
-//			}
-		});
-	}
+
 
 
 	function get_name() {
